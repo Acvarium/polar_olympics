@@ -7,10 +7,10 @@ path="res://.import/cloud_ui.png-4c29f4231276280c0658bf866232f3ad.stex"
 [deps]
 
 source_file="res://textures/cloud_ui.png"
-source_md5="e118241baf522c8a0bbea6a7d4560e49"
+source_md5="68cf1fdf2ccf99601137a3a72d619a6f"
 
 dest_files=[ "res://.import/cloud_ui.png-4c29f4231276280c0658bf866232f3ad.stex" ]
-dest_md5="8cd17a9c807df3dbb4326665c6d2a21d"
+dest_md5="c96a82f13db283f43868794778b736f8"
 
 [params]
 

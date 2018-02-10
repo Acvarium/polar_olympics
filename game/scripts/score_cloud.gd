@@ -1,13 +1,25 @@
 extends Position2D
 var pOwner
+const teamColors = [
+Color(1,1,1,1),
+Color(1,0.5,0,1),
+]
+var team = 0
 
+func set_team(t):
+	team = t
+	$icon.modulate = teamColors[t]
+	$dot.modulate = teamColors[t]
+		
 
 func _ready():
-	pass
+	set_team(1)
 
 func update_score(s):
 	$Label.text = str(s)
 	if s == 0:
-		hide()
+		$icon.hide()
+		$Label.hide()
 	else:
-		show()
+		$icon.show()
+		$Label.show()

@@ -10,15 +10,28 @@ var testP
 var fish_obj = load("res://models/fish.tscn")
 var score_cloud_obj = load("res://objects/score_cloud.tscn")
 var state = 0
+var max_shoot = 6
+var p_team_shoot = 0
+var b_team_shoot = 0
 var target
 var target_radius = 12.5
 var max_power = 90
 var min_power = 5
 var power = 0
 var current_penguin
+var team = 0
+var global
+var go = false
+var any_key = false
 
 func _ready():
+#	set_physics_process(false)
 	randomize()
+	global = get_node("/root/global")
+	var s = str(global.score[0]) + ':' +  str(global.score[1])
+	$UI/game_score2.text = s
+	if (global.score[0] + global.score[1]) == 0:
+		$sounds/start.play()
 	testP = $penguin2
 	target = $target
 	pointer = $Spatial/pointer
@@ -52,6 +65,16 @@ func score_count(distance):
 	return score
 	
 func fire():
+	if team == 0:
+		p_team_shoot +=1
+		if p_team_shoot > max_shoot:
+			return
+		get_node("UI/pb_penguins/p" + str(max_shoot - p_team_shoot)).hide()
+	else:		
+		b_team_shoot +=1
+		if b_team_shoot > max_shoot:
+			return
+		get_node("UI/bb_penguins/p" + str(max_shoot - p_team_shoot)).hide()
 	$power_cube.hide()
 	$Spatial/pointer.hide()
 	var penguin = penguin_obj.instance()
@@ -66,16 +89,31 @@ func fire():
 	$UI/counters.add_child(score_cloud)
 	score_cloud.position = $Camera.unproject_position(score_cloud.pOwner.translation)
 	$camera_anim.play("fire")
+	score_cloud.set_team(team)
+	team += 1
+	if team > 1:
+		team = 0
 
 func _input(event):
+	if any_key:
+		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("ui_up"):
+		game_over()
 	if Input.is_action_just_pressed("fire"):
 		state += 1
-		if state > 1:
+		if state == 2:
 			fire()
-			state = 0
 		elif state == 1:
 #			$power_cube.hide()
 			$Spatial/pointer.show()
+	
+	
+func game_over():
+	var s = str(global.score[0]) + ':' +  str(global.score[1])
+	$UI/game_score.text = s
+	$power_cube.hide()
+	$Spatial/pointer.hide()
+	$UI/bears/bears_anim.play("total_score")
 	
 func _physics_process(delta):
 	if state == 0:
@@ -84,7 +122,6 @@ func _physics_process(delta):
 			rDir = -1
 		if power < min_power:
 			rDir = 1
-		print(power)
 		$power_cube.scale.z = power / max_power * 3
 	elif state == 1:
 		pDirection += pSpeed * rDir * delta
@@ -95,15 +132,54 @@ func _physics_process(delta):
 			if pDirection < -dMinMax:
 				rDir = 1
 		pointer.rotation.y = pDirection
-		
+	var p_team_score = 0
+	var b_team_score = 0
+	var all_still = true
 	for score_cloud in $UI/counters.get_children():
 		score_cloud.position = $Camera.unproject_position(score_cloud.pOwner.translation)
 		var distance = dist_to_target(score_cloud.pOwner.translation)
-		
-		score_cloud.update_score(score_count(distance))
+		var sc = score_count(distance)
+		score_cloud.update_score(sc)
+		if !score_cloud.pOwner.sleeping:
+			all_still = false
+		if score_cloud.team == 0:
+			p_team_score += sc
+		else:
+			b_team_score += sc
+		$UI/total_score/p_team.text = str(p_team_score)
+		$UI/total_score/b_team.text = str(b_team_score)
 
+	if all_still and go:
+		if p_team_score > b_team_score:
+			global.score[0] += 1
+		elif p_team_score < b_team_score:
+			global.score[1] += 1
+		else:
+			global.score[0] += 1
+			global.score[1] += 1
+		go = false
+		game_over()
+#		$UI/bears/bears_anim.play("total_score")
+		print("game_over")
+	
 func _on_camera_anim_animation_finished( anim_name ):
-	state = 0
-	$power_cube.show()
-	power = min_power
-#	$Spatial/pointer.show()
+	pass
+	if b_team_shoot >= max_shoot and p_team_shoot >= max_shoot:
+		go = true
+		print("go")
+		return
+	if team == 0:
+		$UI/bears/bears_anim.play("pBear")
+	else:
+		$UI/bears/bears_anim.play("bBear")
+
+func _on_bears_anim_animation_finished( anim_name ):
+	if anim_name == "total_score":
+		any_key = true
+	else:
+		state = 0
+		power = min_power
+		rDir = 1
+		$power_cube.show()
+		power = min_power
+		$Spatial/pointer.hide()

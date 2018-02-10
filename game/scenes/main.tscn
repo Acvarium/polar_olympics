@@ -1,12 +1,23 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://models/pointer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/fl.tscn" type="PackedScene" id=3]
 [ext_resource path="res://models/blocks.tscn" type="PackedScene" id=4]
-[ext_resource path="res://models/fish.tscn" type="PackedScene" id=5]
-[ext_resource path="res://models/target.tscn" type="PackedScene" id=6]
-[ext_resource path="res://models/power_cube.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/polar_bear.png" type="Texture" id=5]
+[ext_resource path="res://textures/brown_bear.png" type="Texture" id=6]
+[ext_resource path="res://textures/peng_ico.png" type="Texture" id=7]
+[ext_resource path="res://textures/total_score.png" type="Texture" id=8]
+[ext_resource path="res://fonts/font_total.tres" type="DynamicFont" id=9]
+[ext_resource path="res://textures/bbear_move.png" type="Texture" id=10]
+[ext_resource path="res://textures/pbear_move.png" type="Texture" id=11]
+[ext_resource path="res://textures/total_score_screen.png" type="Texture" id=12]
+[ext_resource path="res://fonts/font_total2.tres" type="DynamicFont" id=13]
+[ext_resource path="res://fonts/font.tres" type="DynamicFont" id=14]
+[ext_resource path="res://models/fish.tscn" type="PackedScene" id=15]
+[ext_resource path="res://models/target.tscn" type="PackedScene" id=16]
+[ext_resource path="res://models/power_cube.tscn" type="PackedScene" id=17]
+[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=18]
 
 [sub_resource type="Animation" id=1]
 
@@ -139,6 +150,351 @@ adjustment_saturation = 1.19
 adjustment_color_correction = SubResource( 5 )
 _sections_unfolded = [ "Adjustments", "Background" ]
 
+[sub_resource type="Animation" id=7]
+
+resource_name = "bBear"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("brown_bear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1942.94, 360.255 ), Vector2( 640.406, 360.255 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bbear_move:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -1440.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bbear_move:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.445417, 0.445417 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("brown_bear:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("bbear_move:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("bbear_move:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../brown_bear:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.6, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../polar_bear:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "pBear"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("polar_bear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -702.633, 360.255 ), Vector2( 640.406, 360.255 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pbear_move:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1025.04, 313.954 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pbear_move:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -1440.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pbear_move:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.445417, 0.445417 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("polar_bear:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("pbear_move:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../polar_bear:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../brown_bear:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "total_score"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../total_score_screen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../total_score:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../brown_bear:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../polar_bear:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../total_score:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../pb_penguins:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../bb_penguins:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../total_score:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../game_score:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../any_key:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 4, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../game_score2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [node name="main" type="Node" index="0"]
 
 script = ExtResource( 1 )
@@ -256,26 +612,395 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="UI" type="Node2D" parent="." index="14"]
 
-[node name="counters" type="Node2D" parent="UI" index="0"]
+[node name="polar_bear" type="Sprite" parent="UI" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 76.2896, 647.405 )
+scale = Vector2( 0.151089, 0.151089 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="brown_bear" type="Sprite" parent="UI" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1193.86, 643.34 )
+scale = Vector2( 0.178311, 0.178193 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="pb_penguins" type="Control" parent="UI" index="2"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.59 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="p0" type="Sprite" parent="UI/pb_penguins" index="0"]
+
+position = Vector2( 396, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p1" type="Sprite" parent="UI/pb_penguins" index="1"]
+
+position = Vector2( 426, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p2" type="Sprite" parent="UI/pb_penguins" index="2"]
+
+position = Vector2( 458, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p3" type="Sprite" parent="UI/pb_penguins" index="3"]
+
+position = Vector2( 490, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p4" type="Sprite" parent="UI/pb_penguins" index="4"]
+
+position = Vector2( 522, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p5" type="Sprite" parent="UI/pb_penguins" index="5"]
+
+position = Vector2( 554, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bb_penguins" type="Control" parent="UI" index="3"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.59 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 287.0
+margin_right = 327.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="p5" type="Sprite" parent="UI/bb_penguins" index="0"]
+
+position = Vector2( 396, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p4" type="Sprite" parent="UI/bb_penguins" index="1"]
+
+position = Vector2( 426, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p3" type="Sprite" parent="UI/bb_penguins" index="2"]
+
+position = Vector2( 458, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p2" type="Sprite" parent="UI/bb_penguins" index="3"]
+
+position = Vector2( 490, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p1" type="Sprite" parent="UI/bb_penguins" index="4"]
+
+position = Vector2( 522, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="p0" type="Sprite" parent="UI/bb_penguins" index="5"]
+
+position = Vector2( 554, 678.459 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="total_score" type="Sprite" parent="UI" index="4"]
+
+editor/display_folded = true
+position = Vector2( 639.828, 682.658 )
+scale = Vector2( 0.666098, 0.666098 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Animation", "Offset", "Visibility" ]
+
+[node name="p_team" type="Label" parent="UI/total_score" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -579.0
+margin_top = -52.0
+margin_right = -419.0
+margin_bottom = 26.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.114975, 0.23907, 0.535156, 1 )
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="b_team" type="Label" parent="UI/total_score" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 639.0
+margin_top = -52.0
+margin_right = 772.0
+margin_bottom = 26.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.328125, 0.0858765, 0.0858765, 1 )
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="counters" type="Node2D" parent="UI" index="5"]
+
+[node name="any_key" type="Label" parent="UI" index="6"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 363.0
+margin_top = 493.0
+margin_right = 878.0
+margin_bottom = 652.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.0970917, 0.184936, 0.394531, 1 )
+text = "press any key
+to restart"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="bears" type="Control" parent="UI" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="brown_bear" type="Sprite" parent="UI/bears" index="0"]
+
+position = Vector2( 1942.94, 360.255 )
+scale = Vector2( 0.667182, 0.666741 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="bbear_move" type="Sprite" parent="UI/bears" index="1"]
+
+position = Vector2( 268.448, 313.954 )
+rotation = -25.1327
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="polar_bear" type="Sprite" parent="UI/bears" index="2"]
+
+position = Vector2( -702.633, 360.255 )
+scale = Vector2( 0.66914, 0.66914 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="pbear_move" type="Sprite" parent="UI/bears" index="3"]
+
+position = Vector2( 1025.04, 313.954 )
+rotation = -25.1327
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="bears_anim" type="AnimationPlayer" parent="UI/bears" index="4"]
+
+root_node = NodePath("..")
+autoplay = "pBear"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/bBear = SubResource( 7 )
+anims/pBear = SubResource( 6 )
+anims/total_score = SubResource( 8 )
+blend_times = [  ]
+
+[node name="total_score_screen" type="Sprite" parent="UI" index="8"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 638.721, 400.872 )
+scale = Vector2( 0.670017, 0.670017 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="game_score" type="Label" parent="UI" index="9"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 466.0
+margin_top = 220.0
+margin_right = 806.0
+margin_bottom = 386.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0.0970917, 0.184936, 0.394531, 1 )
+text = "0:0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="game_score2" type="Label" parent="UI" index="10"]
+
+modulate = Color( 1, 1, 1, 0.33 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 466.0
+margin_top = -4.0
+margin_right = 806.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color = Color( 0.0970917, 0.184936, 0.394531, 1 )
+text = "0:0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="game_score3" type="Label" parent="UI" index="11"]
+
+modulate = Color( 1, 1, 1, 0.33 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 466.0
+margin_top = -4.0
+margin_right = 806.0
+margin_bottom = 74.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color = Color( 0.0970917, 0.184936, 0.394531, 1 )
+text = "0:0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="fishes" type="Spatial" parent="." index="15"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.63818, 0 )
 
-[node name="fish" parent="fishes" index="0" instance=ExtResource( 5 )]
+[node name="fish" parent="fishes" index="0" instance=ExtResource( 15 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9312, 0, -10.2996 )
 
-[node name="target" parent="." index="16" instance=ExtResource( 6 )]
+[node name="target" parent="." index="16" instance=ExtResource( 16 )]
 
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 55, -0.431927, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="power_cube" type="Spatial" parent="." index="17" instance=ExtResource( 7 )]
+[node name="power_cube" parent="." index="17" instance=ExtResource( 17 )]
 
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+visible = false
 _sections_unfolded = [ "Transform" ]
 
+[node name="sounds" type="Node" parent="." index="18"]
+
+[node name="start" type="AudioStreamPlayer" parent="sounds" index="0"]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="animation_finished" from="camera_anim" to="." method="_on_camera_anim_animation_finished"]
+
+[connection signal="animation_finished" from="UI/bears/bears_anim" to="." method="_on_bears_anim_animation_finished"]
 
 

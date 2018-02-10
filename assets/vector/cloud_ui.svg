@@ -9,27 +9,30 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="16.80887mm"
-   height="16.857449mm"
-   viewBox="0 0 16.80887 16.857449"
+   width="67.733337mm"
+   height="67.714104mm"
+   viewBox="0 0 67.733336 67.714105"
    version="1.1"
    id="svg1012"
-   inkscape:version="0.92.2 (unknown)"
-   sodipodi:docname="cloud_ui.svg">
+   sodipodi:docname="cloud_ui.svg"
+   inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game/textures/cloud_ui.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="0.92.2 (unknown)">
   <defs
      id="defs1006">
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter1709"
-       x="-0.049278095"
-       width="1.0985562"
-       y="-0.049122151"
-       height="1.0982443">
+       id="filter1776"
+       x="-0.054243273"
+       width="1.1084865"
+       y="-0.056191081"
+       height="1.1123822">
       <feGaussianBlur
          inkscape:collect="always"
-         stdDeviation="1.1873984"
-         id="feGaussianBlur1711" />
+         stdDeviation="4.7614717"
+         id="feGaussianBlur1778" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -39,9 +42,9 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="39.764738"
-     inkscape:cy="25.005849"
+     inkscape:zoom="2.244627"
+     inkscape:cx="308.39153"
+     inkscape:cy="57.7593"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -70,17 +73,27 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-96.595563,-140.07128)">
+     transform="translate(-96.594365,-89.213427)">
     <path
-       inkscape:connector-curvature="0"
-       id="path1647"
-       transform="matrix(0.26458333,0,0,0.26458333,219.16693,-29.806167)"
-       d="m -456.25586,644.90625 c -2.30211,0 -4.15625,1.85414 -4.15625,4.15625 v 17.05859 c 0,2.30211 1.85414,4.15625 4.15625,4.15625 h 13.41797 15.79492 1.25195 l 14.69141,25.44727 a 4.6428572,4.6428572 0 0 0 -0.76953,2.55273 4.6428572,4.6428572 0 0 0 4.64258,4.64258 4.6428572,4.6428572 0 0 0 4.64453,-4.64258 4.6428572,4.6428572 0 0 0 -4.64453,-4.64257 4.6428572,4.6428572 0 0 0 -0.82617,0.0742 l -14.83399,-25.69336 v -1.89453 -10.49023 -6.56836 c 0,-2.30211 -1.85414,-4.15625 -4.15625,-4.15625 z"
-       style="opacity:1;vector-effect:none;fill:#4862b7;fill-opacity:1;stroke:none;stroke-width:7.80472374;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1709)" />
+       style="opacity:1;vector-effect:none;fill:#4862b7;fill-opacity:1;stroke:none;stroke-width:31.40025139;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1776)"
+       d="M 28.232422 11.447266 C 18.955798 11.447266 11.484375 18.895312 11.484375 28.142578 L 11.484375 96.664062 C 11.484375 105.91133 18.955798 113.35938 28.232422 113.35938 L 82.300781 113.35938 L 145.94922 113.35938 L 150.99414 113.35938 L 209.75195 214.81641 A 19.373851 19.373851 0 0 1 222.15625 206.93164 L 162.69727 104.27344 L 162.69727 96.664062 L 162.69727 54.525391 L 162.69727 28.142578 C 162.69727 18.895312 155.22584 11.447266 145.94922 11.447266 L 28.232422 11.447266 z "
+       transform="matrix(0.26458333,0,0,0.26458333,96.594365,89.213427)"
+       id="path1647" />
     <path
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:31.40025139;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 145.94922,11.445312 -117.716798,0.002 c -9.276586,0 -16.748047,7.448082 -16.748047,16.695312 v 68.521484 c 0,9.247368 7.471461,16.695318 16.748047,16.695318 h 54.068359 63.648439 5.04492 l 58.75781,101.45703 c 6.37684,11.83032 19.77077,3.15089 12.4043,-7.88477 L 162.69727,104.27344 V 96.664062 54.525391 28.140625 c 0,-9.24723 -7.47147,-16.695313 -16.74805,-16.695313 z"
+       transform="matrix(0.26458333,0,0,0.26458333,96.594365,89.213427)"
+       id="path1568"
        inkscape:connector-curvature="0"
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.06499982;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 98.449235,140.82528 c -0.6091,0 -1.099674,0.49057 -1.099674,1.09967 v 4.51342 c 0,0.6091 0.490574,1.09967 1.099674,1.09967 h 3.550175 4.17907 0.33124 l 3.88711,6.73293 a 1.2284226,1.2284226 0 0 0 -0.20361,0.67541 1.2284226,1.2284226 0 0 0 1.22835,1.22835 1.2284226,1.2284226 0 0 0 1.22887,-1.22835 1.2284226,1.2284226 0 0 0 -1.22887,-1.22835 1.2284226,1.2284226 0 0 0 -0.21859,0.0196 l -3.92483,-6.79803 v -0.50126 -2.77554 -1.73788 c 0,-0.6091 -0.49057,-1.09968 -1.09967,-1.09968 z"
-       id="path1568" />
+       sodipodi:nodetypes="ccsssccccccccsc" />
+    <circle
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00284302;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1750"
+       cx="189.94296"
+       cy="148.88431"
+       r="4.4175267"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game/textures/cloud_ui_dot.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
