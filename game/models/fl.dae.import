@@ -2,15 +2,15 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/penguin.dae-16f64ef528de22dc6196b3f96fc1ce2d.scn"
+path="res://.import/fl.dae-eb3deddafce20e55dcaa65a6c7e87e06.scn"
 
 [deps]
 
-source_file="res://models/penguin.dae"
-source_md5="79b7a3fe90940830e6df9fd024fecbb9"
+source_file="res://models/fl.dae"
+source_md5="9da4e296360e17b03ee3ffcc6aae2c39"
 
-dest_files=[ "res://.import/penguin.dae-16f64ef528de22dc6196b3f96fc1ce2d.scn" ]
-dest_md5="46ecf8e3f401de6ed6846d937aa3f217"
+dest_files=[ "res://.import/fl.dae-eb3deddafce20e55dcaa65a6c7e87e06.scn" ]
+dest_md5="a3a7ac8e104d9b728990f698e277cd17"
 
 [params]
 

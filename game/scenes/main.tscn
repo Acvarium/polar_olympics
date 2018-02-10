@@ -1,16 +1,43 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://models/penguin0.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://objects/penguin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/pointer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/fl.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/blocks.tscn" type="PackedScene" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://models/fish.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/target.tscn" type="PackedScene" id=8]
 
-[sub_resource type="CapsuleShape" id=6]
+[sub_resource type="Animation" id=1]
 
-radius = 1.0
-height = 1.5537
+resource_name = "fire"
+length = 17.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6, 9.8, 13.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 27.7422, 72.9601, 0.515008 ), Vector3( 52.3298, 72.9601, 0.515008 ), Vector3( 52.3298, 72.9601, 0.515008 ), Vector3( 27.7422, 72.9601, 0.515008 ) ]
+}
 
-[sub_resource type="CapsuleShape" id=7]
+[sub_resource type="Gradient" id=4]
 
-radius = 1.0
-height = 1.41516
+offsets = PoolRealArray( 0, 0.284615, 0.679487, 1 )
+colors = PoolColorArray( 0.0572312, 0.0572205, 0.0585938, 1, 0.247559, 0.264484, 0.375, 1, 0.620896, 0.620896, 0.620896, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+
+flags = 4
+gradient = SubResource( 4 )
+width = 2048
 
 [sub_resource type="ProceduralSky" id=2]
 
@@ -37,11 +64,11 @@ texture_size = 2
 background_mode = 3
 background_sky = SubResource( 2 )
 background_sky_custom_fov = 0.0
-background_color = Color( 0.550964, 0.59109, 0.597656, 1 )
+background_color = Color( 0.453964, 0.496322, 0.550781, 1 )
 background_energy = 1.0
 background_canvas_max_layer = 0
-ambient_light_color = Color( 0, 0, 0, 1 )
-ambient_light_energy = 1.0
+ambient_light_color = Color( 0.996094, 0.996094, 0.996094, 1 )
+ambient_light_energy = 1.17
 ambient_light_sky_contribution = 1.0
 fog_enabled = false
 fog_color = Color( 0.5, 0.6, 0.7, 1 )
@@ -57,7 +84,7 @@ fog_height_min = 0.0
 fog_height_max = 100.0
 fog_height_curve = 1.0
 tonemap_mode = 0
-tonemap_exposure = 1.0
+tonemap_exposure = 1.18
 tonemap_white = 1.0
 auto_exposure_enabled = false
 auto_exposure_scale = 0.4
@@ -91,7 +118,7 @@ dof_blur_near_distance = 2.0
 dof_blur_near_transition = 1.0
 dof_blur_near_amount = 0.1
 dof_blur_near_quality = 1
-glow_enabled = false
+glow_enabled = true
 glow_levels/1 = false
 glow_levels/2 = false
 glow_levels/3 = true
@@ -106,17 +133,20 @@ glow_blend_mode = 2
 glow_hdr_threshold = 1.0
 glow_hdr_scale = 2.0
 glow_bicubic_upscale = false
-adjustment_enabled = false
+adjustment_enabled = true
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
-adjustment_saturation = 1.0
-_sections_unfolded = [ "Background" ]
+adjustment_saturation = 1.19
+adjustment_color_correction = SubResource( 5 )
+_sections_unfolded = [ "Adjustments", "Background" ]
 
 [node name="main" type="Node" index="0"]
 
+script = ExtResource( 1 )
+
 [node name="Camera" type="Camera" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, 0.0453597, 0.998971, 0, -0.998971, 0.0453597, 27.7422, 72.9601, 0.515008 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 27.7422, 72.9601, 0.515008 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -129,131 +159,26 @@ fov = 30.0
 size = 1.0
 near = 0.05
 far = 100.0
-
-[node name="penguin" type="RigidBody" parent="." index="1"]
-
-editor/display_folded = true
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.237387, 1.52588e-05, 0 )
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.2
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = false
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-axis_lock_linear_x = false
-axis_lock_linear_y = true
-axis_lock_linear_z = false
-axis_lock_angular_x = true
-axis_lock_angular_y = false
-axis_lock_angular_z = true
-linear_velocity = Vector3( 40, 0, 0 )
-linear_damp = 0.6
-angular_velocity = Vector3( 0, 0, 0 )
-angular_damp = 0.6
-_sections_unfolded = [ "Angular", "Axis Lock", "Collision", "Linear", "Transform" ]
-
-[node name="Scene Root" type="Spatial" parent="penguin" index="0" instance=ExtResource( 1 )]
-
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="penguin" index="1"]
+[node name="camera_anim" type="AnimationPlayer" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44467e-08, 0.7382, 0.272812 )
-shape = SubResource( 6 )
-disabled = false
+root_node = NodePath("..")
+autoplay = "fire"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/fire = SubResource( 1 )
+blend_times = [  ]
 
-[node name="penguin3" type="RigidBody" parent="." index="2"]
+[node name="penguin" parent="." index="2" instance=ExtResource( 2 )]
 
-editor/display_folded = true
-transform = Transform( 0.87936, 0, 0.476157, 0, 1, 0, -0.476157, 0, 0.87936, 24.0752, 1.52588e-05, 0 )
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.2
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = false
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-axis_lock_linear_x = false
-axis_lock_linear_y = true
-axis_lock_linear_z = false
-axis_lock_angular_x = true
-axis_lock_angular_y = false
-axis_lock_angular_z = true
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 4.23264, 1.52588e-05, 0 )
+
+[node name="penguin2" parent="." index="3" instance=ExtResource( 2 )]
+
+transform = Transform( 0.962789, 0, -0.270254, -0.00180748, 0.999978, -0.00643921, 0.270248, 0.00668808, 0.962767, 19.5497, 1.52588e-05, 0 )
 linear_velocity = Vector3( 0, 0, 0 )
-linear_damp = 0.6
-angular_velocity = Vector3( 0, 0, 0 )
-angular_damp = 0.6
-_sections_unfolded = [ "Angular", "Axis Lock", "Collision", "Linear", "Transform" ]
-
-[node name="Scene Root" parent="penguin3" index="0" instance=ExtResource( 1 )]
-
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape" type="CollisionShape" parent="penguin3" index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44467e-08, 0.7382, 0.272812 )
-shape = SubResource( 6 )
-disabled = false
-
-[node name="penguin2" type="RigidBody" parent="." index="3"]
-
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -22.6058, 1.52588e-05, 0.632282 )
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.2
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = false
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-axis_lock_linear_x = false
-axis_lock_linear_y = true
-axis_lock_linear_z = false
-axis_lock_angular_x = true
-axis_lock_angular_y = false
-axis_lock_angular_z = true
-linear_velocity = Vector3( 70, 0, 0 )
-linear_damp = 0.6
-angular_velocity = Vector3( 0, 0, 0 )
-angular_damp = 0.6
-_sections_unfolded = [ "Angular", "Axis Lock", "Collision", "Linear", "Transform" ]
-
-[node name="Scene Root" parent="penguin2" index="0" instance=ExtResource( 1 )]
-
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.91785e-09, 0, 0 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape" type="CollisionShape" parent="penguin2" index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14824e-08, 0.7382, 0.35232 )
-shape = SubResource( 7 )
-disabled = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4"]
 
@@ -261,7 +186,7 @@ environment = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
 
-transform = Transform( 0.563684, -0.0414432, -0.82495, 0.825917, 0.0150069, 0.563592, -0.0109771, -0.999028, 0.0426878, 0, 2.42753, 5.85222 )
+transform = Transform( 0.0866306, 0.995847, -0.0279897, 0.91408, -0.0682824, 0.399743, 0.396172, -0.0602148, -0.9162, 0, 2.42753, 5.85222 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 2.0
@@ -287,32 +212,103 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Directional Shadow", "Light" ]
 
-[node name="DirectionalLight2" type="DirectionalLight" parent="." index="6"]
+[node name="Spatial" type="Spatial" parent="." index="6"]
 
-transform = Transform( -0.00940713, 0.0427916, 0.99904, -0.999895, 0.010565, -0.00986767, -0.0109771, -0.999028, 0.0426878, 0, 2.42753, 5.85222 )
-layers = 1
-light_color = Color( 0.513809, 0.628252, 0.871094, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.1
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-directional_shadow_mode = 2
-directional_shadow_split_1 = 0.1
-directional_shadow_split_2 = 0.2
-directional_shadow_split_3 = 0.5
-directional_shadow_blend_splits = false
-directional_shadow_normal_bias = 0.8
-directional_shadow_bias_split_scale = 0.25
-directional_shadow_depth_range = 0
-directional_shadow_max_distance = 200.0
-_sections_unfolded = [ "Directional Shadow", "Light" ]
+editor/display_folded = true
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pointer" parent="Spatial" index="0" instance=ExtResource( 3 )]
+
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pengs" type="Node" parent="." index="7"]
+
+[node name="fl" parent="." index="8" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30017, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="fl2" parent="." index="9" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3803, -4.20093, 0 )
+
+[node name="blocks" parent="." index="10" instance=ExtResource( 5 )]
+
+transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 7.06239, -2.09165, 0.129936 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="blocks2" parent="." index="11" instance=ExtResource( 5 )]
+
+transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 60.6243, -2.09165, 0.129936 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="blocks3" parent="." index="12" instance=ExtResource( 5 )]
+
+transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 115.382, -2.09165, 0.129936 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="blocks5" parent="." index="13" instance=ExtResource( 5 )]
+
+transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 7.06239, -2.09165, 41.521 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="blocks6" parent="." index="14" instance=ExtResource( 5 )]
+
+transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 115.382, -2.09165, 41.521 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="blocks4" parent="." index="15" instance=ExtResource( 5 )]
+
+transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 60.6243, -2.09165, 41.521 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="UI" type="Node2D" parent="." index="16"]
+
+visible = false
+
+[node name="pos" type="Position2D" parent="UI" index="0"]
+
+[node name="Label" type="Label" parent="UI/pos" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -39.0
+margin_top = -42.0
+margin_right = 1.0
+margin_bottom = -28.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "000"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="icon" type="Sprite" parent="UI/pos" index="1"]
+
+position = Vector2( -51.4436, -40.1655 )
+scale = Vector2( 0.325324, 0.325324 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="fishes" type="Spatial" parent="." index="17"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.63818, 0 )
+
+[node name="fish" parent="fishes" index="0" instance=ExtResource( 7 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9312, 0, -10.2996 )
+
+[node name="target" parent="." index="18" instance=ExtResource( 8 )]
+
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 55.1123, -0.431927, 0 )
+_sections_unfolded = [ "Transform" ]
 
 

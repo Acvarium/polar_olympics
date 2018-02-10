@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://models/fish.dae" type="PackedScene" id=1]
+[ext_resource path="res://scripts/fish.gd" type="Script" id=2]
+
+[sub_resource type="SphereShape" id=1]
+
+radius = 8.31379
+
+[node name="fish" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Plane.002" parent="Armature/Skeleton" index="0"]
+
+_sections_unfolded = [ "Geometry" ]
+
+[node name="AnimationPlayer" parent="." index="2"]
+
+autoplay = "fish"
+playback_speed = 0.5
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="Area" type="Area" parent="." index="3"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+
+
