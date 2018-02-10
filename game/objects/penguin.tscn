@@ -41,7 +41,7 @@ angular_damp = 0.5
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Axis Lock", "Collision", "Linear", "Transform" ]
 
-[node name="Scene Root" parent="." index="0" instance=ExtResource( 2 )]
+[node name="peng" parent="." index="0" instance=ExtResource( 2 )]
 
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]

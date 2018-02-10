@@ -9,7 +9,7 @@ var penguin_obj = load("res://objects/penguin.tscn")
 var testP
 var fish_obj = load("res://models/fish.tscn")
 var score_cloud_obj = load("res://objects/score_cloud.tscn")
-var state = 0
+var state = 3
 var max_shoot = 6
 var p_team_shoot = 0
 var b_team_shoot = 0
@@ -23,15 +23,20 @@ var team = 0
 var global
 var go = false
 var any_key = false
+var p_old_score
+var b_old_score
+var p_score
+var b_score
 
 func _ready():
 #	set_physics_process(false)
 	randomize()
+	$UI/pControl.position = $Camera.unproject_position(Vector3())
+	
 	global = get_node("/root/global")
 	var s = str(global.score[0]) + ':' +  str(global.score[1])
 	$UI/game_score2.text = s
-	if (global.score[0] + global.score[1]) == 0:
-		$sounds/start.play()
+
 	testP = $penguin2
 	target = $target
 	pointer = $Spatial/pointer
@@ -65,6 +70,7 @@ func score_count(distance):
 	return score
 	
 func fire():
+	set_physics_process(true)
 	if team == 0:
 		p_team_shoot +=1
 		if p_team_shoot > max_shoot:
@@ -75,13 +81,14 @@ func fire():
 		if b_team_shoot > max_shoot:
 			return
 		get_node("UI/bb_penguins/p" + str(max_shoot - p_team_shoot)).hide()
-	$power_cube.hide()
+	$UI/pControl/power_bar.hide()
 	$Spatial/pointer.hide()
 	var penguin = penguin_obj.instance()
 	var r = pointer.rotation.y - PI/2
 	penguin.rotation.y = r
 #		print(pointer.rotation)
 	penguin.linear_velocity = Vector3(-sin(r), 0,-cos(r)).normalized() * power
+	current_penguin = penguin
 	$pengs.add_child(penguin)
 
 	var score_cloud = score_cloud_obj.instance()
@@ -96,33 +103,39 @@ func fire():
 
 func _input(event):
 	if any_key:
+#		if Input.g
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("ui_up"):
 		game_over()
 	if Input.is_action_just_pressed("fire"):
 		state += 1
 		if state == 2:
+			if p_team_shoot == 0 and b_team_shoot == 0:
+				$UI/bears/dir_hint.hide()
 			fire()
 		elif state == 1:
 #			$power_cube.hide()
+			if p_team_shoot == 0 and b_team_shoot == 0:
+				$UI/bears/power_hint.hide()
+				$UI/bears/dir_hint.show()
 			$Spatial/pointer.show()
-	
 	
 func game_over():
 	var s = str(global.score[0]) + ':' +  str(global.score[1])
 	$UI/game_score.text = s
-	$power_cube.hide()
+	$UI/pControl/power_bar.hide()
 	$Spatial/pointer.hide()
 	$UI/bears/bears_anim.play("total_score")
 	
-func _physics_process(delta):
+func _process(delta):
 	if state == 0:
 		power += power_speed * rDir * delta
 		if power > max_power:
 			rDir = -1
 		if power < min_power:
 			rDir = 1
-		$power_cube.scale.z = power / max_power * 3
+		$UI/pControl/power_bar.value = power
+#		$power_cube.scale.z = power / max_power * 3
 	elif state == 1:
 		pDirection += pSpeed * rDir * delta
 		if rDir == 1:
@@ -131,7 +144,12 @@ func _physics_process(delta):
 		else:
 			if pDirection < -dMinMax:
 				rDir = 1
+#		$UI/pControl/arrow.rotation = pDirection
 		pointer.rotation.y = pDirection
+	else:
+		set_process(false)
+		
+func _physics_process(delta):
 	var p_team_score = 0
 	var b_team_score = 0
 	var all_still = true
@@ -148,7 +166,8 @@ func _physics_process(delta):
 			b_team_score += sc
 		$UI/total_score/p_team.text = str(p_team_score)
 		$UI/total_score/b_team.text = str(b_team_score)
-
+	if all_still:
+		set_physics_process(false)
 	if all_still and go:
 		if p_team_score > b_team_score:
 			global.score[0] += 1
@@ -159,7 +178,6 @@ func _physics_process(delta):
 			global.score[1] += 1
 		go = false
 		game_over()
-#		$UI/bears/bears_anim.play("total_score")
 		print("game_over")
 	
 func _on_camera_anim_animation_finished( anim_name ):
@@ -174,12 +192,19 @@ func _on_camera_anim_animation_finished( anim_name ):
 		$UI/bears/bears_anim.play("bBear")
 
 func _on_bears_anim_animation_finished( anim_name ):
-	if anim_name == "total_score":
+	if anim_name == "start":
+		$UI/bears/bears_anim.play("pBear")
+		if (global.score[0] + global.score[1]) == 0:
+			$sounds/start.play()
+	elif anim_name == "total_score":
 		any_key = true
 	else:
 		state = 0
+		set_process(true)
 		power = min_power
 		rDir = 1
-		$power_cube.show()
+		$UI/pControl/power_bar.show()
 		power = min_power
 		$Spatial/pointer.hide()
+		if p_team_shoot == 0 and b_team_shoot == 0:
+			$UI/bears/power_hint.show()
