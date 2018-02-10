@@ -37,7 +37,7 @@ func _on_Area_body_entered( body ):
 	if body.is_in_group("peng"):
 		panic = true
 		$AnimationPlayer.playback_speed = speed * 30
-		print("aaaaa")
+
 
 func reset_speed():
 	panic = false

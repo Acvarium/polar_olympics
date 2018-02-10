@@ -1,18 +1,17 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
-[ext_resource path="res://objects/penguin.tscn" type="PackedScene" id=2]
-[ext_resource path="res://models/pointer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/fl.tscn" type="PackedScene" id=4]
-[ext_resource path="res://models/blocks.tscn" type="PackedScene" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://models/fish.tscn" type="PackedScene" id=7]
-[ext_resource path="res://models/target.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/pointer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/fl.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/blocks.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/fish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/target.tscn" type="PackedScene" id=6]
+[ext_resource path="res://models/power_cube.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "fire"
-length = 17.0
+length = 6.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -22,10 +21,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 6, 9.8, 13.7 ),
+"times": PoolRealArray( 0, 3, 4.4, 5.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 27.7422, 72.9601, 0.515008 ), Vector3( 52.3298, 72.9601, 0.515008 ), Vector3( 52.3298, 72.9601, 0.515008 ), Vector3( 27.7422, 72.9601, 0.515008 ) ]
+"values": [ Vector3( 27.7422, 72.9601, 0.515008 ), Vector3( 37.9036, 72.9601, 0.515008 ), Vector3( 37.9036, 72.9601, 0.515008 ), Vector3( 27.7422, 72.9601, 0.515008 ) ]
 }
 
 [sub_resource type="Gradient" id=4]
@@ -164,27 +163,18 @@ _sections_unfolded = [ "Transform" ]
 [node name="camera_anim" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
-autoplay = "fire"
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/fire = SubResource( 1 )
 blend_times = [  ]
 
-[node name="penguin" parent="." index="2" instance=ExtResource( 2 )]
-
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 4.23264, 1.52588e-05, 0 )
-
-[node name="penguin2" parent="." index="3" instance=ExtResource( 2 )]
-
-transform = Transform( 0.962789, 0, -0.270254, -0.00180748, 0.999978, -0.00643921, 0.270248, 0.00668808, 0.962767, 19.5497, 1.52588e-05, 0 )
-linear_velocity = Vector3( 0, 0, 0 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
 
 environment = SubResource( 3 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
 
 transform = Transform( 0.0866306, 0.995847, -0.0279897, 0.91408, -0.0682824, 0.399743, 0.396172, -0.0602148, -0.9162, 0, 2.42753, 5.85222 )
 layers = 1
@@ -212,103 +202,80 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Directional Shadow", "Light" ]
 
-[node name="Spatial" type="Spatial" parent="." index="6"]
+[node name="Spatial" type="Spatial" parent="." index="4"]
 
-editor/display_folded = true
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pointer" parent="Spatial" index="0" instance=ExtResource( 3 )]
+[node name="pointer" parent="Spatial" index="0" instance=ExtResource( 2 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+visible = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="pengs" type="Node" parent="." index="7"]
+[node name="pengs" type="Node" parent="." index="5"]
 
-[node name="fl" parent="." index="8" instance=ExtResource( 4 )]
+[node name="fl" parent="." index="6" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30017, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="fl2" parent="." index="9" instance=ExtResource( 4 )]
+[node name="fl2" parent="." index="7" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3803, -4.20093, 0 )
 
-[node name="blocks" parent="." index="10" instance=ExtResource( 5 )]
+[node name="blocks" parent="." index="8" instance=ExtResource( 4 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 7.06239, -2.09165, 0.129936 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks2" parent="." index="11" instance=ExtResource( 5 )]
+[node name="blocks2" parent="." index="9" instance=ExtResource( 4 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 60.6243, -2.09165, 0.129936 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks3" parent="." index="12" instance=ExtResource( 5 )]
+[node name="blocks3" parent="." index="10" instance=ExtResource( 4 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 115.382, -2.09165, 0.129936 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks5" parent="." index="13" instance=ExtResource( 5 )]
+[node name="blocks5" parent="." index="11" instance=ExtResource( 4 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 7.06239, -2.09165, 41.521 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks6" parent="." index="14" instance=ExtResource( 5 )]
+[node name="blocks6" parent="." index="12" instance=ExtResource( 4 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 115.382, -2.09165, 41.521 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks4" parent="." index="15" instance=ExtResource( 5 )]
+[node name="blocks4" parent="." index="13" instance=ExtResource( 4 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 60.6243, -2.09165, 41.521 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="UI" type="Node2D" parent="." index="16"]
+[node name="UI" type="Node2D" parent="." index="14"]
 
-visible = false
+[node name="counters" type="Node2D" parent="UI" index="0"]
 
-[node name="pos" type="Position2D" parent="UI" index="0"]
-
-[node name="Label" type="Label" parent="UI/pos" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -39.0
-margin_top = -42.0
-margin_right = 1.0
-margin_bottom = -28.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "000"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Visibility" ]
-
-[node name="icon" type="Sprite" parent="UI/pos" index="1"]
-
-position = Vector2( -51.4436, -40.1655 )
-scale = Vector2( 0.325324, 0.325324 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
-
-[node name="fishes" type="Spatial" parent="." index="17"]
+[node name="fishes" type="Spatial" parent="." index="15"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.63818, 0 )
 
-[node name="fish" parent="fishes" index="0" instance=ExtResource( 7 )]
+[node name="fish" parent="fishes" index="0" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9312, 0, -10.2996 )
 
-[node name="target" parent="." index="18" instance=ExtResource( 8 )]
+[node name="target" parent="." index="16" instance=ExtResource( 6 )]
 
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 55.1123, -0.431927, 0 )
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 55, -0.431927, 0 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="power_cube" type="Spatial" parent="." index="17" instance=ExtResource( 7 )]
+
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="animation_finished" from="camera_anim" to="." method="_on_camera_anim_animation_finished"]
 
 
