@@ -1,30 +1,33 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://objects/arrow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/point.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/fl.tscn" type="PackedScene" id=4]
-[ext_resource path="res://models/blocks.tscn" type="PackedScene" id=5]
-[ext_resource path="res://textures/power_under.png" type="Texture" id=6]
-[ext_resource path="res://textures/power_progress.png" type="Texture" id=7]
-[ext_resource path="res://textures/polar_bear.png" type="Texture" id=8]
-[ext_resource path="res://textures/brown_bear.png" type="Texture" id=9]
-[ext_resource path="res://textures/peng_ico.png" type="Texture" id=10]
-[ext_resource path="res://textures/total_score.png" type="Texture" id=11]
-[ext_resource path="res://fonts/font_total.tres" type="DynamicFont" id=12]
-[ext_resource path="res://textures/bbear_move.png" type="Texture" id=13]
-[ext_resource path="res://textures/pbear_move.png" type="Texture" id=14]
-[ext_resource path="res://textures/splash.png" type="Texture" id=15]
-[ext_resource path="res://textures/vs.png" type="Texture" id=16]
-[ext_resource path="res://textures/dir_hint.png" type="Texture" id=17]
-[ext_resource path="res://textures/power_hint.png" type="Texture" id=18]
-[ext_resource path="res://textures/total_score_screen.png" type="Texture" id=19]
-[ext_resource path="res://fonts/font_total2.tres" type="DynamicFont" id=20]
-[ext_resource path="res://fonts/font.tres" type="DynamicFont" id=21]
-[ext_resource path="res://models/fish.tscn" type="PackedScene" id=22]
-[ext_resource path="res://models/target.tscn" type="PackedScene" id=23]
-[ext_resource path="res://models/power_cube.tscn" type="PackedScene" id=24]
-[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=25]
+[ext_resource path="res://objects/thrower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/fl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/blocks.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/power_under.png" type="Texture" id=7]
+[ext_resource path="res://textures/power_progress.png" type="Texture" id=8]
+[ext_resource path="res://textures/polar_bear.png" type="Texture" id=9]
+[ext_resource path="res://textures/brown_bear.png" type="Texture" id=10]
+[ext_resource path="res://textures/peng_ico.png" type="Texture" id=11]
+[ext_resource path="res://textures/total_score.png" type="Texture" id=12]
+[ext_resource path="res://fonts/font_total.tres" type="DynamicFont" id=13]
+[ext_resource path="res://textures/bbear_move.png" type="Texture" id=14]
+[ext_resource path="res://textures/pbear_move.png" type="Texture" id=15]
+[ext_resource path="res://textures/splash.png" type="Texture" id=16]
+[ext_resource path="res://textures/vs.png" type="Texture" id=17]
+[ext_resource path="res://textures/dir_hint.png" type="Texture" id=18]
+[ext_resource path="res://textures/power_hint.png" type="Texture" id=19]
+[ext_resource path="res://textures/total_score_screen.png" type="Texture" id=20]
+[ext_resource path="res://fonts/font_total2.tres" type="DynamicFont" id=21]
+[ext_resource path="res://fonts/font.tres" type="DynamicFont" id=22]
+[ext_resource path="res://models/fish.tscn" type="PackedScene" id=23]
+[ext_resource path="res://models/target.tscn" type="PackedScene" id=24]
+[ext_resource path="res://models/power_cube.tscn" type="PackedScene" id=25]
+[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=26]
+[ext_resource path="res://sounds/swish.ogg" type="AudioStream" id=27]
+[ext_resource path="res://sounds/applod.wav" type="AudioStream" id=28]
 
 [sub_resource type="Animation" id=1]
 
@@ -271,6 +274,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("../../sounds/swish:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=7]
 
@@ -384,6 +399,18 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../../sounds/swish:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -670,8 +697,20 @@ tracks/10/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("../../sounds/start:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[node name="main" type="Node" index="0"]
+[node name="main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -750,43 +789,53 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="t" type="Position3D" parent="Spatial" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+
+[node name="throw" parent="Spatial/t" index="0" instance=ExtResource( 4 )]
+
+transform = Transform( -0.0258918, 0, -0.799581, 0, 0.8, 0, 0.799581, 0, -0.0258918, -3.41232, 0, -2.09137 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="pengs" type="Node" parent="." index="5"]
 
-[node name="fl" parent="." index="6" instance=ExtResource( 4 )]
+[node name="fl" parent="." index="6" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30017, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="fl2" parent="." index="7" instance=ExtResource( 4 )]
+[node name="fl2" parent="." index="7" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3803, -4.20093, 0 )
 
-[node name="blocks" parent="." index="8" instance=ExtResource( 5 )]
+[node name="blocks" parent="." index="8" instance=ExtResource( 6 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 7.06239, -2.09165, 0.129936 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks2" parent="." index="9" instance=ExtResource( 5 )]
+[node name="blocks2" parent="." index="9" instance=ExtResource( 6 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 60.6243, -2.09165, 0.129936 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks3" parent="." index="10" instance=ExtResource( 5 )]
+[node name="blocks3" parent="." index="10" instance=ExtResource( 6 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 115.382, -2.09165, 0.129936 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks5" parent="." index="11" instance=ExtResource( 5 )]
+[node name="blocks5" parent="." index="11" instance=ExtResource( 6 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 7.06239, -2.09165, 41.521 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks6" parent="." index="12" instance=ExtResource( 5 )]
+[node name="blocks6" parent="." index="12" instance=ExtResource( 6 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 115.382, -2.09165, 41.521 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="blocks4" parent="." index="13" instance=ExtResource( 5 )]
+[node name="blocks4" parent="." index="13" instance=ExtResource( 6 )]
 
 transform = Transform( 0.707715, 0, 0, 0, 0.57793, 0, 0, 0, 0.707715, 60.6243, -2.09165, 41.521 )
 _sections_unfolded = [ "Transform" ]
@@ -795,6 +844,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="pControl" type="Node2D" parent="UI" index="0"]
 
+editor/display_folded = true
 position = Vector2( 139.335, 345.514 )
 _sections_unfolded = [ "Transform" ]
 
@@ -823,9 +873,9 @@ page = 0.0
 value = 80.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 6 )
+texture_under = ExtResource( 7 )
 texture_over = null
-texture_progress = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -833,17 +883,20 @@ _sections_unfolded = [ "Rect", "Textures", "Theme", "Visibility" ]
 
 [node name="polar_bear" type="Sprite" parent="UI" index="1"]
 
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 76.2896, 647.405 )
 scale = Vector2( 0.151089, 0.151089 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="brown_bear" type="Sprite" parent="UI" index="2"]
 
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1193.86, 643.34 )
 scale = Vector2( 0.178311, 0.178193 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="pb_penguins" type="Control" parent="UI" index="3"]
@@ -867,42 +920,42 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( 396, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p1" type="Sprite" parent="UI/pb_penguins" index="1"]
 
 position = Vector2( 426, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p2" type="Sprite" parent="UI/pb_penguins" index="2"]
 
 position = Vector2( 458, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p3" type="Sprite" parent="UI/pb_penguins" index="3"]
 
 position = Vector2( 490, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p4" type="Sprite" parent="UI/pb_penguins" index="4"]
 
 position = Vector2( 522, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p5" type="Sprite" parent="UI/pb_penguins" index="5"]
 
 position = Vector2( 554, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="bb_penguins" type="Control" parent="UI" index="4"]
@@ -927,42 +980,42 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( 396, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p4" type="Sprite" parent="UI/bb_penguins" index="1"]
 
 position = Vector2( 426, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p3" type="Sprite" parent="UI/bb_penguins" index="2"]
 
 position = Vector2( 458, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p2" type="Sprite" parent="UI/bb_penguins" index="3"]
 
 position = Vector2( 490, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p1" type="Sprite" parent="UI/bb_penguins" index="4"]
 
 position = Vector2( 522, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="p0" type="Sprite" parent="UI/bb_penguins" index="5"]
 
 position = Vector2( 554, 678.459 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="total_score" type="Sprite" parent="UI" index="5"]
@@ -970,7 +1023,7 @@ _sections_unfolded = [ "Transform" ]
 editor/display_folded = true
 position = Vector2( 639.828, 682.658 )
 scale = Vector2( 0.666098, 0.666098 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Animation", "Offset", "Visibility" ]
 
 [node name="p_team" type="Label" parent="UI/total_score" index="0"]
@@ -988,7 +1041,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0.114975, 0.23907, 0.535156, 1 )
 text = "0"
 align = 2
@@ -1012,7 +1065,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0.328125, 0.0858765, 0.0858765, 1 )
 text = "0"
 align = 2
@@ -1039,7 +1092,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0.0970917, 0.184936, 0.394531, 1 )
 text = "press any key
 to restart"
@@ -1051,6 +1104,7 @@ _sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="bears" type="Control" parent="UI" index="8"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1065,10 +1119,9 @@ size_flags_vertical = 1
 
 [node name="brown_bear" type="Sprite" parent="UI/bears" index="0"]
 
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 799.335, 360.255 )
+position = Vector2( 1942.94, 360.255 )
 scale = Vector2( 0.667182, 0.666741 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="bbear_move" type="Sprite" parent="UI/bears" index="1"]
@@ -1076,15 +1129,14 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 position = Vector2( 268.448, 313.954 )
 rotation = -25.1327
 scale = Vector2( 1e-05, 1e-05 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="polar_bear" type="Sprite" parent="UI/bears" index="2"]
 
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 452.406, 360.255 )
+position = Vector2( -702.633, 360.255 )
 scale = Vector2( 0.66914, 0.66914 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="pbear_move" type="Sprite" parent="UI/bears" index="3"]
@@ -1093,7 +1145,7 @@ visible = false
 position = Vector2( 1025.04, 313.954 )
 rotation = -25.1327
 scale = Vector2( 1e-05, 1e-05 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="splash" type="Sprite" parent="UI/bears" index="4"]
@@ -1101,13 +1153,13 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 637.738, 356.871 )
 scale = Vector2( 0.421769, 0.421769 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Offset", "Visibility" ]
 
 [node name="bears_anim" type="AnimationPlayer" parent="UI/bears" index="5"]
 
 root_node = NodePath("..")
-autoplay = "start"
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
@@ -1117,13 +1169,14 @@ anims/start = SubResource( 10 )
 anims/start0 = SubResource( 9 )
 anims/total_score = SubResource( 8 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="vs" type="Sprite" parent="UI/bears" index="6"]
 
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 606.894, 344.736 )
 scale = Vector2( 0.625375, 0.625375 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="dir_hint" type="Sprite" parent="UI/bears" index="7"]
@@ -1131,21 +1184,21 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 position = Vector2( 594.28, 244.257 )
 scale = Vector2( 0.700855, 0.700855 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 
 [node name="power_hint" type="Sprite" parent="UI/bears" index="8"]
 
 visible = false
 position = Vector2( 547.275, 282.557 )
 scale = Vector2( 0.708059, 0.708059 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="total_score_screen" type="Sprite" parent="UI" index="9"]
 
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 638.721, 400.872 )
 scale = Vector2( 0.670017, 0.670017 )
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1167,7 +1220,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 20 )
+custom_fonts/font = ExtResource( 21 )
 custom_colors/font_color = Color( 0.0970917, 0.184936, 0.394531, 1 )
 text = "0:0"
 align = 1
@@ -1192,7 +1245,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0.0970917, 0.184936, 0.394531, 1 )
 text = "0:0"
 align = 1
@@ -1205,16 +1258,16 @@ _sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.63818, 0 )
 
-[node name="fish" parent="fishes" index="0" instance=ExtResource( 22 )]
+[node name="fish" parent="fishes" index="0" instance=ExtResource( 23 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9312, 0, -10.2996 )
 
-[node name="target" parent="." index="16" instance=ExtResource( 23 )]
+[node name="target" parent="." index="16" instance=ExtResource( 24 )]
 
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 55, -0.431927, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="power_cube" parent="." index="17" instance=ExtResource( 24 )]
+[node name="power_cube" parent="." index="17" instance=ExtResource( 25 )]
 
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 visible = false
@@ -1224,8 +1277,24 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="start" type="AudioStreamPlayer" parent="sounds" index="0"]
 
-stream = ExtResource( 25 )
+stream = ExtResource( 26 )
 volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="swish" type="AudioStreamPlayer" parent="sounds" index="1"]
+
+stream = ExtResource( 27 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="applod" type="AudioStreamPlayer" parent="sounds" index="2"]
+
+stream = ExtResource( 28 )
+volume_db = -10.0
 autoplay = false
 mix_target = 0
 bus = "Master"

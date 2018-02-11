@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/penguin.gd" type="Script" id=1]
 [ext_resource path="res://models/penguin0.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sounds/yahoo.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -51,6 +52,14 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44467e-08, 0.7382, 0.272812 )
 shape = SubResource( 1 )
 disabled = false
+
+[node name="yahoo" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_penguin_sleeping_state_changed"]
 

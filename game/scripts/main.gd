@@ -18,25 +18,23 @@ var target_radius = 12.5
 var max_power = 90
 var min_power = 5
 var power = 0
-var current_penguin
 var team = 0
 var global
 var go = false
 var any_key = false
-var p_old_score
-var b_old_score
-var p_score
-var b_score
 
 func _ready():
 #	set_physics_process(false)
 	randomize()
 	$UI/pControl.position = $Camera.unproject_position(Vector3())
-	
 	global = get_node("/root/global")
 	var s = str(global.score[0]) + ':' +  str(global.score[1])
 	$UI/game_score2.text = s
-
+	if global.score[0] + global.score[1] <= 0:
+		$UI/bears/bears_anim.play("start")
+	else:
+		$UI/bears/bears_anim.play("pBear")
+		$sounds/applod.play()
 	testP = $penguin2
 	target = $target
 	pointer = $Spatial/pointer
@@ -48,6 +46,7 @@ func _ready():
 		fish.translation = Vector3(randf() * 180 - 30, 0, randf() * 60 - 30)
 		fish.rotation = Vector3(0,randf() * PI*2, 0)
 		$fishes.add_child(fish)
+
 
 func dist_to_target(translation):
 	translation.y = 0
@@ -70,7 +69,6 @@ func score_count(distance):
 	return score
 	
 func fire():
-	set_physics_process(true)
 	if team == 0:
 		p_team_shoot +=1
 		if p_team_shoot > max_shoot:
@@ -83,12 +81,17 @@ func fire():
 		get_node("UI/bb_penguins/p" + str(max_shoot - p_team_shoot)).hide()
 	$UI/pControl/power_bar.hide()
 	$Spatial/pointer.hide()
+	$Spatial/t.rotation = $Spatial/pointer.rotation
+	$Spatial/t.show()
+	$Spatial/t/throw.set_team(team)
+	$Spatial/t/throw.throw()
+
+func spawn_penguin():
+	set_physics_process(true)
 	var penguin = penguin_obj.instance()
 	var r = pointer.rotation.y - PI/2
 	penguin.rotation.y = r
-#		print(pointer.rotation)
 	penguin.linear_velocity = Vector3(-sin(r), 0,-cos(r)).normalized() * power
-	current_penguin = penguin
 	$pengs.add_child(penguin)
 
 	var score_cloud = score_cloud_obj.instance()
@@ -100,6 +103,7 @@ func fire():
 	team += 1
 	if team > 1:
 		team = 0
+	$Spatial/t/throw.stay()
 
 func _input(event):
 	if any_key:
@@ -117,7 +121,9 @@ func _input(event):
 #			$power_cube.hide()
 			if p_team_shoot == 0 and b_team_shoot == 0:
 				$UI/bears/power_hint.hide()
-				$UI/bears/dir_hint.show()
+				if global.score[0] + global.score[1] <= 0:
+					if global.score[0] + global.score[1] <= 0:
+						$UI/bears/dir_hint.show()
 			$Spatial/pointer.show()
 	
 func game_over():
@@ -178,14 +184,14 @@ func _physics_process(delta):
 			global.score[1] += 1
 		go = false
 		game_over()
-		print("game_over")
 	
 func _on_camera_anim_animation_finished( anim_name ):
 	pass
 	if b_team_shoot >= max_shoot and p_team_shoot >= max_shoot:
 		go = true
-		print("go")
 		return
+	else:
+		$sounds/applod.play()
 	if team == 0:
 		$UI/bears/bears_anim.play("pBear")
 	else:
@@ -194,8 +200,7 @@ func _on_camera_anim_animation_finished( anim_name ):
 func _on_bears_anim_animation_finished( anim_name ):
 	if anim_name == "start":
 		$UI/bears/bears_anim.play("pBear")
-		if (global.score[0] + global.score[1]) == 0:
-			$sounds/start.play()
+		$sounds/start.play()
 	elif anim_name == "total_score":
 		any_key = true
 	else:
@@ -207,4 +212,5 @@ func _on_bears_anim_animation_finished( anim_name ):
 		power = min_power
 		$Spatial/pointer.hide()
 		if p_team_shoot == 0 and b_team_shoot == 0:
-			$UI/bears/power_hint.show()
+			if global.score[0] + global.score[1] <= 0:
+				$UI/bears/power_hint.show()

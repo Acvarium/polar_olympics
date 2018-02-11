@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://models/throw.dae" type="PackedScene" id=1]
+[ext_resource path="res://scripts/thrower.gd" type="Script" id=2]
+[ext_resource path="res://models/bb_mat.tres" type="Material" id=3]
+
+[node name="thrower" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="bear.001" parent="Armature/Skeleton" index="0"]
+
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "material" ]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+
