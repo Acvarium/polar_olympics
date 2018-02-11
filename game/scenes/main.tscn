@@ -710,7 +710,7 @@ tracks/11/keys = {
 "values": [ true ]
 }
 
-[node name="main" type="Node"]
+[node name="main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -883,7 +883,6 @@ _sections_unfolded = [ "Rect", "Textures", "Theme", "Visibility" ]
 
 [node name="polar_bear" type="Sprite" parent="UI" index="1"]
 
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 76.2896, 647.405 )
 scale = Vector2( 0.151089, 0.151089 )
@@ -892,7 +891,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="brown_bear" type="Sprite" parent="UI" index="2"]
 
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1193.86, 643.34 )
 scale = Vector2( 0.178311, 0.178193 )
