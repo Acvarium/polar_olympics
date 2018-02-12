@@ -3,7 +3,7 @@ var speed = 1
 var panic = false
 
 func _ready():
-	pass
+	$AnimationPlayer.get_animation("fish").set_loop(true)
 
 func set_speed(s):
 	$AnimationPlayer.playback_speed = s * 1.2

@@ -62,7 +62,7 @@ _sections_unfolded = [ "Albedo" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 material_override = SubResource( 1 )
-_sections_unfolded = [ "Geometry", "Transform", "material" ]
+_sections_unfolded = [ "Geometry", "LOD", "Transform", "material" ]
 
 [node name="AnimationPlayer" parent="." index="1"]
 
