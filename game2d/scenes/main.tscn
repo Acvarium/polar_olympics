@@ -1099,13 +1099,11 @@ bus = "Master"
 [node name="go" type="Timer" parent="." index="3"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 autostart = false
 
 [node name="timers" type="Node2D" parent="." index="4"]
-
-editor/display_folded = true
 
 [node name="tap" type="Timer" parent="timers" index="0"]
 

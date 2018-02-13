@@ -18,7 +18,7 @@ var target_pos = Vector2()
 var target_radius = 384.0
 var screen_scale = 1
 var throws = []
-var max_throw = 6
+var max_throw = 1
 var team = 0
 var go = false
 var score = []
@@ -28,6 +28,7 @@ var pushed = false
 var data_ui
 var peng_ico_step = 37
 var no_control = false
+var game_stop = false
 
 func _ready():
 	global = get_node("/root/global")
@@ -56,6 +57,20 @@ func _ready():
 				p_ico.position.x = i * peng_ico_step * sine
 				p_ico.name = "p_ico" + str(i)
 
+func get_winers():
+	var v = score[0]
+	if score.size() > 1:
+		for i in range(1, score.size()):
+			if v < score[i]:
+				v = score[i]
+	var up_score = []
+	var ss = ''
+	for i in range(global.score.size()):
+		up_score.append(int(v == global.score[i]))
+		ss += str(int(v == score[i])) + ":"
+	print(ss)
+	return(up_score)
+
 func _process(delta):
 	for i in range(score.size()):
 		score[i] = 0
@@ -78,9 +93,18 @@ func _process(delta):
 		for p in $game_field/penguins.get_children():
 			if !p.sleeping:
 				sl = false
-		if sl:
+		if sl and !game_stop:
+			game_stop = true
+			var winers = get_winers()
+			var wss = ''
+			for i in range(winers.size()):
+				global.score[i] += winers[i]
+				wss += str(global.score[i])
+				if i < (global.score.size() - 1):
+					wss += ":"
+			$ui/game_over.text = wss
+			$go.start()
 			
-			get_tree().reload_current_scene()
 
 	if state == 0:
 		power += power_speed * rDir * delta
@@ -113,6 +137,7 @@ func fire():
 		team = 0
 	$camera_position/cam_anim.play("fire")
 	no_control = true
+	get_winers()
 	
 func spawn_penguin():
 	var penguin = penguin_obj.instance()
@@ -169,6 +194,7 @@ func resizer():
 	$camera_position/Camera/data_ui.margin_right = horizontal
 
 func _on_go_timeout():
+	get_tree().reload_current_scene()
 	pass # replace with function body
 
 func _on_tap_timeout():
