@@ -29,6 +29,7 @@ var data_ui
 var peng_ico_step = 37
 var no_control = false
 var game_stop = false
+var to_restart = false
 
 func _ready():
 	global = get_node("/root/global")
@@ -64,11 +65,8 @@ func get_winers():
 			if v < score[i]:
 				v = score[i]
 	var up_score = []
-	var ss = ''
 	for i in range(global.score.size()):
-		up_score.append(int(v == global.score[i]))
-		ss += str(int(v == score[i])) + ":"
-	print(ss)
+		up_score.append(int(v == score[i]))
 	return(up_score)
 
 func _process(delta):
@@ -102,10 +100,12 @@ func _process(delta):
 				wss += str(global.score[i])
 				if i < (global.score.size() - 1):
 					wss += ":"
-			$ui/game_over.text = wss
-			$go.start()
 			
-
+			var score_label = $camera_position/Camera/data_ui/total_score_tab/total_score
+			score_label.text = wss
+			$camera_position/Camera/data_ui/total_score_tab/score_anim.play("show_score")
+			to_restart = true
+			
 	if state == 0:
 		power += power_speed * rDir * delta
 		if power > max_power:
@@ -137,7 +137,12 @@ func fire():
 		team = 0
 	$camera_position/cam_anim.play("fire")
 	no_control = true
-	get_winers()
+	var tr = 0
+	for t in throws:
+		tr += t
+	if tr <= 0:
+		go = true
+		$camera_position/Camera/data_ui/total_score_tab/score_anim.play("total_score")
 	
 func spawn_penguin():
 	var penguin = penguin_obj.instance()
@@ -159,6 +164,13 @@ func _input(event):
 	if no_control:
 		return
 	if (!touch_mode and Input.is_action_just_pressed("fire") or event is InputEventScreenTouch):
+		if to_restart:
+			get_tree().reload_current_scene()
+		var tr = 0
+		for t in throws:
+			tr += t
+		if tr <= 0:
+			return
 		pushed = true
 		$timers/tap.start()
 		if event is InputEventScreenTouch:
@@ -171,13 +183,7 @@ func _input(event):
 			else:
 				touch = false
 				return
-		var tr = 0
-		for t in throws:
-			tr += t
-		if tr <= 0:
-			go = true
-			$ui/game_over.show()
-			return
+
 		state += 1
 		if state == 2:
 			fire()
@@ -187,19 +193,13 @@ func _input(event):
 func resizer():
 	screen_size = get_tree().root.get_visible_rect().size
 	var ratio = screen_size.x/screen_size.y
-	print(ratio)
 	screen_scale = Vector2(global.original_screen_size.x / screen_size.x, global.original_screen_size.y / screen_size.y)
 	var horizontal = ratio * global.original_screen_size.y 
 	$camera_position/Camera.zoom = Vector2(screen_scale.y, screen_scale.y)
 	$camera_position/Camera/data_ui.margin_right = horizontal
 
-func _on_go_timeout():
-	get_tree().reload_current_scene()
-	pass # replace with function body
-
 func _on_tap_timeout():
 	pushed = false
-
 
 func _on_cam_anim_animation_finished( anim_name ):
 	no_control = false
