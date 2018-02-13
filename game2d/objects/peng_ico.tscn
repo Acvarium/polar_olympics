@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://textures/peng_ico.png" type="Texture" id=1]
+
+[node name="peng_ico" type="Sprite"]
+
+scale = Vector2( 0.715279, 0.715279 )
+texture = ExtResource( 1 )
+
+

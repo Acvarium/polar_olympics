@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/applod.wav-b1737f8e8112d8f988768deb09697ca7.sample"
+
+[deps]
+
+source_file="res://sounds/applod.wav"
+source_md5="ad5ea30926aeaaa0dd9c13df3d99ed0f"
+
+dest_files=[ "res://.import/applod.wav-b1737f8e8112d8f988768deb09697ca7.sample" ]
+dest_md5="ef90a24e5ae6d96b3b41fd8a7e36dff4"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,6 +1,7 @@
 extends Node2D
 var penguin_obj = load("res://objects/penguin.tscn")
 var flag_obj = load("res://objects/flag.tscn")
+var peng_ico_obj = load("res://objects/peng_ico.tscn")
 var global
 var screen_size = Vector2()
 var pDirection = 0
@@ -24,6 +25,9 @@ var score = []
 var touch = false
 var touch_mode = false
 var pushed = false
+var data_ui
+var peng_ico_step = 37
+var no_control = false
 
 func _ready():
 	global = get_node("/root/global")
@@ -35,23 +39,47 @@ func _ready():
 	for i in range(global.score.size()):
 		throws.append(max_throw)
 		score.append(0)
-	var ss = ''
-	for t in throws:
-		ss += str(t) + ' '
-	$ui/throws.text = ss
-	ss = ''
-	for s in global.score:
-		ss += str(s) + ':'
-	$ui/total_score.text = ss
+	data_ui = $camera_position/Camera/data_ui
+	for p in range(global.score.size()):
+		if data_ui.has_node("player" + str(p)):
+			data_ui.get_node("player" + str(p)).show()
+			data_ui.get_node("player" + str(p) + "/under").self_modulate = global.team_color[p]
+#			$game_field/ice.
+			
+			for i in range(max_throw):
+				var p_ico = peng_ico_obj.instance()
+				data_ui.get_node("player" + str(p) + "/p").add_child(p_ico)
+				p_ico.position = Vector2()
+				var sine = 1
+				if (p % 2):
+					sine = -1
+				p_ico.position.x = i * peng_ico_step * sine
+				p_ico.name = "p_ico" + str(i)
 
 func _process(delta):
-	$ui/fps.text = str(Engine.get_frames_per_second())
+	for i in range(score.size()):
+		score[i] = 0
+	for f in $ui/flags.get_children():
+		var peng = f.penguin
+		if peng.score > 0:
+			f.position = peng.global_position
+			f.get_node("sprite/label").text = str(peng.score)
+		score[peng.team] += peng.score
+		f.visible = peng.score > 0
+
+	for i in range(score.size()):
+		var node_name = "player" + str(i)
+		if data_ui.has_node(node_name):
+			data_ui.get_node(node_name + "/under/score").text = str(score[i])
+		
+	$camera_position/Camera/data_ui/fps.text = str(Engine.get_frames_per_second())
 	if go:
 		var sl = true
 		for p in $game_field/penguins.get_children():
 			if !p.sleeping:
 				sl = false
 		if sl:
+			
 			get_tree().reload_current_scene()
 
 	if state == 0:
@@ -70,42 +98,27 @@ func _process(delta):
 			if pDirection < -dMinMax:
 				rDir = 1
 		pointer.rotation = pDirection
-	for i in range(score.size()):
-		score[i] = 0
-	for f in $ui/flags.get_children():
-		var peng = f.penguin
-		if peng.score > 0:
-			f.position = peng.global_position
-			f.get_node("sprite/label").text = str(peng.score)
-		score[peng.team] += peng.score
-		
-		f.visible = peng.score > 0
-	var ss = ''
-	for s in score:
-		ss += str(s) + '__'
-	$ui/score.text = ss
-		
 
 func fire():
 	state = 0
 	throws[team] -= 1
 	if throws[team] < 0:
 		throws[team] = 0
-	var ss = ''
-	for t in throws:
-		ss += str(t) + ' '
-	$ui/throws.text = ss
+	data_ui.get_node("player" + str(team) + "/p/p_ico" + str(throws[team])).hide()
 	spawn_penguin()
+	if global.score.size() > 1:
+		data_ui.get_node("player" + str(team) + "/icon_anim").play("out")
 	team += 1
 	if team > (global.score.size() - 1):
 		team = 0
-	$ui/team.text = str(team)
+	$camera_position/cam_anim.play("fire")
+	no_control = true
 	
 func spawn_penguin():
 	var penguin = penguin_obj.instance()
 	var r = pointer.rotation
 	penguin.rotation = r
-	penguin.linear_velocity = Vector2(cos(r), sin(r)).normalized() * power * 25
+	penguin.linear_velocity = Vector2(cos(r), sin(r)).normalized() * power * 22
 	penguin.set_team(team)
 	penguin.set_color(global.team_color[team])
 	$game_field/penguins.add_child(penguin)
@@ -114,10 +127,11 @@ func spawn_penguin():
 	flag.position = penguin.global_position
 	flag.set_color(global.team_color[team])
 	$ui/flags.add_child(flag)
-#	flag.hide()
 
 func _input(event):
 	if pushed:
+		return
+	if no_control:
 		return
 	if (!touch_mode and Input.is_action_just_pressed("fire") or event is InputEventScreenTouch):
 		pushed = true
@@ -147,14 +161,21 @@ func _input(event):
 
 func resizer():
 	screen_size = get_tree().root.get_visible_rect().size
-	screen_scale = global.original_screen_size.x / screen_size.x
-	$camera_position/Camera.zoom = Vector2(screen_scale, screen_scale)
-	$camera_position.position = Vector2(global.original_screen_size.x / 2, global.original_screen_size.y / 2)
-	
+	var ratio = screen_size.x/screen_size.y
+	print(ratio)
+	screen_scale = Vector2(global.original_screen_size.x / screen_size.x, global.original_screen_size.y / screen_size.y)
+	var horizontal = ratio * global.original_screen_size.y 
+	$camera_position/Camera.zoom = Vector2(screen_scale.y, screen_scale.y)
+	$camera_position/Camera/data_ui.margin_right = horizontal
 
 func _on_go_timeout():
-	
 	pass # replace with function body
 
 func _on_tap_timeout():
 	pushed = false
+
+
+func _on_cam_anim_animation_finished( anim_name ):
+	no_control = false
+	if global.score.size() > 1:
+		data_ui.get_node("player" + str(team) + "/icon_anim").play("in")
