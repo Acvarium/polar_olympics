@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brown_bear.png-ed6a3e11c43484aeb1b4617776f914f0.stex"
+path="res://.import/panda.png-cede4a4636e0d2c420e8ab1aacbb52f7.stex"
 
 [deps]
 
-source_file="res://textures/brown_bear.png"
-source_md5="bc63ecb4bfcfeb754df9a599a961999c"
+source_file="res://textures/panda.png"
+source_md5="9bba3a45d7132370b7208f6ceffd1848"
 
-dest_files=[ "res://.import/brown_bear.png-ed6a3e11c43484aeb1b4617776f914f0.stex" ]
-dest_md5="9a8e0d775f1f71d7935f9cc5041c3de8"
+dest_files=[ "res://.import/panda.png-cede4a4636e0d2c420e8ab1aacbb52f7.stex" ]
+dest_md5="3cabf935fe169060bca2d4dc19cfd1d4"
 
 [params]
 

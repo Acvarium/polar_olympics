@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brown_bear.png-ed6a3e11c43484aeb1b4617776f914f0.stex"
+path="res://.import/puddle.png-39bbce60c0b57db8be57d0d15740a987.stex"
 
 [deps]
 
-source_file="res://textures/brown_bear.png"
-source_md5="bc63ecb4bfcfeb754df9a599a961999c"
+source_file="res://textures/puddle.png"
+source_md5="1285c20fe3ac25e2949f2afc8cde3f0b"
 
-dest_files=[ "res://.import/brown_bear.png-ed6a3e11c43484aeb1b4617776f914f0.stex" ]
-dest_md5="9a8e0d775f1f71d7935f9cc5041c3de8"
+dest_files=[ "res://.import/puddle.png-39bbce60c0b57db8be57d0d15740a987.stex" ]
+dest_md5="c227ca5f73b68a3eb9c68f19b847a0aa"
 
 [params]
 

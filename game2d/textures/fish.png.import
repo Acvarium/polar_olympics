@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brown_bear.png-ed6a3e11c43484aeb1b4617776f914f0.stex"
+path="res://.import/fish.png-99f80db8985544f892ef85603e4478b7.stex"
 
 [deps]
 
-source_file="res://textures/brown_bear.png"
-source_md5="bc63ecb4bfcfeb754df9a599a961999c"
+source_file="res://textures/fish.png"
+source_md5="39a9501218df353166670dd4e4864e7a"
 
-dest_files=[ "res://.import/brown_bear.png-ed6a3e11c43484aeb1b4617776f914f0.stex" ]
-dest_md5="9a8e0d775f1f71d7935f9cc5041c3de8"
+dest_files=[ "res://.import/fish.png-99f80db8985544f892ef85603e4478b7.stex" ]
+dest_md5="a89653e3fe484195d43547f3383272c4"
 
 [params]
 

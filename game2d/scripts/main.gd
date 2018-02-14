@@ -2,6 +2,8 @@ extends Node2D
 var penguin_obj = load("res://objects/penguin.tscn")
 var flag_obj = load("res://objects/flag.tscn")
 var peng_ico_obj = load("res://objects/peng_ico.tscn")
+var bonus_fish_obj = load("res://objects/bonus_fish.tscn")
+var swim_fish_obj = load("res://objects/swim_fish.tscn")
 var global
 var screen_size = Vector2()
 var pDirection = 0
@@ -21,7 +23,6 @@ var throws = []
 var max_throw = 6
 var team = 0
 var go = false
-var score = []
 var touch = false
 var touch_mode = false
 var pushed = false
@@ -30,23 +31,37 @@ var peng_ico_step = 37
 var no_control = false
 var game_stop = false
 var to_restart = false
+var bonus_score = []
+var score = []
+var min_pos = Vector2(-300, -800)
+var max_pos = Vector2(2700, 800)
 
 func _ready():
+	randomize()
 	global = get_node("/root/global")
 	power = min_power
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	pointer = $ui/pointer
 	target_pos = $game_field/target.global_position
 	resizer()
+	for i in range(20):
+		var swim_fish = swim_fish_obj.instance()
+		swim_fish.position = Vector2(randf() * max_pos.x + min_pos.x, randf() * max_pos.y + min_pos.y)
+		swim_fish.rotation = (randf() * PI * 2)
+		var f_scale = randf() * 0.2 + 0.9
+		swim_fish.scale = Vector2(f_scale, f_scale)
+		var transp = randf() * 0.5 + 0.5
+		swim_fish.modulate = Color(1, 1, 1, transp)
+		$game_field/fishes.add_child(swim_fish)
 	for i in range(global.score.size()):
 		throws.append(max_throw)
 		score.append(0)
+		bonus_score.append(0)
 	data_ui = $camera_position/Camera/data_ui
 	for p in range(global.score.size()):
 		if data_ui.has_node("player" + str(p)):
 			data_ui.get_node("player" + str(p)).show()
 			data_ui.get_node("player" + str(p) + "/under").self_modulate = global.team_color[p]
-#			$game_field/ice.
 			
 			for i in range(max_throw):
 				var p_ico = peng_ico_obj.instance()
@@ -57,6 +72,7 @@ func _ready():
 					sine = -1
 				p_ico.position.x = i * peng_ico_step * sine
 				p_ico.name = "p_ico" + str(i)
+	
 
 func get_winers():
 	var v = score[0]
@@ -79,8 +95,8 @@ func _process(delta):
 			f.get_node("sprite/label").text = str(peng.score)
 		score[peng.team] += peng.score
 		f.visible = peng.score > 0
-
 	for i in range(score.size()):
+		score[i] += bonus_score[i]
 		var node_name = "player" + str(i)
 		if data_ui.has_node(node_name):
 			data_ui.get_node(node_name + "/under/score").text = str(score[i])
@@ -123,6 +139,11 @@ func _process(delta):
 				rDir = 1
 		pointer.rotation = pDirection
 
+func bonus(t, value, type):
+	if type == 'fish':
+		$audio/coin.play()
+		bonus_score[t] += value
+
 func fire():
 	state = 0
 	throws[team] -= 1
@@ -143,6 +164,8 @@ func fire():
 	if tr <= 0:
 		go = true
 		$camera_position/Camera/data_ui/total_score_tab/score_anim.play("total_score")
+	$ui/pointer.hide()
+	$ui/power.hide()
 	
 func spawn_penguin():
 	var penguin = penguin_obj.instance()
@@ -158,7 +181,22 @@ func spawn_penguin():
 	flag.set_color(global.team_color[team])
 	$ui/flags.add_child(flag)
 
+func add_bonus_fish():
+	$audio/ten.play()
+	$game_field/bonus/bonus_anim.play("ten")
+	var ref = $game_field/bonus/ref
+	var min_pos = $game_field/bonus/ref.rect_position
+	var offset = $game_field/bonus/ref.rect_size
+	var bonus_pos = Vector2()
+	bonus_pos.x = randf() * offset.x + min_pos.x
+	bonus_pos.y = randf() * offset.y + min_pos.y
+	var fish = bonus_fish_obj.instance()
+	fish.global_position = bonus_pos
+	$game_field/bonus.add_child(fish)
+	print(min_pos)
+
 func _input(event):
+		
 	if pushed:
 		return
 	if no_control:
@@ -183,12 +221,12 @@ func _input(event):
 			else:
 				touch = false
 				return
-
 		state += 1
 		if state == 2:
 			fire()
 		elif state == 1:
 			$ui/pointer.show()
+
 
 func resizer():
 	screen_size = get_tree().root.get_visible_rect().size
@@ -203,5 +241,7 @@ func _on_tap_timeout():
 
 func _on_cam_anim_animation_finished( anim_name ):
 	no_control = false
+	if !go:
+		$ui/power.show()
 	if global.score.size() > 1:
 		data_ui.get_node("player" + str(team) + "/icon_anim").play("in")

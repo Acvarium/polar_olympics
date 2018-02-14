@@ -718,7 +718,7 @@ transform = Transform( 0.093908, 0, -2.45627, 0, 2.59128, 0, 4.51404, 0, 0.05109
 
 [node name="Camera" type="Camera" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 37.9036, 72.9601, 0.515008 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 27.7422, 72.9601, 0.515008 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -742,6 +742,7 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/fire = SubResource( 1 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="3"]
 

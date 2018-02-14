@@ -1,23 +1,71 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
-[ext_resource path="res://textures/point.png" type="Texture" id=3]
-[ext_resource path="res://textures/target.png" type="Texture" id=4]
-[ext_resource path="res://textures/ice_block_shadow.png" type="Texture" id=5]
-[ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://textures/power_under.png" type="Texture" id=7]
-[ext_resource path="res://fonts/font0.tres" type="DynamicFont" id=8]
-[ext_resource path="res://textures/power_progress.png" type="Texture" id=9]
-[ext_resource path="res://textures/arrow.png" type="Texture" id=10]
-[ext_resource path="res://textures/gradient_line.png" type="Texture" id=11]
-[ext_resource path="res://textures/polar_bear.png" type="Texture" id=12]
-[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=13]
-[ext_resource path="res://fonts/arial0.tres" type="DynamicFont" id=14]
-[ext_resource path="res://textures/brown_bear.png" type="Texture" id=15]
-[ext_resource path="res://fonts/arial1.tres" type="DynamicFont" id=16]
-[ext_resource path="res://sounds/applod.wav" type="AudioStream" id=17]
-[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=18]
+[ext_resource path="res://objects/puddle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/point.png" type="Texture" id=4]
+[ext_resource path="res://textures/target.png" type="Texture" id=5]
+[ext_resource path="res://textures/ice_block_shadow.png" type="Texture" id=6]
+[ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/power_under.png" type="Texture" id=8]
+[ext_resource path="res://fonts/font0.tres" type="DynamicFont" id=9]
+[ext_resource path="res://textures/power_progress.png" type="Texture" id=10]
+[ext_resource path="res://textures/arrow.png" type="Texture" id=11]
+[ext_resource path="res://fonts/font1.tres" type="DynamicFont" id=12]
+[ext_resource path="res://textures/gradient_line.png" type="Texture" id=13]
+[ext_resource path="res://textures/polar_bear.png" type="Texture" id=14]
+[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=15]
+[ext_resource path="res://fonts/arial0.tres" type="DynamicFont" id=16]
+[ext_resource path="res://textures/brown_bear.png" type="Texture" id=17]
+[ext_resource path="res://textures/panda.png" type="Texture" id=18]
+[ext_resource path="res://fonts/arial1.tres" type="DynamicFont" id=19]
+[ext_resource path="res://sounds/applod.wav" type="AudioStream" id=20]
+[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=21]
+[ext_resource path="res://sounds/collect.wav" type="AudioStream" id=22]
+[ext_resource path="res://sounds/coin9.wav" type="AudioStream" id=23]
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "ten"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../ui/effects/ten:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1470.23, 520.23 ), Vector2( 1440.23, 490.23 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../ui/effects/ten:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.20392, 1.20392 ), Vector2( 2.16349, 2.16349 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../ui/effects/ten:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -261,46 +309,84 @@ script = ExtResource( 1 )
 position = Vector2( 150, 540 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ice" type="Sprite" parent="game_field" index="0"]
+[node name="fishes" type="Node2D" parent="game_field" index="0"]
+
+modulate = Color( 1, 1, 1, 0.24 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="ice" type="Sprite" parent="game_field" index="1"]
 
 self_modulate = Color( 1, 1, 1, 0.436471 )
 position = Vector2( 1031.03, 8.23747 )
 scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="ice2" type="Sprite" parent="game_field" index="1"]
+[node name="puddle" parent="game_field" index="2" instance=ExtResource( 3 )]
 
-self_modulate = Color( 1, 1, 1, 0.436471 )
-position = Vector2( 913.619, -1108.85 )
-scale = Vector2( 1.6439, 1.6439 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="ice3" type="Sprite" parent="game_field" index="2"]
-
-self_modulate = Color( 1, 1, 1, 0.436471 )
-position = Vector2( 912.118, 1084.84 )
-scale = Vector2( 1.6439, 1.6439 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+position = Vector2( 796.827, 8.59363 )
 
 [node name="point" type="Sprite" parent="game_field" index="3"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="target" type="Sprite" parent="game_field" index="4"]
 
 modulate = Color( 1, 1, 1, 0.281765 )
 position = Vector2( 1356.8, 12.582 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="penguins" type="Node2D" parent="game_field" index="5"]
+[node name="bonus" type="Node2D" parent="game_field" index="5"]
 
-[node name="blocks" type="Node2D" parent="game_field" index="6"]
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="ref" type="ReferenceRect" parent="game_field/bonus" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 255.0
+margin_top = -400.0
+margin_right = 1007.0
+margin_bottom = 415.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="bonus_anim" type="AnimationPlayer" parent="game_field/bonus" index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/ten = SubResource( 12 )
+blend_times = [  ]
+
+[node name="penguins" type="Node2D" parent="game_field" index="6"]
+
+[node name="blocks" type="Node2D" parent="game_field" index="7"]
 
 editor/display_folded = true
 
@@ -314,7 +400,7 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 position = Vector2( -6.1613, -567.765 )
 scale = Vector2( 0.712302, 0.712302 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ice_block_shadow2" type="Sprite" parent="game_field/blocks/shadows" index="1"]
@@ -322,7 +408,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 375.912, -568.321 )
 rotation = 0.108151
 scale = Vector2( 0.712302, 0.712302 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ice_block_shadow3" type="Sprite" parent="game_field/blocks/shadows" index="2"]
@@ -330,7 +416,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 762.839, -552.765 )
 rotation = 0.03908
 scale = Vector2( 0.712302, 0.712302 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ice_block_shadow4" type="Sprite" parent="game_field/blocks/shadows" index="3"]
@@ -338,7 +424,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 1143.84, -553.765 )
 rotation = 0.0436369
 scale = Vector2( 0.712302, 0.712302 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ice_block_shadow5" type="Sprite" parent="game_field/blocks/shadows" index="4"]
@@ -346,7 +432,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 1525.84, -560.765 )
 rotation = 0.0389606
 scale = Vector2( 0.712302, 0.712302 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ice_block_shadow6" type="Sprite" parent="game_field/blocks/shadows" index="5"]
@@ -354,77 +440,90 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 1910.84, -558.765 )
 rotation = 0.0353451
 scale = Vector2( 0.712302, 0.712302 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ice_block" parent="game_field/blocks" index="1" instance=ExtResource( 6 )]
+[node name="ice_block_shadow7" type="Sprite" parent="game_field/blocks/shadows" index="6"]
+
+position = Vector2( 2300.84, -558.765 )
+rotation = 0.0353451
+scale = Vector2( 0.712302, 0.712302 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ice_block" parent="game_field/blocks" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -6.3515, -571.081 )
 
-[node name="ice_block2" parent="game_field/blocks" index="2" instance=ExtResource( 6 )]
+[node name="ice_block2" parent="game_field/blocks" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( 377.5, -571.081 )
 rotation = 0.105223
 
-[node name="ice_block4" parent="game_field/blocks" index="3" instance=ExtResource( 6 )]
+[node name="ice_block4" parent="game_field/blocks" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 1141.75, -559.378 )
 rotation = 0.0236205
 
-[node name="ice_block5" parent="game_field/blocks" index="4" instance=ExtResource( 6 )]
+[node name="ice_block5" parent="game_field/blocks" index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 1525.43, -565.517 )
 rotation = 0.0197015
 
-[node name="ice_block3" parent="game_field/blocks" index="5" instance=ExtResource( 6 )]
+[node name="ice_block3" parent="game_field/blocks" index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 760.953, -560.828 )
 rotation = 0.00985926
 
-[node name="ice_block6" parent="game_field/blocks" index="6" instance=ExtResource( 6 )]
+[node name="ice_block6" parent="game_field/blocks" index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 1909.71, -565.529 )
 rotation = 0.00985926
 
-[node name="ice_block13" parent="game_field/blocks" index="7" instance=ExtResource( 6 )]
+[node name="ice_block13" parent="game_field/blocks" index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 2296.71, -565.529 )
 rotation = 0.00985926
 
-[node name="ice_block8" parent="game_field/blocks" index="8" instance=ExtResource( 6 )]
+[node name="ice_block8" parent="game_field/blocks" index="8" instance=ExtResource( 7 )]
 
 position = Vector2( -10.4743, 568.554 )
 
-[node name="ice_block11" parent="game_field/blocks" index="9" instance=ExtResource( 6 )]
+[node name="ice_block11" parent="game_field/blocks" index="9" instance=ExtResource( 7 )]
 
 position = Vector2( 1140.1, 580.857 )
 rotation = 0.0539111
 scale = Vector2( 1, 1 )
 
-[node name="ice_block9" parent="game_field/blocks" index="10" instance=ExtResource( 6 )]
+[node name="ice_block9" parent="game_field/blocks" index="10" instance=ExtResource( 7 )]
 
 position = Vector2( 377.079, 568.554 )
 rotation = 0.105223
 
-[node name="ice_block7" parent="game_field/blocks" index="11" instance=ExtResource( 6 )]
+[node name="ice_block7" parent="game_field/blocks" index="11" instance=ExtResource( 7 )]
 
 position = Vector2( 1517.4, 580.857 )
 rotation = 0.00831939
 
-[node name="ice_block12" parent="game_field/blocks" index="12" instance=ExtResource( 6 )]
+[node name="ice_block12" parent="game_field/blocks" index="12" instance=ExtResource( 7 )]
 
 position = Vector2( 760.531, 578.806 )
 rotation = 0.00985926
 
-[node name="ice_block10" parent="game_field/blocks" index="13" instance=ExtResource( 6 )]
+[node name="ice_block10" parent="game_field/blocks" index="13" instance=ExtResource( 7 )]
 
 position = Vector2( 1896.75, 582.907 )
 rotation = 0.00985926
 
-[node name="ice_block14" parent="game_field/blocks" index="14" instance=ExtResource( 6 )]
+[node name="ice_block14" parent="game_field/blocks" index="14" instance=ExtResource( 7 )]
 
 position = Vector2( 2283.76, 582.908 )
 rotation = 0.00985926
+
+[node name="min_pos" type="Position2D" parent="game_field" index="8"]
+
+position = Vector2( 2700, 800 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="ui" type="Node2D" parent="." index="1"]
 
@@ -461,7 +560,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 patch_margin_left = 50
 patch_margin_top = 39
 patch_margin_right = 50
@@ -483,7 +582,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 patch_margin_left = 50
 patch_margin_top = 39
 patch_margin_right = 50
@@ -506,7 +605,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 text = "0"
 align = 1
 percent_visible = 1.0
@@ -530,7 +629,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 text = "GAME OVER"
 align = 1
 percent_visible = 1.0
@@ -565,9 +664,9 @@ page = 0.0
 value = 54.627
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 7 )
+texture_under = ExtResource( 8 )
 texture_over = null
-texture_progress = ExtResource( 9 )
+texture_progress = ExtResource( 10 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -576,6 +675,7 @@ _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 [node name="pointer" type="Position2D" parent="ui" index="5"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 150, 540 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
@@ -584,8 +684,40 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 self_modulate = Color( 1, 1, 1, 0.640863 )
 position = Vector2( 143.008, 0 )
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="effects" type="Node2D" parent="ui" index="6"]
+
+[node name="ten" type="Node2D" parent="ui/effects" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.22 )
+position = Vector2( 1470.23, 520.23 )
+scale = Vector2( 1.20392, 1.20392 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Label" type="Label" parent="ui/effects/ten" index="0"]
+
+modulate = Color( 1, 1, 1, 0.62 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 52.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 12 )
+text = "10"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="camera_position" type="Position2D" parent="." index="2"]
 
@@ -616,6 +748,9 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="data_ui" type="ReferenceRect" parent="camera_position/Camera" index="0"]
 
@@ -631,13 +766,16 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="bottom_gradient_line2" type="Sprite" parent="camera_position/Camera/data_ui" index="0"]
 
 position = Vector2( 1407.29, 31.736 )
 rotation = 3.14159
 scale = Vector2( 1.59528, 0.642395 )
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="botomLine" type="Control" parent="camera_position/Camera/data_ui" index="1"]
@@ -658,10 +796,11 @@ _sections_unfolded = [ "Rect" ]
 
 position = Vector2( 1407.29, -28.2641 )
 scale = Vector2( 1.59528, 0.642395 )
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 
 [node name="player0" type="Control" parent="camera_position/Camera/data_ui" index="2"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 1.0
@@ -682,7 +821,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 position = Vector2( 103.488, -35.3776 )
 scale = Vector2( 0.214792, 0.214792 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player0" index="1"]
@@ -710,7 +849,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -732,7 +871,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.144608, 0.288615, 0.457031, 1 )
 text = "POLAR"
 percent_visible = 1.0
@@ -755,7 +894,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.144608, 0.288615, 0.457031, 1 )
 text = "0"
 align = 2
@@ -794,7 +933,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 152.451, -35.3776 )
 scale = Vector2( 0.214792, 0.214792 )
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 
 [node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player1" index="1"]
 
@@ -821,7 +960,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -843,7 +982,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.0666667, 0.141176, 0.227451, 1 )
 text = "0"
 align = 2
@@ -867,7 +1006,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.0693207, 0.1436, 0.230469, 1 )
 text = "BROWN"
 percent_visible = 1.0
@@ -903,9 +1042,10 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 [node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player2" index="0"]
 
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 110.488, 77.6219 )
+position = Vector2( 113.488, 99.6217 )
 scale = Vector2( 0.214792, 0.214792 )
-texture = ExtResource( 12 )
+texture = ExtResource( 18 )
+flip_h = true
 flip_v = true
 _sections_unfolded = [ "Offset", "Visibility" ]
 
@@ -934,7 +1074,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -956,7 +1096,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.144608, 0.288615, 0.457031, 1 )
 text = "PANDA"
 percent_visible = 1.0
@@ -979,7 +1119,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.144608, 0.288615, 0.457031, 1 )
 text = "0"
 align = 2
@@ -1018,7 +1158,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 121.451, 72.6219 )
 scale = Vector2( 0.214792, 0.214792 )
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 flip_v = true
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
@@ -1047,7 +1187,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1069,7 +1209,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.0666667, 0.141176, 0.227451, 1 )
 text = "0"
 align = 2
@@ -1093,7 +1233,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.0693207, 0.1436, 0.230469, 1 )
 text = "ASIAN"
 percent_visible = 1.0
@@ -1109,6 +1249,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="total_score_tab" type="NinePatchRect" parent="camera_position/Camera/data_ui" index="6"]
 
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0.37 )
 anchor_left = 0.5
@@ -1116,20 +1257,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -313.0
-margin_top = -242.0
+margin_top = -243.0
 margin_right = 311.0
-margin_bottom = 83.0
+margin_bottom = 82.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
 patch_margin_bottom = 20
 _sections_unfolded = [ "Patch Margin", "Rect", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="total_score" type="Label" parent="camera_position/Camera/data_ui/total_score_tab" index="0"]
 
@@ -1147,7 +1291,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 16 )
+custom_fonts/font = ExtResource( 19 )
 custom_colors/font_color = Color( 0.113725, 0.258824, 0.505882, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0:1"
@@ -1156,6 +1300,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="total" type="Label" parent="camera_position/Camera/data_ui/total_score_tab" index="1"]
 
@@ -1172,7 +1319,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 16 )
+custom_fonts/font = ExtResource( 19 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TOTAL SCORE:"
 align = 1
@@ -1198,7 +1345,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1220,7 +1367,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.115051, 0.259268, 0.507812, 1 )
 text = "PRESS \"SPACE\"
 TO START NEW GAME
@@ -1257,7 +1404,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 9 )
 text = "0"
 align = 2
 percent_visible = 1.0
@@ -1277,13 +1424,15 @@ blend_times = [  ]
 
 [node name="applods" type="AudioStreamPlayer" parent="camera_position/cam_anim" index="0"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 20 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
 [node name="timers" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="tap" type="Timer" parent="timers" index="0"]
 
@@ -1296,9 +1445,25 @@ autostart = false
 
 [node name="start" type="AudioStreamPlayer" parent="audio" index="0"]
 
-stream = ExtResource( 18 )
+stream = ExtResource( 21 )
 volume_db = 0.0
-autoplay = true
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ten" type="AudioStreamPlayer" parent="audio" index="1"]
+
+stream = ExtResource( 22 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="coin" type="AudioStreamPlayer" parent="audio" index="2"]
+
+stream = ExtResource( 23 )
+volume_db = 0.0
+autoplay = false
 mix_target = 0
 bus = "Master"
 

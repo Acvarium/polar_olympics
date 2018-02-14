@@ -3,6 +3,10 @@ var score = 0
 var main_node
 var team = 0
 var global
+var default_damp = 0.7
+var turn = 0
+var bonus_ten = false
+
 const team_color = [
 	Color(1,1,1,1),
 	Color(1,0.5,0,1),
@@ -12,6 +16,15 @@ func _ready():
 	main_node = get_node("/root/main")
 	global = get_node("/root/global")
 	
+
+func reset_damp():
+	linear_damp = default_damp
+	angular_damp = default_damp
+
+func set_damp(d):
+	linear_damp = d
+	angular_damp = d
+	
 func _physics_process(delta):
 	var target_pos = main_node.target_pos
 	var target_rad = main_node.target_radius
@@ -20,6 +33,9 @@ func _physics_process(delta):
 
 func _on_penguin_sleeping_state_changed():
 	set_physics_process(!sleeping)
+	if sleeping and score == 10 and ! bonus_ten:
+		bonus_ten = true
+		main_node.add_bonus_fish()
 
 func set_team(t):
 	team = t

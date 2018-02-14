@@ -13,7 +13,9 @@ custom_solver_bias = 0.0
 radius = 24.9214
 height = 66.0634
 
-[node name="penguin" type="RigidBody2D"]
+[node name="penguin" type="RigidBody2D" index="0" groups=[
+"peng",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -34,7 +36,7 @@ linear_damp = 0.7
 angular_velocity = 0.0
 angular_damp = 0.7
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Linear", "Transform" ]
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Transform" ]
 
 [node name="pShadow" type="Sprite" parent="." index="0"]
 
