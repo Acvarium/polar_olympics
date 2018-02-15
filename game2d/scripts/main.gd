@@ -44,6 +44,14 @@ func _ready():
 	pointer = $ui/pointer
 	target_pos = $game_field/target.global_position
 	resizer()
+	var wss = ''
+	for i in range(global.score.size()):
+		wss += str(global.score[i])
+		if i < (global.score.size() - 1):
+			wss += ":"
+	$camera_position/Camera/data_ui/t_score.text = wss
+
+#add fishes
 	for i in range(20):
 		var swim_fish = swim_fish_obj.instance()
 		swim_fish.position = Vector2(randf() * max_pos.x + min_pos.x, randf() * max_pos.y + min_pos.y)
@@ -53,6 +61,7 @@ func _ready():
 		var transp = randf() * 0.5 + 0.5
 		swim_fish.modulate = Color(1, 1, 1, transp)
 		$game_field/fishes.add_child(swim_fish)
+
 	for i in range(global.score.size()):
 		throws.append(max_throw)
 		score.append(0)
@@ -116,7 +125,7 @@ func _process(delta):
 				wss += str(global.score[i])
 				if i < (global.score.size() - 1):
 					wss += ":"
-			
+			$camera_position/Camera/data_ui/t_score.text = wss
 			var score_label = $camera_position/Camera/data_ui/total_score_tab/total_score
 			score_label.text = wss
 			$camera_position/Camera/data_ui/total_score_tab/score_anim.play("show_score")
@@ -245,3 +254,6 @@ func _on_cam_anim_animation_finished( anim_name ):
 		$ui/power.show()
 	if global.score.size() > 1:
 		data_ui.get_node("player" + str(team) + "/icon_anim").play("in")
+
+func _on_start_game_timeout():
+	$audio/start.play()

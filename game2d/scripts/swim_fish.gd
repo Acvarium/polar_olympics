@@ -1,11 +1,10 @@
 extends Sprite
-var speed = 2
+var speed = 120
 var panic = false
 var default_anim_speed = 1
 var main_node
 var min_pos = Vector2()
 var max_pos = Vector2()
-
 
 func _ready():
 	main_node = get_node("/root/main")
@@ -13,12 +12,12 @@ func _ready():
 	max_pos = main_node.max_pos
 	set_panic(false)
 
-func _physics_process(delta):
+func _process(delta):
 	var r = rotation
 	var ss = speed 
 	if panic:
-		ss = speed * 6
-	var velocity = Vector2(sin(r),-cos(r)).normalized() * ss #* delta
+		ss = speed * 4
+	var velocity = Vector2(sin(r),-cos(r)).normalized() * ss * delta
 	position += velocity
 	
 	if position.y > max_pos.y:
