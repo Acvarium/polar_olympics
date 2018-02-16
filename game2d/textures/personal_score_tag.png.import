@@ -7,10 +7,10 @@ path="res://.import/personal_score_tag.png-97982cdab0090dec5d2b0390c62fc66c.stex
 [deps]
 
 source_file="res://textures/personal_score_tag.png"
-source_md5="4f0d8aa7aa706ddecb01d0aebfc0c987"
+source_md5="cdb8d048d9fb21cbc2b3869a9d9ecab9"
 
 dest_files=[ "res://.import/personal_score_tag.png-97982cdab0090dec5d2b0390c62fc66c.stex" ]
-dest_md5="60ac6c54c2fe34b2d9025924472daebf"
+dest_md5="cd07c4ffdb8a77abe6082c8225d2d752"
 
 [params]
 

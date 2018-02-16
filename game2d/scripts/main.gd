@@ -20,7 +20,7 @@ var target_pos = Vector2()
 var target_radius = 384.0
 var screen_scale = 1
 var throws = []
-var max_throw = 6
+var max_throw = 1
 var team = 0
 var go = false
 var touch = false
@@ -39,6 +39,13 @@ var max_pos = Vector2(2700, 800)
 func _ready():
 	randomize()
 	global = get_node("/root/global")
+	var p = 0
+	for i in range(global.selected_players.size()):
+		if global.selected_players[i] > 0:
+			var p_name = "camera_position/Camera/data_ui/player" + str(p)
+			get_node(p_name + "/icon").frame = global.selected_players[i]
+			get_node(p_name + "/under/label").text = global.player_name[i]
+			p += 1
 	power = min_power
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	pointer = $ui/pointer

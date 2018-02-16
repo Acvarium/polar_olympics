@@ -1,0 +1,283 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://textures/banner.png" type="Texture" id=2]
+[ext_resource path="res://textures/unfolder.png" type="Texture" id=3]
+[ext_resource path="res://fonts/arial0.tres" type="DynamicFont" id=4]
+[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://textures/rect.png" type="Texture" id=6]
+[ext_resource path="res://textures/play.png" type="Texture" id=7]
+
+[node name="main" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 0.0, 1080.0 ],
+"_edit_vertical_guides_": [ 0.0, 1920.0 ]
+}
+
+[node name="Control" type="Control" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="banner" type="Sprite" parent="Control" index="0"]
+
+position = Vector2( 960, 540 )
+scale = Vector2( 1.35021, 1.58824 )
+texture = ExtResource( 2 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -55.0
+margin_right = 2006.0
+margin_bottom = 264.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+patch_margin_left = 633
+patch_margin_top = 109
+patch_margin_right = 1
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Control" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -199.0
+margin_top = 158.0
+margin_right = 1992.0
+margin_bottom = 422.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+patch_margin_left = 633
+patch_margin_top = 109
+patch_margin_right = 1
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+
+[node name="Label2" type="Label" parent="Control/NinePatchRect2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 271.0
+margin_top = 46.0
+margin_right = 451.0
+margin_bottom = 102.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.0801086, 0.239551, 0.488281, 0.812157 )
+text = "HOTSEAT"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Control" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -280.0
+margin_top = 724.0
+margin_right = 2095.0
+margin_bottom = 988.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+patch_margin_left = 633
+patch_margin_top = 109
+patch_margin_right = 1
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+
+[node name="select_button" parent="Control" index="4" instance=ExtResource( 5 )]
+
+avatar = 1
+
+[node name="select_button2" parent="Control" index="5" instance=ExtResource( 5 )]
+
+margin_left = 780.0
+margin_right = 1044.0
+stand = 1
+
+[node name="select_button3" parent="Control" index="6" instance=ExtResource( 5 )]
+
+margin_left = 1070.0
+margin_right = 1334.0
+stand = 2
+avatar = 0
+
+[node name="select_button4" parent="Control" index="7" instance=ExtResource( 5 )]
+
+margin_left = 1360.0
+margin_right = 1624.0
+stand = 3
+avatar = 0
+
+[node name="button7" type="NinePatchRect" parent="Control" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 290.0
+margin_right = 451.0
+margin_bottom = 516.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+patch_margin_left = 60
+patch_margin_top = 40
+patch_margin_right = 60
+patch_margin_bottom = 67
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Position2D2" type="Position2D" parent="Control/button7" index="0"]
+
+position = Vector2( 202, 185 )
+scale = Vector2( 0.7, 0.7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Label3" type="Label" parent="Control/button7/Position2D2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -86.0
+margin_right = 86.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 0.812157 )
+text = "MAP 01"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="button5" type="NinePatchRect" parent="Control" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1671.0
+margin_top = 220.0
+margin_right = 1867.0
+margin_bottom = 416.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+
+[node name="play" type="Sprite" parent="Control/button5" index="0"]
+
+position = Vector2( 98, 98 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Button" type="Button" parent="Control/button5" index="1"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 196.0
+margin_bottom = 196.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Camera" type="Camera2D" parent="." index="1"]
+
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[connection signal="pressed" from="Control/button5/Button" to="." method="_on_Button_pressed"]
+
+

@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://textures/rect.png" type="Texture" id=1]
+[ext_resource path="res://scripts/select_button.gd" type="Script" id=2]
+[ext_resource path="res://textures/faces.png" type="Texture" id=3]
+[ext_resource path="res://fonts/arial0.tres" type="DynamicFont" id=4]
+
+[node name="select_button" type="NinePatchRect"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 490.0
+margin_top = 220.0
+margin_right = 754.0
+margin_bottom = 515.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+script = ExtResource( 2 )
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+stand = 0
+avatar = 2
+
+[node name="faces" type="Sprite" parent="." index="0"]
+
+position = Vector2( 132, 132 )
+texture = ExtResource( 3 )
+hframes = 6
+_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+
+[node name="name_pos" type="Position2D" parent="." index="1"]
+
+position = Vector2( 132, 255 )
+scale = Vector2( 0.7, 0.7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="name" type="Label" parent="name_pos" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -86.0
+margin_right = 86.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 0.812157 )
+text = "POLAR"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="Button" type="Button" parent="." index="2"]
+
+self_modulate = Color( 0.459237, 0.960938, 0.255249, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 264.0
+margin_bottom = 295.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+
