@@ -1,6 +1,8 @@
 extends Node
 var original_screen_size = Vector2(1920,1080)
 var current_scene = null
+var max_throw = 6
+
 const team_color = [
 	Color(1,1,1,1),
 	Color(1,0.5,0,1),

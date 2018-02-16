@@ -20,7 +20,7 @@ var target_pos = Vector2()
 var target_radius = 384.0
 var screen_scale = 1
 var throws = []
-var max_throw = 1
+var max_throw
 var team = 0
 var go = false
 var touch = false
@@ -39,6 +39,7 @@ var max_pos = Vector2(2700, 800)
 func _ready():
 	randomize()
 	global = get_node("/root/global")
+	max_throw = global.max_throw
 	var p = 0
 	for i in range(global.selected_players.size()):
 		if global.selected_players[i] > 0:
