@@ -2,12 +2,13 @@ extends Node
 var original_screen_size = Vector2(1920,1080)
 var current_scene = null
 var max_throw = 6
+var game_cersion = '0.3.0'
 
 const team_color = [
 	Color(1,1,1,1),
-	Color(1,0.5,0,1),
-	Color(1,0.5,0.8,1),
-	Color(0,0.7,0,1),
+	Color(1,0.53,0,1),
+	Color(1,0.4,0.9,1),
+	Color(0.0,0.84,0.0,1),
 ]
 
 const animals = [
@@ -25,6 +26,7 @@ var selected_players = [1,2,0,0]
 
 func _ready():
 	set_commands(2)
+	get_tree().set_auto_accept_quit(false)
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
 
@@ -34,6 +36,8 @@ func start_game():
 	for i in range(selected_players.size()):
 		if selected_players[i] > 0:
 			score.append(0)
+	if score.size() == 4:
+		max_throw = 5
 	goto_scene("res://scenes/main.tscn")
 
 func goto_scene(path):

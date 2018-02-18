@@ -23,9 +23,6 @@ var throws = []
 var max_throw
 var team = 0
 var go = false
-var touch = false
-var touch_mode = false
-var pushed = false
 var data_ui
 var peng_ico_step = 37
 var no_control = false
@@ -35,6 +32,9 @@ var bonus_score = []
 var score = []
 var min_pos = Vector2(-300, -800)
 var max_pos = Vector2(2700, 800)
+var to_exit = false
+var button_pressed = false
+var mouse_over_ui = false
 
 func _ready():
 	randomize()
@@ -60,15 +60,15 @@ func _ready():
 	$camera_position/Camera/data_ui/t_score.text = wss
 
 #add fishes
-	for i in range(20):
-		var swim_fish = swim_fish_obj.instance()
-		swim_fish.position = Vector2(randf() * max_pos.x + min_pos.x, randf() * max_pos.y + min_pos.y)
-		swim_fish.rotation = (randf() * PI * 2)
-		var f_scale = randf() * 0.2 + 0.9
-		swim_fish.scale = Vector2(f_scale, f_scale)
-		var transp = randf() * 0.5 + 0.5
-		swim_fish.modulate = Color(1, 1, 1, transp)
-		$game_field/fishes.add_child(swim_fish)
+#	for i in range(20):
+#		var swim_fish = swim_fish_obj.instance()
+#		swim_fish.position = Vector2(randf() * max_pos.x + min_pos.x, randf() * max_pos.y + min_pos.y)
+#		swim_fish.rotation = (randf() * PI * 2)
+#		var f_scale = randf() * 0.2 + 0.9
+#		swim_fish.scale = Vector2(f_scale, f_scale)
+#		var transp = randf() * 0.5 + 0.5
+#		swim_fish.modulate = Color(1, 1, 1, transp)
+#		$game_field/fishes.add_child(swim_fish)
 
 	for i in range(global.score.size()):
 		throws.append(max_throw)
@@ -78,8 +78,10 @@ func _ready():
 	for p in range(global.score.size()):
 		if data_ui.has_node("player" + str(p)):
 			data_ui.get_node("player" + str(p)).show()
-			data_ui.get_node("player" + str(p) + "/under").self_modulate = global.team_color[p]
-			
+			data_ui.get_node("player" + str(p) + "/under/label").self_modulate = global.team_color[p]
+			if p == 0:
+				data_ui.get_node("player" + str(p) + "/under/label").add_color_override("font_color", Color(0.72,0.72,0.72,1) )
+
 			for i in range(max_throw):
 				var p_ico = peng_ico_obj.instance()
 				data_ui.get_node("player" + str(p) + "/p").add_child(p_ico)
@@ -90,6 +92,13 @@ func _ready():
 				p_ico.position.x = i * peng_ico_step * sine
 				p_ico.name = "p_ico" + str(i)
 	
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST or what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		if to_exit:
+			get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+		else:
+			to_exit = true
+			$camera_position/Camera/data_ui/exit_message/exit_mess_anim.play("mess")
 
 func get_winers():
 	var v = score[0]
@@ -162,6 +171,7 @@ func bonus(t, value, type):
 		bonus_score[t] += value
 
 func fire():
+#	$camera_position/Camera/data_ui/red_button.hide()
 	state = 0
 	throws[team] -= 1
 	if throws[team] < 0:
@@ -213,36 +223,28 @@ func add_bonus_fish():
 	print(min_pos)
 
 func _input(event):
-		
-	if pushed:
-		return
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
+
 	if no_control:
 		return
-	if (!touch_mode and Input.is_action_just_pressed("fire") or event is InputEventScreenTouch):
-		if to_restart:
-			get_tree().reload_current_scene()
-		var tr = 0
-		for t in throws:
-			tr += t
-		if tr <= 0:
-			return
-		pushed = true
-		$timers/tap.start()
-		if event is InputEventScreenTouch:
-			touch_mode = true
-			if event.index != 0:
-				return
-			if event.pressed:
-				if touch:
-					return
-			else:
-				touch = false
-				return
-		state += 1
-		if state == 2:
-			fire()
-		elif state == 1:
-			$ui/pointer.show()
+	
+	if Input.is_action_just_pressed("fire"):
+		fire_pressed()
+
+func fire_pressed():
+	if to_restart:
+		get_tree().reload_current_scene()
+	var tr = 0
+	for t in throws:
+		tr += t
+	if tr <= 0:
+		return
+	state += 1
+	if state == 2:
+		fire()
+	elif state == 1:
+		$ui/pointer.show()
 
 
 func resizer():
@@ -253,15 +255,30 @@ func resizer():
 	$camera_position/Camera.zoom = Vector2(screen_scale.y, screen_scale.y)
 	$camera_position/Camera/data_ui.margin_right = horizontal
 
-func _on_tap_timeout():
-	pushed = false
-
 func _on_cam_anim_animation_finished( anim_name ):
 	no_control = false
 	if !go:
 		$ui/power.show()
+#		$camera_position/Camera/data_ui/red_button.show()
 	if global.score.size() > 1:
 		data_ui.get_node("player" + str(team) + "/icon_anim").play("in")
 
 func _on_start_game_timeout():
 	$audio/start.play()
+
+func _on_exit_mess_anim_animation_finished( anim_name ):
+	to_exit = false
+
+func _on_menu_button_pressed():
+	button_pressed = true
+	if to_exit:
+		get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+	else:
+		to_exit = true
+		$camera_position/Camera/data_ui/exit_message/exit_mess_anim.play("mess")
+
+func _on_button_pressed_timeout():
+	button_pressed = false
+
+func _on_fire_button_button_down():
+	fire_pressed()

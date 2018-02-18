@@ -7,10 +7,10 @@ path="res://.import/faces.png-782fd2566c5d047c7d1dace139a7f2f7.stex"
 [deps]
 
 source_file="res://textures/faces.png"
-source_md5="6c06db1c0b356c82a1e6702e4d0e82ac"
+source_md5="b7aa9932dca6857b2ad332e4caeda1cf"
 
 dest_files=[ "res://.import/faces.png-782fd2566c5d047c7d1dace139a7f2f7.stex" ]
-dest_md5="a9389b20a92fcb3aa646976ef0348a84"
+dest_md5="9ab0d90443bd712f830a09cb89a52cf8"
 
 [params]
 
