@@ -26,7 +26,8 @@ var selected_players = [1,2,0,0]
 
 func _ready():
 	set_commands(2)
-	get_tree().set_auto_accept_quit(false)
+	get_tree().set_auto_accept_quit(true)
+	get_tree().set_quit_on_go_back(false)
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
 
