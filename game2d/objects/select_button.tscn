@@ -32,6 +32,7 @@ __meta__ = {
 }
 stand = 0
 avatar = 2
+in_selector = false
 
 [node name="faces" type="Sprite" parent="." index="0"]
 

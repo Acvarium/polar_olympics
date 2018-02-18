@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -14,15 +14,16 @@
 [ext_resource path="res://fonts/font1.tres" type="DynamicFont" id=12]
 [ext_resource path="res://fonts/arial0.tres" type="DynamicFont" id=13]
 [ext_resource path="res://textures/gradient_line.png" type="Texture" id=14]
-[ext_resource path="res://textures/faces.png" type="Texture" id=15]
-[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=16]
-[ext_resource path="res://fonts/arial1.tres" type="DynamicFont" id=17]
-[ext_resource path="res://textures/menu_button.png" type="Texture" id=18]
-[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=19]
-[ext_resource path="res://sounds/applod.wav" type="AudioStream" id=20]
-[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=21]
-[ext_resource path="res://sounds/collect.wav" type="AudioStream" id=22]
-[ext_resource path="res://sounds/coin9.wav" type="AudioStream" id=23]
+[ext_resource path="res://textures/rect.png" type="Texture" id=15]
+[ext_resource path="res://textures/faces.png" type="Texture" id=16]
+[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=17]
+[ext_resource path="res://fonts/arial1.tres" type="DynamicFont" id=18]
+[ext_resource path="res://textures/menu_button.png" type="Texture" id=19]
+[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=20]
+[ext_resource path="res://sounds/applod.wav" type="AudioStream" id=21]
+[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=22]
+[ext_resource path="res://sounds/collect.wav" type="AudioStream" id=23]
+[ext_resource path="res://sounds/coin9.wav" type="AudioStream" id=24]
 
 [sub_resource type="Animation" id=1]
 
@@ -801,9 +802,9 @@ anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
 margin_left = -131.0
-margin_top = 20.0
+margin_top = 1015.0
 margin_right = 131.0
-margin_bottom = 84.0
+margin_bottom = 1079.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -848,7 +849,6 @@ texture = ExtResource( 14 )
 
 [node name="player0" type="Control" parent="camera_position/Camera/data_ui" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
@@ -864,16 +864,24 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player0" index="0"]
+[node name="rect" type="Sprite" parent="camera_position/Camera/data_ui/player0" index="0"]
+
+position = Vector2( 77.3216, -8.6137 )
+rotation = 0.785398
+scale = Vector2( 0.492386, 0.492386 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player0" index="1"]
 
 position = Vector2( 78.0371, -38.2964 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 hframes = 6
 frame = 1
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
-[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player0" index="1"]
+[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player0" index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -884,8 +892,9 @@ anims/in = SubResource( 2 )
 anims/out = SubResource( 3 )
 blend_times = [  ]
 
-[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player0" index="2"]
+[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player0" index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -897,7 +906,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -956,7 +965,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player0" index="3"]
+[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player0" index="4"]
 
 modulate = Color( 1, 1, 1, 0.718235 )
 position = Vector2( 310.406, 30.0684 )
@@ -965,7 +974,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="player1" type="Control" parent="camera_position/Camera/data_ui" index="4"]
 
 editor/display_folded = true
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -981,17 +989,25 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player1" index="0"]
+[node name="rect" type="Sprite" parent="camera_position/Camera/data_ui/player1" index="0"]
+
+position = Vector2( 202.322, -8.61403 )
+rotation = 0.785398
+scale = Vector2( 0.492386, 0.492386 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player1" index="1"]
 
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 202.98, -35.3776 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 hframes = 6
 frame = 4
 _sections_unfolded = [ "Animation", "Transform" ]
 
-[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player1" index="1"]
+[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player1" index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -1002,7 +1018,7 @@ anims/in = SubResource( 4 )
 anims/out = SubResource( 5 )
 blend_times = [  ]
 
-[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player1" index="2"]
+[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player1" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1015,7 +1031,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1073,7 +1089,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player1" index="3"]
+[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player1" index="4"]
 
 modulate = Color( 1, 1, 1, 0.718235 )
 position = Vector2( -28.5939, 30.0684 )
@@ -1098,19 +1114,27 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player2" index="0"]
+[node name="rect" type="Sprite" parent="camera_position/Camera/data_ui/player2" index="0"]
+
+position = Vector2( 77.3217, 66.386 )
+rotation = 0.785398
+scale = Vector2( 0.492386, 0.492386 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player2" index="1"]
 
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 78.4879, 100.622 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 flip_h = true
 flip_v = true
 hframes = 6
 frame = 1
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
 
-[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player2" index="1"]
+[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player2" index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -1121,7 +1145,7 @@ anims/in = SubResource( 6 )
 anims/out = SubResource( 7 )
 blend_times = [  ]
 
-[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player2" index="2"]
+[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player2" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1134,7 +1158,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1191,7 +1215,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player2" index="3"]
+[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player2" index="4"]
 
 modulate = Color( 1, 1, 1, 0.718235 )
 position = Vector2( 310.406, 30.0684 )
@@ -1216,18 +1240,26 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player3" index="0"]
+[node name="rect" type="Sprite" parent="camera_position/Camera/data_ui/player3" index="0"]
+
+position = Vector2( 201.322, 67.386 )
+rotation = 0.785398
+scale = Vector2( 0.492386, 0.492386 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="icon" type="Sprite" parent="camera_position/Camera/data_ui/player3" index="1"]
 
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 201.451, 100.622 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 flip_v = true
 hframes = 6
 frame = 1
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player3" index="1"]
+[node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player3" index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -1238,7 +1270,7 @@ anims/in = SubResource( 8 )
 anims/out = SubResource( 9 )
 blend_times = [  ]
 
-[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player3" index="2"]
+[node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player3" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1251,7 +1283,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1309,7 +1341,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player3" index="3"]
+[node name="p" type="Position2D" parent="camera_position/Camera/data_ui/player3" index="4"]
 
 modulate = Color( 1, 1, 1, 0.718235 )
 position = Vector2( -28.5939, 30.0684 )
@@ -1317,22 +1349,21 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="exit_message" type="NinePatchRect" parent="camera_position/Camera/data_ui" index="7"]
 
-editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -334.0
-margin_top = -165.0
+margin_top = -257.0
 margin_right = 333.0
-margin_bottom = -10.0
+margin_bottom = -102.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1393,7 +1424,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1419,7 +1450,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 17 )
+custom_fonts/font = ExtResource( 18 )
 custom_colors/font_color = Color( 1, 0.984375, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0:1"
@@ -1447,7 +1478,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 17 )
+custom_fonts/font = ExtResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TOTAL SCORE:"
 align = 1
@@ -1473,7 +1504,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 patch_margin_left = 45
 patch_margin_top = 20
 patch_margin_right = 45
@@ -1579,13 +1610,13 @@ __meta__ = {
 
 self_modulate = Color( 1, 1, 1, 0.64 )
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 526.0
-margin_top = -1045.0
-margin_right = 621.0
-margin_bottom = -950.0
+anchor_bottom = 0.0
+margin_left = -48.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 99.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
@@ -1596,9 +1627,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 18 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 19 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 20 )
 _sections_unfolded = [ "Textures", "Visibility" ]
 
 [node name="cam_anim" type="AnimationPlayer" parent="camera_position" index="1"]
@@ -1613,7 +1644,7 @@ blend_times = [  ]
 
 [node name="applods" type="AudioStreamPlayer" parent="camera_position/cam_anim" index="0"]
 
-stream = ExtResource( 20 )
+stream = ExtResource( 21 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1637,17 +1668,7 @@ autostart = false
 
 [node name="audio" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="start" type="AudioStreamPlayer" parent="audio" index="0"]
-
-stream = ExtResource( 21 )
-volume_db = 0.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="ten" type="AudioStreamPlayer" parent="audio" index="1"]
 
 stream = ExtResource( 22 )
 volume_db = 0.0
@@ -1655,9 +1676,17 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="coin" type="AudioStreamPlayer" parent="audio" index="2"]
+[node name="ten" type="AudioStreamPlayer" parent="audio" index="1"]
 
 stream = ExtResource( 23 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="coin" type="AudioStreamPlayer" parent="audio" index="2"]
+
+stream = ExtResource( 24 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0

@@ -43,7 +43,6 @@ func _on_penguin_sleeping_state_changed():
 		bonus_ten = true
 		main_node.add_bonus_fish()
 	
-
 func set_team(t):
 	team = t
 

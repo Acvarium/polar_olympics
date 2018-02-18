@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -13,13 +13,15 @@
 [ext_resource path="res://textures/rect.png" type="Texture" id=11]
 [ext_resource path="res://textures/play.png" type="Texture" id=12]
 [ext_resource path="res://fonts/font0.tres" type="DynamicFont" id=13]
+[ext_resource path="res://textures/rect2.png" type="Texture" id=14]
+[ext_resource path="res://textures/x.png" type="Texture" id=15]
 
 [node name="main" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 0.0, 1080.0 ],
-"_edit_vertical_guides_": [ 0.0, 1920.0 ]
+"_edit_vertical_guides_": [ 0.0, 1920.0, 1330.0, 1060.0 ]
 }
 
 [node name="Control" type="Control" parent="." index="0"]
@@ -44,6 +46,7 @@ texture = ExtResource( 2 )
 
 [node name="tabs" type="Control" parent="Control" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -63,6 +66,7 @@ __meta__ = {
 
 [node name="selected_tab" type="Sprite" parent="Control/tabs" index="0"]
 
+editor/display_folded = true
 position = Vector2( 423.739, 58.2123 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
@@ -100,6 +104,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="tab0" type="Sprite" parent="Control/tabs" index="1"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 216.587, 69.0598 )
 texture = ExtResource( 6 )
@@ -166,6 +171,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 
 [node name="tab2" type="Sprite" parent="Control/tabs" index="3"]
 
+editor/display_folded = true
 position = Vector2( 1084.75, 69.0598 )
 texture = ExtResource( 6 )
 
@@ -201,6 +207,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="tab3" type="Sprite" parent="Control/tabs" index="4"]
 
+editor/display_folded = true
 position = Vector2( 1519.92, 69.3833 )
 texture = ExtResource( 6 )
 
@@ -442,6 +449,7 @@ texture = ExtResource( 8 )
 [node name="mode0" type="Control" parent="Control" index="2"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -481,8 +489,6 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="mode1" type="Control" parent="Control" index="3"]
 
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -495,26 +501,26 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="select_button" parent="Control/mode1" index="0" instance=ExtResource( 10 )]
+[node name="select_button0" parent="Control/mode1" index="0" instance=ExtResource( 10 )]
 
 margin_left = 295.0
 margin_right = 559.0
 avatar = 1
 
-[node name="select_button2" parent="Control/mode1" index="1" instance=ExtResource( 10 )]
+[node name="select_button1" parent="Control/mode1" index="1" instance=ExtResource( 10 )]
 
 margin_left = 585.0
 margin_right = 849.0
 stand = 1
 
-[node name="select_button3" parent="Control/mode1" index="2" instance=ExtResource( 10 )]
+[node name="select_button2" parent="Control/mode1" index="2" instance=ExtResource( 10 )]
 
 margin_left = 875.0
 margin_right = 1139.0
 stand = 2
 avatar = 0
 
-[node name="select_button4" parent="Control/mode1" index="3" instance=ExtResource( 10 )]
+[node name="select_button3" parent="Control/mode1" index="3" instance=ExtResource( 10 )]
 
 margin_left = 1165.0
 margin_right = 1429.0
@@ -716,6 +722,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="hint" type="Control" parent="Control" index="6"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -772,6 +779,159 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="char_selector" type="Control" parent="Control" index="7"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 177.0
+margin_right = 304.0
+margin_bottom = 217.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="cancel" type="Button" parent="Control/char_selector" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -297.0
+margin_top = -182.0
+margin_right = 1673.0
+margin_bottom = 940.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/char_selector" index="1"]
+
+modulate = Color( 0.341904, 0.731585, 0.902344, 0.77 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 120.0
+margin_top = 141.0
+margin_right = 1110.0
+margin_bottom = 869.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+patch_margin_left = 60
+patch_margin_top = 60
+patch_margin_right = 60
+patch_margin_bottom = 60
+_sections_unfolded = [ "Patch Margin", "Visibility" ]
+
+[node name="face0" parent="Control/char_selector" index="2" instance=ExtResource( 10 )]
+
+margin_left = 200.0
+margin_right = 464.0
+avatar = 1
+in_selector = true
+
+[node name="face1" parent="Control/char_selector" index="3" instance=ExtResource( 10 )]
+
+margin_left = 500.0
+margin_right = 764.0
+in_selector = true
+
+[node name="face2" parent="Control/char_selector" index="4" instance=ExtResource( 10 )]
+
+margin_left = 800.0
+margin_right = 1064.0
+avatar = 3
+in_selector = true
+
+[node name="face3" parent="Control/char_selector" index="5" instance=ExtResource( 10 )]
+
+margin_left = 200.0
+margin_top = 543.0
+margin_right = 464.0
+margin_bottom = 838.0
+avatar = 4
+in_selector = true
+
+[node name="face4" parent="Control/char_selector" index="6" instance=ExtResource( 10 )]
+
+margin_left = 500.0
+margin_top = 543.0
+margin_right = 764.0
+margin_bottom = 838.0
+avatar = 5
+in_selector = true
+
+[node name="x_button" type="NinePatchRect" parent="Control/char_selector" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 800.0
+margin_top = 543.0
+margin_right = 1064.0
+margin_bottom = 838.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+patch_margin_left = 60
+patch_margin_top = 60
+patch_margin_right = 60
+patch_margin_bottom = 60
+_sections_unfolded = [ "Patch Margin" ]
+
+[node name="x_button" type="Button" parent="Control/char_selector/x_button" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 266.0
+margin_bottom = 297.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="x" type="Sprite" parent="Control/char_selector/x_button" index="1"]
+
+position = Vector2( 128.145, 150.237 )
+texture = ExtResource( 15 )
+
 [node name="Camera" type="Camera2D" parent="." index="1"]
 
 visible = false
@@ -807,5 +967,9 @@ editor_draw_drag_margin = false
 [connection signal="pressed" from="Control/tabs/buttons/Button3" to="." method="_on_Button3_pressed"]
 
 [connection signal="pressed" from="Control/mode1/start/Button" to="." method="_on_Button_pressed"]
+
+[connection signal="pressed" from="Control/char_selector/cancel" to="." method="_on_cancel_pressed"]
+
+[connection signal="pressed" from="Control/char_selector/x_button/x_button" to="." method="_on_x_button_pressed"]
 
 

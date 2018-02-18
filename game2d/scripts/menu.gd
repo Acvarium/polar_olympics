@@ -4,6 +4,7 @@ var screen_scale
 var global
 var tab_num = 4
 var selected_tab = 0
+var selected_stand = 0
 
 var labels = [
 'SINGLE',
@@ -45,6 +46,16 @@ func _input(event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 		
+func set_selected_stand(s):
+	selected_stand = s
+	$Control/char_selector.show()
+	$Control/char_selector/x_button.visible = (s > 1)
+
+func set_face(f):
+	var select_button = get_node("Control/mode1/select_button" + str(selected_stand))
+	select_button.avatar = f
+	select_button.update_avatar()
+	$Control/char_selector.hide()
 
 func _on_Button_pressed():
 	global.start_game()
@@ -60,3 +71,9 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	select_tab(3)
+
+func _on_x_button_pressed():
+	set_face(0)
+
+func _on_cancel_pressed():
+	$Control/char_selector.hide()

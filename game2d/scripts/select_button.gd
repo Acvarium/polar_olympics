@@ -5,9 +5,12 @@ var player_name = ''
 var global
 var mouse_ower = false
 var max_avatar = 5
+export var in_selector = false
+var main_node
 
 func _ready():
 	global = get_node("/root/global")
+	main_node = get_node("/root/main")
 	update_avatar()
 
 func update_avatar():
@@ -29,6 +32,8 @@ func update_avatar():
 	global.player_name[stand] = global.animals[avatar-1]
 	
 func _input(event):
+	if in_selector:
+		return
 	if mouse_ower:
 		if Input.is_action_just_pressed("w_down"):
 			avatar -= 1
@@ -36,8 +41,13 @@ func _input(event):
 		if Input.is_action_just_pressed("w_up"):
 			avatar += 1
 			update_avatar()
+			
+			
 func _on_Button_pressed():
-	pass
+	if in_selector:
+		main_node.set_face(avatar)
+	else:
+		main_node.set_selected_stand(stand)
 
 func _on_Button_mouse_entered():
 	mouse_ower = true
