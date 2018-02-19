@@ -248,6 +248,8 @@ func spawn_penguin():
 	$ui/flags.add_child(flag)
 
 func add_bonus_fish():
+	if go:
+		return
 	$audio/ten.play()
 	$game_field/bonus/bonus_anim.play("ten")
 	var ref = $game_field/bonus/ref
@@ -275,7 +277,6 @@ func _input(event):
 #	elif Input.is_action_just_pressed("w_down"):
 #		test_velocity -= 5
 #		$ui/vel.text = str(test_velocity)
-	
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 		

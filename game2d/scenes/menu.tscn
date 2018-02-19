@@ -4,19 +4,19 @@
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
 [ext_resource path="res://textures/unfolder.png" type="Texture" id=3]
 [ext_resource path="res://fonts/font0.tres" type="DynamicFont" id=4]
-[ext_resource path="res://textures/selected_tab.png" type="Texture" id=5]
+[ext_resource path="res://textures/rect.png" type="Texture" id=5]
 [ext_resource path="res://fonts/arial0.tres" type="DynamicFont" id=6]
-[ext_resource path="res://textures/not_available_icon.png" type="Texture" id=7]
-[ext_resource path="res://textures/tab.png" type="Texture" id=8]
-[ext_resource path="res://textures/tabs_line.png" type="Texture" id=9]
-[ext_resource path="res://fonts/arial1.tres" type="DynamicFont" id=10]
-[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=11]
-[ext_resource path="res://textures/rect.png" type="Texture" id=12]
+[ext_resource path="res://textures/selected_tab.png" type="Texture" id=7]
+[ext_resource path="res://textures/not_available_icon.png" type="Texture" id=8]
+[ext_resource path="res://textures/tab.png" type="Texture" id=9]
+[ext_resource path="res://textures/tabs_line.png" type="Texture" id=10]
+[ext_resource path="res://fonts/arial1.tres" type="DynamicFont" id=11]
+[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://textures/play.png" type="Texture" id=13]
 [ext_resource path="res://textures/rect2.png" type="Texture" id=14]
 [ext_resource path="res://textures/x.png" type="Texture" id=15]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -40,6 +40,7 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="Control" type="Control" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -55,7 +56,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="rect" type="ReferenceRect" parent="Control" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -128,6 +128,76 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="quit" type="NinePatchRect" parent="Control/rect" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_top = 930.0
+margin_right = 246.0
+margin_bottom = 1040.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="quit_button" type="Button" parent="Control/rect/quit" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 196.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Label" type="Label" parent="Control/rect/quit" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 200.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
+text = "QUIT"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_fonts" ]
+
 [node name="tabs" type="Control" parent="Control" index="1"]
 
 editor/display_folded = true
@@ -152,7 +222,7 @@ __meta__ = {
 
 editor/display_folded = true
 position = Vector2( 423.739, 58.2123 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="label" type="Label" parent="Control/tabs/selected_tab" index="0"]
@@ -183,7 +253,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 
 position = Vector2( -377.514, 25.3591 )
 scale = Vector2( 0.632477, 0.632477 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="tab0" type="Sprite" parent="Control/tabs" index="1"]
@@ -191,7 +261,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 editor/display_folded = true
 visible = false
 position = Vector2( 216.587, 69.0598 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="label" type="Label" parent="Control/tabs/tab0" index="0"]
 
@@ -220,14 +290,14 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 [node name="not_available_icon" type="Sprite" parent="Control/tabs/tab0" index="1"]
 
 position = Vector2( -176.173, -0.300308 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="tab1" type="Sprite" parent="Control/tabs" index="2"]
 
 editor/display_folded = true
 position = Vector2( 650.231, 69.0598 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="label" type="Label" parent="Control/tabs/tab1" index="0"]
 
@@ -257,7 +327,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 
 editor/display_folded = true
 position = Vector2( 1084.75, 69.0598 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="label" type="Label" parent="Control/tabs/tab2" index="0"]
 
@@ -286,14 +356,14 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 [node name="not_available_icon" type="Sprite" parent="Control/tabs/tab2" index="1"]
 
 position = Vector2( -175.334, -0.300308 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="tab3" type="Sprite" parent="Control/tabs" index="4"]
 
 editor/display_folded = true
 position = Vector2( 1519.92, 69.3833 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="label" type="Label" parent="Control/tabs/tab3" index="0"]
 
@@ -322,7 +392,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 [node name="not_available_icon" type="Sprite" parent="Control/tabs/tab3" index="1"]
 
 position = Vector2( -178.511, -0.62384 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="selected_pos" type="Control" parent="Control/tabs" index="5"]
@@ -528,7 +598,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 
 position = Vector2( 1152.11, -2.51074 )
 scale = Vector2( 1.20251, 1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="mode0" type="Control" parent="Control" index="2"]
 
@@ -561,7 +631,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 0.497255 )
 text = "SORRY, THIS MODE
 IS NOT YET AVAILABLE"
@@ -585,27 +655,27 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="select_button0" parent="Control/mode1" index="0" instance=ExtResource( 11 )]
+[node name="select_button0" parent="Control/mode1" index="0" instance=ExtResource( 12 )]
 
 margin_left = 295.0
 margin_right = 559.0
 avatar = 1
 
-[node name="select_button1" parent="Control/mode1" index="1" instance=ExtResource( 11 )]
+[node name="select_button1" parent="Control/mode1" index="1" instance=ExtResource( 12 )]
 
 margin_left = 585.0
 margin_right = 849.0
 stand = 1
 avatar = 23
 
-[node name="select_button2" parent="Control/mode1" index="2" instance=ExtResource( 11 )]
+[node name="select_button2" parent="Control/mode1" index="2" instance=ExtResource( 12 )]
 
 margin_left = 875.0
 margin_right = 1139.0
 stand = 2
 avatar = 0
 
-[node name="select_button3" parent="Control/mode1" index="3" instance=ExtResource( 11 )]
+[node name="select_button3" parent="Control/mode1" index="3" instance=ExtResource( 12 )]
 
 margin_left = 1165.0
 margin_right = 1429.0
@@ -628,7 +698,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 12 )
+texture = ExtResource( 5 )
 patch_margin_left = 60
 patch_margin_top = 40
 patch_margin_right = 60
@@ -684,7 +754,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 12 )
+texture = ExtResource( 5 )
 patch_margin_left = 40
 patch_margin_top = 40
 patch_margin_right = 40
@@ -754,7 +824,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 0.497255 )
 text = "SORRY, THIS MODE
 IS NOT YET AVAILABLE"
@@ -795,7 +865,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 0.497255 )
 text = "SORRY, THIS MODE
 IS NOT YET AVAILABLE"
@@ -871,27 +941,27 @@ patch_margin_right = 60
 patch_margin_bottom = 60
 _sections_unfolded = [ "Patch Margin", "Visibility" ]
 
-[node name="face0" parent="Control/char_selector" index="2" instance=ExtResource( 11 )]
+[node name="face0" parent="Control/char_selector" index="2" instance=ExtResource( 12 )]
 
 margin_left = 200.0
 margin_right = 464.0
 avatar = 1
 in_selector = true
 
-[node name="face1" parent="Control/char_selector" index="3" instance=ExtResource( 11 )]
+[node name="face1" parent="Control/char_selector" index="3" instance=ExtResource( 12 )]
 
 margin_left = 500.0
 margin_right = 764.0
 in_selector = true
 
-[node name="face2" parent="Control/char_selector" index="4" instance=ExtResource( 11 )]
+[node name="face2" parent="Control/char_selector" index="4" instance=ExtResource( 12 )]
 
 margin_left = 800.0
 margin_right = 1064.0
 avatar = 3
 in_selector = true
 
-[node name="face3" parent="Control/char_selector" index="5" instance=ExtResource( 11 )]
+[node name="face3" parent="Control/char_selector" index="5" instance=ExtResource( 12 )]
 
 margin_left = 200.0
 margin_top = 543.0
@@ -900,7 +970,7 @@ margin_bottom = 838.0
 avatar = 4
 in_selector = true
 
-[node name="face4" parent="Control/char_selector" index="6" instance=ExtResource( 11 )]
+[node name="face4" parent="Control/char_selector" index="6" instance=ExtResource( 12 )]
 
 margin_left = 500.0
 margin_top = 543.0
@@ -909,7 +979,7 @@ margin_bottom = 838.0
 avatar = 5
 in_selector = true
 
-[node name="face5" parent="Control/char_selector" index="7" instance=ExtResource( 11 )]
+[node name="face5" parent="Control/char_selector" index="7" instance=ExtResource( 12 )]
 
 margin_left = 1096.0
 margin_top = 223.0
@@ -933,7 +1003,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 12 )
+texture = ExtResource( 5 )
 patch_margin_left = 60
 patch_margin_top = 60
 patch_margin_right = 60
@@ -993,6 +1063,8 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+
+[connection signal="pressed" from="Control/rect/quit/quit_button" to="." method="_on_quit_button_pressed"]
 
 [connection signal="pressed" from="Control/tabs/buttons/Button0" to="." method="_on_Button0_pressed"]
 

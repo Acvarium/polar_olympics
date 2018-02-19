@@ -89,3 +89,6 @@ func _on_x_button_pressed():
 
 func _on_cancel_pressed():
 	$Control/char_selector.hide()
+
+func _on_quit_button_pressed():
+	get_tree().quit()
