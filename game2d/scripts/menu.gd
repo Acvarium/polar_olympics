@@ -24,7 +24,12 @@ func resizer():
 	var ratio = screen_size.x/screen_size.y
 	screen_scale = Vector2(global.original_screen_size.x / screen_size.x, global.original_screen_size.y / screen_size.y)
 	var horizontal = ratio * global.original_screen_size.y 
+	var vertoical = global.original_screen_size.x / ratio
 	$Camera.zoom = Vector2(screen_scale.y, screen_scale.y)
+	var control_scale = ratio / (global.original_screen_size.x/global.original_screen_size.y)
+	$Control.rect_scale = Vector2(control_scale,control_scale)
+#	$hint.rect_scale = Vector2(control_scale,control_scale)
+	$Control/rect.margin_bottom = vertoical
 
 func select_tab(t):
 	get_node("Control/tabs/tab" + str(selected_tab)).show()
@@ -56,6 +61,13 @@ func set_face(f):
 	select_button.avatar = f
 	select_button.update_avatar()
 	$Control/char_selector.hide()
+
+#	var ratio = screen_size.x/screen_size.y
+#	screen_scale = Vector2(global.original_screen_size.x / screen_size.x, global.original_screen_size.y / screen_size.y)
+#	var horizontal = ratio * global.original_screen_size.y 
+#	$camera_position/Camera.zoom = Vector2(screen_scale.y, screen_scale.y)
+#	$camera_position/Camera/data_ui.margin_right = horizontal
+
 
 func _on_Button_pressed():
 	global.start_game()

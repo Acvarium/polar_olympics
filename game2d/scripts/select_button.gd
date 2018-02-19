@@ -12,6 +12,10 @@ func _ready():
 	global = get_node("/root/global")
 	main_node = get_node("/root/main")
 	update_avatar()
+	$dot.visible = !in_selector
+	if !in_selector:
+		$dot.modulate = global.team_color[stand]
+		
 
 func update_avatar():
 	if !in_selector:

@@ -261,20 +261,20 @@ func add_bonus_fish():
 	$game_field/bonus.add_child(fish)
 
 func _input(event):
-	if Input.is_action_just_pressed("clear_peng"):
-		for p in $game_field/penguins.get_children():
-			p.queue_free()
-		for f in $ui/flags.get_children():
-			f.queue_free()
-	if Input.is_action_just_pressed("test_fire"):
-		test_fire()
-		return
-	if Input.is_action_just_pressed("w_up"):
-		test_velocity += 5
-		$ui/vel.text = str(test_velocity)
-	elif Input.is_action_just_pressed("w_down"):
-		test_velocity -= 5
-		$ui/vel.text = str(test_velocity)
+#	if Input.is_action_just_pressed("clear_peng"):
+#		for p in $game_field/penguins.get_children():
+#			p.queue_free()
+#		for f in $ui/flags.get_children():
+#			f.queue_free()
+#	if Input.is_action_just_pressed("test_fire"):
+#		test_fire()
+#		return
+#	if Input.is_action_just_pressed("w_up"):
+#		test_velocity += 5
+#		$ui/vel.text = str(test_velocity)
+#	elif Input.is_action_just_pressed("w_down"):
+#		test_velocity -= 5
+#		$ui/vel.text = str(test_velocity)
 	
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
@@ -310,7 +310,6 @@ func fire_pressed():
 		$ui/pointer.show()
 	if avatars[team] == 23 and state == 1:
 		rand_fire(0.5)
-
 
 func resizer():
 	screen_size = get_tree().root.get_visible_rect().size
