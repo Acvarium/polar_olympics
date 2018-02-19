@@ -16,7 +16,7 @@
 [ext_resource path="res://textures/rect2.png" type="Texture" id=14]
 [ext_resource path="res://textures/x.png" type="Texture" id=15]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -505,13 +505,14 @@ size_flags_vertical = 1
 
 margin_left = 295.0
 margin_right = 559.0
-avatar = 23
+avatar = 1
 
 [node name="select_button1" parent="Control/mode1" index="1" instance=ExtResource( 10 )]
 
 margin_left = 585.0
 margin_right = 849.0
 stand = 1
+avatar = 23
 
 [node name="select_button2" parent="Control/mode1" index="2" instance=ExtResource( 10 )]
 

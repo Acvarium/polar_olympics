@@ -65,7 +65,6 @@ func goto_scene(path):
 		call_deferred("_deferred_goto_scene",path)
 
 func _deferred_goto_scene(path):
-#	print("___", go_to_next)
 	current_scene.free()
 	var s = ResourceLoader.load(path)
 	current_scene = s.instance()
