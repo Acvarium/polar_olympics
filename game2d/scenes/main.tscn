@@ -7,8 +7,8 @@
 [ext_resource path="res://textures/target.png" type="Texture" id=5]
 [ext_resource path="res://textures/ice_block_shadow.png" type="Texture" id=6]
 [ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=7]
-[ext_resource path="res://textures/power_under.png" type="Texture" id=8]
-[ext_resource path="res://fonts/font0.tres" type="DynamicFont" id=9]
+[ext_resource path="res://fonts/font0.tres" type="DynamicFont" id=8]
+[ext_resource path="res://textures/power_under.png" type="Texture" id=9]
 [ext_resource path="res://textures/power_progress.png" type="Texture" id=10]
 [ext_resource path="res://textures/arrow.png" type="Texture" id=11]
 [ext_resource path="res://fonts/font1.tres" type="DynamicFont" id=12]
@@ -393,7 +393,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -618,67 +618,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="ui" type="Node2D" parent="." index="1"]
 
-[node name="botom" type="Control" parent="ui" index="0"]
-
-editor/display_folded = true
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="tan0" type="NinePatchRect" parent="ui/botom" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 163.0
-margin_top = 963.0
-margin_right = 630.0
-margin_bottom = 1051.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 8 )
-patch_margin_left = 50
-patch_margin_top = 39
-patch_margin_right = 50
-patch_margin_bottom = 39
-_sections_unfolded = [ "Patch Margin" ]
-
-[node name="tan1" type="NinePatchRect" parent="ui/botom" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1210.0
-margin_top = 963.0
-margin_right = 1677.0
-margin_bottom = 1051.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 8 )
-patch_margin_left = 50
-patch_margin_top = 39
-patch_margin_right = 50
-patch_margin_bottom = 39
-_sections_unfolded = [ "Patch Margin" ]
-
-[node name="total_score" type="Label" parent="ui" index="1"]
+[node name="total_score" type="Label" parent="ui" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -694,7 +634,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 text = "0"
 align = 1
 percent_visible = 1.0
@@ -702,7 +642,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="vel" type="Label" parent="ui" index="2"]
+[node name="vel" type="Label" parent="ui" index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -718,7 +658,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 text = "0"
 align = 1
 percent_visible = 1.0
@@ -726,7 +666,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="vel2" type="Label" parent="ui" index="3"]
+[node name="vel2" type="Label" parent="ui" index="2"]
 
 visible = false
 anchor_left = 0.0
@@ -742,7 +682,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 text = "0"
 align = 1
 percent_visible = 1.0
@@ -750,7 +690,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="game_over" type="Label" parent="ui" index="4"]
+[node name="game_over" type="Label" parent="ui" index="3"]
 
 visible = false
 anchor_left = 0.0
@@ -766,7 +706,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 text = "GAME OVER"
 align = 1
 percent_visible = 1.0
@@ -774,9 +714,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="flags" type="Node2D" parent="ui" index="5"]
+[node name="flags" type="Node2D" parent="ui" index="4"]
 
-[node name="power" type="TextureProgress" parent="ui" index="6"]
+[node name="power" type="TextureProgress" parent="ui" index="5"]
 
 self_modulate = Color( 1, 1, 1, 0.66298 )
 anchor_left = 0.0
@@ -801,7 +741,7 @@ page = 0.0
 value = 54.627
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 8 )
+texture_under = ExtResource( 9 )
 texture_over = null
 texture_progress = ExtResource( 10 )
 radial_fill_degrees = 360.0
@@ -809,7 +749,7 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="pointer" type="Position2D" parent="ui" index="7"]
+[node name="pointer" type="Position2D" parent="ui" index="6"]
 
 editor/display_folded = true
 visible = false
@@ -824,7 +764,7 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="effects" type="Node2D" parent="ui" index="8"]
+[node name="effects" type="Node2D" parent="ui" index="7"]
 
 [node name="ten" type="Node2D" parent="ui/effects" index="0"]
 
@@ -1070,7 +1010,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.144608, 0.288615, 0.457031, 1 )
 text = "0"
 align = 2
@@ -1195,7 +1135,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.0666667, 0.141176, 0.227451, 1 )
 text = "0"
 align = 2
@@ -1322,7 +1262,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.144608, 0.288615, 0.457031, 1 )
 text = "0"
 align = 2
@@ -1449,7 +1389,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.0666667, 0.141176, 0.227451, 1 )
 text = "0"
 align = 2
@@ -1688,7 +1628,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 text = "0"
 align = 2
 percent_visible = 1.0
@@ -1708,13 +1648,12 @@ margin_top = -24.0
 margin_right = 1944.0
 margin_bottom = 1112.0
 rect_pivot_offset = Vector2( 0, 0 )
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 flat = false
@@ -1736,13 +1675,12 @@ margin_top = 4.0
 margin_right = 47.0
 margin_bottom = 99.0
 rect_pivot_offset = Vector2( 0, 0 )
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 texture_normal = ExtResource( 19 )
@@ -1791,6 +1729,13 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="fire_timeout" type="Timer" parent="timers" index="3"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = false
+
 [node name="audio" type="Node2D" parent="." index="4"]
 
 [node name="start" type="AudioStreamPlayer" parent="audio" index="0"]
@@ -1830,5 +1775,7 @@ bus = "Master"
 [connection signal="timeout" from="timers/button_pressed" to="." method="_on_button_pressed_timeout"]
 
 [connection signal="timeout" from="timers/rand_fire" to="." method="_on_rand_fire_timeout"]
+
+[connection signal="timeout" from="timers/fire_timeout" to="." method="_on_fire_timeout_timeout"]
 
 

@@ -42,10 +42,12 @@ var pc_angle = 0
 var rand_twist = 0
 var pc_fire_allow = false
 var rand_power = 0
+var fire_timeout = false
 
 func _ready():
 	randomize()
 	global = get_node("/root/global")
+	global.go_to_next = 0
 	max_throw = global.max_throw
 	var p = 0
 	for i in range(global.selected_players.size()):
@@ -55,8 +57,6 @@ func _ready():
 			get_node(p_name + "/under/label").text = global.player_name[i]
 			avatars.append(global.selected_players[i])
 			p += 1
-	for a in avatars:
-		print(a)
 	power = min_power
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	pointer = $ui/pointer
@@ -259,7 +259,6 @@ func add_bonus_fish():
 	var fish = bonus_fish_obj.instance()
 	fish.global_position = bonus_pos
 	$game_field/bonus.add_child(fish)
-	print(min_pos)
 
 func _input(event):
 	if Input.is_action_just_pressed("clear_peng"):
@@ -276,11 +275,10 @@ func _input(event):
 	elif Input.is_action_just_pressed("w_down"):
 		test_velocity -= 5
 		$ui/vel.text = str(test_velocity)
-		
-		
+	
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
-
+		
 	if no_control:
 		return
 	
@@ -294,6 +292,10 @@ func rand_fire(delay):
 	$timers/rand_fire.start()
 
 func fire_pressed():
+	if fire_timeout:
+		return
+	fire_timeout = true
+	$timers/fire_timeout.start()
 	if to_restart:
 		get_tree().reload_current_scene()
 	var tr = 0
@@ -353,3 +355,6 @@ func _on_fire_button_button_down():
 func _on_rand_fire_timeout():
 	pc_fire_allow = true
 	rand_power = randf() * 300 - 150
+
+func _on_fire_timeout_timeout():
+	fire_timeout = false 

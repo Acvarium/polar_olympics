@@ -14,6 +14,7 @@ var labels = [
 
 func _ready():
 	global = get_node("/root/global")
+	global.go_to_next = 0
 	resizer()
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	select_tab(1)
