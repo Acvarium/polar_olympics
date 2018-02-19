@@ -5,7 +5,7 @@
 [ext_resource path="res://textures/faces.png" type="Texture" id=3]
 [ext_resource path="res://fonts/arial0.tres" type="DynamicFont" id=4]
 
-[node name="select_button" type="NinePatchRect" index="0"]
+[node name="select_button" type="NinePatchRect"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -38,7 +38,8 @@ in_selector = false
 
 position = Vector2( 132, 132 )
 texture = ExtResource( 3 )
-hframes = 6
+vframes = 2
+hframes = 12
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="name_pos" type="Position2D" parent="." index="1"]

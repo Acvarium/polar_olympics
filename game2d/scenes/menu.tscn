@@ -505,7 +505,7 @@ size_flags_vertical = 1
 
 margin_left = 295.0
 margin_right = 559.0
-avatar = 1
+avatar = 23
 
 [node name="select_button1" parent="Control/mode1" index="1" instance=ExtResource( 10 )]
 
@@ -786,10 +786,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 264.0
-margin_top = 177.0
-margin_right = 304.0
-margin_bottom = 217.0
+margin_left = 244.0
+margin_top = 57.0
+margin_right = 284.0
+margin_bottom = 97.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -830,7 +830,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 120.0
 margin_top = 141.0
-margin_right = 1110.0
+margin_right = 1387.0
 margin_bottom = 869.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
@@ -882,7 +882,16 @@ margin_bottom = 838.0
 avatar = 5
 in_selector = true
 
-[node name="x_button" type="NinePatchRect" parent="Control/char_selector" index="7"]
+[node name="face5" parent="Control/char_selector" index="7" instance=ExtResource( 10 )]
+
+margin_left = 1096.0
+margin_top = 223.0
+margin_right = 1360.0
+margin_bottom = 518.0
+avatar = 23
+in_selector = true
+
+[node name="x_button" type="NinePatchRect" parent="Control/char_selector" index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0

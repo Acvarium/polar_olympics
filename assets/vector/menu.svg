@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="2286.2273"
-     inkscape:cy="-641.30621"
+     inkscape:zoom="0.25"
+     inkscape:cx="1937.0246"
+     inkscape:cy="1391.7156"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -298,7 +298,7 @@
        y1="131.89998"
        x2="385.23334"
        y2="182.43539"
-       gradientTransform="translate(-16.850352,-367.82458)" />
+       gradientTransform="translate(-16.850352,-438.91827)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2924"
@@ -308,7 +308,7 @@
        y1="147.79677"
        x2="386.29132"
        y2="134.70056"
-       gradientTransform="translate(-16.850352,-367.82458)" />
+       gradientTransform="translate(-16.850352,-438.91827)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3094"
@@ -318,7 +318,7 @@
        y1="182.034"
        x2="388.8638"
        y2="165.94437"
-       gradientTransform="translate(-16.850352,-367.82458)" />
+       gradientTransform="translate(-16.850352,-438.91827)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2914"
@@ -328,7 +328,7 @@
        y1="156.68349"
        x2="387.83481"
        y2="140.21968"
-       gradientTransform="translate(-16.850352,-367.82458)" />
+       gradientTransform="translate(-16.850352,-438.91827)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2954"
@@ -365,7 +365,7 @@
        y1="182.034"
        x2="388.8638"
        y2="165.94437"
-       gradientTransform="matrix(0.89613912,0,0,0.89613912,91.31856,-348.56739)" />
+       gradientTransform="matrix(0.89613912,0,0,0.89613912,91.31856,-419.66108)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1367"
@@ -393,7 +393,7 @@
        x2="-1297.541"
        y2="510.38043"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.26458333,0,0,0.26458333,783.26111,-354.76506)" />
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,783.26111,-425.85875)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1423"
@@ -403,7 +403,7 @@
        x2="-362.74374"
        y2="139.04373"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(783.26111,-366.01504)" />
+       gradientTransform="translate(783.26111,-437.10873)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1453"
@@ -422,7 +422,7 @@
        y1="141.83839"
        x2="-349.56418"
        y2="145.21184"
-       gradientTransform="matrix(-1,0,0,1,97.32947,-366.01504)" />
+       gradientTransform="matrix(-1,0,0,1,97.32947,-437.10873)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1467"
@@ -472,7 +472,7 @@
        y1="151.2563"
        x2="-343.12061"
        y2="135.54247"
-       gradientTransform="translate(783.26111,-366.01504)" />
+       gradientTransform="translate(783.26111,-437.10873)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1453"
@@ -482,7 +482,7 @@
        y1="141.83839"
        x2="-349.56418"
        y2="145.21184"
-       gradientTransform="translate(783.26111,-366.01504)" />
+       gradientTransform="translate(783.26111,-437.10873)" />
     <linearGradient
        y2="182.43539"
        x2="385.23334"
@@ -896,6 +896,202 @@
          stdDeviation="1.6677618"
          id="feGaussianBlur4683" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4460"
+       id="linearGradient4462"
+       x1="-203.54018"
+       y1="1310.9211"
+       x2="-242.09375"
+       y2="1379.9017"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4460">
+      <stop
+         style="stop-color:#898a8c;stop-opacity:1;"
+         offset="0"
+         id="stop4456" />
+      <stop
+         style="stop-color:#404142;stop-opacity:1"
+         offset="1"
+         id="stop4458" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4412"
+       x="-0.1128"
+       width="1.2256"
+       y="-0.1128"
+       height="1.2256">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.869086"
+         id="feGaussianBlur4414" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter3843"
+       x="-0.073200002"
+       width="1.1464"
+       y="-0.073200002"
+       height="1.1464">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.5563546"
+         id="feGaussianBlur3845" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter3815"
+       x="-0.0876"
+       width="1.1752"
+       y="-0.0876"
+       height="1.1752">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.4624348"
+         id="feGaussianBlur3817" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3983">
+      <circle
+         r="29.671747"
+         cy="1552.365"
+         cx="-873.97131"
+         id="circle3985"
+         style="opacity:1;vector-effect:none;fill:#b1000e;fill-opacity:1;stroke:none;stroke-width:2.22550106;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </clipPath>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter3977"
+       x="-0.045600001"
+       width="1.0912"
+       y="-0.045600001"
+       height="1.0912">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.1275264"
+         id="feGaussianBlur3979" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3993"
+       id="linearGradient3995"
+       x1="-876.54291"
+       y1="1529.0632"
+       x2="-888.82056"
+       y2="1575.1119"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3993">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3989" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop3991" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4004"
+       id="linearGradient4096"
+       gradientUnits="userSpaceOnUse"
+       x1="-3314.2031"
+       y1="5948.2065"
+       x2="-3309.574"
+       y2="5864.6396" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4004">
+      <stop
+         style="stop-color:#660008;stop-opacity:1;"
+         offset="0"
+         id="stop4000" />
+      <stop
+         style="stop-color:#660008;stop-opacity:0;"
+         offset="1"
+         id="stop4002" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4084"
+       x="-0.11804597"
+       width="1.2360919"
+       y="-0.14664383"
+       height="1.2932878">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="7.2435715"
+         id="feGaussianBlur4086" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3993"
+       id="linearGradient4102"
+       gradientUnits="userSpaceOnUse"
+       x1="-866.76086"
+       y1="1531.3594"
+       x2="-870.31653"
+       y2="1536.3689" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3993"
+       id="linearGradient4250"
+       x1="-856.19806"
+       y1="1519.7817"
+       x2="-889.05872"
+       y2="1586.6938"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4240"
+       x="-0.017999999"
+       width="1.036"
+       y="-0.017999999"
+       height="1.036">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.53153824"
+         id="feGaussianBlur4242" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4004"
+       id="linearGradient5097"
+       gradientUnits="userSpaceOnUse"
+       x1="-3314.2031"
+       y1="5948.2065"
+       x2="-3309.574"
+       y2="5864.6396" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4004"
+       id="linearGradient5099"
+       gradientUnits="userSpaceOnUse"
+       x1="-3314.2031"
+       y1="5948.2065"
+       x2="-3309.574"
+       y2="5864.6396" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4004"
+       id="linearGradient5101"
+       gradientUnits="userSpaceOnUse"
+       x1="-3314.2031"
+       y1="5948.2065"
+       x2="-3309.574"
+       y2="5864.6396" />
   </defs>
   <metadata
      id="metadata1262">
@@ -918,64 +1114,9 @@
        inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
-       style="opacity:0"
-       id="g3575">
-      <rect
-         ry="0"
-         y="-249.35681"
-         x="406.39999"
-         height="76.713593"
-         width="67.73333"
-         id="rect3520"
-         style="opacity:0.20100002;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         style="opacity:0.20100002;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect3518"
-         width="67.73333"
-         height="76.713593"
-         x="338.66666"
-         y="-249.35681"
-         ry="0" />
-      <rect
-         ry="0"
-         y="-249.35681"
-         x="270.93335"
-         height="76.713593"
-         width="67.73333"
-         id="rect3516"
-         style="opacity:0.20100002;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         ry="0"
-         y="-249.35681"
-         x="135.46667"
-         height="76.713593"
-         width="67.73333"
-         id="rect3282"
-         style="opacity:0.20100002;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         style="opacity:0.20100002;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect3480"
-         width="67.73333"
-         height="76.713593"
-         x="203.2"
-         y="-249.35681"
-         ry="0" />
-      <rect
-         style="opacity:0.20100002;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect3559"
-         width="67.73333"
-         height="76.713593"
-         x="67.733345"
-         y="-249.35681"
-         ry="0" />
-    </g>
-    <g
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        style="opacity:0.59235666"
        id="g2094"
-       transform="translate(-206.27603,-363.54473)">
+       transform="translate(-206.27603,-434.63842)">
       <path
          inkscape:connector-curvature="0"
          style="opacity:1;vector-effect:none;fill:#1e3e63;fill-opacity:1;stroke:none;stroke-width:0.2729069;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -991,7 +1132,7 @@
     </g>
     <g
        id="g3132"
-       transform="translate(78.583222,-366.3459)"
+       transform="translate(78.583222,-437.43959)"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
@@ -1010,7 +1151,7 @@
     </g>
     <path
        id="path3134"
-       d="m 293.90504,-238.96916 c -1.2301,0.033 -2.482,0.62496 -3.71501,2.20813 -2.77392,3.56166 2.28203,8.83047 2.28203,8.83047 l 0.1106,-0.0754 c -0.1255,0.22245 -0.24802,0.45387 -0.3669,0.69505 -1.12059,1.81135 -2.00364,4.09222 -2.52648,6.94428 -0.0185,0.67636 0.0394,1.88391 0.0233,3.33365 -0.5598,3.21526 -1.10035,6.08403 -1.87997,8.87853 -0.094,0.15859 -0.19116,0.31472 -0.29456,0.46612 -2.37969,3.48398 -5.77882,8.10993 -7.41249,14.89469 0.13552,0.1467 0.27432,0.28842 0.41238,0.4315 2.2388,2.60192 5.4391,4.7656 9.19843,6.35207 4.72511,2.08136 9.94352,3.00687 15.06368,2.98018 5.12358,0.0267 10.34592,-0.90047 15.0735,-2.98483 3.75435,-1.58589 6.95087,-3.74728 9.18755,-6.34638 0.13835,-0.14338 0.27762,-0.28554 0.41341,-0.43254 -1.63367,-6.78476 -5.0328,-11.41071 -7.41249,-14.89469 -0.1034,-0.1514 -0.20055,-0.30753 -0.29453,-0.46612 -0.77976,-2.79478 -1.32014,-5.66391 -1.88,-8.87957 -0.0161,-1.44927 0.0417,-2.65641 0.0233,-3.33261 -0.52247,-2.85006 -1.40493,-5.12992 -2.52439,-6.94066 -0.16973,-0.34452 -0.34866,-0.66278 -0.53176,-0.96945 1.04503,-1.21324 4.32986,-5.45875 1.97353,-8.48424 -1.23304,-1.58317 -2.48441,-2.17516 -3.71451,-2.20813 -1.39412,-0.0374 -2.76085,0.64339 -4.04109,1.41438 -2.31216,1.39241 -3.52226,3.47266 -3.52226,3.47266 l 1.01388,0.6935 c -1.28595,-0.25203 -2.5627,-0.33277 -3.76409,-0.28939 -0.19019,-0.007 -0.38201,-0.0113 -0.57568,-0.0119 -1.27974,-0.004 -2.63049,0.13453 -3.97651,0.4749 -0.0227,0.004 -0.045,0.009 -0.0677,0.0135 l 1.28778,-0.88057 c 0,0 -1.21013,-2.08025 -3.52227,-3.47266 -1.28024,-0.77099 -2.64647,-1.45174 -4.04058,-1.41438 z"
+       d="m 293.90504,-310.06285 c -1.2301,0.033 -2.482,0.62496 -3.71501,2.20813 -2.77392,3.56166 2.28203,8.83047 2.28203,8.83047 l 0.1106,-0.0754 c -0.1255,0.22245 -0.24802,0.45387 -0.3669,0.69505 -1.12059,1.81135 -2.00364,4.09222 -2.52648,6.94428 -0.0185,0.67636 0.0394,1.88391 0.0233,3.33365 -0.5598,3.21526 -1.10035,6.08403 -1.87997,8.87853 -0.094,0.15859 -0.19116,0.31472 -0.29456,0.46612 -2.37969,3.48398 -5.77882,8.10993 -7.41249,14.89469 0.13552,0.1467 0.27432,0.28842 0.41238,0.4315 2.2388,2.60192 5.4391,4.7656 9.19843,6.35207 4.72511,2.08136 9.94352,3.00687 15.06368,2.98018 5.12358,0.0267 10.34592,-0.90047 15.0735,-2.98483 3.75435,-1.58589 6.95087,-3.74728 9.18755,-6.34638 0.13835,-0.14338 0.27762,-0.28554 0.41341,-0.43254 -1.63367,-6.78476 -5.0328,-11.41071 -7.41249,-14.89469 -0.1034,-0.1514 -0.20055,-0.30753 -0.29453,-0.46612 -0.77976,-2.79478 -1.32014,-5.66391 -1.88,-8.87957 -0.0161,-1.44927 0.0417,-2.65641 0.0233,-3.33261 -0.52247,-2.85006 -1.40493,-5.12992 -2.52439,-6.94066 -0.16973,-0.34452 -0.34866,-0.66278 -0.53176,-0.96945 1.04503,-1.21324 4.32986,-5.45875 1.97353,-8.48424 -1.23304,-1.58317 -2.48441,-2.17516 -3.71451,-2.20813 -1.39412,-0.0374 -2.76085,0.64339 -4.04109,1.41438 -2.31216,1.39241 -3.52226,3.47266 -3.52226,3.47266 l 1.01388,0.6935 c -1.28595,-0.25203 -2.5627,-0.33277 -3.76409,-0.28939 -0.19019,-0.007 -0.38201,-0.0113 -0.57568,-0.0119 -1.27974,-0.004 -2.63049,0.13453 -3.97651,0.4749 -0.0227,0.004 -0.045,0.009 -0.0677,0.0135 l 1.28778,-0.88057 c 0,0 -1.21013,-2.08025 -3.52227,-3.47266 -1.28024,-0.77099 -2.64647,-1.45174 -4.04058,-1.41438 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
@@ -1019,7 +1160,7 @@
     <path
        inkscape:connector-curvature="0"
        id="path3136"
-       d="m 305.30901,-203.3502 a 19.822734,17.835919 0 0 0 -19.52543,14.76964 c 1.22584,0.7452 2.55043,1.41739 3.95275,2.00918 4.72511,2.08135 9.94351,3.00687 15.06368,2.98018 5.12357,0.0266 10.34592,-0.90047 15.07349,-2.98483 1.74721,-0.73804 3.37135,-1.60212 4.8364,-2.57556 a 19.822734,17.835919 0 0 0 -19.40089,-14.19861 z"
+       d="m 305.30901,-274.44389 a 19.822734,17.835919 0 0 0 -19.52543,14.76964 c 1.22584,0.7452 2.55043,1.41739 3.95275,2.00918 4.72511,2.08135 9.94351,3.00687 15.06368,2.98018 5.12357,0.0266 10.34592,-0.90047 15.07349,-2.98483 1.74721,-0.73804 3.37135,-1.60212 4.8364,-2.57556 a 19.822734,17.835919 0 0 0 -19.40089,-14.19861 z"
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.65396625;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1027,7 +1168,7 @@
     <path
        sodipodi:nodetypes="scscsas"
        inkscape:connector-curvature="0"
-       d="m 294.22903,-210.4141 c -8.65283,-4.67721 -3.7257,-15.32659 -0.45167,-20.14413 3.27406,-4.81749 7.99576,-5.23502 10.78023,-5.25316 3.14787,-0.0205 7.24159,-0.0935 10.51565,4.72399 3.27403,4.81754 8.46574,15.99609 -0.18709,20.6733 -3.1418,1.69827 -6.93641,2.22018 -10.51906,2.20667 -3.45846,-0.013 -7.12205,-0.57639 -10.13806,-2.20667 z"
+       d="m 294.22903,-281.50779 c -8.65283,-4.67721 -3.7257,-15.32659 -0.45167,-20.14413 3.27406,-4.81749 7.99576,-5.23502 10.78023,-5.25316 3.14787,-0.0205 7.24159,-0.0935 10.51565,4.72399 3.27403,4.81754 8.46574,15.99609 -0.18709,20.6733 -3.1418,1.69827 -6.93641,2.22018 -10.51906,2.20667 -3.45846,-0.013 -7.12205,-0.57639 -10.13806,-2.20667 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="path3138"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
@@ -1037,13 +1178,13 @@
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
        id="path3140"
-       d="m 304.5351,-217.61736 c -1.68001,-9e-5 -3.04206,0.39845 -3.04187,0.89007 -1.9e-4,0.49162 0.57699,1.59093 3.04187,1.59085 2.2544,2e-5 3.04143,-1.0993 3.04124,-1.59085 1.9e-4,-0.49155 -1.36145,-0.89006 -3.04124,-0.89007 z"
+       d="m 304.5351,-288.71105 c -1.68001,-9e-5 -3.04206,0.39845 -3.04187,0.89007 -1.9e-4,0.49162 0.57699,1.59093 3.04187,1.59085 2.2544,2e-5 3.04143,-1.0993 3.04124,-1.59085 1.9e-4,-0.49155 -1.36145,-0.89006 -3.04124,-0.89007 z"
        style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.73565555;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
-       transform="matrix(1.1986109,0,0,1.1986109,-64.215935,-395.66497)"
+       transform="matrix(1.1986109,0,0,1.1986109,-64.215935,-466.75866)"
        id="g3154"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1084,14 +1225,14 @@
        sodipodi:nodetypes="scccsscs"
        inkscape:connector-curvature="0"
        id="path3158"
-       d="m 357.71061,-225.33483 c -0.87231,11.15755 -2.63766,15.96798 -8.01112,23.66237 -1.83888,2.66206 -3.17674,5.38346 -4.31843,7.73072 14.96922,14.7067 44.37808,11.21859 54.32509,0 -1.02863,-2.11482 -2.70873,-5.4465 -4.44804,-7.73232 -7.48471,-9.83643 -6.24473,-14.64255 -7.8815,-24.26553 -1.34438,-7.90394 -6.07584,-11.85597 -14.09886,-11.88338 -8.70767,-0.0927 -15.02692,5.57823 -15.56714,12.48814 z"
+       d="m 357.71061,-296.42852 c -0.87231,11.15755 -2.63766,15.96798 -8.01112,23.66237 -1.83888,2.66206 -3.17674,5.38346 -4.31843,7.73072 14.96922,14.7067 44.37808,11.21859 54.32509,0 -1.02863,-2.11482 -2.70873,-5.4465 -4.44804,-7.73232 -7.48471,-9.83643 -6.24473,-14.64255 -7.8815,-24.26553 -1.34438,-7.90394 -6.07584,-11.85597 -14.09886,-11.88338 -8.70767,-0.0927 -15.02692,5.57823 -15.56714,12.48814 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient3268);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.64399999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 357.71061,-225.33483 c -0.87231,11.15755 -2.63766,15.96798 -8.01112,23.66237 -1.83888,2.66206 -3.17674,5.38346 -4.31843,7.73072 14.96922,14.7067 44.37808,11.21859 54.32509,0 -1.02863,-2.11482 -2.70873,-5.4465 -4.44804,-7.73232 -7.48471,-9.83643 -6.24473,-14.64255 -7.8815,-24.26553 -1.34438,-7.90394 -6.07584,-11.85597 -14.09886,-11.88338 -8.70767,-0.0927 -15.02692,5.57823 -15.56714,12.48814 z"
+       d="m 357.71061,-296.42852 c -0.87231,11.15755 -2.63766,15.96798 -8.01112,23.66237 -1.83888,2.66206 -3.17674,5.38346 -4.31843,7.73072 14.96922,14.7067 44.37808,11.21859 54.32509,0 -1.02863,-2.11482 -2.70873,-5.4465 -4.44804,-7.73232 -7.48471,-9.83643 -6.24473,-14.64255 -7.8815,-24.26553 -1.34438,-7.90394 -6.07584,-11.85597 -14.09886,-11.88338 -8.70767,-0.0927 -15.02692,5.57823 -15.56714,12.48814 z"
        id="path3160"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="scccsscs"
@@ -1102,7 +1243,7 @@
        sodipodi:nodetypes="ccccscccccc"
        inkscape:connector-curvature="0"
        id="path3162"
-       d="m 363.28903,-218.64686 c -6.34603,-5.71764 -0.29505,-10.6617 5.91809,-10.96925 0.74836,0.79514 5.56587,0.98221 7.39001,0.0468 7.26298,0.89691 10.49422,4.63504 6.66927,10.10278 0,0 -0.79129,0.71518 -1.40742,0.74836 -1.4563,0.0784 -4.38767,-2.28514 -4.32642,-2.43215 l -2.43215,-2.89988 -3.92886,-0.18709 -2.33862,2.33861 -3.08695,2.99342 c -0.89996,0.67995 -1.81995,0.66893 -2.45695,0.2584 z"
+       d="m 363.28903,-289.74055 c -6.34603,-5.71764 -0.29505,-10.6617 5.91809,-10.96925 0.74836,0.79514 5.56587,0.98221 7.39001,0.0468 7.26298,0.89691 10.49422,4.63504 6.66927,10.10278 0,0 -0.79129,0.71518 -1.40742,0.74836 -1.4563,0.0784 -4.38767,-2.28514 -4.32642,-2.43215 l -2.43215,-2.89988 -3.92886,-0.18709 -2.33862,2.33861 -3.08695,2.99342 c -0.89996,0.67995 -1.81995,0.66893 -2.45695,0.2584 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient3270);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1110,7 +1251,7 @@
     <path
        inkscape:connector-curvature="0"
        id="path3164"
-       d="m 373.0783,-201.80372 a 20.839909,16.349782 0 0 0 -20.33934,12.88036 c 12.70566,6.62755 29.90995,5.35598 40.56084,-0.40256 a 20.839909,16.349782 0 0 0 -20.2215,-12.4778 z"
+       d="m 373.0783,-272.89741 a 20.839909,16.349782 0 0 0 -20.33934,12.88036 c 12.70566,6.62755 29.90995,5.35598 40.56084,-0.40256 a 20.839909,16.349782 0 0 0 -20.2215,-12.4778 z"
        style="opacity:0.578;vector-effect:none;fill:url(#linearGradient3272);fill-opacity:1;stroke:none;stroke-width:0.64199209;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1119,13 +1260,13 @@
        sodipodi:nodetypes="sccccsccccs"
        inkscape:connector-curvature="0"
        id="path3166"
-       d="m 372.84496,-225.10192 c -3.42123,-0.0223 -4.82497,2.87113 -6.58203,4.82812 -1.99247,2.25629 -2.73443,1.65228 -4,0.58594 0.37949,0.93496 1.11892,1.63102 2.05469,1.69531 0.93576,0.0643 1.8975,-0.458 2.82617,-1.48047 1.78748,-2.15938 3.15053,-3.67635 5.70117,-3.71185 3.07255,-0.0428 4.17645,2.01015 5.70313,3.71185 0.92867,1.02247 1.8904,1.54476 2.82617,1.48047 0.93576,-0.0643 1.6752,-0.76035 2.05469,-1.69531 -1.18573,0.71778 -2.30796,1.28201 -4,-0.58594 -2.05365,-2.5765 -3.43515,-4.80759 -6.58399,-4.82812 z"
+       d="m 372.84496,-296.19561 c -3.42123,-0.0223 -4.82497,2.87113 -6.58203,4.82812 -1.99247,2.25629 -2.73443,1.65228 -4,0.58594 0.37949,0.93496 1.11892,1.63102 2.05469,1.69531 0.93576,0.0643 1.8975,-0.458 2.82617,-1.48047 1.78748,-2.15938 3.15053,-3.67635 5.70117,-3.71185 3.07255,-0.0428 4.17645,2.01015 5.70313,3.71185 0.92867,1.02247 1.8904,1.54476 2.82617,1.48047 0.93576,-0.0643 1.6752,-0.76035 2.05469,-1.69531 -1.18573,0.71778 -2.30796,1.28201 -4,-0.58594 -2.05365,-2.5765 -3.43515,-4.80759 -6.58399,-4.82812 z"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.18993008;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
-       transform="translate(-17.322361,-367.82458)"
+       transform="translate(-17.322361,-438.91827)"
        id="g3172"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1145,7 +1286,7 @@
     </g>
     <g
        id="g3178"
-       transform="matrix(1.0013659,0,0,0.93458565,-17.635631,-357.86964)"
+       transform="matrix(1.0013659,0,0,0.93458565,-17.635631,-428.96333)"
        style="fill:#000000;fill-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1167,14 +1308,14 @@
        sodipodi:nodetypes="czcsssc"
        inkscape:connector-curvature="0"
        id="path3180"
-       d="m 386.39737,-225.57433 c -0.83701,10.25317 -7.70291,12.63528 -13.82784,12.62919 -6.12493,-0.006 -13.37503,-1.96017 -13.73843,-12.59973 -0.1039,0.69217 -0.15812,1.40072 -0.15812,2.12183 0,7.76414 6.24607,12.55479 13.94333,12.55479 7.69726,0 13.94333,-4.79065 13.94333,-12.55479 0,-0.73131 -0.0554,-1.4498 -0.16227,-2.15129 z"
+       d="m 386.39737,-296.66802 c -0.83701,10.25317 -7.70291,12.63528 -13.82784,12.62919 -6.12493,-0.006 -13.37503,-1.96017 -13.73843,-12.59973 -0.1039,0.69217 -0.15812,1.40072 -0.15812,2.12183 0,7.76414 6.24607,12.55479 13.94333,12.55479 7.69726,0 13.94333,-4.79065 13.94333,-12.55479 0,-0.73131 -0.0554,-1.4498 -0.16227,-2.15129 z"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:0.578;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:url(#linearGradient3274);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.16181076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        style="fill:url(#linearGradient3280);fill-opacity:1"
-       transform="matrix(1.0013659,0,0,0.93458565,-17.635631,-357.86964)"
+       transform="matrix(1.0013659,0,0,0.93458565,-17.635631,-428.96333)"
        id="g3186"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1193,7 +1334,7 @@
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient3278);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.66500002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
     </g>
     <g
-       transform="matrix(0.78681461,0,0,1,66.221805,-368.75062)"
+       transform="matrix(0.78681461,0,0,1,66.221805,-439.84431)"
        id="g3192"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1215,7 +1356,7 @@
     </g>
     <circle
        r="0.42094952"
-       cy="-232.30551"
+       cy="-303.3992"
        cx="365.32504"
        id="circle3194"
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.16181076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1226,14 +1367,14 @@
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.16181076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="circle3196"
        cx="381.20004"
-       cy="-232.30551"
+       cy="-303.3992"
        r="0.42094952"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        id="path3234"
-       d="m 171.18827,-239.20699 c -2.74476,0.0755 -3.94815,0.99538 -4.56303,2.43086 -0.46584,-0.61602 -0.70699,-1.14143 -0.70745,-2.07429 -1.12328,1.23901 -1.09689,2.02584 -0.90021,2.98845 -1.26792,0.28652 -2.37754,0.75494 -3.35276,1.36839 a 4.2994788,4.2994788 0 0 0 -4.07469,-2.94504 4.2994788,4.2994788 0 0 0 -4.29948,4.29948 4.2994788,4.2994788 0 0 0 3.80339,4.26795 c -0.81142,1.84135 -1.35552,3.90153 -1.72341,6.02651 -0.88942,5.13732 -0.50592,14.35985 -0.50592,14.35985 -5.34509,3.62559 -9.02782,10.44099 -10.18025,15.92615 13.58401,14.70671 40.27122,11.21859 49.29776,0 -0.95399,-5.41902 -4.83568,-12.30056 -10.18077,-15.92615 0,0 0.48189,-9.97364 -0.50591,-14.88127 -0.33636,-1.67106 -0.68096,-3.65559 -1.387,-5.56038 a 4.2994788,4.2994788 0 0 0 3.46077,-4.21266 4.2994788,4.2994788 0 0 0 -4.29948,-4.29948 4.2994788,4.2994788 0 0 0 -3.96616,2.64118 c -1.3121,-0.70207 -2.93148,-1.18878 -4.94389,-1.36529 0.11117,-0.73475 0.21271,-1.30963 0.69712,-1.73065 -1.10493,-0.10319 -1.92372,0.26693 -2.84944,0.8537 0.041,-0.7606 0.30335,-1.54416 1.18081,-2.16731 z"
+       d="m 171.18827,-310.30068 c -2.74476,0.0755 -3.94815,0.99538 -4.56303,2.43086 -0.46584,-0.61602 -0.70699,-1.14143 -0.70745,-2.07429 -1.12328,1.23901 -1.09689,2.02584 -0.90021,2.98845 -1.26792,0.28652 -2.37754,0.75494 -3.35276,1.36839 a 4.2994788,4.2994788 0 0 0 -4.07469,-2.94504 4.2994788,4.2994788 0 0 0 -4.29948,4.29948 4.2994788,4.2994788 0 0 0 3.80339,4.26795 c -0.81142,1.84135 -1.35552,3.90153 -1.72341,6.02651 -0.88942,5.13732 -0.50592,14.35985 -0.50592,14.35985 -5.34509,3.62559 -9.02782,10.44099 -10.18025,15.92615 13.58401,14.70671 40.27122,11.21859 49.29776,0 -0.95399,-5.41902 -4.83568,-12.30056 -10.18077,-15.92615 0,0 0.48189,-9.97364 -0.50591,-14.88127 -0.33636,-1.67106 -0.68096,-3.65559 -1.387,-5.56038 a 4.2994788,4.2994788 0 0 0 3.46077,-4.21266 4.2994788,4.2994788 0 0 0 -4.29948,-4.29948 4.2994788,4.2994788 0 0 0 -3.96616,2.64118 c -1.3121,-0.70207 -2.93148,-1.18878 -4.94389,-1.36529 0.11117,-0.73475 0.21271,-1.30963 0.69712,-1.73065 -1.10493,-0.10319 -1.92372,0.26693 -2.84944,0.8537 0.041,-0.7606 0.30335,-1.54416 1.18081,-2.16731 z"
        style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
@@ -1241,7 +1382,7 @@
        inkscape:export-ydpi="96" />
     <circle
        r="4.299479"
-       cy="-233.13928"
+       cy="-304.23297"
        cx="157.59007"
        id="circle3236"
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.64399999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1252,13 +1393,13 @@
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.64399999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="circle3238"
        cx="181.0697"
-       cy="-233.13928"
+       cy="-304.23297"
        r="4.299479"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
-       transform="translate(-56.85774,-366.11089)"
+       transform="translate(-56.85774,-437.20458)"
        id="g3244"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1280,7 +1421,7 @@
        sodipodi:nodetypes="ccccsccccccccc"
        inkscape:connector-curvature="0"
        id="path3246"
-       d="m 171.18827,-239.20699 c -2.74476,0.0755 -3.94815,0.99538 -4.56303,2.43086 -0.46584,-0.61602 -0.70673,-1.14166 -0.7072,-2.07453 -1.12328,1.23901 -1.09714,2.02608 -0.90046,2.98869 -6.11094,1.38095 -8.59446,6.93812 -9.64695,13.01729 -0.88942,5.13732 -0.50592,14.35985 -0.50592,14.35985 -5.34509,3.62559 -9.02782,10.44099 -10.18025,15.92615 13.58401,14.70671 40.27122,11.21859 49.29776,0 -0.95399,-5.41902 -4.83568,-12.30056 -10.18077,-15.92615 0,0 0.48189,-9.97364 -0.50591,-14.88127 -0.95305,-4.7349 -1.95602,-11.99146 -11.13576,-12.79663 0.11117,-0.73475 0.21271,-1.30963 0.69712,-1.73065 -1.10493,-0.10319 -1.92372,0.26693 -2.84944,0.8537 0.041,-0.7606 0.30335,-1.54416 1.18081,-2.16731 z"
+       d="m 171.18827,-310.30068 c -2.74476,0.0755 -3.94815,0.99538 -4.56303,2.43086 -0.46584,-0.61602 -0.70673,-1.14166 -0.7072,-2.07453 -1.12328,1.23901 -1.09714,2.02608 -0.90046,2.98869 -6.11094,1.38095 -8.59446,6.93812 -9.64695,13.01729 -0.88942,5.13732 -0.50592,14.35985 -0.50592,14.35985 -5.34509,3.62559 -9.02782,10.44099 -10.18025,15.92615 13.58401,14.70671 40.27122,11.21859 49.29776,0 -0.95399,-5.41902 -4.83568,-12.30056 -10.18077,-15.92615 0,0 0.48189,-9.97364 -0.50591,-14.88127 -0.95305,-4.7349 -1.95602,-11.99146 -11.13576,-12.79663 0.11117,-0.73475 0.21271,-1.30963 0.69712,-1.73065 -1.10493,-0.10319 -1.92372,0.26693 -2.84944,0.8537 0.041,-0.7606 0.30335,-1.54416 1.18081,-2.16731 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.64399999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1288,7 +1429,7 @@
     <path
        inkscape:connector-curvature="0"
        id="path3248"
-       d="m 169.86793,-204.38615 a 13.8702,14.618555 0 0 0 -13.86995,14.61875 13.8702,14.618555 0 0 0 0.73329,4.6085 c 8.67208,3.01822 18.58713,2.49015 26.41595,-0.4501 a 13.8702,14.618555 0 0 0 0.59118,-4.1584 13.8702,14.618555 0 0 0 -13.87047,-14.61875 z"
+       d="m 169.86793,-275.47984 a 13.8702,14.618555 0 0 0 -13.86995,14.61875 13.8702,14.618555 0 0 0 0.73329,4.6085 c 8.67208,3.01822 18.58713,2.49015 26.41595,-0.4501 a 13.8702,14.618555 0 0 0 0.59118,-4.1584 13.8702,14.618555 0 0 0 -13.87047,-14.61875 z"
        style="opacity:1;vector-effect:none;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.4952442;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1296,7 +1437,7 @@
     <ellipse
        ry="7.184546"
        rx="5.6721206"
-       cy="-218.89203"
+       cy="-289.98572"
        cx="169.32971"
        id="ellipse3250"
        style="opacity:0.73699999;vector-effect:none;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:0.88884205;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39809528"
@@ -1307,13 +1448,13 @@
        sodipodi:nodetypes="ssscsss"
        inkscape:connector-curvature="0"
        id="path3252"
-       d="m 167.90437,-224.54314 c -1.12101,-0.008 -1.47679,1.25452 -1.00973,1.90988 l 1.46085,2.04989 c 0.39672,0.55669 1.05987,0.68271 1.73593,-0.0183 l 1.50898,-1.89645 c 0.58407,-0.73405 0.54342,-2.015 -0.69298,-2.02372 z"
+       d="m 167.90437,-295.63683 c -1.12101,-0.008 -1.47679,1.25452 -1.00973,1.90988 l 1.46085,2.04989 c 0.39672,0.55669 1.05987,0.68271 1.73593,-0.0183 l 1.50898,-1.89645 c 0.58407,-0.73405 0.54342,-2.015 -0.69298,-2.02372 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.36203623px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
-       transform="translate(-57.04483,-366.44162)"
+       transform="translate(-57.04483,-437.53531)"
        id="g3260"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1339,14 +1480,14 @@
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.16181076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="circle3262"
        cx="164.89136"
-       cy="-228.71283"
+       cy="-299.80652"
        r="0.42094952"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <circle
        r="0.42094952"
-       cy="-228.71283"
+       cy="-299.80652"
        cx="175.22801"
        id="circle3264"
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.16181076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1362,7 +1503,7 @@
     <path
        inkscape:connector-curvature="0"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 417.30773,-246.80059 c -0.98295,0.0755 0.046,2.55328 -1.23195,2.60191 -1.05984,0.0404 -1.75353,-2.48997 -2.77503,-1.91513 -1.16819,0.65742 1.23089,3.23363 -0.092,4.32583 -0.84643,0.69885 -2.18501,-1.27775 -2.52286,-0.54001 -0.86635,1.89178 2.6837,4.9474 3.28145,7.57731 -0.0772,1.77149 -3.81998,-0.93778 -4.27776,-0.11317 -1.95659,2.81351 4.03016,8.87727 11.76205,9.47074 2.97704,0.22851 5.91722,-0.34529 8.20055,-1.01544 -0.56633,1.83305 -0.87603,3.49992 -0.9959,5.32887 -0.68456,10.73812 -4.043,14.51224 -8.85839,21.40748 -1.64788,2.38558 -2.84641,4.82479 -3.86953,6.92826 13.4145,13.17925 39.76894,10.05342 48.68283,0 -0.92178,-1.89517 -2.42766,-4.88088 -3.98632,-6.92929 -6.70735,-8.81481 -7.46007,-12.72722 -8.7416,-21.98855 -0.04,-1.68543 -0.52446,-3.43543 -0.99748,-4.74524 2.28266,0.66954 5.22094,1.24224 8.19589,1.01389 7.73189,-0.59347 13.71865,-6.65723 11.76205,-9.47074 -0.45778,-0.82461 -4.20052,1.88466 -4.27776,0.11317 0.59778,-2.62991 4.1478,-5.68553 3.28145,-7.57731 -0.33785,-0.73774 -1.67643,1.23886 -2.52286,0.54001 -1.32286,-1.0922 1.07622,-3.66841 -0.092,-4.32583 -1.0215,-0.57484 -1.71519,1.95555 -2.77503,1.91513 -1.31918,-0.0502 -0.17997,-2.68866 -1.33326,-2.60139 -1.15326,0.0873 -2.08314,3.07952 -2.25774,3.93154 -0.57579,2.80978 -1.69328,4.99995 -3.08816,6.70657 0.0167,-1.31103 -0.0776,-2.66215 -0.20207,-3.9455 -7.79547,1.32707 -7.4368,5.90425 -9.62578,9.37824 -2.07744,-1.84446 -4.82584,-2.87317 -7.68323,-2.87579 -2.85709,0.005 -5.60435,1.0353 -7.68017,2.88096 -2.19268,-3.47464 -1.82994,-8.05566 -9.62938,-9.38341 -0.12448,1.28335 -0.21867,2.63447 -0.20206,3.9455 -1.39488,-1.70662 -2.51238,-3.89679 -3.08816,-6.70657 -0.1746,-0.85202 -1.10448,-3.84424 -2.25774,-3.93154 -0.0361,-0.003 -0.0696,-0.003 -0.10131,-5.3e-4 z"
+       d="m 417.30773,-317.89428 c -0.98295,0.0755 0.046,2.55328 -1.23195,2.60191 -1.05984,0.0404 -1.75353,-2.48997 -2.77503,-1.91513 -1.16819,0.65742 1.23089,3.23363 -0.092,4.32583 -0.84643,0.69885 -2.18501,-1.27775 -2.52286,-0.54001 -0.86635,1.89178 2.6837,4.9474 3.28145,7.57731 -0.0772,1.77149 -3.81998,-0.93778 -4.27776,-0.11317 -1.95659,2.81351 4.03016,8.87727 11.76205,9.47074 2.97704,0.22851 5.91722,-0.34529 8.20055,-1.01544 -0.56633,1.83305 -0.87603,3.49992 -0.9959,5.32887 -0.68456,10.73812 -4.043,14.51224 -8.85839,21.40748 -1.64788,2.38558 -2.84641,4.82479 -3.86953,6.92826 13.4145,13.17925 39.76894,10.05342 48.68283,0 -0.92178,-1.89517 -2.42766,-4.88088 -3.98632,-6.92929 -6.70735,-8.81481 -7.46007,-12.72722 -8.7416,-21.98855 -0.04,-1.68543 -0.52446,-3.43543 -0.99748,-4.74524 2.28266,0.66954 5.22094,1.24224 8.19589,1.01389 7.73189,-0.59347 13.71865,-6.65723 11.76205,-9.47074 -0.45778,-0.82461 -4.20052,1.88466 -4.27776,0.11317 0.59778,-2.62991 4.1478,-5.68553 3.28145,-7.57731 -0.33785,-0.73774 -1.67643,1.23886 -2.52286,0.54001 -1.32286,-1.0922 1.07622,-3.66841 -0.092,-4.32583 -1.0215,-0.57484 -1.71519,1.95555 -2.77503,1.91513 -1.31918,-0.0502 -0.17997,-2.68866 -1.33326,-2.60139 -1.15326,0.0873 -2.08314,3.07952 -2.25774,3.93154 -0.57579,2.80978 -1.69328,4.99995 -3.08816,6.70657 0.0167,-1.31103 -0.0776,-2.66215 -0.20207,-3.9455 -7.79547,1.32707 -7.4368,5.90425 -9.62578,9.37824 -2.07744,-1.84446 -4.82584,-2.87317 -7.68323,-2.87579 -2.85709,0.005 -5.60435,1.0353 -7.68017,2.88096 -2.19268,-3.47464 -1.82994,-8.05566 -9.62938,-9.38341 -0.12448,1.28335 -0.21867,2.63447 -0.20206,3.9455 -1.39488,-1.70662 -2.51238,-3.89679 -3.08816,-6.70657 -0.1746,-0.85202 -1.10448,-3.84424 -2.25774,-3.93154 -0.0361,-0.003 -0.0696,-0.003 -0.10131,-5.3e-4 z"
        id="path1502"
        sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccc"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
@@ -1370,7 +1511,7 @@
        inkscape:export-ydpi="96" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient1425);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.57711357;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 428.82152,-221.21207 c -0.67326,9.39954 -4.20794,14.64485 -9.02331,21.54009 -1.64789,2.38558 -2.8468,4.82433 -3.86991,6.9278 13.4145,13.17925 39.76893,10.05342 48.68283,0 -0.92179,-1.89517 -2.4274,-4.88082 -3.98606,-6.92923 -6.70734,-8.81481 -7.64389,-13.94137 -8.90716,-22.04813 -1.03759,-6.65858 -4.68936,-9.98792 -10.88158,-10.01101 -6.72063,-0.0781 -11.59787,4.69931 -12.01481,10.52048 z"
+       d="m 428.82152,-292.30576 c -0.67326,9.39954 -4.20794,14.64485 -9.02331,21.54009 -1.64789,2.38558 -2.8468,4.82433 -3.86991,6.9278 13.4145,13.17925 39.76893,10.05342 48.68283,0 -0.92179,-1.89517 -2.4274,-4.88082 -3.98606,-6.92923 -6.70734,-8.81481 -7.64389,-13.94137 -8.90716,-22.04813 -1.03759,-6.65858 -4.68936,-9.98792 -10.88158,-10.01101 -6.72063,-0.0781 -11.59787,4.69931 -12.01481,10.52048 z"
        id="path1047"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="scccsscs"
@@ -1380,14 +1521,14 @@
     <path
        inkscape:connector-curvature="0"
        id="path1051"
-       d="m 440.74888,-199.78961 a 18.675458,14.651679 0 0 0 -18.22688,11.5426 c 11.38604,5.93921 26.80347,4.7997 36.34815,-0.36075 a 18.675458,14.651679 0 0 0 -18.12127,-11.18185 z"
+       d="m 440.74888,-270.8833 a 18.675458,14.651679 0 0 0 -18.22688,11.5426 c 11.38604,5.93921 26.80347,4.7997 36.34815,-0.36075 a 18.675458,14.651679 0 0 0 -18.12127,-11.18185 z"
        style="opacity:0.656;vector-effect:none;fill:url(#linearGradient1091);fill-opacity:1;stroke:none;stroke-width:0.57531422;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#834a25;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 432.68568,-230.56613 c -2.30697,-3.49218 -1.81111,-8.19368 -9.72861,-9.54152 -0.5718,5.89512 -0.51073,13.22262 8.0448,11.50596 z"
+       d="m 432.68568,-301.65982 c -2.30697,-3.49218 -1.81111,-8.19368 -9.72861,-9.54152 -0.5718,5.89512 -0.51073,13.22262 8.0448,11.50596 z"
        id="path1743"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc"
@@ -1398,14 +1539,14 @@
        sodipodi:nodetypes="cccc"
        inkscape:connector-curvature="0"
        id="path1351"
-       d="m 447.84689,-230.56613 c 2.30697,-3.49218 1.81111,-8.19368 9.72861,-9.54152 0.5718,5.89512 0.51073,13.22262 -8.0448,11.50596 z"
+       d="m 447.84689,-301.65982 c 2.30697,-3.49218 1.81111,-8.19368 9.72861,-9.54152 0.5718,5.89512 0.51073,13.22262 -8.0448,11.50596 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#834a25;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        id="path1575"
-       d="m 440.26655,-233.60501 c -6.189,-1.3e-4 -11.39341,4.71664 -11.39365,10.53527 0.004,3.20562 1.58667,6.76421 4.29928,8.76019 0.55038,1.77644 1.27063,3.4935 0.95056,4.778 -0.71472,2.86829 -2.41908,3.85518 -2.42829,5.91024 -8e-5,5.47252 3.65514,9.90894 8.5721,9.90895 4.91694,-3e-5 8.57216,-4.43644 8.57208,-9.90895 0.13166,-1.98741 -1.3833,-2.84936 -2.05102,-5.33869 -0.42217,-1.57385 0.18025,-3.52373 0.65053,-5.39967 2.66869,-1.99919 4.21972,-5.53411 4.22153,-8.71007 -2.4e-4,-5.81843 -5.20432,-10.53513 -11.39312,-10.53527 z"
+       d="m 440.26655,-304.6987 c -6.189,-1.3e-4 -11.39341,4.71664 -11.39365,10.53527 0.004,3.20562 1.58667,6.76421 4.29928,8.76019 0.55038,1.77644 1.27063,3.4935 0.95056,4.778 -0.71472,2.86829 -2.41908,3.85518 -2.42829,5.91024 -8e-5,5.47252 3.65514,9.90894 8.5721,9.90895 4.91694,-3e-5 8.57216,-4.43644 8.57208,-9.90895 0.13166,-1.98741 -1.3833,-2.84936 -2.05102,-5.33869 -0.42217,-1.57385 0.18025,-3.52373 0.65053,-5.39967 2.66869,-1.99919 4.21972,-5.53411 4.22153,-8.71007 -2.4e-4,-5.81843 -5.20432,-10.53513 -11.39312,-10.53527 z"
        style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.85800004;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccccc"
@@ -1415,14 +1556,14 @@
     <path
        inkscape:connector-curvature="0"
        style="opacity:1;vector-effect:none;fill:#834a25;fill-opacity:1;stroke:#000000;stroke-width:0.85800004;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 440.26655,-233.60501 a 11.206303,10.535673 0 0 0 -11.20656,10.53527 11.206303,10.535673 0 0 0 4.22868,8.23102 c 0.54134,1.77644 1.15414,4.02267 0.83407,5.30717 -0.71472,2.86829 -2.41908,3.85518 -2.42829,5.91024 -8e-5,5.47252 3.65514,9.90894 8.5721,9.90895 4.91694,-3e-5 8.57216,-4.43644 8.57208,-9.90895 0.13166,-1.98741 -1.3833,-2.84936 -2.05102,-5.33869 -0.42217,-1.57385 0.0702,-4.0529 0.53276,-5.92884 a 11.206303,10.535673 0 0 0 4.15221,-8.1809 11.206303,10.535673 0 0 0 -11.20603,-10.53527 z"
+       d="m 440.26655,-304.6987 a 11.206303,10.535673 0 0 0 -11.20656,10.53527 11.206303,10.535673 0 0 0 4.22868,8.23102 c 0.54134,1.77644 1.15414,4.02267 0.83407,5.30717 -0.71472,2.86829 -2.41908,3.85518 -2.42829,5.91024 -8e-5,5.47252 3.65514,9.90894 8.5721,9.90895 4.91694,-3e-5 8.57216,-4.43644 8.57208,-9.90895 0.13166,-1.98741 -1.3833,-2.84936 -2.05102,-5.33869 -0.42217,-1.57385 0.0702,-4.0529 0.53276,-5.92884 a 11.206303,10.535673 0 0 0 4.15221,-8.1809 11.206303,10.535673 0 0 0 -11.20603,-10.53527 z"
        id="path1675"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        id="g1704"
-       transform="matrix(0.9059285,0,0,0.96851858,750.83305,-360.76054)"
+       transform="matrix(0.9059285,0,0,0.96851858,750.83305,-431.85423)"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
@@ -1441,7 +1582,7 @@
     </g>
     <g
        id="g1712"
-       transform="translate(783.27914,-366.01504)"
+       transform="translate(783.27914,-437.10873)"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
@@ -1462,14 +1603,14 @@
        sodipodi:nodetypes="scscs"
        inkscape:connector-curvature="0"
        id="path1714"
-       d="m 449.53443,-221.01147 c 0.56808,0.55758 0.0654,1.97285 -0.75214,2.79022 -0.81737,0.81757 -1.88278,0.59241 -2.28078,-0.0969 -0.53528,-0.92713 -0.59912,-1.92433 0.21842,-2.7417 0.67976,-0.58474 2.11616,-0.637 2.8145,0.0484 z"
+       d="m 449.53443,-292.10516 c 0.56808,0.55758 0.0654,1.97285 -0.75214,2.79022 -0.81737,0.81757 -1.88278,0.59241 -2.28078,-0.0969 -0.53528,-0.92713 -0.59912,-1.92433 0.21842,-2.7417 0.67976,-0.58474 2.11616,-0.637 2.8145,0.0484 z"
        style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.58131802;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <circle
        r="0.53787988"
-       cy="-220.18271"
+       cy="-291.2764"
        cx="-448.74664"
        id="circle1716"
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.42779997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1481,14 +1622,14 @@
        sodipodi:nodetypes="cccc"
        inkscape:connector-curvature="0"
        id="path1415"
-       d="m 432.04353,-229.68512 c -2.35736,-1.98164 -1.54961,-5.6961 -6.9851,-6.85077 -0.41054,4.23268 -0.3667,9.49379 5.77613,8.26123 z"
+       d="m 432.04353,-300.77881 c -2.35736,-1.98164 -1.54961,-5.6961 -6.9851,-6.85077 -0.41054,4.23268 -0.3667,9.49379 5.77613,8.26123 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#623b23;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.54926658;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#c0945b;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.68745625;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 433.84407,-227.97932 c -0.86545,0.40965 -6.56676,3.03361 -12.3924,2.58645 -7.73191,-0.59347 -13.71857,-6.65735 -11.76199,-9.47086 0.45779,-0.82461 4.20059,1.88438 4.27782,0.11289 -0.59777,-2.62991 -4.14794,-5.68523 -3.28159,-7.57701 0.33784,-0.73774 1.67621,1.23858 2.52262,0.53974 1.32287,-1.0922 -1.07578,-3.66847 0.0924,-4.32589 1.0215,-0.57484 1.71496,1.9559 2.7748,1.91548 1.3192,-0.0502 0.18005,-2.68892 1.33335,-2.60165 1.15328,0.0873 2.08331,3.07943 2.2579,3.93145 1.90646,9.30322 9.72492,11.85428 14.03738,12.32374 1.34789,0.14673 1.33772,1.99858 0.13968,2.56566 z"
+       d="m 433.84407,-299.07301 c -0.86545,0.40965 -6.56676,3.03361 -12.3924,2.58645 -7.73191,-0.59347 -13.71857,-6.65735 -11.76199,-9.47086 0.45779,-0.82461 4.20059,1.88438 4.27782,0.11289 -0.59777,-2.62991 -4.14794,-5.68523 -3.28159,-7.57701 0.33784,-0.73774 1.67621,1.23858 2.52262,0.53974 1.32287,-1.0922 -1.07578,-3.66847 0.0924,-4.32589 1.0215,-0.57484 1.71496,1.9559 2.7748,1.91548 1.3192,-0.0502 0.18005,-2.68892 1.33335,-2.60165 1.15328,0.0873 2.08331,3.07943 2.2579,3.93145 1.90646,9.30322 9.72492,11.85428 14.03738,12.32374 1.34789,0.14673 1.33772,1.99858 0.13968,2.56566 z"
        id="path1693"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ssccsssszsss"
@@ -1497,7 +1638,7 @@
        inkscape:export-ydpi="96" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#623b23;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.54926658;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 448.42663,-229.68512 c 2.11715,-1.77016 1.41945,-5.6925 6.9851,-6.85077 0.41054,4.23268 0.3667,9.49379 -5.77613,8.26123 z"
+       d="m 448.42663,-300.77881 c 2.11715,-1.77016 1.41945,-5.6925 6.9851,-6.85077 0.41054,4.23268 0.3667,9.49379 -5.77613,8.26123 z"
        id="path1417"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc"
@@ -1508,7 +1649,7 @@
        sodipodi:nodetypes="ssccsssszsss"
        inkscape:connector-curvature="0"
        id="path1737"
-       d="m 446.68851,-227.97932 c 0.86545,0.40965 6.56676,3.03361 12.39241,2.58645 7.7319,-0.59347 13.71856,-6.65735 11.76198,-9.47086 -0.45779,-0.82461 -4.20059,1.88438 -4.27782,0.11289 0.59777,-2.62991 4.14794,-5.68523 3.28159,-7.57701 -0.33784,-0.73774 -1.6762,1.23858 -2.52262,0.53974 -1.32287,-1.0922 1.07578,-3.66847 -0.0924,-4.32589 -1.02151,-0.57484 -1.71497,1.9559 -2.77481,1.91548 -1.3192,-0.0502 -0.18005,-2.68892 -1.33334,-2.60165 -1.15328,0.0873 -2.08332,3.07943 -2.25791,3.93145 -1.90646,9.30322 -9.72492,11.85428 -14.03738,12.32374 -1.34788,0.14673 -1.33772,1.99858 -0.13968,2.56566 z"
+       d="m 446.68851,-299.07301 c 0.86545,0.40965 6.56676,3.03361 12.39241,2.58645 7.7319,-0.59347 13.71856,-6.65735 11.76198,-9.47086 -0.45779,-0.82461 -4.20059,1.88438 -4.27782,0.11289 0.59777,-2.62991 4.14794,-5.68523 3.28159,-7.57701 -0.33784,-0.73774 -1.6762,1.23858 -2.52262,0.53974 -1.32287,-1.0922 1.07578,-3.66847 -0.0924,-4.32589 -1.02151,-0.57484 -1.71497,1.9559 -2.77481,1.91548 -1.3192,-0.0502 -0.18005,-2.68892 -1.33334,-2.60165 -1.15328,0.0873 -2.08332,3.07943 -2.25791,3.93145 -1.90646,9.30322 -9.72492,11.85428 -14.03738,12.32374 -1.34788,0.14673 -1.33772,1.99858 -0.13968,2.56566 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#c0945b;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.68745625;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -1516,7 +1657,7 @@
     <path
        id="path1359"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient1545);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.23919393px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 444.43265,-223.84204 c -2.61148,-2.42264 0.75244,-3.94096 -2.37644,-5.39266 -1.15183,-0.53442 -2.36068,-0.62352 -3.74386,0.0445 -2.89903,1.40015 0.10056,3.48962 -2.12876,5.07921 -1.28409,0.91561 2.74347,3.78327 4.29569,3.72723 1.97999,-0.0715 4.77968,-2.80268 3.95337,-3.45828 z"
+       d="m 444.43265,-294.93573 c -2.61148,-2.42264 0.75244,-3.94096 -2.37644,-5.39266 -1.15183,-0.53442 -2.36068,-0.62352 -3.74386,0.0445 -2.89903,1.40015 0.10056,3.48962 -2.12876,5.07921 -1.28409,0.91561 2.74347,3.78327 4.29569,3.72723 1.97999,-0.0715 4.77968,-2.80268 3.95337,-3.45828 z"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssssc"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
@@ -1525,14 +1666,14 @@
     <path
        inkscape:connector-curvature="0"
        style="opacity:0.71700003;vector-effect:none;fill:url(#linearGradient1411);fill-opacity:1;stroke:none;stroke-width:3.24283481;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 436.37014,-217.90365 c -1.05196,-0.0639 -1.63375,3.08958 -2.67375,2.85048 a 0.46064865,0.46064865 0 0 1 0.0336,0.0791 c 0.27234,0.89368 0.56542,1.91258 0.7519,2.88665 0.1865,0.97407 0.27979,1.89773 0.0878,2.66805 -0.3751,1.50545 -1.01841,2.52883 -1.53117,3.38481 -0.51237,0.85532 -0.87855,1.51481 -0.88315,2.41432 0,0.42698 0.0254,0.84573 0.0698,1.25677 0.27776,-0.27382 0.93146,-2.07825 2.97243,-2.01021 2.80633,0.0935 2.79334,3.19848 3.08663,5.33197 0.33568,2.44191 3.75992,2.27276 3.91398,0 0.14563,-2.14862 0.2808,-5.23847 3.08713,-5.33197 2.16162,-0.072 2.76887,1.96271 3.01946,2.04742 0.0471,-0.42289 0.0734,-0.85413 0.0734,-1.29398 a 0.46064865,0.46064865 0 0 1 0.003,-0.0315 c 0.007,-0.10913 0.009,-0.21358 0.006,-0.31471 0,-1.8e-4 0,-2.6e-4 0,-5.3e-4 -0.10726,-0.52348 -0.30329,-1.08029 -0.52813,-1.64124 -0.0482,-0.0879 -0.0908,-0.17201 -0.14367,-0.26407 -0.43622,-0.75889 -1.01798,-1.65283 -1.37097,-2.96881 -0.42867,-1.59809 -0.0361,-3.76549 0.38706,-5.564 0.0823,-0.49151 0.14521,-0.81959 0.14521,-0.81959 -1.31154,0.34736 -1.81288,-2.83586 -2.9957,-2.64325 -1.93791,0.31556 -0.13409,3.80263 -1.46605,5.009 -0.87765,0.77617 -1.17549,-2.30078 -3.67625,0.15968 -1.48172,1.1986 -0.3397,-5.08114 -2.36731,-5.20434 z"
+       d="m 436.37014,-288.99734 c -1.05196,-0.0639 -1.63375,3.08958 -2.67375,2.85048 a 0.46064865,0.46064865 0 0 1 0.0336,0.0791 c 0.27234,0.89368 0.56542,1.91258 0.7519,2.88665 0.1865,0.97407 0.27979,1.89773 0.0878,2.66805 -0.3751,1.50545 -1.01841,2.52883 -1.53117,3.38481 -0.51237,0.85532 -0.87855,1.51481 -0.88315,2.41432 0,0.42698 0.0254,0.84573 0.0698,1.25677 0.27776,-0.27382 0.93146,-2.07825 2.97243,-2.01021 2.80633,0.0935 2.79334,3.19848 3.08663,5.33197 0.33568,2.44191 3.75992,2.27276 3.91398,0 0.14563,-2.14862 0.2808,-5.23847 3.08713,-5.33197 2.16162,-0.072 2.76887,1.96271 3.01946,2.04742 0.0471,-0.42289 0.0734,-0.85413 0.0734,-1.29398 a 0.46064865,0.46064865 0 0 1 0.003,-0.0315 c 0.007,-0.10913 0.009,-0.21358 0.006,-0.31471 0,-1.8e-4 0,-2.6e-4 0,-5.3e-4 -0.10726,-0.52348 -0.30329,-1.08029 -0.52813,-1.64124 -0.0482,-0.0879 -0.0908,-0.17201 -0.14367,-0.26407 -0.43622,-0.75889 -1.01798,-1.65283 -1.37097,-2.96881 -0.42867,-1.59809 -0.0361,-3.76549 0.38706,-5.564 0.0823,-0.49151 0.14521,-0.81959 0.14521,-0.81959 -1.31154,0.34736 -1.81288,-2.83586 -2.9957,-2.64325 -1.93791,0.31556 -0.13409,3.80263 -1.46605,5.009 -0.87765,0.77617 -1.17549,-2.30078 -3.67625,0.15968 -1.48172,1.1986 -0.3397,-5.08114 -2.36731,-5.20434 z"
        id="path1401"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="opacity:1;vector-effect:none;fill:url(#linearGradient1547);fill-opacity:1;stroke:none;stroke-width:0.63623959;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 433.06977,-224.42469 c -1.68648,-0.022 -3.04051,1.02714 -2.76282,3.43903 2.24201,-1.84183 4.89592,-0.60912 5.09215,1.30176 2.05149,-2.02701 -0.46575,-4.71646 -2.32933,-4.74079 z"
+       d="m 433.06977,-295.51838 c -1.68648,-0.022 -3.04051,1.02714 -2.76282,3.43903 2.24201,-1.84183 4.89592,-0.60912 5.09215,1.30176 2.05149,-2.02701 -0.46575,-4.71646 -2.32933,-4.74079 z"
        id="path1443"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sccs"
@@ -1543,14 +1684,14 @@
        sodipodi:nodetypes="sccs"
        inkscape:connector-curvature="0"
        id="path1457"
-       d="m 447.52081,-224.42469 c 1.68648,-0.022 3.04051,1.02714 2.76282,3.43903 -2.24201,-1.84183 -4.89592,-0.60912 -5.09215,1.30176 -2.05149,-2.02701 0.46575,-4.71646 2.32933,-4.74079 z"
+       d="m 447.52081,-295.51838 c 1.68648,-0.022 3.04051,1.02714 2.76282,3.43903 -2.24201,-1.84183 -4.89592,-0.60912 -5.09215,1.30176 -2.05149,-2.02701 0.46575,-4.71646 2.32933,-4.74079 z"
        style="opacity:1;vector-effect:none;fill:url(#linearGradient1459);fill-opacity:1;stroke:none;stroke-width:0.63623959;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        id="g1482"
-       transform="matrix(1.00028,0,0,0.9510272,783.17027,-359.11757)"
+       transform="matrix(1.00028,0,0,0.9510272,783.17027,-430.21126)"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
@@ -2228,14 +2369,14 @@
     <path
        inkscape:connector-curvature="0"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 239.9901,-239.09976 c -3.15782,0.0869 -4.71859,1.38076 -5.86321,2.98017 -2.56157,0.29494 -4.66107,0.97415 -6.35826,2.07223 -0.0765,-0.41643 -0.52242,-2.44606 -2.14044,-3.67575 -2.06188,-1.56701 -3.8008,-1.23707 -5.1847,-0.63406 -2.01962,0.88002 -5.22313,4.20605 -1.73168,6.3779 2.94598,1.83253 3.83433,2.67033 4.58577,3.81114 -0.4581,1.24206 -0.80695,2.63484 -1.05368,4.19096 -0.94488,5.95938 -1.22318,16.65789 -1.22318,16.65789 -5.93156,4.20576 -8.88877,10.17641 -11.1063,14.73554 14.96922,14.7067 44.37784,11.21859 54.32485,0 -2.21753,-4.55913 -5.17526,-10.52978 -11.10682,-14.73554 0,0 -0.17327,-11.56957 -1.22266,-17.26251 -0.25264,-1.37057 -0.55527,-2.72955 -1.00976,-4.01009 0.71398,-0.94708 1.71823,-1.78656 4.29173,-3.38739 3.49144,-2.17185 0.28742,-5.49788 -1.7322,-6.3779 -1.3839,-0.60301 -3.12281,-0.93295 -5.18469,0.63406 -1.3145,0.99902 -1.85171,2.52492 -2.05001,3.28921 -1.58853,-0.89691 -3.63853,-1.51856 -6.32157,-1.7539 0.4419,-0.70168 1.00645,-1.27656 1.49086,-1.69757 -1.10493,-0.10319 -2.15523,0.0685 -3.08095,0.65526 0.3717,-0.7606 0.79945,-1.24651 1.6769,-1.86965 z"
+       d="m 239.9901,-310.19345 c -3.15782,0.0869 -4.71859,1.38076 -5.86321,2.98017 -2.56157,0.29494 -4.66107,0.97415 -6.35826,2.07223 -0.0765,-0.41643 -0.52242,-2.44606 -2.14044,-3.67575 -2.06188,-1.56701 -3.8008,-1.23707 -5.1847,-0.63406 -2.01962,0.88002 -5.22313,4.20605 -1.73168,6.3779 2.94598,1.83253 3.83433,2.67033 4.58577,3.81114 -0.4581,1.24206 -0.80695,2.63484 -1.05368,4.19096 -0.94488,5.95938 -1.22318,16.65789 -1.22318,16.65789 -5.93156,4.20576 -8.88877,10.17641 -11.1063,14.73554 14.96922,14.7067 44.37784,11.21859 54.32485,0 -2.21753,-4.55913 -5.17526,-10.52978 -11.10682,-14.73554 0,0 -0.17327,-11.56957 -1.22266,-17.26251 -0.25264,-1.37057 -0.55527,-2.72955 -1.00976,-4.01009 0.71398,-0.94708 1.71823,-1.78656 4.29173,-3.38739 3.49144,-2.17185 0.28742,-5.49788 -1.7322,-6.3779 -1.3839,-0.60301 -3.12281,-0.93295 -5.18469,0.63406 -1.3145,0.99902 -1.85171,2.52492 -2.05001,3.28921 -1.58853,-0.89691 -3.63853,-1.51856 -6.32157,-1.7539 0.4419,-0.70168 1.00645,-1.27656 1.49086,-1.69757 -1.10493,-0.10319 -2.15523,0.0685 -3.08095,0.65526 0.3717,-0.7606 0.79945,-1.24651 1.6769,-1.86965 z"
        id="path3482"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#8d4920;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.62598473;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 227.78392,-233.95874 c 0,0 -0.34737,-2.39006 -2.15574,-3.76441 -2.06188,-1.56702 -3.80064,-1.23727 -5.18454,-0.63427 -2.01962,0.88002 -5.22343,4.20623 -1.73198,6.37808 3.49144,2.17183 4.09626,2.94161 5.00349,4.48115 0.90722,1.53953 4.89352,-2.28182 4.06877,-6.46055 z"
+       d="m 227.78392,-305.05243 c 0,0 -0.34737,-2.39006 -2.15574,-3.76441 -2.06188,-1.56702 -3.80064,-1.23727 -5.18454,-0.63427 -2.01962,0.88002 -5.22343,4.20623 -1.73198,6.37808 3.49144,2.17183 4.09626,2.94161 5.00349,4.48115 0.90722,1.53953 4.89352,-2.28182 4.06877,-6.46055 z"
        id="path3484"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csscsc"
@@ -2246,7 +2387,7 @@
        sodipodi:nodetypes="csscsc"
        inkscape:connector-curvature="0"
        id="path3486"
-       d="m 246.11939,-233.95874 c 0,0 0.34737,-2.39006 2.15573,-3.76441 2.06188,-1.56702 3.80065,-1.23727 5.18455,-0.63427 2.01962,0.88002 5.22342,4.20623 1.73198,6.37808 -3.49145,2.17183 -4.09627,2.94161 -5.00349,4.48115 -0.90723,1.53953 -4.89353,-2.28182 -4.06877,-6.46055 z"
+       d="m 246.11939,-305.05243 c 0,0 0.34737,-2.39006 2.15573,-3.76441 2.06188,-1.56702 3.80065,-1.23727 5.18455,-0.63427 2.01962,0.88002 5.22342,4.20623 1.73198,6.37808 -3.49145,2.17183 -4.09627,2.94161 -5.00349,4.48115 -0.90723,1.53953 -4.89353,-2.28182 -4.06877,-6.46055 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#8d4920;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.62598473;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -2254,7 +2395,7 @@
     <g
        id="g3492"
        style="fill:#6a310e;fill-opacity:1"
-       transform="translate(92.212559,-366.46669)"
+       transform="translate(92.212559,-437.56038)"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
@@ -2273,7 +2414,7 @@
     </g>
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#8d4920;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.64399999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 234.12714,-236.11969 c -7.11623,0.81934 -10.68528,4.58647 -11.88335,12.14275 -0.94488,5.95938 -1.22287,16.65758 -1.22287,16.65758 -5.93156,4.20576 -8.88915,10.17638 -11.10668,14.73551 14.96922,14.7067 44.37808,11.21859 54.32509,0 -2.21753,-4.55913 -5.17511,-10.52975 -11.10667,-14.73551 0,0 -0.17348,-11.5694 -1.22287,-17.26234 -1.01247,-5.49258 -2.82693,-10.80115 -12.00667,-11.60632 0.4419,-0.70168 1.00666,-1.27631 1.49107,-1.69732 -1.10493,-0.10319 -2.15514,0.0684 -3.08086,0.65517 0.3717,-0.7606 0.79951,-1.24639 1.67696,-1.86954 -3.15782,0.0869 -4.71853,1.3806 -5.86315,2.98002 z"
+       d="m 234.12714,-307.21338 c -7.11623,0.81934 -10.68528,4.58647 -11.88335,12.14275 -0.94488,5.95938 -1.22287,16.65758 -1.22287,16.65758 -5.93156,4.20576 -8.88915,10.17638 -11.10668,14.73551 14.96922,14.7067 44.37808,11.21859 54.32509,0 -2.21753,-4.55913 -5.17511,-10.52975 -11.10667,-14.73551 0,0 -0.17348,-11.5694 -1.22287,-17.26234 -1.01247,-5.49258 -2.82693,-10.80115 -12.00667,-11.60632 0.4419,-0.70168 1.00666,-1.27631 1.49107,-1.69732 -1.10493,-0.10319 -2.15514,0.0684 -3.08086,0.65517 0.3717,-0.7606 0.79951,-1.24639 1.67696,-1.86954 -3.15782,0.0869 -4.71853,1.3806 -5.86315,2.98002 z"
        id="path3494"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csccccsccccc"
@@ -2282,7 +2423,7 @@
        inkscape:export-ydpi="96" />
     <g
        id="g3502"
-       transform="translate(92.212559,-366.46669)"
+       transform="translate(92.212559,-437.56038)"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
@@ -2306,7 +2447,7 @@
     </g>
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.15551654px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 233.10357,-229.31435 c -0.65956,-0.16138 -1.8805,-0.33371 -2.62547,0.28867 -0.88793,0.7418 -0.76289,1.84193 0.11684,2.2818 0.87974,0.43988 1.28523,0.0687 2.02752,-0.59107 0.74227,-0.6598 1.77321,-1.66323 0.48111,-1.9794 z"
+       d="m 233.10357,-300.40804 c -0.65956,-0.16138 -1.8805,-0.33371 -2.62547,0.28867 -0.88793,0.7418 -0.76289,1.84193 0.11684,2.2818 0.87974,0.43988 1.28523,0.0687 2.02752,-0.59107 0.74227,-0.6598 1.77321,-1.66323 0.48111,-1.9794 z"
        id="path3504"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sssss"
@@ -2317,7 +2458,7 @@
        sodipodi:nodetypes="sssss"
        inkscape:connector-curvature="0"
        id="path3506"
-       d="m 240.98528,-229.44318 c 0.65955,-0.16138 1.88049,-0.33371 2.62546,0.28867 0.88793,0.7418 0.76289,1.84193 -0.11684,2.2818 -0.87974,0.43988 -1.28523,0.0687 -2.02751,-0.59107 -0.74227,-0.6598 -1.77322,-1.66323 -0.48111,-1.9794 z"
+       d="m 240.98528,-300.53687 c 0.65955,-0.16138 1.88049,-0.33371 2.62546,0.28867 0.88793,0.7418 0.76289,1.84193 -0.11684,2.2818 -0.87974,0.43988 -1.28523,0.0687 -2.02751,-0.59107 -0.74227,-0.6598 -1.77322,-1.66323 -0.48111,-1.9794 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.15551654px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -2325,14 +2466,14 @@
     <path
        inkscape:connector-curvature="0"
        style="opacity:1;vector-effect:none;fill:#231f20;fill-opacity:1;stroke:none;stroke-width:0.50842893;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 237.61169,-205.21651 a 14.618555,14.618555 0 0 0 -14.61856,14.61855 14.618555,14.618555 0 0 0 1.21649,5.79513 c 8.90457,2.54331 18.8602,2.10417 26.98486,-0.42617 a 14.618555,14.618555 0 0 0 1.03576,-5.36896 14.618555,14.618555 0 0 0 -14.61855,-14.61855 z"
+       d="m 237.61169,-276.3102 a 14.618555,14.618555 0 0 0 -14.61856,14.61855 14.618555,14.618555 0 0 0 1.21649,5.79513 c 8.90457,2.54331 18.8602,2.10417 26.98486,-0.42617 a 14.618555,14.618555 0 0 0 1.03576,-5.36896 14.618555,14.618555 0 0 0 -14.61855,-14.61855 z"
        id="path3508"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <circle
        r="0.42094952"
-       cy="-228.52065"
+       cy="-299.61435"
        cx="243.40674"
        id="circle3510"
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.16181076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -2343,7 +2484,7 @@
        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.16181076;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="circle3512"
        cx="232.60843"
-       cy="-228.71909"
+       cy="-299.81277"
        r="0.42094952"
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
        inkscape:export-xdpi="96"
@@ -3338,5 +3479,328 @@
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/rect2.png"
        inkscape:export-xdpi="96.131714"
        inkscape:export-ydpi="96.131714" />
+    <g
+       id="g5203"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/faces.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="opacity:0">
+      <rect
+         ry="0"
+         y="-320.4505"
+         x="406.39999"
+         height="76.713593"
+         width="67.73333"
+         id="rect3520"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect3518"
+         width="67.73333"
+         height="76.713593"
+         x="338.66666"
+         y="-320.4505"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-320.4505"
+         x="270.93335"
+         height="76.713593"
+         width="67.73333"
+         id="rect3516"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         ry="0"
+         y="-320.4505"
+         x="135.46667"
+         height="76.713593"
+         width="67.73333"
+         id="rect3282"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect3480"
+         width="67.73333"
+         height="76.713593"
+         x="203.2"
+         y="-320.4505"
+         ry="0" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect3559"
+         width="67.73333"
+         height="76.713593"
+         x="67.733345"
+         y="-320.4505"
+         ry="0" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4807"
+         width="67.73333"
+         height="76.713593"
+         x="474.13333"
+         y="-320.4505"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-320.4505"
+         x="541.86664"
+         height="76.713593"
+         width="67.73333"
+         id="rect4809"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4811"
+         width="67.73333"
+         height="76.713593"
+         x="609.59998"
+         y="-320.4505"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-320.4505"
+         x="677.33331"
+         height="76.713593"
+         width="67.73333"
+         id="rect4813"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4815"
+         width="67.73333"
+         height="76.713593"
+         x="745.06665"
+         y="-320.4505"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-320.4505"
+         x="812.79999"
+         height="76.713593"
+         width="67.73333"
+         id="rect4817"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4833"
+         width="67.73333"
+         height="76.713593"
+         x="406.39999"
+         y="-243.73691"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-243.73691"
+         x="338.66666"
+         height="76.713593"
+         width="67.73333"
+         id="rect4835"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4837"
+         width="67.73333"
+         height="76.713593"
+         x="270.93335"
+         y="-243.73691"
+         ry="0" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4839"
+         width="67.73333"
+         height="76.713593"
+         x="135.46667"
+         y="-243.73691"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-243.73691"
+         x="203.2"
+         height="76.713593"
+         width="67.73333"
+         id="rect4841"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         ry="0"
+         y="-243.73691"
+         x="67.733345"
+         height="76.713593"
+         width="67.73333"
+         id="rect4843"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         ry="0"
+         y="-243.73691"
+         x="474.13333"
+         height="76.713593"
+         width="67.73333"
+         id="rect4845"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4847"
+         width="67.73333"
+         height="76.713593"
+         x="541.86664"
+         y="-243.73691"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-243.73691"
+         x="609.59998"
+         height="76.713593"
+         width="67.73333"
+         id="rect4849"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4851"
+         width="67.73333"
+         height="76.713593"
+         x="677.33331"
+         y="-243.73691"
+         ry="0" />
+      <rect
+         ry="0"
+         y="-243.73691"
+         x="745.06665"
+         height="76.713593"
+         width="67.73333"
+         id="rect4853"
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="opacity:0.16387263;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.77062184;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4855"
+         width="67.73333"
+         height="76.713593"
+         x="812.79999"
+         y="-243.73691"
+         ry="0" />
+    </g>
+    <g
+       id="g4481"
+       transform="matrix(0.68720081,0,0,0.68720081,1001.7365,-1124.8518)"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game2d/textures/red_button.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <circle
+         style="opacity:1;vector-effect:none;fill:url(#linearGradient4462);fill-opacity:1;stroke:#000000;stroke-width:1.24387217;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle4108"
+         cx="-227.71764"
+         cy="1342.7498"
+         r="40.06815" />
+      <circle
+         r="35.435883"
+         cy="1342.7498"
+         cx="-227.71764"
+         id="circle4106"
+         style="opacity:1;vector-effect:none;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1.10006857;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.30346274;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle4104"
+         cx="-227.71764"
+         cy="1342.7498"
+         r="30.711182" />
+      <circle
+         style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.94752836;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4412)"
+         id="circle4254"
+         cx="-227.71764"
+         cy="1342.7498"
+         r="30.522192" />
+      <circle
+         r="29.671747"
+         cy="1342.7498"
+         cx="-227.71764"
+         id="path3699"
+         style="opacity:1;vector-effect:none;fill:#b1000e;fill-opacity:1;stroke:none;stroke-width:2.22550106;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         style="opacity:1;vector-effect:none;fill:#ed000a;fill-opacity:1;stroke:none;stroke-width:1.91365397;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3843)"
+         id="circle3703"
+         cx="-227.71764"
+         cy="1342.7498"
+         r="25.514009" />
+      <circle
+         r="20.033354"
+         cy="1342.7498"
+         cx="-227.71764"
+         id="circle3705"
+         style="opacity:1;vector-effect:none;fill:#f4000a;fill-opacity:1;stroke:none;stroke-width:1.50258267;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3815)" />
+      <circle
+         transform="translate(646.25367,-209.61528)"
+         clip-path="url(#clipPath3983)"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.32599998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3977)"
+         id="circle3847"
+         cx="-873.97131"
+         cy="1552.365"
+         r="29.671747" />
+      <circle
+         transform="matrix(1.2043415,0,0,1.2043415,824.84225,-526.82782)"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:url(#linearGradient3995);stroke-width:1.50258267;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3815)"
+         id="circle3987"
+         cx="-873.97131"
+         cy="1552.365"
+         r="20.033354" />
+      <g
+         transform="rotate(170.16224,-542.27515,1476.5735)"
+         style="opacity:0.46700003"
+         id="g4094">
+        <path
+           style="opacity:0.41199999;vector-effect:none;fill:url(#linearGradient5097);fill-opacity:1;stroke:none;stroke-width:5.67905283;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4084)"
+           d="m -3304.9719,5911.2643 c -70.1015,1.0101 -73.9442,-85.8746 -73.9441,-44.0573 -10e-5,41.8173 33.8995,75.7169 75.7168,75.7168 41.8173,1e-4 75.7169,-33.8995 75.7168,-75.7168 10e-5,-41.8173 -6.8829,43.5522 -77.4895,44.0573 z"
+           transform="matrix(0.23904839,0.12090594,-0.12090594,0.23904839,624.36195,550.56363)"
+           id="circle3997"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc"
+           inkscape:transform-center-x="0.47458855"
+           inkscape:transform-center-y="4.5115276" />
+        <path
+           inkscape:transform-center-y="4.5115276"
+           inkscape:transform-center-x="0.47458855"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           id="path4088"
+           transform="matrix(0.23904839,0.12090594,-0.12090594,0.23904839,624.36195,550.56363)"
+           d="m -3305.7696,5931.7928 c -70.1015,1.0101 -73.1465,-106.4031 -73.1464,-64.5858 -10e-5,41.8173 33.8995,75.7169 75.7168,75.7168 41.8173,1e-4 75.7169,-33.8995 75.7168,-75.7168 10e-5,-41.8173 -7.6806,64.0807 -78.2872,64.5858 z"
+           style="opacity:0.70899999;vector-effect:none;fill:url(#linearGradient5099);fill-opacity:1;stroke:none;stroke-width:5.67905283;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4084)" />
+      </g>
+      <circle
+         r="20.033354"
+         cy="1552.365"
+         cx="-873.97131"
+         id="circle4100"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:url(#linearGradient4102);stroke-width:1.50258267;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3815)"
+         transform="matrix(-1.1633046,0.31170652,-0.31170652,-1.1633046,-760.53023,3421.0456)" />
+      <circle
+         transform="matrix(0.98509299,0,0,0.97442651,633.22537,-169.91589)"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:url(#linearGradient4250);stroke-width:1.10006857;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4240)"
+         id="circle4198"
+         cx="-873.97131"
+         cy="1552.365"
+         r="35.435883" />
+      <g
+         id="g4450"
+         style="opacity:0"
+         transform="matrix(-1.6673281,0.28912932,-0.28912932,-1.6673281,-1238.804,4192.9203)">
+        <path
+           inkscape:transform-center-y="4.5115276"
+           inkscape:transform-center-x="0.47458855"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           id="path4446"
+           transform="matrix(0.23904839,0.12090594,-0.12090594,0.23904839,624.36195,550.56363)"
+           d="m -3304.9719,5911.2643 c -70.1015,1.0101 -73.9442,-85.8746 -73.9441,-44.0573 -10e-5,41.8173 33.8995,75.7169 75.7168,75.7168 41.8173,1e-4 75.7169,-33.8995 75.7168,-75.7168 10e-5,-41.8173 -6.8829,43.5522 -77.4895,44.0573 z"
+           style="opacity:0.41199999;vector-effect:none;fill:url(#linearGradient5101);fill-opacity:1;stroke:none;stroke-width:5.67905283;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4084)" />
+        <path
+           style="opacity:0.70899999;vector-effect:none;fill:url(#linearGradient4096);fill-opacity:1;stroke:none;stroke-width:5.67905283;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4084)"
+           d="m -3305.7696,5931.7928 c -70.1015,1.0101 -73.1465,-106.4031 -73.1464,-64.5858 -10e-5,41.8173 33.8995,75.7169 75.7168,75.7168 41.8173,1e-4 75.7169,-33.8995 75.7168,-75.7168 10e-5,-41.8173 -7.6806,64.0807 -78.2872,64.5858 z"
+           transform="matrix(0.23904839,0.12090594,-0.12090594,0.23904839,624.36195,550.56363)"
+           id="path4448"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc"
+           inkscape:transform-center-x="0.47458855"
+           inkscape:transform-center-y="4.5115276" />
+      </g>
+    </g>
   </g>
 </svg>

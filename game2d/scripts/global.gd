@@ -12,12 +12,30 @@ const team_color = [
 ]
 
 const animals = [
-	'POLAR',
-	'BROWM',
-	'PANDA',
-	'WALRUS',
-	'ELK'
-
+	'POLAR',			#00
+	'BROWM',			#01
+	'PANDA',			#02
+	'WALRUS',			#03
+	'ELK',				#04
+	'',					#05
+	'',					#06
+	'',					#07
+	'',					#08
+	'',					#09
+	'',					#10
+	'',					#11
+	'',					#12
+	'',					#13
+	'',					#14
+	'',					#15
+	'',					#16
+	'',					#17
+	'',					#18
+	'',					#19
+	'',					#20
+	'',					#21
+	'COMPY',					#22
+	
 ]
 var player_name = ['POLAR','BROWM','PANDA','WALRUS']
 var score = [0]

@@ -41,7 +41,6 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST or what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
 		get_tree().quit() 
 
-
 func _input(event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()

@@ -16,12 +16,12 @@ func _ready():
 func update_avatar():
 	if !in_selector:
 		if (stand == 0 or stand == 1):
-			if avatar > max_avatar:
+			if avatar > max_avatar  and avatar != 23:
 				avatar = 1
 			elif avatar < 1:
 				avatar = max_avatar
 		else:
-			if avatar > max_avatar:
+			if avatar > max_avatar and avatar != 23:
 				avatar = 0
 			elif avatar < 0:
 				avatar = max_avatar

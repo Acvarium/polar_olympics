@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -217,7 +217,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 
 resource_name = "mess"
 length = 4.0
@@ -248,9 +248,75 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.165725 ), Color( 1, 1, 1, 0.165725 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
-resource_name = "show_score"
+resource_name = "test"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../player2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../player3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../player2/icon:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../player1/icon:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../player3/icon:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+
 length = 3.0
 loop = false
 step = 0.1
@@ -279,7 +345,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 
 length = 4.0
 loop = false
@@ -297,7 +363,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 
 length = 6.0
 loop = false
@@ -552,8 +618,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="ui" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="botom" type="Control" parent="ui" index="0"]
 
 editor/display_folded = true
@@ -638,7 +702,55 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="game_over" type="Label" parent="ui" index="2"]
+[node name="vel" type="Label" parent="ui" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 788.0
+margin_top = 146.0
+margin_right = 1245.0
+margin_bottom = 201.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="vel2" type="Label" parent="ui" index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 788.0
+margin_top = 259.0
+margin_right = 1245.0
+margin_bottom = 314.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="game_over" type="Label" parent="ui" index="4"]
 
 visible = false
 anchor_left = 0.0
@@ -662,9 +774,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="flags" type="Node2D" parent="ui" index="3"]
+[node name="flags" type="Node2D" parent="ui" index="5"]
 
-[node name="power" type="TextureProgress" parent="ui" index="4"]
+[node name="power" type="TextureProgress" parent="ui" index="6"]
 
 self_modulate = Color( 1, 1, 1, 0.66298 )
 anchor_left = 0.0
@@ -697,7 +809,7 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="pointer" type="Position2D" parent="ui" index="5"]
+[node name="pointer" type="Position2D" parent="ui" index="7"]
 
 editor/display_folded = true
 visible = false
@@ -712,7 +824,7 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="effects" type="Node2D" parent="ui" index="6"]
+[node name="effects" type="Node2D" parent="ui" index="8"]
 
 [node name="ten" type="Node2D" parent="ui/effects" index="0"]
 
@@ -849,6 +961,7 @@ texture = ExtResource( 14 )
 
 [node name="player0" type="Control" parent="camera_position/Camera/data_ui" index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
@@ -877,7 +990,8 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 78.0371, -38.2964 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 16 )
-hframes = 6
+vframes = 2
+hframes = 12
 frame = 1
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
@@ -1003,9 +1117,10 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 202.98, -35.3776 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 16 )
-hframes = 6
+vframes = 2
+hframes = 12
 frame = 4
-_sections_unfolded = [ "Animation", "Transform" ]
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player1" index="2"]
 
@@ -1112,7 +1227,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Visibility" ]
 
 [node name="rect" type="Sprite" parent="camera_position/Camera/data_ui/player2" index="0"]
 
@@ -1130,7 +1245,8 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 16 )
 flip_h = true
 flip_v = true
-hframes = 6
+vframes = 2
+hframes = 12
 frame = 1
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
 
@@ -1238,7 +1354,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Visibility" ]
 
 [node name="rect" type="Sprite" parent="camera_position/Camera/data_ui/player3" index="0"]
 
@@ -1255,9 +1371,10 @@ position = Vector2( 201.451, 100.622 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 16 )
 flip_v = true
-hframes = 6
+vframes = 2
+hframes = 12
 frame = 1
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="icon_anim" type="AnimationPlayer" parent="camera_position/Camera/data_ui/player3" index="2"]
 
@@ -1349,6 +1466,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="exit_message" type="NinePatchRect" parent="camera_position/Camera/data_ui" index="7"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 1.0
@@ -1403,12 +1521,12 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/mess = SubResource( 13 )
+anims/mess = SubResource( 10 )
+anims/test = SubResource( 11 )
 blend_times = [  ]
 
 [node name="total_score_tab" type="NinePatchRect" parent="camera_position/Camera/data_ui" index="8"]
 
-editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0.37 )
 anchor_left = 0.5
@@ -1550,8 +1668,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show_score = SubResource( 10 )
-anims/total_score = SubResource( 11 )
+anims/show_score = SubResource( 12 )
+anims/total_score = SubResource( 13 )
 blend_times = [  ]
 
 [node name="fps" type="Label" parent="camera_position/Camera/data_ui" index="9"]
@@ -1639,7 +1757,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/fire = SubResource( 12 )
+anims/fire = SubResource( 14 )
 blend_times = [  ]
 
 [node name="applods" type="AudioStreamPlayer" parent="camera_position/cam_anim" index="0"]
@@ -1664,6 +1782,13 @@ autostart = true
 process_mode = 1
 wait_time = 1.0
 one_shot = false
+autostart = false
+
+[node name="rand_fire" type="Timer" parent="timers" index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
 autostart = false
 
 [node name="audio" type="Node2D" parent="." index="4"]
@@ -1703,5 +1828,7 @@ bus = "Master"
 [connection signal="timeout" from="timers/start_game" to="." method="_on_start_game_timeout"]
 
 [connection signal="timeout" from="timers/button_pressed" to="." method="_on_button_pressed_timeout"]
+
+[connection signal="timeout" from="timers/rand_fire" to="." method="_on_rand_fire_timeout"]
 
 
