@@ -393,7 +393,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -690,7 +690,31 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="game_over" type="Label" parent="ui" index="3"]
+[node name="vel3" type="Label" parent="ui" index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 790.0
+margin_top = 200.0
+margin_right = 1247.0
+margin_bottom = 255.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="game_over" type="Label" parent="ui" index="4"]
 
 visible = false
 anchor_left = 0.0
@@ -714,9 +738,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="flags" type="Node2D" parent="ui" index="4"]
+[node name="flags" type="Node2D" parent="ui" index="5"]
 
-[node name="power" type="TextureProgress" parent="ui" index="5"]
+[node name="power" type="TextureProgress" parent="ui" index="6"]
 
 self_modulate = Color( 1, 1, 1, 0.66298 )
 anchor_left = 0.0
@@ -749,9 +773,8 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="pointer" type="Position2D" parent="ui" index="6"]
+[node name="pointer" type="Position2D" parent="ui" index="7"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 150, 540 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
@@ -764,7 +787,22 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="effects" type="Node2D" parent="ui" index="7"]
+[node name="pointer2" type="Position2D" parent="ui" index="8"]
+
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 150, 540 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="arrow" type="Sprite" parent="ui/pointer2" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0.640863 )
+position = Vector2( 143.008, 0 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="effects" type="Node2D" parent="ui" index="9"]
 
 [node name="ten" type="Node2D" parent="ui/effects" index="0"]
 

@@ -37,12 +37,56 @@ var button_pressed = false
 var mouse_over_ui = false
 var avatars = []
 var test_velocity = 1000
+var test_angle = 0
 var pc_velocoty = 960
 var pc_angle = 0
-var rand_twist = 0
 var pc_fire_allow = false
 var rand_power = 0
+var rand_twist = 0
 var fire_timeout = false
+var bot_state = 0
+var state_velocitys = [960, 1665, -1]
+var state_angles = [0, 0.76, 0]
+var state_shifts = [[300,0.2],[300,0.2],[300,0.05]]
+
+func  bot_move():
+	var rand_value = randf()
+	var b_state = 0
+	if rand_value < 0.6:
+		var hi_score_team = team
+		for i in score.size():
+			if team == i:
+				break 
+			if score[i] > score[hi_score_team]:
+				hi_score_team = i
+		if hi_score_team != team and (score[hi_score_team] - score[team]) > 5:
+			b_state = 2
+			var peng
+			var p_hi_score = 0
+			for p in $game_field/penguins.get_children():
+				if p.team == hi_score_team and p.score > p_hi_score:
+					p_hi_score = p.score
+					peng = p
+			if peng:
+				var d = Vector2().distance_to(peng.position)
+				pc_velocoty = d * 1.32 
+				$ui/vel.text = str(pc_velocoty)
+				pc_angle = peng.position.angle() 
+				if (pc_velocoty / 22) > max_power:
+					pc_velocoty = max_power * 22 * 0.95
+	if b_state != 2:
+		if rand_value > 0.9:
+			b_state = 1
+		pc_velocoty = state_velocitys[b_state]
+		var rand_dir = randi()%2
+		if rand_dir == 0:
+			rand_dir = -1
+		
+		pc_angle = state_angles[b_state]
+		if b_state == 1:
+			pc_angle *= rand_dir
+	rand_power = randf() * state_shifts[b_state][0] - state_shifts[b_state][0]/2
+	rand_twist =  randf() * state_shifts[b_state][1] - state_shifts[b_state][1]/2
 
 func _ready():
 	randomize()
@@ -69,7 +113,8 @@ func _ready():
 			wss += ":"
 	$camera_position/Camera/data_ui/t_score.text = wss
 	if avatars[0] == 23:
-		rand_fire(2)
+		bot_move()
+		rand_fire(0)
 	$ui/vel.text = str(test_velocity)
 
 #add fishes
@@ -173,7 +218,7 @@ func _process(delta):
 			if abs((power * 22) - pc_velocoty + rand_power) < 10:
 				pc_fire_allow = false
 				fire_pressed()
-				rand_twist =  randf() * 0.2 - 0.1
+				
 	elif state == 1:
 		pDirection += pSpeed * rDir * delta
 		if rDir == 1:
@@ -189,17 +234,24 @@ func _process(delta):
 				$ui/vel2.text = str(pDirection)
 				pc_fire_allow = false
 				fire_pressed()
+	$ui/vel2.text = str(int(power * 22))
+
+
 
 func bonus(t, value, type):
 	if type == 'fish':
 		$audio/coin.play()
 		bonus_score[t] += value
 
+
+
+
 func test_fire():
 	var penguin = penguin_obj.instance()
-	var r = 0
+	var r = test_angle
 	penguin.rotation = r
-	penguin.linear_velocity = Vector2(test_velocity,0)
+	penguin.linear_velocity = Vector2(cos(r), sin(r)).normalized() * test_velocity
+#	penguin.linear_velocity = Vector2(test_velocity,0)
 	penguin.set_team(team)
 	penguin.set_color(global.team_color[team])
 	$game_field/penguins.add_child(penguin)
@@ -263,20 +315,33 @@ func add_bonus_fish():
 	$game_field/bonus.add_child(fish)
 
 func _input(event):
-#	if Input.is_action_just_pressed("clear_peng"):
-#		for p in $game_field/penguins.get_children():
-#			p.queue_free()
-#		for f in $ui/flags.get_children():
-#			f.queue_free()
-#	if Input.is_action_just_pressed("test_fire"):
-#		test_fire()
-#		return
-#	if Input.is_action_just_pressed("w_up"):
-#		test_velocity += 5
-#		$ui/vel.text = str(test_velocity)
-#	elif Input.is_action_just_pressed("w_down"):
-#		test_velocity -= 5
-#		$ui/vel.text = str(test_velocity)
+	
+	if Input.is_action_just_pressed("clear_peng"):
+		for p in $game_field/penguins.get_children():
+			p.queue_free()
+		for f in $ui/flags.get_children():
+			f.queue_free()
+	if Input.is_action_just_pressed("test_fire"):
+		test_fire()
+		return
+	if Input.is_action_just_pressed("w_up"):
+		test_velocity += 5
+		$ui/vel.text = str(test_velocity)
+	elif Input.is_action_just_pressed("w_down"):
+		test_velocity -= 5
+		$ui/vel.text = str(test_velocity)
+		
+		
+	if Input.is_action_pressed("ui_down"):
+		test_angle += 0.01
+		$ui/vel3.text = str(test_angle)
+		$ui/pointer2.rotation = test_angle
+	elif Input.is_action_pressed("ui_up"):
+		test_angle -= 0.01
+		$ui/vel3.text = str(test_angle)
+		$ui/pointer2.rotation = test_angle
+		
+		
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 		
@@ -287,8 +352,7 @@ func _input(event):
 		fire_pressed()
 
 func rand_fire(delay):
-
-	var rand_time = randf() * 2
+	var rand_time = randf() * 1.8
 	$timers/rand_fire.wait_time = rand_time + delay
 	$timers/rand_fire.start()
 
@@ -326,10 +390,12 @@ func _on_cam_anim_animation_finished( anim_name ):
 		$ui/power.show()
 		if avatars[team] == 23:
 			rand_fire(0.5)
+			bot_move()
 #		$camera_position/Camera/data_ui/red_button.show()
 	if global.score.size() > 1:
 		data_ui.get_node("player" + str(team) + "/icon_anim").play("in")
-
+	
+	
 func _on_start_game_timeout():
 	$audio/start.play()
 
@@ -354,7 +420,7 @@ func _on_fire_button_button_down():
 
 func _on_rand_fire_timeout():
 	pc_fire_allow = true
-	rand_power = randf() * 300 - 150
+	
 
 func _on_fire_timeout_timeout():
 	fire_timeout = false 
