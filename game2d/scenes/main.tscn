@@ -1774,6 +1774,13 @@ wait_time = 0.2
 one_shot = true
 autostart = false
 
+[node name="bot_emergency_triger" type="Timer" parent="timers" index="4"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
 [node name="audio" type="Node2D" parent="." index="4"]
 
 [node name="start" type="AudioStreamPlayer" parent="audio" index="0"]
@@ -1815,5 +1822,7 @@ bus = "Master"
 [connection signal="timeout" from="timers/rand_fire" to="." method="_on_rand_fire_timeout"]
 
 [connection signal="timeout" from="timers/fire_timeout" to="." method="_on_fire_timeout_timeout"]
+
+[connection signal="timeout" from="timers/bot_emergency_triger" to="." method="_on_bot_emergency_triger_timeout"]
 
 

@@ -48,6 +48,7 @@ var bot_state = 0
 var state_velocitys = [960, 1665, -1]
 var state_angles = [0, 0.76, 0]
 var state_shifts = [[300,0.2],[300,0.2],[300,0.05]]
+var max_bot_time = 20
 
 func  bot_move():
 	var rand_value = randf()
@@ -70,10 +71,7 @@ func  bot_move():
 			if peng:
 				var d = Vector2().distance_to(peng.position)
 				pc_velocoty = d * 1.32 
-				$ui/vel.text = str(pc_velocoty)
 				pc_angle = peng.position.angle() 
-				if (pc_velocoty / 22) > max_power:
-					pc_velocoty = max_power * 22 * 0.95
 	if b_state != 2:
 		if rand_value > 0.9:
 			b_state = 1
@@ -87,6 +85,7 @@ func  bot_move():
 			pc_angle *= rand_dir
 	rand_power = randf() * state_shifts[b_state][0] - state_shifts[b_state][0]/2
 	rand_twist =  randf() * state_shifts[b_state][1] - state_shifts[b_state][1]/2
+
 
 func _ready():
 	randomize()
@@ -214,7 +213,10 @@ func _process(delta):
 			rDir = 1
 		$ui/power.value = power
 		if avatars[team] == 23 and pc_fire_allow:
-			$ui/vel2.text = str(int(abs((power * 22) - pc_velocoty)))
+			
+			if (pc_velocoty + rand_power) > (max_power * 0.97 * 22):
+				pc_velocoty = max_power * 20
+			$ui/vel2.text = str(pc_velocoty)
 			if abs((power * 22) - pc_velocoty + rand_power) < 10:
 				pc_fire_allow = false
 				fire_pressed()
@@ -234,7 +236,7 @@ func _process(delta):
 				$ui/vel2.text = str(pDirection)
 				pc_fire_allow = false
 				fire_pressed()
-	$ui/vel2.text = str(int(power * 22))
+#	$ui/vel2.text = str(int(power * 22))
 
 
 
@@ -263,6 +265,7 @@ func test_fire():
 
 func fire():
 #	$camera_position/Camera/data_ui/red_button.hide()
+	$timers/bot_emergency_triger.stop()
 	state = 0
 	throws[team] -= 1
 	if throws[team] < 0:
@@ -357,6 +360,7 @@ func rand_fire(delay):
 	$timers/rand_fire.start()
 
 func fire_pressed():
+	$timers/bot_emergency_triger.stop()
 	if fire_timeout:
 		return
 	fire_timeout = true
@@ -375,6 +379,8 @@ func fire_pressed():
 		$ui/pointer.show()
 	if avatars[team] == 23 and state == 1:
 		rand_fire(0.5)
+		$timers/bot_emergency_triger.wait_time = max_bot_time + randf() * 2
+		$timers/bot_emergency_triger.start()
 
 func resizer():
 	screen_size = get_tree().root.get_visible_rect().size
@@ -391,6 +397,8 @@ func _on_cam_anim_animation_finished( anim_name ):
 		if avatars[team] == 23:
 			rand_fire(0.5)
 			bot_move()
+			$timers/bot_emergency_triger.wait_time = max_bot_time + randf() * 2.0
+			$timers/bot_emergency_triger.start()
 #		$camera_position/Camera/data_ui/red_button.show()
 	if global.score.size() > 1:
 		data_ui.get_node("player" + str(team) + "/icon_anim").play("in")
@@ -421,6 +429,9 @@ func _on_fire_button_button_down():
 func _on_rand_fire_timeout():
 	pc_fire_allow = true
 	
-
 func _on_fire_timeout_timeout():
 	fire_timeout = false 
+
+func _on_bot_emergency_triger_timeout():
+	print("timer_out")
+	fire_pressed()
