@@ -53,7 +53,6 @@ var max_bot_time = 20
 func _ready():
 	randomize()
 	global = get_node("/root/global")
-	global.go_to_next = 0
 	max_throw = global.max_throw
 	var p = 0
 	for i in range(global.selected_players.size()):

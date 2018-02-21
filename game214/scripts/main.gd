@@ -28,7 +28,6 @@ var to_restart = false
 
 func _ready():
 	global = get_node("/root/global")
-	global.current_scene = get_tree().get_current_scene()
 	pointer = get_node("ui/pointer")
 	set_process_input(true)
 	resizer()
