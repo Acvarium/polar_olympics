@@ -58,7 +58,7 @@ _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Tran
 
 [node name="pShadow" type="Sprite" parent="." index="0"]
 
-self_modulate = Color( 1, 1, 1, 0.486157 )
+self_modulate = Color( 1, 1, 1, 0.0014902 )
 position = Vector2( 1.48863, 6.50698e-08 )
 rotation = 1.5708
 scale = Vector2( 0.384448, 0.574138 )

@@ -50,43 +50,6 @@ var state_angles = [0, 0.76, 0]
 var state_shifts = [[300,0.2],[300,0.2],[300,0.05]]
 var max_bot_time = 20
 
-func  bot_move():
-	var rand_value = randf()
-	var b_state = 0
-	if rand_value < 0.6:
-		var hi_score_team = team
-		for i in score.size():
-			if team == i:
-				break 
-			if score[i] > score[hi_score_team]:
-				hi_score_team = i
-		if hi_score_team != team and (score[hi_score_team] - score[team]) > 5:
-			b_state = 2
-			var peng
-			var p_hi_score = 0
-			for p in $game_field/penguins.get_children():
-				if p.team == hi_score_team and p.score > p_hi_score:
-					p_hi_score = p.score
-					peng = p
-			if peng:
-				var d = Vector2().distance_to(peng.position)
-				pc_velocoty = d * 1.32 
-				pc_angle = peng.position.angle() 
-	if b_state != 2:
-		if rand_value > 0.9:
-			b_state = 1
-		pc_velocoty = state_velocitys[b_state]
-		var rand_dir = randi()%2
-		if rand_dir == 0:
-			rand_dir = -1
-		
-		pc_angle = state_angles[b_state]
-		if b_state == 1:
-			pc_angle *= rand_dir
-	rand_power = randf() * state_shifts[b_state][0] - state_shifts[b_state][0]/2
-	rand_twist =  randf() * state_shifts[b_state][1] - state_shifts[b_state][1]/2
-
-
 func _ready():
 	randomize()
 	global = get_node("/root/global")
@@ -344,7 +307,6 @@ func _input(event):
 		$ui/vel3.text = str(test_angle)
 		$ui/pointer2.rotation = test_angle
 		
-		
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 		
@@ -353,6 +315,47 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("fire"):
 		fire_pressed()
+
+
+
+func  bot_move():
+	var rand_value = randf()
+	var b_state = 0
+	if rand_value < 0.6:
+		var hi_score_team = team
+		for i in score.size():
+			if team == i:
+				break 
+			if score[i] > score[hi_score_team]:
+				hi_score_team = i
+		if hi_score_team != team and (score[hi_score_team] - score[team]) > 5:
+			b_state = 2
+			var peng
+			var p_hi_score = 0
+			for p in $game_field/penguins.get_children():
+				if p.team == hi_score_team and p.score > p_hi_score:
+					p_hi_score = p.score
+					peng = p
+			if peng:
+				var d = Vector2().distance_to(peng.position)
+				pc_velocoty = d * 1.32 
+				pc_angle = peng.position.angle() 
+	if b_state != 2:
+		if rand_value > 0.9:
+			b_state = 1
+		pc_velocoty = state_velocitys[b_state]
+		var rand_dir = randi()%2
+		if rand_dir == 0:
+			rand_dir = -1
+		
+		pc_angle = state_angles[b_state]
+		if b_state == 1:
+			pc_angle *= rand_dir
+	rand_power = randf() * state_shifts[b_state][0] - state_shifts[b_state][0]/2
+	rand_twist =  randf() * state_shifts[b_state][1] - state_shifts[b_state][1]/2
+
+
+
 
 func rand_fire(delay):
 	var rand_time = randf() * 1.8

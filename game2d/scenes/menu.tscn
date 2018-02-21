@@ -40,7 +40,6 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="Control" type="Control" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -70,7 +69,6 @@ size_flags_vertical = 1
 
 [node name="hint" type="Control" parent="Control/rect" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
@@ -121,7 +119,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
-text = "version 0.3.0"
+text = "version 0.3.1"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0

@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/penguin.gd" type="Script" id=1]
+[ext_resource path="res://textures/pShadow.png" type="Texture" id=2]
+[ext_resource path="res://textures/peng_anim.png" type="Texture" id=3]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 25.8578
+height = 64.5665
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "move"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("peng_anim:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
+[node name="penguin" type="RigidBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( -4.37114e-08, 1, -1, -4.37114e-08, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 800, 0 )
+velocity/angular = 0.0
+damp_override/linear = 0.7
+damp_override/angular = 0.7
+script/script = ExtResource( 1 )
+
+[node name="pShadow" type="Sprite" parent="."]
+
+transform/rot = -90.0
+transform/scale = Vector2( 0.384448, 0.574138 )
+texture = ExtResource( 2 )
+modulate = Color( 1, 1, 1, 0.38 )
+
+[node name="peng_anim" type="Sprite" parent="."]
+
+transform/rot = -90.0
+transform/scale = Vector2( 0.589615, 0.589615 )
+texture = ExtResource( 3 )
+hframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/rot = -90.0
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="cloud_ui_dot" type="Sprite" parent="."]
+
+visibility/self_opacity = 0.8
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/move = SubResource( 2 )
+playback/active = true
+playback/speed = 5.0
+blend_times = [  ]
+autoplay = "move"
+
+[node name="anim_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_penguin_sleeping_state_changed"]
+
+[connection signal="timeout" from="anim_timer" to="." method="_on_anim_timer_timeout"]
+
+

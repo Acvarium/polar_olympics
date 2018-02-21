@@ -426,7 +426,7 @@ position = Vector2( 735.01, -853.759 )
 [node name="point" type="Sprite" parent="game_field" index="3"]
 
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -434,7 +434,7 @@ __meta__ = {
 [node name="target" type="Sprite" parent="game_field" index="4"]
 
 modulate = Color( 1, 1, 1, 0.281765 )
-position = Vector2( 1356.8, 12.582 )
+position = Vector2( 1356.8, 0 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -481,6 +481,8 @@ blend_times = [  ]
 [node name="penguins" type="Node2D" parent="game_field" index="6"]
 
 [node name="blocks" type="Node2D" parent="game_field" index="7"]
+
+editor/display_folded = true
 
 [node name="shadows" type="Node2D" parent="game_field/blocks" index="0"]
 
@@ -775,7 +777,6 @@ _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
 [node name="pointer" type="Position2D" parent="ui" index="7"]
 
-visible = false
 position = Vector2( 150, 540 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
@@ -919,7 +920,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="botomLine" type="Control" parent="camera_position/Camera/data_ui" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -936,10 +936,10 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 1407.29, -28.2641 )
 scale = Vector2( 1.59528, 0.642395 )
 texture = ExtResource( 14 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="player0" type="Control" parent="camera_position/Camera/data_ui" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
@@ -986,7 +986,6 @@ blend_times = [  ]
 
 [node name="under" type="NinePatchRect" parent="camera_position/Camera/data_ui/player0" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1745,6 +1744,8 @@ mix_target = 0
 bus = "Master"
 
 [node name="timers" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="start_game" type="Timer" parent="timers" index="0"]
 
