@@ -2,9 +2,12 @@ extends Node2D
 var screen_size = Vector2()
 var screen_scale = Vector2()
 var penguin_obj = load("res://objects/penguin.tscn")
+var bonus_fish_obj = load("res://objects/bonus_fish.tscn")
 var flag_obj = load("res://objects/flag.tscn")
+var ice_shadow_obj = load("res://objects/ice_block_shadow.tscn")
 var global
 var state = 0
+var avatars = []
 var throws = []
 var score = []
 var bonus_score = []
@@ -26,26 +29,32 @@ var target_radius = 384.0
 var game_stop = false
 var to_restart = false
 
+var bot_power = 960
+var bot_angle = 0
+var max_bot_time = 10
+var pc_fire_allow = false
+var state_velocitys = [960, 1665, -1]
+var state_angles = [0, 0.76, 0]
+var state_shifts = [[300,0.2],[300,0.2],[300,0.05]]
+var rand_power = 0
+var rand_twist = 0
+
 func _ready():
+	set_process_input(true)
 	global = get_node("/root/global")
 	pointer = get_node("ui/pointer")
-	set_process_input(true)
+	max_throw = global.max_throw
 	resizer()
-	var total_score_str = ''
-	for i in range(global.score.size()):
-		total_score_str += str(global.score[i])
-		if i < (global.score.size() - 1):
-			total_score_str += ":"
-	get_node("canvas/data_ui/total_score").set_text(total_score_str)
-	
-	target_pos = get_node("game_field/target").get_global_pos()
 	get_tree().get_root().connect("size_changed", self, "resizer")
+	target_pos = get_node("game_field/target").get_global_pos()
 	for i in range(4):
 		get_node("canvas/data_ui/player" + str(i)).hide()
+	var total_score_str = ''
 	for i in range(global.score.size()):
 		throws.append(max_throw)
 		score.append(0)
 		bonus_score.append(0)
+		avatars.append(global.selected_players[i])
 		get_node("canvas/data_ui/player" + str(i)).show()
 		get_node("canvas/data_ui/player" + str(i)).set_team_color(global.team_color[i])
 		get_node("canvas/data_ui/player" + str(i)).set_trows(max_throw)
@@ -53,10 +62,26 @@ func _ready():
 		get_node("canvas/data_ui/player" + str(i)).set_team_name(global.player_name[i])
 		if i == 0:
 			get_node("canvas/data_ui/player" + str(i)).set_team_color(Color(0.7,0.7,0.7,1))
-			
+		total_score_str += str(global.score[i])
+		if i < (global.score.size() - 1):
+			total_score_str += ":"
+	get_node("canvas/data_ui/total_score").set_text(total_score_str)
+	
+		
 	set_process(true)
 	get_node("canvas/data_ui/player0").play_anim("in")
+	if avatars[0] == 23:
+		bot_move()
+		rand_fire(0)
 	
+	for ice in get_node("game_field/blocks").get_children():
+		var shadow = ice_shadow_obj.instance()
+		get_node("game_field/shadows").add_child(shadow)
+		var ice_pos = ice.get_pos()
+		shadow.set_pos(ice_pos)
+		var ice_rot = ice.get_rot()
+		shadow.set_rot(ice_rot)
+		
 #------------------------------
 func _input(event):
 	if event.is_action_pressed("quit"):
@@ -67,6 +92,7 @@ func _input(event):
 
 #========================================================================
 func _process(delta):
+	get_node("canvas/data_ui/fps").set_text(str(OS.get_frames_per_second()))
 	for i in range(score.size()):
 		score[i] = 0
 	for f in get_node("ui/flags").get_children():
@@ -110,6 +136,12 @@ func _process(delta):
 		if power < min_power:
 			rDir = 1
 		get_node("ui/power").set_value(power)
+		if avatars[team] == 23 and pc_fire_allow:
+			if (bot_power + rand_power) > (max_power * 0.97 * 22):
+				bot_power = max_power * 20
+			if abs((power * 22) - bot_power + rand_power) < 10:
+				pc_fire_allow = false
+				fire_pressed()
 				
 	elif state == 1:
 		pDirection += pSpeed * rDir * delta
@@ -120,8 +152,81 @@ func _process(delta):
 			if pDirection < -dMinMax:
 				rDir = 1
 		pointer.set_rot(pDirection)
-#		get_node("canvas/data_ui/fps").set_text(str(OS.get_frames_per_second()))
+		
+		if avatars[team] == 23 and pc_fire_allow:
+			if abs(pDirection - bot_angle + rand_twist) < 0.01:
+				pass
+				pc_fire_allow = false
+				fire_pressed()
+		
 #=====================================================
+
+func bonus(t, value, type):
+	if type == 'fish':
+#		$audio/coin.play()
+		bonus_score[t] += value
+
+
+
+func add_bonus_fish():
+	if go:
+		return
+#	$audio/ten.play()
+#	$game_field/bonus/bonus_anim.play("ten")
+	var ref = get_node("game_field/bonus/ref")
+	var min_pos = ref.get_rect().pos
+	var offset = ref.get_size()
+	var bonus_pos = Vector2()
+	bonus_pos.x = randf() * offset.x + min_pos.x
+	bonus_pos.y = randf() * offset.y + min_pos.y
+	var fish = bonus_fish_obj.instance()
+	fish.set_global_pos(bonus_pos)
+	get_node("game_field/bonus").add_child(fish)
+
+
+
+
+func rand_fire(delay):
+	var rand_time = randf() * 1.8
+	get_node("timers/rand_fire").set_wait_time(rand_time + delay)
+	get_node("timers/rand_fire").start()
+
+func  bot_move():
+	var rand_value = randf()
+	var bot_state = 0
+	if rand_value < 0.6:
+		var hi_score_team = team
+		for i in range(score.size()):
+			if team == i:
+				break 
+			if score[i] > score[hi_score_team]:
+				hi_score_team = i
+		if hi_score_team != team and (score[hi_score_team] - score[team]) > 5:
+			bot_state = 2
+			var peng
+			var p_hi_score = 0
+			for p in get_node("game_field/penguins").get_children():
+				if p.team == hi_score_team and p.score > p_hi_score:
+					p_hi_score = p.score
+					peng = p
+			if peng:
+				var d = Vector2().distance_to(peng.get_pos())
+				bot_power = d * 1.32 
+				bot_angle = peng.get_pos().angle() - PI/2
+				
+	if bot_state != 2:
+		if rand_value > 0.9:
+			bot_state = 1
+		bot_power = state_velocitys[bot_state]
+		var rand_dir = randi()%2
+		if rand_dir == 0:
+			rand_dir = -1
+		
+		bot_angle = state_angles[bot_state]
+		if bot_state == 1:
+			bot_angle *= rand_dir
+	rand_power = randf() * state_shifts[bot_state][0] - state_shifts[bot_state][0]/2
+	rand_twist =  randf() * state_shifts[bot_state][1] - state_shifts[bot_state][1]/2
 
 func get_winers():
 	var v = score[0]
@@ -137,10 +242,11 @@ func get_winers():
 
 
 func fire_pressed():
+	get_node("timers/bot_emergency_triger").stop()
 	if to_restart:
 		get_tree().reload_current_scene()
-		
-	
+	if no_control:
+		return
 	var trows_left = 0
 	for t in throws:
 		trows_left += t
@@ -151,8 +257,14 @@ func fire_pressed():
 		fire()
 	elif state == 1:
 		get_node("ui/pointer").show()
+		
+	if avatars[team] == 23 and state == 1:
+		rand_fire(0.5)
+		get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
+		get_node("timers/bot_emergency_triger").start()
 
 func fire():
+	get_node("timers/bot_emergency_triger").stop()
 	state = 0
 	throws[team] -= 1
 	get_node("canvas/data_ui/player" + str(team)).set_trows(throws[team])
@@ -201,6 +313,12 @@ func _on_cam_anim_finished():
 	no_control = false
 	if !go:
 		get_node("ui/power").show()
+		if avatars[team] == 23:
+			rand_fire(0.5)
+			bot_move()
+			get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
+			get_node("timers/bot_emergency_triger").start()
+		
 	if global.score.size() > 1:
 		get_node("canvas/data_ui/player" + str(team)).play_anim("in")
 	
@@ -213,3 +331,8 @@ func resizer():
 	get_node("canvas/data_ui").set_scale(Vector2(1 / screen_scale.y, 1 / screen_scale.y))
 	get_node("canvas/data_ui").set_size(screen_size * screen_scale.y)
 	
+func _on_rand_fire_timeout():
+	pc_fire_allow = true
+
+func _on_bot_emergency_triger_timeout():
+	fire_pressed()

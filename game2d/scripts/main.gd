@@ -175,7 +175,6 @@ func _process(delta):
 			rDir = 1
 		$ui/power.value = power
 		if avatars[team] == 23 and pc_fire_allow:
-			
 			if (pc_velocoty + rand_power) > (max_power * 0.97 * 22):
 				pc_velocoty = max_power * 20
 			$ui/vel2.text = str(pc_velocoty)
@@ -206,8 +205,6 @@ func bonus(t, value, type):
 	if type == 'fish':
 		$audio/coin.play()
 		bonus_score[t] += value
-
-
 
 
 func test_fire():
@@ -280,7 +277,6 @@ func add_bonus_fish():
 	$game_field/bonus.add_child(fish)
 
 func _input(event):
-	
 	if Input.is_action_just_pressed("clear_peng"):
 		for p in $game_field/penguins.get_children():
 			p.queue_free()
@@ -322,7 +318,7 @@ func  bot_move():
 	var b_state = 0
 	if rand_value < 0.6:
 		var hi_score_team = team
-		for i in score.size():
+		for i in range(score.size()):
 			if team == i:
 				break 
 			if score[i] > score[hi_score_team]:
@@ -352,9 +348,6 @@ func  bot_move():
 			pc_angle *= rand_dir
 	rand_power = randf() * state_shifts[b_state][0] - state_shifts[b_state][0]/2
 	rand_twist =  randf() * state_shifts[b_state][1] - state_shifts[b_state][1]/2
-
-
-
 
 func rand_fire(delay):
 	var rand_time = randf() * 1.8
@@ -401,7 +394,6 @@ func _on_cam_anim_animation_finished( anim_name ):
 			bot_move()
 			$timers/bot_emergency_triger.wait_time = max_bot_time + randf() * 2.0
 			$timers/bot_emergency_triger.start()
-#		$camera_position/Camera/data_ui/red_button.show()
 	if global.score.size() > 1:
 		data_ui.get_node("player" + str(team) + "/icon_anim").play("in")
 	

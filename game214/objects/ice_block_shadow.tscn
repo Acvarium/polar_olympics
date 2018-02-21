@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://textures/ice_block_shadow.png" type="Texture" id=1]
+
+[node name="ice_block_shadow" type="Sprite"]
+
+transform/pos = Vector2( 18.6534, -589.456 )
+transform/scale = Vector2( 0.712302, 0.712302 )
+texture = ExtResource( 1 )
+
+

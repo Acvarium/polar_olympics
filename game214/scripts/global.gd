@@ -2,7 +2,7 @@ extends Node
 var original_screen_size = Vector2(1920,1080)
 var current_scene = null
 var max_throw = 6
-var game_cersion = '0.3.0'
+var game_version = '0.4.0'
 var go_to_next = 0
 
 const team_color = [
@@ -11,7 +11,6 @@ const team_color = [
 	Color(1,0.4,0.9,1),
 	Color(0.0,0.84,0.0,1),
 ]
-
 const animals = [
 	'POLAR',			#00
 	'BROWM',			#01
@@ -35,13 +34,11 @@ const animals = [
 	'',					#19
 	'',					#20
 	'',					#21
-	'COMPY',					#22
+	'COMPY',			#22
 ]
-
 var player_name = ['POLAR','BROWM','PANDA','WALRUS']
 var score = [0]
-
-var selected_players = [1,2,3,4]
+var selected_players = [1,23,3,4]
 
 func _ready():
 	set_commands(2)

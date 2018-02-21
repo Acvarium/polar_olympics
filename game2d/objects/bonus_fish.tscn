@@ -9,9 +9,8 @@ custom_solver_bias = 0.0
 radius = 19.7917
 height = 30.3031
 
-[node name="fish" type="Area2D"]
+[node name="fish" type="Area2D" index="0"]
 
-position = Vector2( 540, 0 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

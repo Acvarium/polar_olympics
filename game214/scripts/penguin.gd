@@ -12,7 +12,6 @@ func _ready():
 	global = get_node("/root/global")
 	set_fixed_process(true)
 	
-
 func reset_damp():
 	set_linear_damp(default_damp)
 	set_angular_damp(default_damp)
@@ -37,9 +36,9 @@ func _on_penguin_sleeping_state_changed():
 	else:
 		get_node("anim").play("move")
 		
-#	if sleeping and score == 10 and ! bonus_ten:
-#		bonus_ten = true
-#		main_node.add_bonus_fish()
+	if is_sleeping() and score == 10 and ! bonus_ten:
+		bonus_ten = true
+		main_node.add_bonus_fish()
 	
 func set_team(t):
 	team = t
