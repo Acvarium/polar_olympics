@@ -375,10 +375,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3, 4.4, 5.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 410, 0 ), Vector2( 410, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("cam_anim/applods:playing")
@@ -393,7 +393,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -433,16 +433,14 @@ __meta__ = {
 [node name="target" type="Sprite" parent="game_field" index="4"]
 
 modulate = Color( 1, 1, 1, 0.281765 )
-position = Vector2( 1356.8, 0 )
+position = Vector2( 1266.8, 0 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="bonus" type="Node2D" parent="game_field" index="5"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="ref" type="ReferenceRect" parent="game_field/bonus" index="0"]
@@ -617,8 +615,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="ui" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="total_score" type="Label" parent="ui" index="0"]
 
 visible = false
@@ -645,7 +641,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="vel" type="Label" parent="ui" index="1"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -669,7 +664,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="vel2" type="Label" parent="ui" index="2"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -693,7 +687,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="vel3" type="Label" parent="ui" index="3"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -869,6 +862,7 @@ __meta__ = {
 
 [node name="data_ui" type="ReferenceRect" parent="camera_position/Camera" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1444,7 +1438,8 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="exit_message" type="NinePatchRect" parent="camera_position/Camera/data_ui" index="7"]
 
-self_modulate = Color( 1, 1, 1, 0.165725 )
+editor/display_folded = true
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -1467,6 +1462,7 @@ _sections_unfolded = [ "Material", "Patch Margin", "Rect", "Visibility" ]
 
 [node name="label" type="Label" parent="camera_position/Camera/data_ui/exit_message" index="0"]
 
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

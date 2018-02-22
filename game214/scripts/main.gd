@@ -3,7 +3,7 @@ var screen_size = Vector2()
 var screen_scale = Vector2()
 var penguin_obj = load("res://objects/penguin.tscn")
 var bonus_fish_obj = load("res://objects/bonus_fish.tscn")
-var flag_obj = load("res://objects/flag.tscn")
+#var flag_obj = load("res://objects/flag.tscn")
 var ice_shadow_obj = load("res://objects/ice_block_shadow.tscn")
 var global
 var state = 0
@@ -30,16 +30,20 @@ var game_stop = false
 var to_restart = false
 var button_pressed = false
 var to_exit = false
+var fire_timeout = false
 
 var bot_power = 960
 var bot_angle = 0
 var max_bot_time = 10
 var pc_fire_allow = false
-var state_velocitys = [960, 1665, -1]
-var state_angles = [0, 0.76, 0]
+var state_velocitys = [900, 1590, -1]
+var state_angles = [0, 0.78, 0]
 var state_shifts = [[300,0.2],[300,0.2],[300,0.05]]
 var rand_power = 0
 var rand_twist = 0
+var peng_id = 0
+var peng_teams = []
+var peng_score = []
 
 func _ready():
 	set_process_input(true)
@@ -90,28 +94,14 @@ func _input(event):
 		get_tree().quit()
 
 	if event.is_action_pressed("fire"):
+		if avatars[team] == 23 and !to_restart:
+			return
 		fire_pressed()
 
 #========================================================================
 func _process(delta):
-	get_node("canvas/data_ui/fps").set_text(str(OS.get_frames_per_second()))
-	for i in range(score.size()):
-		score[i] = 0
-	for f in get_node("ui/flags").get_children():
-		var peng = f.penguin
-		f.set_pos(peng.get_pos())
-		if peng.score > 0:
-			f.get_node("sprite/label").set_text(str(peng.score))
-		score[peng.team] += peng.score
-		if peng.score > 0 and !f.is_visible():
-			f.show()
-		elif peng.score <= 0 and f.is_visible():
-			f.hide()
-	
-	for i in range(score.size()):
-		score[i] += bonus_score[i]
-		get_node("canvas/data_ui/player" + str(i)).set_team_score(score[i])
-
+	get_node("canvas/data_ui/vel").set_text(str(get_node("timers/bot_emergency_triger").get_time_left()))
+#	get_node("canvas/data_ui/fps").set_text(str(OS.get_frames_per_second()))
 	if go:
 		var all_sleep = true
 		for p in get_node("game_field/penguins").get_children():
@@ -165,13 +155,16 @@ func _process(delta):
 
 func bonus(t, value, type):
 	if type == 'fish':
+		get_node("sounds/fish_eaten").play()
 #		$audio/coin.play()
 		bonus_score[t] += value
+	update_team_score(t)
 
 
 func add_bonus_fish():
 	if go:
 		return
+	get_node("game_field/effects/effects").play("b10")
 #	$audio/ten.play()
 #	$game_field/bonus/bonus_anim.play("ten")
 	var ref = get_node("game_field/bonus/ref")
@@ -183,9 +176,6 @@ func add_bonus_fish():
 	var fish = bonus_fish_obj.instance()
 	fish.set_global_pos(bonus_pos)
 	get_node("game_field/bonus").add_child(fish)
-
-
-
 
 func rand_fire(delay):
 	var rand_time = randf() * 1.8
@@ -249,7 +239,11 @@ func _notification(what):
 			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
 
 func fire_pressed():
-	get_node("timers/bot_emergency_triger").stop()
+#	get_node("timers/bot_emergency_triger").stop()
+	if fire_timeout:
+		return
+	fire_timeout = true
+	get_node("timers/fire_timeout").start()
 	if to_restart:
 		get_tree().reload_current_scene()
 	if no_control:
@@ -271,6 +265,7 @@ func fire_pressed():
 		get_node("timers/bot_emergency_triger").start()
 
 func fire():
+#	set_process(false)
 	get_node("timers/bot_emergency_triger").stop()
 	state = 0
 	throws[team] -= 1
@@ -294,7 +289,6 @@ func fire():
 		get_node("canvas/score_anim").play("total_score")
 #		$camera_position/Camera/data_ui/total_score_tab/score_anim.play("total_score")
 
-
 	get_node("ui/pointer").hide()
 	get_node("ui/power").hide()
 
@@ -304,19 +298,32 @@ func spawn_penguin():
 	penguin.set_rot(-r)
 	penguin.set_linear_velocity(Vector2(cos(r), sin(r)).normalized() * power * 22)
 	penguin.set_team(team)
+	peng_teams.append(team)
+	peng_score.append(0)
 	penguin.set_color(global.team_color[team])
+	penguin.set_id(peng_id)
+	peng_id += 1
 	get_node("game_field/penguins").add_child(penguin)
-	var flag = flag_obj.instance()
-	flag.penguin = penguin
-	flag.set_color(global.team_color[team])
-	get_node("ui/flags").add_child(flag)
-	flag.set_pos(penguin.get_pos())
 
+func update_peng_score(id, value):
+	peng_score[id] = value
+	update_team_score(peng_teams[id])
+	
+func update_team_score(t):
+	score[t] = bonus_score[t]
+	for i in range(peng_score.size()):
+		if peng_teams[i] == t:
+			score[peng_teams[i]] += peng_score[i]
+	get_node("canvas/data_ui/player" + str(t)).set_team_score(score[t]) 
+	
 func _on_fire_button_button_down():
+	if avatars[team] == 23 and !to_restart:
+		return
 	if !no_control:
 		fire_pressed()
 
 func _on_cam_anim_finished():
+	set_process(true)
 	no_control = false
 	if !go:
 		get_node("ui/power").show()
@@ -354,4 +361,7 @@ func _on_menu_button_pressed():
 
 func _on_exit_anim_finished():
 	to_exit = false
+
+func _on_fire_timeout_timeout():
+	fire_timeout = false 
 

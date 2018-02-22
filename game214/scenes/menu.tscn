@@ -1,18 +1,17 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
 [ext_resource path="res://fonts/font0.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://textures/unfolder.tex" type="Texture" id=4]
-[ext_resource path="res://textures/tabs_line.png" type="Texture" id=5]
-[ext_resource path="res://textures/selected_tab.tex" type="Texture" id=6]
-[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://textures/rect.png" type="Texture" id=5]
+[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://textures/selected_tab_2.png" type="Texture" id=7]
 [ext_resource path="res://textures/not_available_icon.png" type="Texture" id=8]
 [ext_resource path="res://textures/tab.png" type="Texture" id=9]
-[ext_resource path="res://textures/rect.png" type="Texture" id=10]
-[ext_resource path="res://textures/play.png" type="Texture" id=11]
-[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=12]
-[ext_resource path="res://textures/rect2.png" type="Texture" id=13]
+[ext_resource path="res://textures/play.png" type="Texture" id=10]
+[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://textures/rect2.png" type="Texture" id=12]
 
 [node name="main" type="Node2D"]
 
@@ -107,9 +106,63 @@ patch_margin/left = 633
 patch_margin/top = 109
 patch_margin/right = 1
 
+[node name="quit" type="Patch9Frame" parent="Control/rect/hint"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 140.0
+margin/right = 220.0
+margin/bottom = 250.0
+texture = ExtResource( 5 )
+patch_margin/left = 40
+patch_margin/top = 40
+patch_margin/right = 40
+patch_margin/bottom = 40
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="quit_button" type="Button" parent="Control/rect/hint/quit"]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 200.0
+margin/bottom = 110.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="Control/rect/hint/quit"]
+
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 250.0
+margin/bottom = 138.0
+custom_fonts/font = ExtResource( 6 )
+text = "quit"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="tabs" type="Control" parent="Control"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -122,16 +175,71 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="tabs_line" type="Sprite" parent="Control/tabs"]
+[node name="selected_pos" type="Control" parent="Control/tabs"]
 
-transform/pos = Vector2( 1211.69, 2.56958 )
-transform/scale = Vector2( 1.2609, 1.05093 )
-texture = ExtResource( 5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
-[node name="selected_tab" type="Sprite" parent="Control/tabs"]
+[node name="p0" type="Position2D" parent="Control/tabs/selected_pos"]
 
-transform/pos = Vector2( 423.739, 63.2123 )
-texture = ExtResource( 6 )
+[node name="p1" type="Position2D" parent="Control/tabs/selected_pos"]
+
+transform/pos = Vector2( 432, 0 )
+
+[node name="p2" type="Position2D" parent="Control/tabs/selected_pos"]
+
+transform/pos = Vector2( 868, 0 )
+
+[node name="p3" type="Position2D" parent="Control/tabs/selected_pos"]
+
+transform/pos = Vector2( 1305, 0 )
+
+[node name="selected_tab" type="Control" parent="Control/tabs"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2.0
+margin/top = 0.0
+margin/right = -2.0
+margin/bottom = 0.0
+
+[node name="selected_label1" type="Patch9Frame" parent="Control/tabs/selected_tab"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 5.0
+margin/top = 0.0
+margin/right = 2088.0
+margin/bottom = 109.0
+texture = ExtResource( 7 )
+patch_margin/left = 633
+patch_margin/top = 109
+patch_margin/right = 1
+
+[node name="selected_label2" type="Patch9Frame" parent="Control/tabs/selected_tab"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2078.0
+margin/top = 0.0
+margin/right = 5.0
+margin/bottom = 109.0
+texture = ExtResource( 7 )
+patch_margin/left = 633
+patch_margin/top = 109
+patch_margin/right = 1
 
 [node name="label" type="Label" parent="Control/tabs/selected_tab"]
 
@@ -140,11 +248,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -407.0
-margin/top = 5.0
-margin/right = 224.0
-margin/bottom = 96.0
-custom_fonts/font = ExtResource( 7 )
+margin/left = 23.0
+margin/top = 55.0
+margin/right = 654.0
+margin/bottom = 146.0
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.815686 )
 text = "SINGLE"
 align = 2
@@ -154,7 +262,7 @@ max_lines_visible = -1
 
 [node name="not_available_icon" type="Sprite" parent="Control/tabs/selected_tab"]
 
-transform/pos = Vector2( -384.296, 18.735 )
+transform/pos = Vector2( 45.704, 68.735 )
 texture = ExtResource( 8 )
 
 [node name="tab0" type="Sprite" parent="Control/tabs"]
@@ -175,7 +283,7 @@ margin/left = -205.0
 margin/top = -14.0
 margin/right = 426.0
 margin/bottom = 77.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.480863 )
 text = "SINGLE"
 align = 2
@@ -206,7 +314,7 @@ margin/left = -205.0
 margin/top = -14.0
 margin/right = 426.0
 margin/bottom = 77.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.480863 )
 text = "HOTSEAT"
 align = 2
@@ -232,7 +340,7 @@ margin/left = -205.0
 margin/top = -14.0
 margin/right = 426.0
 margin/bottom = 77.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.480863 )
 text = "LAN"
 align = 2
@@ -264,7 +372,7 @@ margin/left = -205.0
 margin/top = -14.0
 margin/right = 426.0
 margin/bottom = 77.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.480863 )
 text = "ONLINE"
 align = 2
@@ -277,34 +385,6 @@ max_lines_visible = -1
 transform/pos = Vector2( -182.884, 1.23029 )
 transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 8 )
-
-[node name="selected_pos" type="Control" parent="Control/tabs"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-
-[node name="p0" type="Position2D" parent="Control/tabs/selected_pos"]
-
-transform/pos = Vector2( 423.739, 63.2123 )
-
-[node name="p1" type="Position2D" parent="Control/tabs/selected_pos"]
-
-transform/pos = Vector2( 856.739, 63.2123 )
-
-[node name="p2" type="Position2D" parent="Control/tabs/selected_pos"]
-
-transform/pos = Vector2( 1292.74, 63.2123 )
-
-[node name="p3" type="Position2D" parent="Control/tabs/selected_pos"]
-
-transform/pos = Vector2( 1730.74, 63.2123 )
 
 [node name="buttons" type="Control" parent="Control/tabs"]
 
@@ -384,7 +464,6 @@ flat = false
 
 [node name="l" type="Node2D" parent="Control/tabs"]
 
-editor/display_folded = true
 transform/scale = Vector2( -1, 1 )
 
 [node name="selected_label" type="Patch9Frame" parent="Control/tabs/l"]
@@ -413,7 +492,7 @@ margin/left = 1535.0
 margin/top = 225.0
 margin/right = 2252.0
 margin/bottom = 316.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.815686 )
 text = "SINGLE"
 percent_visible = 1.0
@@ -443,7 +522,7 @@ margin/left = 2.0
 margin/top = 333.0
 margin/right = 1921.0
 margin/bottom = 819.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.815686 )
 text = "SORRY, THIS MODE
 IS NOT YET AVAILABLE"
@@ -475,7 +554,7 @@ margin/left = 40.0
 margin/top = 240.0
 margin/right = 236.0
 margin/bottom = 436.0
-texture = ExtResource( 10 )
+texture = ExtResource( 5 )
 patch_margin/left = 40
 patch_margin/top = 40
 patch_margin/right = 40
@@ -487,11 +566,11 @@ __meta__ = {
 [node name="play" type="Sprite" parent="Control/mode1/start"]
 
 transform/pos = Vector2( 98, 98 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="start_button" type="Button" parent="Control/mode1/start"]
 
-visibility/self_opacity = 0.3
+visibility/self_opacity = 0.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -505,7 +584,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button0" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button0" parent="Control/mode1" instance=ExtResource( 11 )]
 
 margin/left = 290.0
 margin/top = 240.0
@@ -513,16 +592,16 @@ margin/right = 554.0
 margin/bottom = 535.0
 avatar = 1
 
-[node name="select_button1" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button1" parent="Control/mode1" instance=ExtResource( 11 )]
 
 margin/left = 580.0
 margin/top = 240.0
 margin/right = 844.0
 margin/bottom = 535.0
 stand = 1
-avatar = 2
+avatar = 23
 
-[node name="select_button2" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button2" parent="Control/mode1" instance=ExtResource( 11 )]
 
 margin/left = 880.0
 margin/top = 240.0
@@ -530,7 +609,7 @@ margin/right = 1144.0
 margin/bottom = 535.0
 stand = 2
 
-[node name="select_button3" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button3" parent="Control/mode1" instance=ExtResource( 11 )]
 
 margin/left = 1180.0
 margin/top = 240.0
@@ -561,7 +640,7 @@ margin/left = 2.0
 margin/top = 333.0
 margin/right = 1921.0
 margin/bottom = 819.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.815686 )
 text = "SORRY, THIS MODE
 IS NOT YET AVAILABLE"
@@ -594,7 +673,7 @@ margin/left = 2.0
 margin/top = 333.0
 margin/right = 1921.0
 margin/bottom = 819.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0784314, 0.239216, 0.486275, 0.815686 )
 text = "SORRY, THIS MODE
 IS NOT YET AVAILABLE"
@@ -616,7 +695,7 @@ margin/left = 260.0
 margin/top = 270.0
 margin/right = 1500.0
 margin/bottom = 964.0
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 modulate = Color( 0.341176, 0.729412, 0.901961, 0.768627 )
 patch_margin/left = 40
 patch_margin/top = 40
@@ -642,7 +721,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 11 )]
 
 margin/left = 40.0
 margin/top = 43.0
@@ -651,7 +730,7 @@ margin/bottom = 338.0
 avatar = 1
 in_selector = true
 
-[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 11 )]
 
 margin/left = 40.0
 margin/top = 353.0
@@ -660,7 +739,7 @@ margin/bottom = 648.0
 avatar = 4
 in_selector = true
 
-[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 11 )]
 
 margin/left = 340.0
 margin/top = 43.0
@@ -669,7 +748,7 @@ margin/bottom = 338.0
 avatar = 2
 in_selector = true
 
-[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 11 )]
 
 margin/left = 340.0
 margin/top = 353.0
@@ -678,7 +757,7 @@ margin/bottom = 648.0
 avatar = 5
 in_selector = true
 
-[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 11 )]
 
 margin/left = 640.0
 margin/top = 43.0
@@ -687,7 +766,7 @@ margin/bottom = 338.0
 avatar = 3
 in_selector = true
 
-[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 11 )]
 
 margin/left = 940.0
 margin/top = 43.0
@@ -696,7 +775,7 @@ margin/bottom = 338.0
 avatar = 23
 in_selector = true
 
-[node name="x_button" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="x_button" parent="Control/char_selector" instance=ExtResource( 11 )]
 
 margin/left = 640.0
 margin/top = 353.0
@@ -726,6 +805,8 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+
+[connection signal="pressed" from="Control/rect/hint/quit/quit_button" to="." method="_on_quit_button_pressed"]
 
 [connection signal="pressed" from="Control/tabs/buttons/Button0" to="." method="_on_Button0_pressed"]
 

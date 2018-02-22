@@ -224,6 +224,7 @@ func test_fire():
 
 func fire():
 #	$camera_position/Camera/data_ui/red_button.hide()
+	
 	$timers/bot_emergency_triger.stop()
 	state = 0
 	throws[team] -= 1

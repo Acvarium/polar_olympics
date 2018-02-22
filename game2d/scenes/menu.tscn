@@ -16,7 +16,7 @@
 [ext_resource path="res://textures/rect2.png" type="Texture" id=14]
 [ext_resource path="res://textures/x.png" type="Texture" id=15]
 
-[node name="main" type="Node2D" index="0"]
+[node name="main" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {

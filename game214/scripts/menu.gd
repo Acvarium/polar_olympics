@@ -21,6 +21,9 @@ func _ready():
 	update_dots()
 
 func _input(event):
+	if event.is_action_pressed("quit"):
+		get_tree().quit()
+
 	if event.is_action_pressed("fire"):
 		global.start_game()
 
@@ -98,8 +101,8 @@ func _on_Button3_pressed():
 func _on_start_button_pressed():
 	global.goto_scene("res://scenes/main.tscn")
 #	
-#	print("start")
-#	global.start_game()
-
 func _on_cancel_pressed():
 	get_node("Control/char_selector").hide()
+
+func _on_quit_button_pressed():
+	get_tree().quit()
