@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 19.7917
 height = 30.3031
 
-[node name="fish" type="Area2D" index="0"]
+[node name="fish" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -29,7 +29,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 position = Vector2( 1, 0 )
 shape = SubResource( 1 )
 

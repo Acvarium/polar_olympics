@@ -11,6 +11,7 @@ func _ready():
 	main_node = get_node("/root/main")
 	global = get_node("/root/global")
 	set_fixed_process(true)
+	get_node("yahoo").play("yahoo")
 	
 func reset_damp():
 	set_linear_damp(default_damp)

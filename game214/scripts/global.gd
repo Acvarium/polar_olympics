@@ -3,7 +3,6 @@ var original_screen_size = Vector2(1920,1080)
 var current_scene = null
 var max_throw = 6
 var game_version = '0.4.0'
-var go_to_next = 0
 
 const team_color = [
 	Color(1,1,1,1),
@@ -42,12 +41,9 @@ var selected_players = [1,23,3,4]
 
 func _ready():
 	set_commands(2)
-#	get_tree().set_auto_accept_quit(true)
-#	get_tree().set_quit_on_go_back(false)
+	get_tree().set_auto_accept_quit(false)
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
-	var r = get_tree().get_root().get_rect()
-	r.size = Vector2(1920,1080)
 	
 func start_game():
 	score = []
@@ -59,8 +55,7 @@ func start_game():
 	goto_scene("res://scenes/main.tscn")
 
 func goto_scene(path):
-	if  go_to_next <= 1:
-		call_deferred("_deferred_goto_scene",path)
+	call_deferred("_deferred_goto_scene",path)
 
 func _deferred_goto_scene(path):
 	var root = get_tree().get_root()
@@ -70,7 +65,6 @@ func _deferred_goto_scene(path):
 	current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene( current_scene )
-	go_to_next += 1
 
 func set_commands(c):
 	global.score = []

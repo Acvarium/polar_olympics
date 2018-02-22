@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Patch9Frame
 export var stand = 0
 export var avatar = 0
 var player_name = ''
@@ -6,18 +6,34 @@ var global
 var mouse_ower = false
 var max_avatar = 5
 export var in_selector = false
+export var xxx = false
 var main_node
 
 func _ready():
 	global = get_node("/root/global")
 	main_node = get_node("/root/main")
 	update_avatar()
-	$dot.visible = !in_selector
 	if !in_selector:
-		$dot.modulate = global.team_color[stand]
+		get_node("dot").show()
 		
+	else:
+		get_node("dot").hide()
+
+func set_team_color(c):
+	get_node("dot").set_modulate(c)
 
 func update_avatar():
+	if xxx:
+		for o in get_children():
+			o.hide()
+		get_node("x").show()
+		get_node("Button").show()
+		return 
+	else:
+		for o in get_children():
+			o.show()
+		get_node("x").hide()
+		
 	if !in_selector:
 		if (stand == 0 or stand == 1):
 			if avatar > max_avatar  and avatar != 23:
@@ -31,11 +47,12 @@ func update_avatar():
 				avatar = max_avatar
 		global.selected_players[stand] = avatar
 		global.player_name[stand] = global.animals[avatar-1]
-	$faces.frame = avatar
-	$name_pos/name.text = global.animals[avatar-1]
+	get_node("faces").set_frame(avatar)
+	get_node("name").set_text(global.animals[avatar-1])
 	if avatar == 0:
-		$name_pos/name.text = ''
-	
+		get_node("name").set_text('')
+
+
 func _input(event):
 	if in_selector:
 		return
@@ -47,16 +64,11 @@ func _input(event):
 			avatar += 1
 			update_avatar()
 			
-			
 func _on_Button_pressed():
-
+	if xxx:
+		main_node.set_face(0)
+		return
 	if in_selector:
 		main_node.set_face(avatar)
 	else:
 		main_node.set_selected_stand(stand)
-
-func _on_Button_mouse_entered():
-	mouse_ower = true
-
-func _on_Button_mouse_exited():
-	mouse_ower = false

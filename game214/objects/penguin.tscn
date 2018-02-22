@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/penguin.gd" type="Script" id=1]
 [ext_resource path="res://textures/pShadow.png" type="Texture" id=2]
 [ext_resource path="res://textures/peng_anim.png" type="Texture" id=3]
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
+[ext_resource path="res://sounds/yahoo.smp" type="Sample" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -26,6 +27,15 @@ tracks/0/keys = {
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="SampleLibrary" id=3]
+
+samples/yahoo = {
+"db": -10.0,
+"pitch": 0.9,
+"priority": 0,
+"sample": ExtResource( 5 )
 }
 
 [node name="penguin" type="RigidBody2D" groups=[
@@ -100,6 +110,17 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
+
+[node name="yahoo" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 3 )
+config/pitch_random = 0.0
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_penguin_sleeping_state_changed"]
 

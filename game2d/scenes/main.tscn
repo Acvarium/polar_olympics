@@ -393,7 +393,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[node name="main" type="Node2D" index="0"]
+[node name="main" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -443,12 +443,10 @@ __meta__ = {
 
 [node name="bonus" type="Node2D" parent="game_field" index="5"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="ref" type="ReferenceRect" parent="game_field/bonus" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -871,7 +869,6 @@ __meta__ = {
 
 [node name="data_ui" type="ReferenceRect" parent="camera_position/Camera" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1447,8 +1444,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="exit_message" type="NinePatchRect" parent="camera_position/Camera/data_ui" index="7"]
 
-editor/display_folded = true
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.165725 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -1471,7 +1467,6 @@ _sections_unfolded = [ "Material", "Patch Margin", "Rect", "Visibility" ]
 
 [node name="label" type="Label" parent="camera_position/Camera/data_ui/exit_message" index="0"]
 
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1508,6 +1503,7 @@ blend_times = [  ]
 
 [node name="total_score_tab" type="NinePatchRect" parent="camera_position/Camera/data_ui" index="8"]
 
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0.37 )
 anchor_left = 0.5
@@ -1727,7 +1723,7 @@ group = null
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 19 )
 texture_hover = ExtResource( 20 )
-_sections_unfolded = [ "Textures", "Visibility" ]
+_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
 [node name="cam_anim" type="AnimationPlayer" parent="camera_position" index="1"]
 

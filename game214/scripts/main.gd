@@ -28,6 +28,8 @@ var target_pos = Vector2()
 var target_radius = 384.0
 var game_stop = false
 var to_restart = false
+var button_pressed = false
+var to_exit = false
 
 var bot_power = 960
 var bot_angle = 0
@@ -167,7 +169,6 @@ func bonus(t, value, type):
 		bonus_score[t] += value
 
 
-
 func add_bonus_fish():
 	if go:
 		return
@@ -239,7 +240,13 @@ func get_winers():
 		up_score.append(int(v == score[i]))
 	return(up_score)
 
-
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		if to_exit:
+			get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+		else:
+			to_exit = true
+			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
 
 func fire_pressed():
 	get_node("timers/bot_emergency_triger").stop()
@@ -336,3 +343,15 @@ func _on_rand_fire_timeout():
 
 func _on_bot_emergency_triger_timeout():
 	fire_pressed()
+
+func _on_menu_button_pressed():
+	button_pressed = true
+	if to_exit:
+		get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+	else:
+		to_exit = true
+		get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
+
+func _on_exit_anim_finished():
+	to_exit = false
+

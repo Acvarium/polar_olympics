@@ -20,6 +20,7 @@ func _ready():
 
 func resizer():
 	screen_size = get_tree().root.get_visible_rect().size
+	print(screen_size)
 	var ratio = screen_size.x/screen_size.y
 	screen_scale = Vector2(global.original_screen_size.x / screen_size.x, global.original_screen_size.y / screen_size.y)
 	var horizontal = ratio * global.original_screen_size.y 

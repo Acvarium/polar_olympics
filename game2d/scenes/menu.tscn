@@ -29,6 +29,7 @@ __meta__ = {
 position = Vector2( 960, 540 )
 scale = Vector2( 1.35021, 1.58824 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="banner2" type="Sprite" parent="." index="1"]
 
@@ -66,6 +67,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="hint" type="Control" parent="Control/rect" index="0"]
 
@@ -91,7 +93,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -217.0
 margin_right = 2158.0
-margin_bottom = 264.0
+margin_bottom = 261.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -126,16 +128,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="quit" type="NinePatchRect" parent="Control/rect" index="1"]
+[node name="quit" type="NinePatchRect" parent="Control/rect/hint" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 50.0
-margin_top = 930.0
+margin_top = 151.0
 margin_right = 246.0
-margin_bottom = 1040.0
+margin_bottom = 261.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -151,7 +154,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="quit_button" type="Button" parent="Control/rect/quit" index="0"]
+[node name="quit_button" type="Button" parent="Control/rect/hint/quit" index="0"]
 
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -174,7 +177,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Label" type="Label" parent="Control/rect/quit" index="1"]
+[node name="Label" type="Label" parent="Control/rect/hint/quit" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -198,7 +201,6 @@ _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [node name="tabs" type="Control" parent="Control" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -257,7 +259,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="tab0" type="Sprite" parent="Control/tabs" index="1"]
 
 editor/display_folded = true
-visible = false
 position = Vector2( 216.587, 69.0598 )
 texture = ExtResource( 9 )
 
@@ -738,7 +739,6 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" 
 
 [node name="start" type="NinePatchRect" parent="Control/mode1" index="5"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -875,7 +875,6 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="char_selector" type="Control" parent="Control" index="6"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -890,6 +889,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="cancel" type="Button" parent="Control/char_selector" index="0"]
 
@@ -988,6 +988,7 @@ in_selector = true
 
 [node name="x_button" type="NinePatchRect" parent="Control/char_selector" index="8"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1062,7 +1063,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[connection signal="pressed" from="Control/rect/quit/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/rect/hint/quit/quit_button" to="." method="_on_quit_button_pressed"]
 
 [connection signal="pressed" from="Control/tabs/buttons/Button0" to="." method="_on_Button0_pressed"]
 
