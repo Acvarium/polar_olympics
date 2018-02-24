@@ -28,7 +28,10 @@ func _on_Area2D_body_enter( body ):
 		swallowed.append(body.get_name())
 		fall_pos.set_water(get_global_pos())
 		if score > 0:
-			main_node.bonus(body.team, score, 'hole', get_global_pos())
+			if body.is_in_group("peng"):
+				main_node.bonus(body.team, score, 'hole', get_global_pos())
+			else:
+				main_node.bonus(main_node.team, score, 'hole', get_global_pos())
 		set_score(0)
 
 func to_swallow(body):
