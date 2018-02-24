@@ -17,9 +17,9 @@ func _ready():
 	set_process_input(true)
 	resizer()
 	get_tree().get_root().connect("size_changed", self, "resizer")
-	select_tab(1)
+	select_tab(global.selected_tab)
 	update_dots()
-
+	
 func _input(event):
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
@@ -88,21 +88,32 @@ func select_tab(t):
 
 func _on_Button0_pressed():
 	select_tab(0)
+	global.selected_tab = 0
 
 func _on_Button1_pressed():
 	select_tab(1)
+	global.selected_tab = 1
 
 func _on_Button2_pressed():
 	select_tab(2)
+	global.selected_tab = 2
 
 func _on_Button3_pressed():
 	select_tab(3)
+	global.selected_tab = 3
 
 func _on_start_button_pressed():
-	global.goto_scene("res://scenes/main.tscn")
+	global.single = false
+	global.start_game()
+#	global.goto_scene("res://scenes/main.tscn")
 #	
 func _on_cancel_pressed():
 	get_node("Control/char_selector").hide()
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+func _on_lvl0_pressed():
+	global.single = true
+	global.next_level = global.levels[0]
+	global.goto_scene("res://scenes/main.tscn")

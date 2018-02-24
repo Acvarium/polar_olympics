@@ -3,6 +3,25 @@ var original_screen_size = Vector2(1920,1080)
 var current_scene = null
 var max_throw = 6
 var game_version = '0.4.0'
+var single = false
+var next_level = "res://levels/level0.tscn"
+var selected_tab = 0
+var level_num = 0
+
+var levels = [
+"res://levels/level0.tscn",
+"res://levels/level1.tscn",
+"res://levels/level2.tscn",
+"res://levels/level3.tscn",
+"res://levels/level4.tscn",
+"res://levels/level5.tscn",
+]
+
+func select_next_level(l):
+	level_num += l
+	if level_num > (levels.size() - 1):
+		level_num = 0
+	next_level = levels[level_num]
 
 const team_color = [
 	Color(1,1,1,1),
@@ -40,13 +59,14 @@ var score = [0]
 var selected_players = [1,23,3,4]
 
 func _ready():
-	set_commands(2)
+	set_commands(1)
 	get_tree().set_auto_accept_quit(false)
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
 	
 func start_game():
 	score = []
+	print("____", score.size())
 	for i in range(selected_players.size()):
 		if selected_players[i] > 0:
 			score.append(0)

@@ -3,7 +3,6 @@ var screen_size = Vector2()
 var screen_scale = Vector2()
 var penguin_obj = load("res://objects/penguin.tscn")
 var bonus_fish_obj = load("res://objects/bonus_fish.tscn")
-#var flag_obj = load("res://objects/flag.tscn")
 var ice_shadow_obj = load("res://objects/ice_block_shadow.tscn")
 var global
 var state = 0
@@ -44,18 +43,43 @@ var rand_twist = 0
 var peng_id = 0
 var peng_teams = []
 var peng_score = []
+var default_target = true
+var p_num = 0
 
 func _ready():
 	set_process_input(true)
 	global = get_node("/root/global")
 	pointer = get_node("ui/pointer")
-	max_throw = global.max_throw
 	resizer()
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	target_pos = get_node("game_field/target").get_global_pos()
+	geme_setup()
+	set_process(true)
+	get_node("canvas/data_ui/player0").play_anim("in")
+	if avatars[0] == 23:
+		bot_move()
+		rand_fire(0)
+	
+	for ice in get_node("game_field/blocks").get_children():
+		var shadow = ice_shadow_obj.instance()
+		get_node("game_field/shadows").add_child(shadow)
+		var ice_pos = ice.get_pos()
+		shadow.set_pos(ice_pos)
+		var ice_rot = ice.get_rot()
+		shadow.set_rot(ice_rot)
+	if global.single:
+		load_level(global.next_level)
+		
+func load_level(l):
+	var level = load(l).instance()
+	get_node("game_field/levels").add_child(level)
+	
+func geme_setup():
 	for i in range(4):
 		get_node("canvas/data_ui/player" + str(i)).hide()
+	max_throw = global.max_throw
 	var total_score_str = ''
+	throws = []
 	for i in range(global.score.size()):
 		throws.append(max_throw)
 		score.append(0)
@@ -72,22 +96,27 @@ func _ready():
 		if i < (global.score.size() - 1):
 			total_score_str += ":"
 	get_node("canvas/data_ui/total_score").set_text(total_score_str)
+
+func fall(p_path,hole_path):
+	var p = get_node(p_path)
+	var hole = get_node(hole_path)
+	var vel = p.get_linear_velocity()
+	var p_pos = p.get_global_pos()
+	var p_rot = p.get_global_rot()
+	var per = p.get_parent()
+	p.set_collision_mask_bit(1,false)
+	p.set_layer_mask_bit(1,false)
+	per.remove_child(p)
+	hole.add_child(p)
+	if p.is_in_group("peng"):
+		p.is_falling = true
+	p.set_global_pos(p_pos)
+	p.set_global_rot(p_rot)
 	
-		
-	set_process(true)
-	get_node("canvas/data_ui/player0").play_anim("in")
-	if avatars[0] == 23:
-		bot_move()
-		rand_fire(0)
-	
-	for ice in get_node("game_field/blocks").get_children():
-		var shadow = ice_shadow_obj.instance()
-		get_node("game_field/shadows").add_child(shadow)
-		var ice_pos = ice.get_pos()
-		shadow.set_pos(ice_pos)
-		var ice_rot = ice.get_rot()
-		shadow.set_rot(ice_rot)
-		
+#	p.set_linear_velocity(vel)
+#	p.set_linear_damp(1)
+#	p.set_mode(3)
+	get_node("sounds/splash").play()
 #------------------------------
 func _input(event):
 	if event.is_action_pressed("quit"):
@@ -98,6 +127,17 @@ func _input(event):
 			return
 		fire_pressed()
 
+func remove_obj(r):
+	if r == "target":
+		get_node("game_field/target").queue_free()
+	elif r == "walls":
+		for w in get_node("game_field/blocks").get_children():
+			w.queue_free()
+		for s in get_node("game_field/shadows").get_children():
+			s.queue_free()
+	elif r == "top_score":
+		get_node("canvas/data_ui/total_score").hide()
+		
 #========================================================================
 func _process(delta):
 	get_node("canvas/data_ui/vel").set_text(str(get_node("timers/bot_emergency_triger").get_time_left()))
@@ -294,6 +334,8 @@ func fire():
 
 func spawn_penguin():
 	var penguin = penguin_obj.instance()
+	penguin.set_name("penguin_" + str(p_num))
+	p_num += 1
 	var r = -pointer.get_rot()
 	penguin.set_rot(-r)
 	penguin.set_linear_velocity(Vector2(cos(r), sin(r)).normalized() * power * 22)

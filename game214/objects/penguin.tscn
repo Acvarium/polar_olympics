@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/penguin.gd" type="Script" id=1]
 [ext_resource path="res://textures/pShadow.png" type="Texture" id=2]
@@ -16,7 +16,23 @@ height = 64.5665
 
 [sub_resource type="Animation" id=2]
 
-resource/name = "move"
+resource/name = "fall"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.2, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
 length = 1.0
 loop = true
 step = 0.1
@@ -31,7 +47,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="SampleLibrary" id=3]
+[sub_resource type="SampleLibrary" id=4]
 
 samples/yahoo = {
 "db": -10.0,
@@ -48,8 +64,8 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( -4.37114e-08, 1, -1, -4.37114e-08, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision/layers = 3
+collision/mask = 3
 mode = 0
 mass = 1.0
 friction = 1.0
@@ -83,7 +99,6 @@ hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-visibility/visible = false
 transform/rot = -90.0
 shape = SubResource( 1 )
 trigger = false
@@ -100,7 +115,8 @@ texture = ExtResource( 4 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/move = SubResource( 2 )
+anims/fall = SubResource( 2 )
+anims/move = SubResource( 3 )
 playback/active = true
 playback/speed = 5.0
 blend_times = [  ]
@@ -121,7 +137,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 3 )
+config/samples = SubResource( 4 )
 config/pitch_random = 0.0
 
 [node name="flag" type="Position2D" parent="."]

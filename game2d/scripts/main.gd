@@ -283,15 +283,15 @@ func _input(event):
 			p.queue_free()
 		for f in $ui/flags.get_children():
 			f.queue_free()
-	if Input.is_action_just_pressed("test_fire"):
-		test_fire()
-		return
-	if Input.is_action_just_pressed("w_up"):
-		test_velocity += 5
-		$ui/vel.text = str(test_velocity)
-	elif Input.is_action_just_pressed("w_down"):
-		test_velocity -= 5
-		$ui/vel.text = str(test_velocity)
+#	if Input.is_action_just_pressed("test_fire"):
+#		test_fire()
+#		return
+#	if Input.is_action_just_pressed("w_up"):
+#		test_velocity += 5
+#		$ui/vel.text = str(test_velocity)
+#	elif Input.is_action_just_pressed("w_down"):
+#		test_velocity -= 5
+#		$ui/vel.text = str(test_velocity)
 		
 		
 	if Input.is_action_pressed("ui_down"):
@@ -311,7 +311,6 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("fire"):
 		fire_pressed()
-
 
 
 func  bot_move():

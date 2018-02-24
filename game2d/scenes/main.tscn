@@ -641,6 +641,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="vel" type="Label" parent="ui" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -664,6 +665,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="vel2" type="Label" parent="ui" index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -687,6 +689,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="vel3" type="Label" parent="ui" index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

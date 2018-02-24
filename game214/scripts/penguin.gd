@@ -10,6 +10,7 @@ var old_score = 0
 var target_pos = Vector2()
 var target_rad = 0
 var id = 0
+var is_falling = false
 
 func _ready():
 	global = get_node("/root/global")
@@ -17,8 +18,12 @@ func _ready():
 	target_pos = main_node.target_pos
 	target_rad = main_node.target_radius
 	set_fixed_process(true)
-	get_node("yahoo").play("yahoo")
-	
+	if !is_falling:
+		get_node("yahoo").play("yahoo")
+#	else:
+#		set_mode(3)
+#		get_node("anim").play("fall")
+
 func set_id(i):
 	id = i
 	
