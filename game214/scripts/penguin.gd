@@ -34,7 +34,10 @@ func reset_damp():
 func set_damp(d):
 	set_linear_damp(d)
 	set_angular_damp(d)
-	
+
+func eat():
+	get_node("anim").play("eat")
+
 func _fixed_process(delta):
 	var global_position = get_global_pos()
 	var dist = global_position.distance_to(target_pos)
@@ -76,3 +79,8 @@ func _on_anim_timer_timeout():
 	get_node("anim").set_speed(playback_speed)
 	if playback_speed < 0.5:
 		get_node("anim").set_speed(0.5)
+
+func _on_anim_finished():
+	var current_anim = get_node("anim").get_current_animation()
+	if current_anim == 'eat':
+		get_node("anim").play("move")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -22,6 +22,13 @@
 [ext_resource path="res://sounds/splash.ogg" type="AudioStream" id=20]
 [ext_resource path="res://sounds/collect.ogg" type="AudioStream" id=21]
 [ext_resource path="res://sounds/applod.ogg" type="AudioStream" id=22]
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "water"
+length = 1.0
+loop = true
+step = 0.1
 
 [sub_resource type="Animation" id=1]
 
@@ -191,10 +198,21 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 150, 540 )
 
+[node name="water_anim" type="AnimationPlayer" parent="game_field"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/water = SubResource( 6 )
+playback/active = true
+playback/speed = 0.3
+blend_times = [  ]
+autoplay = "water"
+
 [node name="banner" type="Sprite" parent="game_field"]
 
 editor/display_folded = true
-visibility/light_mask = 512
+visibility/light_mask = 514
 transform/pos = Vector2( 1031.03, 0 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
@@ -256,18 +274,17 @@ modulate = Color( 1, 1, 1, 0.281804 )
 
 [node name="bonus" type="Node2D" parent="game_field"]
 
-editor/display_folded = true
-
 [node name="ref" type="ReferenceFrame" parent="game_field/bonus"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 267.0
-margin/top = -400.0
-margin/right = 1019.0
-margin/bottom = 415.0
+margin/left = 201.0
+margin/top = -377.0
+margin/right = 953.0
+margin/bottom = 438.0
 
 [node name="penguins" type="Node2D" parent="game_field"]
 
@@ -650,16 +667,19 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 312.0
-margin/top = 232.0
-margin/right = -312.0
-margin/bottom = -40.0
+margin/left = 315.0
+margin/top = 241.0
+margin/right = -309.0
+margin/bottom = -31.0
 texture = ExtResource( 15 )
 modulate = Color( 1, 1, 1, 0.360667 )
 patch_margin/left = 35
 patch_margin/top = 35
 patch_margin/right = 35
 patch_margin/bottom = 35
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="label" type="Label" parent="canvas/data_ui/total_score_tab"]
 
@@ -688,10 +708,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -3.0
-margin/top = 159.0
-margin/right = 620.0
-margin/bottom = 250.0
+margin/left = 0.0
+margin/top = 168.0
+margin/right = 623.0
+margin/bottom = 259.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.96875, 1, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.601098 )
