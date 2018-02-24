@@ -11,9 +11,12 @@ func _ready():
 	main_node.remove_obj("target")
 	main_node.remove_obj("walls")
 	main_node.remove_obj("top_score")
+	main_node.bonus10_on = false
 	global.max_throw = 3
 	global.select_next_level(1)
 	global.set_commands(1)
 	main_node.geme_setup()
+	main_node.camera_animation = 'fast_fire'
+	
 	
 	

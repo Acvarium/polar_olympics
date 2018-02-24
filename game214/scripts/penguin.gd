@@ -20,9 +20,6 @@ func _ready():
 	set_fixed_process(true)
 	if !is_falling:
 		get_node("yahoo").play("yahoo")
-#	else:
-#		set_mode(3)
-#		get_node("anim").play("fall")
 
 func set_id(i):
 	id = i
@@ -62,7 +59,7 @@ func _on_penguin_sleeping_state_changed():
 		get_node("anim_timer").stop()
 	else:
 		get_node("anim").play("move")
-	if is_sleeping() and score == 10 and ! bonus_ten:
+	if is_sleeping() and score < 10 and ! bonus_ten:
 		bonus_ten = true
 		main_node.add_bonus_fish()
 	

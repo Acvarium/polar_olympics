@@ -3,7 +3,7 @@ var screen_size = Vector2()
 var screen_scale = Vector2()
 var penguin_obj = load("res://objects/penguin.tscn")
 var bonus_fish_obj = load("res://objects/bonus_fish.tscn")
-var ice_shadow_obj = load("res://objects/ice_block_shadow.tscn")
+var bonus_effect_obj = load("res://objects/bonus_effect.tscn")
 var global
 var state = 0
 var avatars = []
@@ -30,6 +30,8 @@ var to_restart = false
 var button_pressed = false
 var to_exit = false
 var fire_timeout = false
+var camera_animation = 'fire'
+var bonus10_on = true
 
 var bot_power = 960
 var bot_angle = 0
@@ -60,13 +62,6 @@ func _ready():
 		bot_move()
 		rand_fire(0)
 	
-	for ice in get_node("game_field/blocks").get_children():
-		var shadow = ice_shadow_obj.instance()
-		get_node("game_field/shadows").add_child(shadow)
-		var ice_pos = ice.get_pos()
-		shadow.set_pos(ice_pos)
-		var ice_rot = ice.get_rot()
-		shadow.set_rot(ice_rot)
 	if global.single:
 		load_level(global.next_level)
 		
@@ -193,20 +188,27 @@ func _process(delta):
 		
 #=====================================================
 
-func bonus(t, value, type):
-	if type == 'fish':
-		get_node("sounds/fish_eaten").play()
-#		$audio/coin.play()
-		bonus_score[t] += value
+func bonus(t, value, type, pos):
+	bonus_score[t] += value
+	var effect = bonus_effect_obj.instance()
+	if type == 'hole':
+		effect.set_timeout(0.5)
+	effect.set_bonus_score(value)
+	effect.set_effect_type('fish')
+	get_node("game_field/effects").add_child(effect)
+	effect.set_global_pos(pos)
 	update_team_score(t)
 
 
 func add_bonus_fish():
-	if go:
+	if go or !bonus10_on:
 		return
-	get_node("game_field/effects/effects").play("b10")
-#	$audio/ten.play()
-#	$game_field/bonus/bonus_anim.play("ten")
+	var effect = bonus_effect_obj.instance()
+	effect.set_bonus_score(10)
+	effect.set_effect_type('bonus10')
+	get_node("game_field/effects").add_child(effect)
+	effect.set_global_pos(target_pos)
+#	update_team_score(t)
 	var ref = get_node("game_field/bonus/ref")
 	var min_pos = ref.get_rect().pos
 	var offset = ref.get_size()
@@ -318,7 +320,7 @@ func fire():
 	team += 1
 	if team > (global.score.size() - 1):
 		team = 0
-	get_node("camera_position/cam_anim").play("fire")
+	get_node("camera_position/cam_anim").play(camera_animation)
 	no_control = true
 	
 	var throws_left = 0

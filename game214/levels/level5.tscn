@@ -51,50 +51,11 @@ transform/pos = Vector2( 520, 520 )
 
 transform/pos = Vector2( 680, 560 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." groups=[
-"ball",
-]]
-
-transform/pos = Vector2( 1020, 550 )
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-mode = 0
-mass = 1.0
-friction = 0.3
-bounce = 0.5
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = 0.3
-damp_override/angular = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="snow_ball" type="Sprite" parent="RigidBody2D"]
-
-transform/pos = Vector2( -0.2641, 0 )
-transform/scale = Vector2( 0.528302, 0.577359 )
-texture = ExtResource( 6 )
-
 [node name="RigidBody2D1" type="RigidBody2D" parent="." groups=[
 "ball",
 ]]
 
-transform/pos = Vector2( 1230, 460 )
+transform/pos = Vector2( 1230, 480 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -135,7 +96,7 @@ texture = ExtResource( 6 )
 "ball",
 ]]
 
-transform/pos = Vector2( 1230, 630 )
+transform/pos = Vector2( 1230, 620 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )

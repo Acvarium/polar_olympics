@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://textures/hole.png" type="Texture" id=1]
 [ext_resource path="res://scripts/hole.gd" type="Script" id=2]
+[ext_resource path="res://textures/arc.png" type="Texture" id=3]
+[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -12,6 +14,7 @@ radius = 40.0
 
 texture = ExtResource( 1 )
 script/script = ExtResource( 2 )
+score = 0
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -32,6 +35,32 @@ visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="arc" type="Sprite" parent="."]
+
+transform/pos = Vector2( -77.3983, -70.0057 )
+texture = ExtResource( 3 )
+modulate = Color( 0, 0, 1, 1 )
+
+[node name="Label" type="Label" parent="arc"]
+
+visibility/self_opacity = 0.25
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 47.3983
+margin/top = -69.9943
+margin/right = 199.398
+margin/bottom = 21.0057
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 1, 1 )
+text = "10"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
