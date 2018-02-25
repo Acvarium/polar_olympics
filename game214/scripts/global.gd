@@ -86,6 +86,9 @@ func start_game():
 			score.append(0)
 	if score.size() == 4:
 		max_throw = 5
+	else:
+		max_throw = 6
+		
 	goto_scene("res://scenes/main.tscn")
 
 func goto_scene(path):
