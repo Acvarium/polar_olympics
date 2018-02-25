@@ -11,6 +11,7 @@ var target_pos = Vector2()
 var target_rad = 0
 var id = 0
 var is_falling = false
+var iglu
 
 func _ready():
 	global = get_node("/root/global")
@@ -18,8 +19,9 @@ func _ready():
 	target_pos = main_node.target_pos
 	target_rad = main_node.target_radius
 	set_fixed_process(true)
-	if !is_falling:
-		get_node("yahoo").play("yahoo")
+#	print(is_falling)
+#	if !is_falling:
+#		get_node("yahoo").play("yahoo")
 
 func set_id(i):
 	id = i
@@ -57,9 +59,16 @@ func _on_penguin_sleeping_state_changed():
 	if is_sleeping():
 		get_node("anim").stop(true)
 		get_node("anim_timer").stop()
+		if iglu:
+			if iglu.get_ref():
+				if iglu.get_ref().score > 0:
+					var s = iglu.get_ref().score
+					main_node.bonus(team, s, 'iglu', get_global_pos())
+					iglu.get_ref().set_score(0)
+		
 	else:
 		get_node("anim").play("move")
-	if is_sleeping() and score < 10 and ! bonus_ten:
+	if is_sleeping() and score == 10 and ! bonus_ten:
 		bonus_ten = true
 		main_node.add_bonus_fish()
 	
@@ -81,3 +90,12 @@ func _on_anim_finished():
 	var current_anim = get_node("anim").get_current_animation()
 	if current_anim == 'eat':
 		get_node("anim").play("move")
+
+func _on_Area2D_area_enter( area ):
+	if area.is_in_group("iglu"):
+		iglu = weakref(area.get_parent())
+		
+func _on_Area2D_area_exit( area ):
+	if area.is_in_group("iglu") and iglu != null:
+		if iglu.get_ref() == area.get_parent():
+			iglu = null

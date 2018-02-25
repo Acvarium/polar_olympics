@@ -103,8 +103,8 @@ func fall(p_path,hole_path):
 	p.set_layer_mask_bit(1,false)
 	per.remove_child(p)
 	hole.add_child(p)
-	if p.is_in_group("peng"):
-		p.is_falling = true
+#	if p.is_in_group("peng"):
+#		p.is_falling = true
 	p.set_global_pos(p_pos)
 	p.set_global_rot(p_rot)
 	
@@ -348,6 +348,7 @@ func spawn_penguin():
 	penguin.set_id(peng_id)
 	peng_id += 1
 	get_node("game_field/penguins").add_child(penguin)
+	get_node("sounds/yahoo").play("yahoo")
 
 func update_peng_score(id, value):
 	peng_score[id] = value

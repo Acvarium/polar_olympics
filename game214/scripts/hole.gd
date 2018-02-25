@@ -22,7 +22,7 @@ func _on_Area2D_body_enter( body ):
 		var fall_pos = fall_pos_obj.instance()
 		add_child(fall_pos)
 		fall_pos.set_global_pos(body.get_global_pos())
-		fall_pos.set_rot(body.get_rot())
+		fall_pos.set_rot(body.get_linear_velocity().angle() - PI/2)
 		
 		fall_pos.set_peng(body.get_path())
 		swallowed.append(body.get_name())

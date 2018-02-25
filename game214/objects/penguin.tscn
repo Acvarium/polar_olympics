@@ -160,6 +160,7 @@ config/pitch_random = 0.0
 
 [node name="flag" type="Position2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 
 [node name="sprite" type="Sprite" parent="flag"]
@@ -189,10 +190,32 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Area2D" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( -4.37114e-08, 1, -1, -4.37114e-08, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
+
+transform/rot = -90.0
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
 [connection signal="sleeping_state_changed" from="." to="." method="_on_penguin_sleeping_state_changed"]
 
 [connection signal="finished" from="anim" to="." method="_on_anim_finished"]
 
 [connection signal="timeout" from="anim_timer" to="." method="_on_anim_timer_timeout"]
+
+[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
+
+[connection signal="area_exit" from="Area2D" to="." method="_on_Area2D_area_exit"]
 
 

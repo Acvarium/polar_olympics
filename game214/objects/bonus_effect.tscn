@@ -35,6 +35,7 @@ tracks/1/keys = {
 
 [node name="bonus_effect" type="Position2D"]
 
+z/z = 150
 script/script = ExtResource( 1 )
 
 [node name="pos" type="Position2D" parent="."]

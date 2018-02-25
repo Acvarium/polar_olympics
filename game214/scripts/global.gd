@@ -1,4 +1,10 @@
 extends Node
+
+const MAX_STAGE = 200
+
+var stage = 1
+var stages_lock = []
+
 var original_screen_size = Vector2(1920,1080)
 var current_scene = null
 var max_throw = 6
@@ -7,6 +13,10 @@ var single = false
 var next_level = "res://levels/level0.tscn"
 var selected_tab = 0
 var level_num = 0
+var no_save = false
+
+#var save_file = 'user://po_savegame.save'
+var save_file = "user://po_savegame.save"
 
 var levels = [
 "res://levels/level0.tscn",
@@ -63,6 +73,10 @@ func _ready():
 	get_tree().set_auto_accept_quit(false)
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 )
+	load_game()
+	if no_save:
+		save_game()
+	
 	
 func start_game():
 	score = []
@@ -90,3 +104,34 @@ func set_commands(c):
 	global.score = []
 	for i in range(c):
 		global.score.append(0)
+		
+
+# Збереження гри
+func save_game():
+	var savegame = File.new()
+	savegame.open(save_file, File.WRITE)
+	for i in range(stages_lock.size()):
+		savegame.store_line({str(i):stages_lock[i]}.to_json())
+	savegame.close()
+
+# Завантаження гри
+func load_game():
+	var savegame = File.new()
+	if !savegame.file_exists(save_file):
+		for i in range(MAX_STAGE):
+			stages_lock.append(1)
+		stages_lock[0] = 0
+		no_save = true
+		return #Error!  We don't have a save to load
+	var currentline = {} 
+	savegame.open(save_file, File.READ)
+	stages_lock.clear()
+	var n = 0
+	while (!savegame.eof_reached()):
+		n += 1
+		currentline.parse_json(savegame.get_line())
+	for i in range(MAX_STAGE):
+		stages_lock.append(currentline[str(i)])
+	savegame.close()
+	print(currentline["72"])
+
