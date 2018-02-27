@@ -1,9 +1,10 @@
 extends RigidBody2D
-var score = 10
+export var score = 10
 var main_node
 
 func _ready():
 	main_node = get_node("/root/main")
+	set_score(score)
 
 func set_score(s):
 	score = s

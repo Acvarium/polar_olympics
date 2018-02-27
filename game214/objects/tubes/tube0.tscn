@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://scripts/force_field.gd" type="Script" id=1]
+[ext_resource path="res://textures/tube0.png" type="Texture" id=2]
+[ext_resource path="res://textures/force_icon.tex" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 50, 50 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 54.3031, -72.377, 79.7061, -59.5295, 79.7061, -47.85, -81.7635, -47.85, -81.7635, -57.1936, -56.9445, -72.377 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 58.6829, -79.9687, 77.6622, -78.5088, 79.7061, -59.5295, 54.3031, -72.377 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -56.9445, -72.377, -81.7635, -57.1936, -79.4276, -78.2168, -60.7403, -79.9687 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -56.3718, 72.1389, -81.8243, 58.5165, -81.8243, 48.1204, 79.8525, 48.1204, 79.494, 59.9504, 55.117, 72.1389 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -61.3906, 80.0256, -79.6733, 78.9501, -81.8243, 58.5165, -56.3718, 72.1389 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 55.117, 72.1389, 79.494, 59.9504, 76.9846, 78.9501, 59.4189, 80.7426 )
+
+[node name="force" type="Area2D"]
+
+z/z = 150
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+impuls = 1000
+vis = false
+
+[node name="tube0" type="Sprite" parent="."]
+
+visibility/opacity = 0.9
+transform/pos = Vector2( -1.07662, 0.222225 )
+transform/scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 2 )
+
+[node name="force_icon" type="Sprite" parent="."]
+
+visibility/self_opacity = 0.6
+transform/pos = Vector2( -25.5881, -0.585041 )
+transform/scale = Vector2( 0.6, 0.6 )
+z/z = 100
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 6 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 7 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( 77.6622, -78.5088, 58.6829, -79.9687, 54.3031, -72.377, -56.9445, -72.377, -60.7403, -79.9687, -79.4276, -78.2168, -81.7635, -57.1936, -81.7635, -47.85, 79.7061, -47.85, 79.7061, -59.5295 )
+shape_range = Vector2( 0, 2 )
+trigger = false
+
+[node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( -79.6733, 78.9501, -61.3906, 80.0256, -56.3718, 72.1389, 55.117, 72.1389, 59.4189, 80.7426, 76.9846, 78.9501, 79.494, 59.9504, 79.8525, 48.1204, -81.8243, 48.1204, -81.8243, 58.5165 )
+shape_range = Vector2( 3, 5 )
+trigger = false
+
+[connection signal="body_enter" from="." to="." method="_on_force_body_enter"]
+
+[connection signal="body_exit" from="." to="." method="_on_force_body_exit"]
+
+

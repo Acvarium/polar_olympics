@@ -19,10 +19,7 @@ func _ready():
 	target_pos = main_node.target_pos
 	target_rad = main_node.target_radius
 	set_fixed_process(true)
-#	print(is_falling)
-#	if !is_falling:
-#		get_node("yahoo").play("yahoo")
-
+	
 func set_id(i):
 	id = i
 	

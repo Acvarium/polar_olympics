@@ -93,7 +93,7 @@ contacts_reported = 0
 contact_monitor = false
 sleeping = false
 can_sleep = true
-velocity/linear = Vector2( 800, 0 )
+velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = 0.7
 damp_override/angular = 0.7
@@ -116,6 +116,7 @@ hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/rot = -90.0
 shape = SubResource( 1 )
 trigger = false
@@ -203,6 +204,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
 
+visibility/visible = false
 transform/rot = -90.0
 shape = SubResource( 1 )
 trigger = false

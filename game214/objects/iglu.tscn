@@ -132,6 +132,7 @@ script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+score = 10
 
 [node name="area" type="Area2D" parent="." groups=[
 "iglu",

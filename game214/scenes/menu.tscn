@@ -39,7 +39,6 @@ __meta__ = {
 
 [node name="Control" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -88,7 +87,7 @@ margin/top = 200.0
 margin/right = 2183.0
 margin/bottom = 294.0
 custom_fonts/font = ExtResource( 3 )
-text = "version 0.4.0"
+text = "version 0.4.1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -165,6 +164,7 @@ max_lines_visible = -1
 
 [node name="tabs" type="Control" parent="Control"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -173,9 +173,6 @@ margin/left = -3.0
 margin/top = 0.0
 margin/right = 37.0
 margin/bottom = 40.0
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="selected_pos" type="Control" parent="Control/tabs"]
 
@@ -392,7 +389,6 @@ texture = ExtResource( 8 )
 
 [node name="buttons" type="Control" parent="Control/tabs"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -506,8 +502,6 @@ max_lines_visible = -1
 
 [node name="mode0" type="Control" parent="Control"]
 
-editor/display_folded = true
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -587,6 +581,8 @@ level = 5
 
 [node name="mode1" type="Control" parent="Control"]
 
+editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -598,6 +594,7 @@ margin/bottom = 40.0
 
 [node name="start" type="Patch9Frame" parent="Control/mode1"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2

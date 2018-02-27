@@ -10,8 +10,9 @@ var current_scene = null
 var max_throw = 6
 var game_version = '0.4.0'
 var single = false
+var current_level = "res://levels/level0.tscn"
 var next_level = "res://levels/level0.tscn"
-var selected_tab = 0
+var selected_tab = 1
 var level_num = 0
 var no_save = false
 
@@ -28,10 +29,12 @@ var levels = [
 ]
 
 func select_next_level(l):
+	current_level = next_level
 	level_num += l
 	if level_num > (levels.size() - 1):
 		level_num = 0
 	next_level = levels[level_num]
+
 
 const team_color = [
 	Color(1,1,1,1),
@@ -80,7 +83,6 @@ func _ready():
 	
 func start_game():
 	score = []
-	print("____", score.size())
 	for i in range(selected_players.size()):
 		if selected_players[i] > 0:
 			score.append(0)
@@ -136,5 +138,4 @@ func load_game():
 	for i in range(MAX_STAGE):
 		stages_lock.append(currentline[str(i)])
 	savegame.close()
-	print(currentline["72"])
 

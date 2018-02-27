@@ -47,6 +47,9 @@ var peng_teams = []
 var peng_score = []
 var default_target = true
 var p_num = 0
+var star_num = 0
+var star_score = 3
+var level_max_score = 15
 
 func _ready():
 	set_process_input(true)
@@ -64,6 +67,8 @@ func _ready():
 	
 	if global.single:
 		load_level(global.next_level)
+		get_node("canvas/data_ui/player0").hide()
+		get_node("canvas/data_ui/level_score").show()
 		
 func load_level(l):
 	var level = load(l).instance()
@@ -117,10 +122,23 @@ func _input(event):
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
 
+	if event.is_action_pressed("ui_up"):
+		stars_on()
+		
+		
 	if event.is_action_pressed("fire"):
 		if avatars[team] == 23 and !to_restart:
 			return
 		fire_pressed()
+
+func stars_on():
+	for i in range(3):
+		get_node("canvas/data_ui/single_score/star" + str(i)).star_reset()
+		
+	star_num = 0
+	star_score = int(score[0] / (level_max_score / 3))
+	get_node("canvas/data_ui/single_score/star_timer").start()
+	
 
 func remove_obj(r):
 	if r == "target":
@@ -153,7 +171,10 @@ func _process(delta):
 					total_score_str += ":"
 			get_node("canvas/data_ui/total_score_tab/score").set_text(total_score_str)
 			get_node("canvas/data_ui/total_score").set_text(total_score_str)
-			get_node("canvas/score_anim").play("show_score")
+			if global.single:
+				get_node("canvas/score_anim").play("single_score")
+			else:
+				get_node("canvas/score_anim").play("show_score")
 			to_restart = true
 
 	if state == 0:
@@ -328,7 +349,8 @@ func fire():
 		throws_left += t
 	if throws_left <= 0:
 		go = true
-		get_node("canvas/score_anim").play("total_score")
+		if !global.single:
+			get_node("canvas/score_anim").play("total_score")
 #		$camera_position/Camera/data_ui/total_score_tab/score_anim.play("total_score")
 
 	get_node("ui/pointer").hide()
@@ -349,6 +371,8 @@ func spawn_penguin():
 	peng_id += 1
 	get_node("game_field/penguins").add_child(penguin)
 	get_node("sounds/yahoo").play("yahoo")
+	if global.single:
+		update_team_score(0)
 
 func update_peng_score(id, value):
 	peng_score[id] = value
@@ -356,11 +380,22 @@ func update_peng_score(id, value):
 	
 func update_team_score(t):
 	score[t] = bonus_score[t]
-	for i in range(peng_score.size()):
-		if peng_teams[i] == t:
-			score[peng_teams[i]] += peng_score[i]
-	get_node("canvas/data_ui/player" + str(t)).set_team_score(score[t]) 
-	
+	if !global.single:
+		for i in range(peng_score.size()):
+			if peng_teams[i] == t:
+				score[peng_teams[i]] += peng_score[i]
+		get_node("canvas/data_ui/player" + str(t)).set_team_score(score[t]) 
+	else:
+		var penalty = 0
+		if p_num > 1:
+			penalty = 2 * (p_num - 1)
+		score[t] -= penalty
+		var ss = str(score[0]) + '/' + str(level_max_score)
+		get_node("canvas/data_ui/level_score/score").set_text(ss)
+		if score[0] >= level_max_score:
+			go = true
+#			get_node("canvas/score_anim").play("total_score")
+		
 func _on_fire_button_button_down():
 	if avatars[team] == 23 and !to_restart:
 		return
@@ -410,3 +445,22 @@ func _on_exit_anim_finished():
 func _on_fire_timeout_timeout():
 	fire_timeout = false 
 
+func _on_star_timer_timeout():
+	if star_num < star_score:
+		
+		get_node("canvas/data_ui/single_score/star" + str(star_num)).star_on(star_num)
+		get_node("canvas/data_ui/single_score/star_timer").start()
+		star_num += 1
+
+func _on_score_anim_finished():
+	if global.single:
+		stars_on()
+		to_exit = true
+
+func _on_play_button_pressed():
+	get_tree().reload_current_scene()
+
+
+func _on_replay_button_pressed():
+	global.next_level = global.current_level
+	get_tree().reload_current_scene()
