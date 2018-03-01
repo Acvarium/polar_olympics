@@ -22,7 +22,11 @@ func _ready():
 	get_node("Control/rect/hint/tap_mode").set_pressed(!global.control_type)
 	get_node("Control/rect/hint/version").set_text("version " + global.game_version)
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
-	
+	print(global.selected_players)
+#	for i in range(4):
+#		get_node("Control/mode1/select_button" + str(i)).avatar = global.selected_players[i]
+#		get_node("Control/mode1/select_button" + str(i)).update_avatar()
+#	
 func _input(event):
 	if event.is_action_pressed("quit"):
 		global.game_quit()

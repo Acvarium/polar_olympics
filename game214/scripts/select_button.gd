@@ -12,10 +12,11 @@ var main_node
 func _ready():
 	global = get_node("/root/global")
 	main_node = get_node("/root/main")
+	if !in_selector:
+		avatar = global.selected_players[stand]
 	update_avatar()
 	if !in_selector:
 		get_node("dot").show()
-		
 	else:
 		get_node("dot").hide()
 
@@ -51,7 +52,6 @@ func update_avatar():
 	get_node("name").set_text(global.animals[avatar-1])
 	if avatar == 0:
 		get_node("name").set_text('')
-
 
 func _input(event):
 	if in_selector:
