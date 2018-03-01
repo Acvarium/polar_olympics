@@ -32,6 +32,7 @@ var to_exit = false
 var fire_timeout = false
 var camera_animation = 'fire'
 var bonus10_on = true
+var control_type = 1
 
 var bot_power = 960
 var bot_angle = 0
