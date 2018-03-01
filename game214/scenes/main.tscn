@@ -6,9 +6,9 @@
 [ext_resource path="res://textures/point.png" type="Texture" id=4]
 [ext_resource path="res://textures/target.png" type="Texture" id=5]
 [ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://textures/power_under.tex" type="Texture" id=7]
-[ext_resource path="res://textures/power_progress.png" type="Texture" id=8]
-[ext_resource path="res://textures/arrow.png" type="Texture" id=9]
+[ext_resource path="res://textures/arrow.tex" type="Texture" id=7]
+[ext_resource path="res://textures/power_under.tex" type="Texture" id=8]
+[ext_resource path="res://textures/power_progress.png" type="Texture" id=9]
 [ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=10]
 [ext_resource path="res://textures/gradient_line.png" type="Texture" id=11]
 [ext_resource path="res://objects/player_ui.tscn" type="PackedScene" id=12]
@@ -353,7 +353,7 @@ texture = ExtResource( 4 )
 
 [node name="target" type="Sprite" parent="game_field"]
 
-transform/pos = Vector2( 1266.8, 0 )
+transform/pos = Vector2( 1295.37, 48.9733 )
 transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 modulate = Color( 1, 1, 1, 0.281804 )
@@ -545,6 +545,27 @@ flat = false
 
 [node name="ui" type="Node2D" parent="."]
 
+[node name="power_arrow" type="Position2D" parent="ui"]
+
+visibility/visible = false
+transform/pos = Vector2( 150, 540 )
+
+[node name="arrow" type="Patch9Frame" parent="ui/power_arrow"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -34.0
+margin/right = 436.0
+margin/bottom = 102.0
+texture = ExtResource( 7 )
+modulate = Color( 0.3125, 1, 0, 1 )
+patch_margin/left = 21
+patch_margin/right = 92
+
 [node name="power" type="TextureProgress" parent="ui"]
 
 visibility/visible = false
@@ -566,9 +587,9 @@ range/page = 0.0
 range/value = 50.0
 range/exp_edit = false
 range/rounded = false
-texture/under = ExtResource( 7 )
+texture/under = ExtResource( 8 )
 texture/over = null
-texture/progress = ExtResource( 8 )
+texture/progress = ExtResource( 9 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
@@ -583,7 +604,7 @@ z/z = 150
 
 transform/pos = Vector2( 143.008, 0 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="ui"]
 
@@ -932,7 +953,6 @@ max_lines_visible = -1
 
 [node name="exit_mess" type="Patch9Frame" parent="canvas/data_ui"]
 
-editor/display_folded = true
 visibility/opacity = 0.0
 anchor/left = 3
 anchor/top = 3

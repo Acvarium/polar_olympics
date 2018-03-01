@@ -11,7 +11,7 @@ var throws = []
 var score = []
 var bonus_score = []
 var max_throw = 1
-var team = 0
+var team = 1
 var no_control = false
 var pointer
 var power_speed = 150
@@ -32,7 +32,7 @@ var to_exit = false
 var fire_timeout = false
 var camera_animation = 'fire'
 var bonus10_on = true
-var control_type = 1
+
 var mouse_down = false
 var aim = false
 var power_multiplier = 2.5
@@ -59,21 +59,25 @@ var level_max_score = 15
 var draw_layer 
 var min_len = 100
 
-
 func _ready():
 	draw_layer = get_node("draw")
 	set_process_input(true)
 	global = get_node("/root/global")
+	team = global.team
 	pointer = get_node("ui/pointer")
 	resizer()
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	target_pos = get_node("game_field/target").get_global_pos()
 	geme_setup()
 	set_process(true)
-	get_node("canvas/data_ui/player0").play_anim("in")
-	if avatars[0] == 23:
-		bot_move()
-		rand_fire(0)
+	if global.control_type == 0:
+		get_node("canvas/data_ui/fire_button").show()
+		get_node("ui/power").show()
+	if !global.single:
+		if avatars[team] == 23:
+			get_node("ui/power").show()
+			bot_move()
+			rand_fire(0)
 	
 	if global.single:
 		load_level(global.next_level)
@@ -142,7 +146,7 @@ func _input(event):
 		to_fire = false
 		
 	if event.is_action_pressed("quit"):
-		get_tree().quit()
+		global.game_quit()
 
 	if event.is_action_pressed("ui_up"):
 		stars_on()
@@ -175,11 +179,14 @@ func remove_obj(r):
 #========================================================================
 func _process(delta):
 	if mouse_down and aim:
-		draw_layer.lines = []
 		var col = Color(0,1,0)
-		if get_node("game_field").get_global_pos().distance_to(get_global_mouse_pos()) > min_len:
-			draw_layer.lines.append([get_node("game_field").get_global_pos(), get_global_mouse_pos(), col]) 
-		draw_layer.update()
+		var pow_vec = get_node("game_field").get_global_pos() - get_global_mouse_pos()
+		if  pow_vec.length() > min_len:
+			get_node("ui/power_arrow").show()
+			get_node("ui/power_arrow").set_rot(pow_vec.angle() + PI/2)
+			get_node("ui/power_arrow/arrow").set_size(Vector2(pow_vec.length() * 2 + 75, 136))
+		else:
+			get_node("ui/power_arrow").hide()
 		fire_velocity = get_global_mouse_pos() - get_node("game_field").get_global_pos()
 		
 	get_node("canvas/data_ui/vel").set_text(str(get_node("timers/bot_emergency_triger").get_time_left()))
@@ -192,9 +199,13 @@ func _process(delta):
 		if all_sleep and !game_stop:
 			game_stop = true
 			var winers = get_winers()
+			
+				
 			var total_score_str = ''
 			for i in range(winers.size()):
 				global.score[i] += winers[i]
+				if winers[i] > 0:
+					get_node("canvas/data_ui/player" + str(i)).play_anim("in")
 				total_score_str += str(global.score[i])
 				if i < (global.score.size() - 1):
 					total_score_str += ":"
@@ -312,14 +323,23 @@ func  bot_move():
 	rand_twist =  randf() * state_shifts[bot_state][1] - state_shifts[bot_state][1]/2
 
 func get_winers():
-	var v = score[0]
+
+	var j = global.team
+	var v = score[j]
 	if score.size() > 1:
 		for i in range(1, score.size()):
-			if v < score[i]:
-				v = score[i]
+			j += 1
+			if j > (score.size() - 1):
+				j = 0
+			if v <= score[j]:
+				v = score[j]
+				global.team = j
+			
 	var up_score = []
 	for i in range(global.score.size()):
 		up_score.append(int(v == score[i]))
+	if global.single:
+		global.team = 0
 	return(up_score)
 
 func _notification(what):
@@ -331,7 +351,6 @@ func _notification(what):
 			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
 
 func fire_pressed():
-#	get_node("timers/bot_emergency_triger").stop()
 	if fire_timeout:
 		return
 	fire_timeout = true
@@ -358,6 +377,7 @@ func fire_pressed():
 
 func fire():
 #	set_process(false)
+	get_node("ui/power_arrow").hide()
 	get_node("timers/bot_emergency_triger").stop()
 	state = 0
 	throws[team] -= 1
@@ -392,7 +412,7 @@ func spawn_penguin():
 	p_num += 1
 	var r = -pointer.get_rot()
 	
-	if avatars[team] == 23:
+	if avatars[team] == 23 or global.control_type == 0:
 		penguin.set_vel(Vector2(cos(r), sin(r)).normalized() * power * 22)
 	else:
 		penguin.set_vel(fire_velocity * power_multiplier)
@@ -448,7 +468,7 @@ func _on_cam_anim_finished():
 			get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
 			get_node("timers/bot_emergency_triger").start()
 		
-	if global.score.size() > 1:
+	if global.score.size() > 1 and !go:
 		get_node("canvas/data_ui/player" + str(team)).play_anim("in")
 	
 func resizer():

@@ -19,10 +19,12 @@ func _ready():
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	select_tab(global.selected_tab)
 	update_dots()
+	get_node("Control/rect/hint/tap_mode").set_pressed(!global.control_type)
+	get_node("Control/rect/hint/version").set_text("version " + global.game_version)
 	
 func _input(event):
 	if event.is_action_pressed("quit"):
-		get_tree().quit()
+		global.game_quit()
 
 	if event.is_action_pressed("fire"):
 		global.start_game()
@@ -57,7 +59,7 @@ func set_face(f):
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		get_tree().quit()
+		global.game_quit()
 #		
 func set_selected_stand(s):
 	selected_stand = s
@@ -111,9 +113,15 @@ func _on_cancel_pressed():
 	get_node("Control/char_selector").hide()
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	global.game_quit()
 
 func _on_lvl0_pressed():
 	global.single = true
 	global.next_level = global.levels[0]
 	global.goto_scene("res://scenes/main.tscn")
+
+func _on_tap_mode_toggled( pressed ):
+	global.control_type = int(!get_node("Control/rect/hint/tap_mode").is_pressed())
+	global.save_game()
+
+		

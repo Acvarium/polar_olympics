@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -6,13 +6,15 @@
 [ext_resource path="res://textures/unfolder.tex" type="Texture" id=4]
 [ext_resource path="res://textures/rect.png" type="Texture" id=5]
 [ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=6]
-[ext_resource path="res://textures/selected_tab_2.png" type="Texture" id=7]
-[ext_resource path="res://textures/not_available_icon.png" type="Texture" id=8]
-[ext_resource path="res://textures/tab.png" type="Texture" id=9]
-[ext_resource path="res://objects/lvl_button.tscn" type="PackedScene" id=10]
-[ext_resource path="res://textures/play.png" type="Texture" id=11]
-[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=12]
-[ext_resource path="res://textures/rect2.png" type="Texture" id=13]
+[ext_resource path="res://textures/chacked.png" type="Texture" id=7]
+[ext_resource path="res://textures/unchacked.png" type="Texture" id=8]
+[ext_resource path="res://textures/selected_tab_2.png" type="Texture" id=9]
+[ext_resource path="res://textures/not_available_icon.png" type="Texture" id=10]
+[ext_resource path="res://textures/tab.png" type="Texture" id=11]
+[ext_resource path="res://objects/lvl_button.tscn" type="PackedScene" id=12]
+[ext_resource path="res://textures/play.png" type="Texture" id=13]
+[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=14]
+[ext_resource path="res://textures/rect2.png" type="Texture" id=15]
 
 [node name="main" type="Node2D"]
 
@@ -75,7 +77,7 @@ margin/top = 270.0
 margin/right = 40.0
 margin/bottom = 230.0
 
-[node name="Label" type="Label" parent="Control/rect/hint"]
+[node name="version" type="Label" parent="Control/rect/hint"]
 
 rect/scale = Vector2( 0.4, 0.4 )
 focus/ignore_mouse = true
@@ -162,6 +164,46 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="tap_mode" type="CheckBox" parent="Control/rect/hint"]
+
+visibility/self_opacity = 0.6
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 330.0
+margin/top = 170.0
+margin/right = 420.0
+margin/bottom = 260.0
+custom_icons/checked = ExtResource( 7 )
+custom_icons/unchecked = ExtResource( 8 )
+custom_constants/check_vadjust = 0
+toggle_mode = true
+enabled_focus_mode = 0
+shortcut = null
+flat = false
+align = 0
+
+[node name="Label" type="Label" parent="Control/rect/hint/tap_mode"]
+
+visibility/self_opacity = 0.6
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 104.0
+margin/top = 21.0
+margin/right = 948.0
+margin/bottom = 115.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.116364, 0.241525, 0.480469, 1 )
+text = "TAP CONTROL MODE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="tabs" type="Control" parent="Control"]
 
 editor/display_folded = true
@@ -222,7 +264,7 @@ margin/left = 5.0
 margin/top = 0.0
 margin/right = 2088.0
 margin/bottom = 109.0
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 patch_margin/left = 633
 patch_margin/top = 109
 patch_margin/right = 1
@@ -237,7 +279,7 @@ margin/left = -2078.0
 margin/top = 0.0
 margin/right = 5.0
 margin/bottom = 109.0
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 patch_margin/left = 633
 patch_margin/top = 109
 patch_margin/right = 1
@@ -264,14 +306,14 @@ max_lines_visible = -1
 [node name="not_available_icon" type="Sprite" parent="Control/tabs/selected_tab"]
 
 transform/pos = Vector2( 45.704, 68.735 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="tab0" type="Sprite" parent="Control/tabs"]
 
 editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 218.327, 70.717 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Control/tabs/tab0"]
 
@@ -296,13 +338,13 @@ max_lines_visible = -1
 
 transform/pos = Vector2( -183.884, 1.23029 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="tab1" type="Sprite" parent="Control/tabs"]
 
 editor/display_folded = true
 transform/pos = Vector2( 652.327, 70.717 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Control/tabs/tab1"]
 
@@ -328,7 +370,7 @@ max_lines_visible = -1
 
 editor/display_folded = true
 transform/pos = Vector2( 1088.33, 70.717 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Control/tabs/tab2"]
 
@@ -354,13 +396,13 @@ max_lines_visible = -1
 
 transform/pos = Vector2( -183.884, 1.23029 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="tab3" type="Sprite" parent="Control/tabs"]
 
 editor/display_folded = true
 transform/pos = Vector2( 1525.33, 70.717 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Control/tabs/tab3"]
 
@@ -385,7 +427,7 @@ max_lines_visible = -1
 
 transform/pos = Vector2( -182.884, 1.23029 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="buttons" type="Control" parent="Control/tabs"]
 
@@ -502,6 +544,7 @@ max_lines_visible = -1
 
 [node name="mode0" type="Control" parent="Control"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -532,14 +575,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="lvl0" parent="Control/mode0" instance=ExtResource( 10 )]
+[node name="lvl0" parent="Control/mode0" instance=ExtResource( 12 )]
 
 margin/left = 20.0
 margin/top = 220.0
 margin/right = 220.0
 margin/bottom = 330.0
 
-[node name="lvl1" parent="Control/mode0" instance=ExtResource( 10 )]
+[node name="lvl1" parent="Control/mode0" instance=ExtResource( 12 )]
 
 margin/left = 250.0
 margin/top = 220.0
@@ -547,7 +590,7 @@ margin/right = 450.0
 margin/bottom = 330.0
 level = 1
 
-[node name="lvl2" parent="Control/mode0" instance=ExtResource( 10 )]
+[node name="lvl2" parent="Control/mode0" instance=ExtResource( 12 )]
 
 margin/left = 470.0
 margin/top = 220.0
@@ -555,7 +598,7 @@ margin/right = 670.0
 margin/bottom = 330.0
 level = 2
 
-[node name="lvl3" parent="Control/mode0" instance=ExtResource( 10 )]
+[node name="lvl3" parent="Control/mode0" instance=ExtResource( 12 )]
 
 margin/left = 690.0
 margin/top = 220.0
@@ -563,7 +606,7 @@ margin/right = 890.0
 margin/bottom = 330.0
 level = 3
 
-[node name="lvl4" parent="Control/mode0" instance=ExtResource( 10 )]
+[node name="lvl4" parent="Control/mode0" instance=ExtResource( 12 )]
 
 margin/left = 920.0
 margin/top = 220.0
@@ -571,7 +614,7 @@ margin/right = 1120.0
 margin/bottom = 330.0
 level = 4
 
-[node name="lvl5" parent="Control/mode0" instance=ExtResource( 10 )]
+[node name="lvl5" parent="Control/mode0" instance=ExtResource( 12 )]
 
 margin/left = 1140.0
 margin/top = 220.0
@@ -615,7 +658,7 @@ __meta__ = {
 [node name="play" type="Sprite" parent="Control/mode1/start"]
 
 transform/pos = Vector2( 98, 98 )
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 
 [node name="start_button" type="Button" parent="Control/mode1/start"]
 
@@ -633,7 +676,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button0" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button0" parent="Control/mode1" instance=ExtResource( 14 )]
 
 margin/left = 290.0
 margin/top = 240.0
@@ -641,7 +684,7 @@ margin/right = 554.0
 margin/bottom = 535.0
 avatar = 1
 
-[node name="select_button1" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button1" parent="Control/mode1" instance=ExtResource( 14 )]
 
 margin/left = 580.0
 margin/top = 240.0
@@ -650,7 +693,7 @@ margin/bottom = 535.0
 stand = 1
 avatar = 23
 
-[node name="select_button2" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button2" parent="Control/mode1" instance=ExtResource( 14 )]
 
 margin/left = 880.0
 margin/top = 240.0
@@ -658,7 +701,7 @@ margin/right = 1144.0
 margin/bottom = 535.0
 stand = 2
 
-[node name="select_button3" parent="Control/mode1" instance=ExtResource( 12 )]
+[node name="select_button3" parent="Control/mode1" instance=ExtResource( 14 )]
 
 margin/left = 1180.0
 margin/top = 240.0
@@ -744,7 +787,7 @@ margin/left = 260.0
 margin/top = 270.0
 margin/right = 1500.0
 margin/bottom = 964.0
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 modulate = Color( 0.341176, 0.729412, 0.901961, 0.768627 )
 patch_margin/left = 40
 patch_margin/top = 40
@@ -770,7 +813,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 14 )]
 
 margin/left = 40.0
 margin/top = 43.0
@@ -779,7 +822,7 @@ margin/bottom = 338.0
 avatar = 1
 in_selector = true
 
-[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 14 )]
 
 margin/left = 40.0
 margin/top = 353.0
@@ -788,7 +831,7 @@ margin/bottom = 648.0
 avatar = 4
 in_selector = true
 
-[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 14 )]
 
 margin/left = 340.0
 margin/top = 43.0
@@ -797,7 +840,7 @@ margin/bottom = 338.0
 avatar = 2
 in_selector = true
 
-[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 14 )]
 
 margin/left = 340.0
 margin/top = 353.0
@@ -806,7 +849,7 @@ margin/bottom = 648.0
 avatar = 5
 in_selector = true
 
-[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 14 )]
 
 margin/left = 640.0
 margin/top = 43.0
@@ -815,7 +858,7 @@ margin/bottom = 338.0
 avatar = 3
 in_selector = true
 
-[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 14 )]
 
 margin/left = 940.0
 margin/top = 43.0
@@ -824,7 +867,7 @@ margin/bottom = 338.0
 avatar = 23
 in_selector = true
 
-[node name="x_button" parent="Control/char_selector" instance=ExtResource( 12 )]
+[node name="x_button" parent="Control/char_selector" instance=ExtResource( 14 )]
 
 margin/left = 640.0
 margin/top = 353.0
@@ -856,6 +899,8 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
 [connection signal="pressed" from="Control/rect/hint/quit/quit_button" to="." method="_on_quit_button_pressed"]
+
+[connection signal="toggled" from="Control/rect/hint/tap_mode" to="." method="_on_tap_mode_toggled"]
 
 [connection signal="pressed" from="Control/tabs/buttons/Button0" to="." method="_on_Button0_pressed"]
 

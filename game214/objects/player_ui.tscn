@@ -346,9 +346,11 @@ texture = ExtResource( 3 )
 vframes = 2
 hframes = 12
 frame = 1
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="under" type="Patch9Frame" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -478,5 +480,14 @@ blend_times = [  ]
 autoplay = ""
 
 [node name="Position2D" type="Position2D" parent="."]
+
+[node name="start_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="start_timer" to="." method="_on_start_timer_timeout"]
 
 

@@ -27,14 +27,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="-1507.9718"
-     inkscape:cy="-1751.5888"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="2243.5859"
+     inkscape:cy="57.557626"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     showguides="false"
+     showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1920"
      inkscape:window-height="1055"
@@ -73,9 +73,50 @@
        units="px"
        id="grid3478"
        type="xygrid" />
+    <sodipodi:guide
+       position="533.90428,11.576112"
+       orientation="1,0"
+       id="guide2919"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
      id="defs1259">
+    <linearGradient
+       id="linearGradient2886"
+       inkscape:collect="always">
+      <stop
+         id="stop2882"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         id="stop2884"
+         offset="1"
+         style="stop-color:#3547d8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2853">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop2849" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop2851" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2833">
+      <stop
+         style="stop-color:#0d47b1;stop-opacity:1;"
+         offset="0"
+         id="stop2829" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.94095236"
+         offset="1"
+         id="stop2831" />
+    </linearGradient>
     <linearGradient
        id="linearGradient2087"
        inkscape:collect="always">
@@ -1280,6 +1321,46 @@
        y1="728.23938"
        x2="-321.48254"
        y2="679.40491" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2833"
+       id="linearGradient2835"
+       x1="366.16855"
+       y1="255.87486"
+       x2="355.66064"
+       y2="238.66736"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.037375,0,0,1.037375,-13.551349,-9.2963273)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2853"
+       id="linearGradient2855"
+       x1="365.42734"
+       y1="255.80872"
+       x2="357.54547"
+       y2="241.6535"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.9203848,0,0,0.9203848,28.866707,19.802778)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2833"
+       id="linearGradient2874"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.037375,0,0,1.037375,198.83551,-9.2963273)"
+       x1="366.16855"
+       y1="255.87486"
+       x2="355.66064"
+       y2="238.66736" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2886"
+       id="linearGradient2876"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.9203848,0,0,0.9203848,241.25357,19.802778)"
+       x1="365.42734"
+       y1="255.80872"
+       x2="357.54547"
+       y2="241.6535" />
   </defs>
   <metadata
      id="metadata1262">
@@ -3989,5 +4070,88 @@
        inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/arc.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
+    <g
+       id="g2861"
+       transform="translate(182.22436)"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/chacked.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <circle
+         r="10.456529"
+         cy="248.73111"
+         cx="362.57782"
+         id="path2817"
+         style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#0d47b1;stroke-width:2.06800008;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:url(#linearGradient2835);stroke-width:1.67645323;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle2819"
+         cx="362.57782"
+         cy="248.73111"
+         r="9.9731359" />
+      <ellipse
+         ry="7.556654"
+         rx="7.6437311"
+         style="opacity:1;vector-effect:none;fill:#0d47b1;fill-opacity:1;stroke:none;stroke-width:1.50307441;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle2837"
+         cx="362.57782"
+         cy="248.73111" />
+      <ellipse
+         cy="248.73111"
+         cx="362.57782"
+         id="ellipse2839"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:url(#linearGradient2855);stroke-width:1.38340688;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         rx="7.0351739"
+         ry="6.9550295" />
+    </g>
+    <circle
+       r="10.456529"
+       cy="248.73111"
+       cx="574.96466"
+       id="circle2863"
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#0d47b1;stroke-width:2.06800008;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/unchacked.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <circle
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:url(#linearGradient2874);stroke-width:1.67645323;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="circle2866"
+       cx="574.96466"
+       cy="248.73111"
+       r="9.9731359"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/unchacked.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       cy="248.73111"
+       cx="574.96466"
+       id="ellipse2870"
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:url(#linearGradient2876);stroke-width:1.38340688;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       rx="7.0351739"
+       ry="6.9550295"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/unchacked.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#0d47b1;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:10.38992139;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 2175.2754 985.23438 C 2173.1031 985.18335 2170.0082 987.01873 2165.8691 990.28711 L 2138.4863 1011.3125 C 2141.4865 1012.3366 2142.6465 1015.0313 2142.6465 1018.5039 L 2142.6465 1052.9082 C 2142.6465 1055.0211 2140.7878 1057.4654 2138.0977 1058.1406 L 2164.5195 1077.543 C 2175.7653 1085.7424 2178.4115 1085.3436 2178.5566 1070.625 L 2179.2637 998.95117 C 2179.6539 989.4107 2178.4501 985.30883 2175.2754 985.23438 z M 2191.752 1012.7578 L 2183.7832 1020.7227 L 2198.4082 1035.3535 L 2183.7832 1049.9785 L 2191.752 1057.9492 L 2206.3789 1043.3223 L 2221.0039 1057.9492 L 2228.9746 1049.9785 L 2214.3457 1035.3535 L 2228.9746 1020.7227 L 2221.0039 1012.7578 L 2206.3789 1027.3828 L 2191.752 1012.7578 z M 2126.6699 1013.4551 C 2123.0936 1013.4551 2120.2148 1016.3339 2120.2148 1019.9102 L 2120.2148 1050.2676 C 2120.2148 1053.8439 2123.0936 1056.7246 2126.6699 1056.7246 L 2133.0215 1056.7246 C 2136.5977 1056.7246 2139.4766 1053.8439 2139.4766 1050.2676 L 2139.4766 1019.9102 C 2139.4766 1016.3339 2136.5977 1013.4551 2133.0215 1013.4551 L 2126.6699 1013.4551 z "
+       transform="matrix(0.26458333,0,0,0.26458333,0,11.249983)"
+       id="path2901" />
+    <path
+       id="path2931"
+       d="M 2175.2754 985.23438 C 2173.1031 985.18335 2170.0082 987.01873 2165.8691 990.28711 L 2138.4863 1011.3125 C 2141.4865 1012.3366 2142.6465 1015.0313 2142.6465 1018.5039 L 2142.6465 1052.9082 C 2142.6465 1055.0211 2140.7878 1057.4654 2138.0977 1058.1406 L 2164.5195 1077.543 C 2175.7653 1085.7424 2178.4115 1085.3436 2178.5566 1070.625 L 2179.2637 998.95117 C 2179.6539 989.4107 2178.4501 985.30883 2175.2754 985.23438 z M 2191.752 1012.7578 L 2183.7832 1020.7227 L 2198.4082 1035.3535 L 2183.7832 1049.9785 L 2191.752 1057.9492 L 2206.3789 1043.3223 L 2221.0039 1057.9492 L 2228.9746 1049.9785 L 2214.3457 1035.3535 L 2228.9746 1020.7227 L 2221.0039 1012.7578 L 2206.3789 1027.3828 L 2191.752 1012.7578 z M 2126.6699 1013.4551 C 2123.0936 1013.4551 2120.2148 1016.3339 2120.2148 1019.9102 L 2120.2148 1050.2676 C 2120.2148 1053.8439 2123.0936 1056.7246 2126.6699 1056.7246 L 2133.0215 1056.7246 C 2136.5977 1056.7246 2139.4766 1053.8439 2139.4766 1050.2676 L 2139.4766 1019.9102 C 2139.4766 1016.3339 2136.5977 1013.4551 2133.0215 1013.4551 L 2126.6699 1013.4551 z "
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:2.45291342;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       transform="matrix(0.26458333,0,0,0.26458333,0,11.249983)" />
+    <path
+       id="path2933"
+       d="m 620.44289,271.92658 c -0.57475,-0.0135 -1.39361,0.47211 -2.48875,1.33686 l -7.24503,5.56297 c 0.7938,0.27096 1.10072,0.98393 1.10072,1.90273 v 9.1028 c 0,0.55904 -0.49178,1.20576 -1.20354,1.38441 l 6.99077,5.13355 c 2.97545,2.16942 3.67559,2.06391 3.71398,-1.83039 l 0.18709,-18.9637 c 0.10324,-2.52425 -0.21527,-3.60954 -1.05524,-3.62923 z m -12.86021,7.46673 c -0.94622,0 -1.70791,0.76168 -1.70791,1.70791 v 8.03206 c 0,0.94623 0.76169,1.70842 1.70791,1.70842 h 1.68053 c 0.9462,0 1.70791,-0.76219 1.70791,-1.70842 v -8.03206 c 0,-0.94623 -0.76171,-1.70791 -1.70791,-1.70791 z"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#0d47b1;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:2.74899983;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccsscccccsssssssss" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:0.64900005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 620.44289,271.92658 c -0.57475,-0.0135 -1.39361,0.47211 -2.48875,1.33686 l -7.24503,5.56297 c 0.7938,0.27096 1.10072,0.98393 1.10072,1.90273 v 9.1028 c 0,0.55904 -0.49178,1.20576 -1.20354,1.38441 l 6.99077,5.13355 c 2.97545,2.16942 3.67559,2.06391 3.71398,-1.83039 l 0.18709,-18.9637 c 0.10324,-2.52425 -0.21527,-3.60954 -1.05524,-3.62923 z m -12.86021,7.46673 c -0.94622,0 -1.70791,0.76168 -1.70791,1.70791 v 8.03206 c 0,0.94623 0.76169,1.70842 1.70791,1.70842 h 1.68053 c 0.9462,0 1.70791,-0.76219 1.70791,-1.70842 v -8.03206 c 0,-0.94623 -0.76171,-1.70791 -1.70791,-1.70791 z"
+       id="path2935"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccsscccccsssssssss" />
   </g>
 </svg>
