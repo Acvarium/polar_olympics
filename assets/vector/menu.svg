@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="2243.5859"
-     inkscape:cy="57.557626"
+     inkscape:zoom="2"
+     inkscape:cx="2261.6384"
+     inkscape:cy="29.382144"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1585,6 +1585,15 @@
      id="layer1"
      transform="translate(0,-11.249983)"
      style="display:inline">
+    <path
+       sodipodi:nodetypes="csccscc"
+       inkscape:connector-curvature="0"
+       id="path2944"
+       d="m 624.1516,276.62349 c 1.40348,2.27317 2.23906,5.12305 2.23906,8.22428 0,3.10137 -0.83545,5.95154 -2.23906,8.22473 l 2.48348,0.93544 c 2.24473,-2.68457 3.53891,-5.81636 3.53891,-9.16019 0,-3.34373 -1.29434,-6.4755 -3.53891,-9.1597 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#0d47b1;stroke-width:2.84899974;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/unmute.png"
+       inkscape:export-xdpi="193"
+       inkscape:export-ydpi="193" />
     <g
        inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
@@ -4135,23 +4144,44 @@
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#0d47b1;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:10.38992139;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="M 2175.2754 985.23438 C 2173.1031 985.18335 2170.0082 987.01873 2165.8691 990.28711 L 2138.4863 1011.3125 C 2141.4865 1012.3366 2142.6465 1015.0313 2142.6465 1018.5039 L 2142.6465 1052.9082 C 2142.6465 1055.0211 2140.7878 1057.4654 2138.0977 1058.1406 L 2164.5195 1077.543 C 2175.7653 1085.7424 2178.4115 1085.3436 2178.5566 1070.625 L 2179.2637 998.95117 C 2179.6539 989.4107 2178.4501 985.30883 2175.2754 985.23438 z M 2191.752 1012.7578 L 2183.7832 1020.7227 L 2198.4082 1035.3535 L 2183.7832 1049.9785 L 2191.752 1057.9492 L 2206.3789 1043.3223 L 2221.0039 1057.9492 L 2228.9746 1049.9785 L 2214.3457 1035.3535 L 2228.9746 1020.7227 L 2221.0039 1012.7578 L 2206.3789 1027.3828 L 2191.752 1012.7578 z M 2126.6699 1013.4551 C 2123.0936 1013.4551 2120.2148 1016.3339 2120.2148 1019.9102 L 2120.2148 1050.2676 C 2120.2148 1053.8439 2123.0936 1056.7246 2126.6699 1056.7246 L 2133.0215 1056.7246 C 2136.5977 1056.7246 2139.4766 1053.8439 2139.4766 1050.2676 L 2139.4766 1019.9102 C 2139.4766 1016.3339 2136.5977 1013.4551 2133.0215 1013.4551 L 2126.6699 1013.4551 z "
        transform="matrix(0.26458333,0,0,0.26458333,0,11.249983)"
-       id="path2901" />
+       id="path2901"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/mute.png"
+       inkscape:export-xdpi="191.52083"
+       inkscape:export-ydpi="191.52083" />
     <path
        id="path2931"
        d="M 2175.2754 985.23438 C 2173.1031 985.18335 2170.0082 987.01873 2165.8691 990.28711 L 2138.4863 1011.3125 C 2141.4865 1012.3366 2142.6465 1015.0313 2142.6465 1018.5039 L 2142.6465 1052.9082 C 2142.6465 1055.0211 2140.7878 1057.4654 2138.0977 1058.1406 L 2164.5195 1077.543 C 2175.7653 1085.7424 2178.4115 1085.3436 2178.5566 1070.625 L 2179.2637 998.95117 C 2179.6539 989.4107 2178.4501 985.30883 2175.2754 985.23438 z M 2191.752 1012.7578 L 2183.7832 1020.7227 L 2198.4082 1035.3535 L 2183.7832 1049.9785 L 2191.752 1057.9492 L 2206.3789 1043.3223 L 2221.0039 1057.9492 L 2228.9746 1049.9785 L 2214.3457 1035.3535 L 2228.9746 1020.7227 L 2221.0039 1012.7578 L 2206.3789 1027.3828 L 2191.752 1012.7578 z M 2126.6699 1013.4551 C 2123.0936 1013.4551 2120.2148 1016.3339 2120.2148 1019.9102 L 2120.2148 1050.2676 C 2120.2148 1053.8439 2123.0936 1056.7246 2126.6699 1056.7246 L 2133.0215 1056.7246 C 2136.5977 1056.7246 2139.4766 1053.8439 2139.4766 1050.2676 L 2139.4766 1019.9102 C 2139.4766 1016.3339 2136.5977 1013.4551 2133.0215 1013.4551 L 2126.6699 1013.4551 z "
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:2.45291342;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       transform="matrix(0.26458333,0,0,0.26458333,0,11.249983)" />
+       transform="matrix(0.26458333,0,0,0.26458333,0,11.249983)"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/mute.png"
+       inkscape:export-xdpi="191.52083"
+       inkscape:export-ydpi="191.52083" />
     <path
        id="path2933"
        d="m 620.44289,271.92658 c -0.57475,-0.0135 -1.39361,0.47211 -2.48875,1.33686 l -7.24503,5.56297 c 0.7938,0.27096 1.10072,0.98393 1.10072,1.90273 v 9.1028 c 0,0.55904 -0.49178,1.20576 -1.20354,1.38441 l 6.99077,5.13355 c 2.97545,2.16942 3.67559,2.06391 3.71398,-1.83039 l 0.18709,-18.9637 c 0.10324,-2.52425 -0.21527,-3.60954 -1.05524,-3.62923 z m -12.86021,7.46673 c -0.94622,0 -1.70791,0.76168 -1.70791,1.70791 v 8.03206 c 0,0.94623 0.76169,1.70842 1.70791,1.70842 h 1.68053 c 0.9462,0 1.70791,-0.76219 1.70791,-1.70842 v -8.03206 c 0,-0.94623 -0.76171,-1.70791 -1.70791,-1.70791 z"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#0d47b1;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:2.74899983;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccsscccccsssssssss" />
+       sodipodi:nodetypes="cccsscccccsssssssss"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/unmute.png"
+       inkscape:export-xdpi="193.60983"
+       inkscape:export-ydpi="193.60983" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0d47b1;stroke-width:0.64900005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m 620.44289,271.92658 c -0.57475,-0.0135 -1.39361,0.47211 -2.48875,1.33686 l -7.24503,5.56297 c 0.7938,0.27096 1.10072,0.98393 1.10072,1.90273 v 9.1028 c 0,0.55904 -0.49178,1.20576 -1.20354,1.38441 l 6.99077,5.13355 c 2.97545,2.16942 3.67559,2.06391 3.71398,-1.83039 l 0.18709,-18.9637 c 0.10324,-2.52425 -0.21527,-3.60954 -1.05524,-3.62923 z m -12.86021,7.46673 c -0.94622,0 -1.70791,0.76168 -1.70791,1.70791 v 8.03206 c 0,0.94623 0.76169,1.70842 1.70791,1.70842 h 1.68053 c 0.9462,0 1.70791,-0.76219 1.70791,-1.70842 v -8.03206 c 0,-0.94623 -0.76171,-1.70791 -1.70791,-1.70791 z"
        id="path2935"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccsscccccsssssssss" />
+       sodipodi:nodetypes="cccsscccccsssssssss"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/unmute.png"
+       inkscape:export-xdpi="193.60983"
+       inkscape:export-ydpi="193.60983" />
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.84899974;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 624.1516,276.62349 c 1.40348,2.27317 2.23906,5.12305 2.23906,8.22428 0,3.10137 -0.83545,5.95154 -2.23906,8.22473 l 2.48348,0.93544 c 2.24473,-2.68457 3.53891,-5.81636 3.53891,-9.16019 0,-3.34373 -1.29434,-6.4755 -3.53891,-9.1597 z"
+       id="path2937"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csccscc"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/unmute.png"
+       inkscape:export-xdpi="193"
+       inkscape:export-ydpi="193" />
   </g>
 </svg>

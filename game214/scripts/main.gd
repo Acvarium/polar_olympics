@@ -423,7 +423,8 @@ func spawn_penguin():
 	penguin.set_id(peng_id)
 	peng_id += 1
 	get_node("game_field/penguins").add_child(penguin)
-	get_node("sounds/yahoo").play("yahoo")
+	if global.volume_scale > 0:
+		get_node("sounds/yahoo").play("yahoo")
 	if global.single:
 		update_team_score(0)
 
@@ -460,7 +461,8 @@ func _on_cam_anim_finished():
 	no_control = false
 	get_node("game_field/point").show()
 	if !go:
-#		get_node("ui/power").show()
+		if global.control_type == 0:
+			get_node("ui/power").show()
 		if avatars[team] == 23:
 			get_node("ui/power").show()
 			rand_fire(0.5)

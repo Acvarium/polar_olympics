@@ -988,8 +988,7 @@ custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0.0611128, 0.0513153, 0.230469, 0.61749 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
-text = "Press again
-to leave the game"
+text = "PRESS"
 align = 1
 uppercase = true
 percent_visible = 1.0

@@ -19,7 +19,7 @@ var level_num = 0
 var no_save = false
 var team = 0
 var control_type = 1
-var volume_scale = 1.0
+var volume_scale = 1
 
 #var save_file = 'user://po_savegame.save'
 var save_file = "user://po_savegame.save"
@@ -49,7 +49,7 @@ const team_color = [
 ]
 const animals = [
 	'POLAR',			#00
-	'BROWM',			#01
+	'BROWN',			#01
 	'PANDA',			#02
 	'WALRUS',			#03
 	'ELK',				#04
@@ -72,9 +72,9 @@ const animals = [
 	'',					#21
 	'COMPY',			#22
 ]
-var player_name = ['POLAR','BROWM','PANDA','WALRUS']
+var player_name = ['POLAR','BROWN','PANDA','WALRUS']
 var score = [0]
-var selected_players = [1,23,3,4]
+var selected_players = [1,23,0,0]
 
 func _ready():
 
@@ -134,6 +134,10 @@ func save_game():
 func set_volume(v):
 	volume_scale = v
 	AudioServer.set_stream_global_volume_scale(volume_scale)
+
+func toggle_mute():
+	volume_scale = int(!bool(volume_scale))
+	set_volume(volume_scale)
 	
 
 # Завантаження гри
@@ -161,7 +165,7 @@ func load_game():
 		stages_locks.append(currentline['stage_' + str(i)])
 	savegame.close()
 	control_type = bool(int(currentline['control_type']))
-	set_volume(float(currentline['volume_scale']))
+	set_volume(int(currentline['volume_scale']))
 #	for s in currentline:
 #		print(s)
 

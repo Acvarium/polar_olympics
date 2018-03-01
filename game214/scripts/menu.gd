@@ -21,6 +21,7 @@ func _ready():
 	update_dots()
 	get_node("Control/rect/hint/tap_mode").set_pressed(!global.control_type)
 	get_node("Control/rect/hint/version").set_text("version " + global.game_version)
+	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
 	
 func _input(event):
 	if event.is_action_pressed("quit"):
@@ -123,5 +124,7 @@ func _on_lvl0_pressed():
 func _on_tap_mode_toggled( pressed ):
 	global.control_type = int(!get_node("Control/rect/hint/tap_mode").is_pressed())
 	global.save_game()
-
 		
+func _on_mute_toggled( pressed ):
+	global.toggle_mute()
+	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
