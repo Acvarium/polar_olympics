@@ -22,6 +22,10 @@ func _ready():
 	
 func set_id(i):
 	id = i
+
+func set_vel(vel):
+	set_linear_velocity(vel)
+	set_rot(vel.normalized().angle() - PI/2)
 	
 func reset_damp():
 	set_linear_damp(default_damp)

@@ -33,6 +33,11 @@ var fire_timeout = false
 var camera_animation = 'fire'
 var bonus10_on = true
 var control_type = 1
+var mouse_down = false
+var aim = false
+var power_multiplier = 2.5
+var fire_velocity = Vector2()
+var to_fire = false
 
 var bot_power = 960
 var bot_angle = 0
@@ -51,8 +56,12 @@ var p_num = 0
 var star_num = 0
 var star_score = 3
 var level_max_score = 15
+var draw_layer 
+var min_len = 100
+
 
 func _ready():
+	draw_layer = get_node("draw")
 	set_process_input(true)
 	global = get_node("/root/global")
 	pointer = get_node("ui/pointer")
@@ -120,12 +129,23 @@ func fall(p_path,hole_path):
 	get_node("sounds/splash").play()
 #------------------------------
 func _input(event):
+	if event.is_action_pressed("lmb"):
+		mouse_down = true
+	elif event.is_action_released("lmb"):
+		aim = false
+		mouse_down = false
+		draw_layer.lines = []
+		draw_layer.update()
+		var dist = get_node("game_field").get_global_pos().distance_to(get_global_mouse_pos())
+		if to_fire and dist > min_len:
+			fire()
+		to_fire = false
+		
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
 
 	if event.is_action_pressed("ui_up"):
 		stars_on()
-		
 		
 	if event.is_action_pressed("fire"):
 		if avatars[team] == 23 and !to_restart:
@@ -154,6 +174,14 @@ func remove_obj(r):
 		
 #========================================================================
 func _process(delta):
+	if mouse_down and aim:
+		draw_layer.lines = []
+		var col = Color(0,1,0)
+		if get_node("game_field").get_global_pos().distance_to(get_global_mouse_pos()) > min_len:
+			draw_layer.lines.append([get_node("game_field").get_global_pos(), get_global_mouse_pos(), col]) 
+		draw_layer.update()
+		fire_velocity = get_global_mouse_pos() - get_node("game_field").get_global_pos()
+		
 	get_node("canvas/data_ui/vel").set_text(str(get_node("timers/bot_emergency_triger").get_time_left()))
 #	get_node("canvas/data_ui/fps").set_text(str(OS.get_frames_per_second()))
 	if go:
@@ -344,6 +372,7 @@ func fire():
 		team = 0
 	get_node("camera_position/cam_anim").play(camera_animation)
 	no_control = true
+	get_node("game_field/point").hide()
 	
 	var throws_left = 0
 	for t in throws:
@@ -362,8 +391,11 @@ func spawn_penguin():
 	penguin.set_name("penguin_" + str(p_num))
 	p_num += 1
 	var r = -pointer.get_rot()
-	penguin.set_rot(-r)
-	penguin.set_linear_velocity(Vector2(cos(r), sin(r)).normalized() * power * 22)
+	
+	if avatars[team] == 23:
+		penguin.set_vel(Vector2(cos(r), sin(r)).normalized() * power * 22)
+	else:
+		penguin.set_vel(fire_velocity * power_multiplier)
 	penguin.set_team(team)
 	peng_teams.append(team)
 	peng_score.append(0)
@@ -406,9 +438,11 @@ func _on_fire_button_button_down():
 func _on_cam_anim_finished():
 	set_process(true)
 	no_control = false
+	get_node("game_field/point").show()
 	if !go:
-		get_node("ui/power").show()
+#		get_node("ui/power").show()
 		if avatars[team] == 23:
+			get_node("ui/power").show()
 			rand_fire(0.5)
 			bot_move()
 			get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
@@ -461,7 +495,13 @@ func _on_score_anim_finished():
 func _on_play_button_pressed():
 	get_tree().reload_current_scene()
 
-
 func _on_replay_button_pressed():
 	global.next_level = global.current_level
 	get_tree().reload_current_scene()
+
+func _on_aim_button_button_down():
+	if avatars[team] == 23 and !to_restart:
+		return
+	if !no_control:
+		aim = true
+		to_fire = true
