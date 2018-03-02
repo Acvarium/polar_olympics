@@ -33,7 +33,7 @@ var fire_timeout = false
 var camera_animation = 'fire'
 var bonus10_on = true
 var tutorial = 1
-var v_slide_allow = true
+var v_slide_allow = false
 
 var mouse_down = false
 var aim = false
@@ -77,25 +77,23 @@ func _ready():
 		v_slide_allow = false
 	geme_setup()
 	set_process(true)
-	if global.single:
-		control_type = 1
 	if control_type == 0:
 		get_node("canvas/data_ui/fire_button").show()
 		get_node("game_field/point/power").show()
-	if !global.single:
+	get_node("canvas/data_ui/hello_button/hello/rateit").set_bbcode(tr("RATEIT"))
+	if global.single:
+		control_type = 1
+		load_level(global.next_level)
+		get_node("canvas/data_ui/player0").hide()
+		get_node("canvas/data_ui/level_score").show()
+	else:
 		if avatars[team] == 23:
 			get_node("game_field/point/power").show()
 			bot_move()
 			rand_fire(0)
-	get_node("canvas/data_ui/hello_button/hello/rateit").set_bbcode(tr("RATEIT"))
-	if global.single:
-		load_level(global.next_level)
-		get_node("canvas/data_ui/player0").hide()
-		get_node("canvas/data_ui/level_score").show()
 	var score_sum = 0
 	for s in global.score:
 		score_sum += s
-	print("____", score_sum)
 	if global.tutorial != 0 and ((control_type == 1 and score_sum == 0) or global.single):
 		no_control = true
 		get_node("tutorial").play("tutorial" + str(level_tutorial))
@@ -160,6 +158,14 @@ func fall(p_path,hole_path):
 	get_node("sounds/splash").play()
 #------------------------------
 func _input(event):
+	if event.is_action_pressed("slide_control"):
+		v_slide_allow = !v_slide_allow
+		if !avatars[team] == 23:
+			if v_slide_allow:
+				get_node("game_field/point/arrows").show()
+			else:
+				get_node("game_field/point/arrows").hide()
+				
 	if event.is_action_pressed("lmb"):
 		mouse_down = true
 	elif event.is_action_released("lmb"):
@@ -212,12 +218,14 @@ func _process(delta):
 		var pow_vec = get_node("game_field/point").get_global_pos() - get_global_mouse_pos()
 		
 		if get_global_mouse_pos().x < 200 and get_global_mouse_pos().y > 160 and get_global_mouse_pos().y < 900:
+			if v_slide_allow:
 				var point_pos = get_node("game_field/point").get_global_pos()
 				point_pos.y = get_global_mouse_pos().y
 				get_node("game_field/point").set_global_pos(point_pos)
-				get_node("game_field/point/power_arrow").hide()
 				get_node("game_field/point/arrows/up").set_modulate(Color(0,1,0.2))
 				get_node("game_field/point/arrows/down").set_modulate(Color(0,1,0.2))
+			get_node("game_field/point/power_arrow").hide()
+				
 		elif pow_vec.length() > min_len:
 			get_node("game_field/point/arrows/up").set_modulate(Color(1,1,1))
 			get_node("game_field/point/arrows/down").set_modulate(Color(1,1,1))
@@ -394,6 +402,8 @@ func _notification(what):
 			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
 
 func fire_pressed():
+	if no_control:
+		return
 	if fire_timeout:
 		return
 	fire_timeout = true
@@ -409,13 +419,6 @@ func fire_pressed():
 			get_tree().reload_current_scene()
 		
 		
-	if no_control:
-		return
-	var trows_left = 0
-	for t in throws:
-		trows_left += t
-	if trows_left <= 0:
-		return
 	state += 1
 	if state == 2:
 		fire()
@@ -510,12 +513,17 @@ func _on_fire_button_button_down():
 		fire_pressed()
 
 func _on_cam_anim_finished():
+	
 	set_process(true)
-	no_control = false
-	get_node("game_field/point").show()
-	if v_slide_allow:
-		get_node("game_field/point/arrows").show()
-		
+	var trows_left = 0
+	for t in throws:
+		trows_left += t
+	if trows_left > 0:
+		no_control = false
+		get_node("game_field/point").show()
+		if v_slide_allow:
+			get_node("game_field/point/arrows").show()
+			
 	if !go:
 		if control_type == 0:
 			get_node("game_field/point/power").show()

@@ -18,13 +18,13 @@
 [ext_resource path="res://objects/star.tscn" type="PackedScene" id=16]
 [ext_resource path="res://fonts/font0.fnt" type="BitmapFont" id=17]
 [ext_resource path="res://objects/player_ui.tscn" type="PackedScene" id=18]
-[ext_resource path="res://textures/menu_button.png" type="Texture" id=19]
-[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=20]
-[ext_resource path="res://textures/rect.png" type="Texture" id=21]
-[ext_resource path="res://textures/next_button.png" type="Texture" id=22]
-[ext_resource path="res://textures/prev_button.png" type="Texture" id=23]
-[ext_resource path="res://textures/menu2_button.png" type="Texture" id=24]
-[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=25]
+[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=19]
+[ext_resource path="res://textures/menu_button.png" type="Texture" id=20]
+[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=21]
+[ext_resource path="res://textures/rect.png" type="Texture" id=22]
+[ext_resource path="res://textures/next_button.png" type="Texture" id=23]
+[ext_resource path="res://textures/prev_button.png" type="Texture" id=24]
+[ext_resource path="res://textures/menu2_button.png" type="Texture" id=25]
 [ext_resource path="res://scripts/draw.gd" type="Script" id=26]
 [ext_resource path="res://sounds/start.ogg" type="AudioStream" id=27]
 [ext_resource path="res://sounds/splash.ogg" type="AudioStream" id=28]
@@ -556,6 +556,7 @@ hframes = 2
 
 [node name="point" type="Sprite" parent="game_field"]
 
+editor/display_folded = true
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -657,8 +658,6 @@ texture = ExtResource( 12 )
 
 [node name="ui" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="Label" type="Label" parent="ui"]
 
 focus/ignore_mouse = true
@@ -683,7 +682,6 @@ __meta__ = {
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -1232,6 +1230,47 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="level_score" type="Patch9Frame" parent="canvas/data_ui"]
+
+visibility/visible = false
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 200.0
+margin/top = -410.0
+margin/right = -194.0
+margin/bottom = -526.0
+texture = ExtResource( 19 )
+modulate = Color( 1, 1, 1, 0.803294 )
+patch_margin/left = 35
+patch_margin/top = 35
+patch_margin/right = 35
+patch_margin/bottom = 35
+
+[node name="score" type="Label" parent="canvas/data_ui/level_score"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 395.0
+margin/bottom = 118.0
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0, 0.396362, 0.746094, 0.918039 )
+text = "0/15"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="exit_mess" type="Patch9Frame" parent="canvas/data_ui"]
 
 editor/display_folded = true
@@ -1307,13 +1346,14 @@ margin/bottom = 99.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 19 )
-textures/hover = ExtResource( 20 )
+textures/normal = ExtResource( 20 )
+textures/hover = ExtResource( 21 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
 [node name="single_score" type="Patch9Frame" parent="canvas/data_ui"]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 0.0
 anchor/left = 3
@@ -1328,7 +1368,7 @@ margin/left = 369.0
 margin/top = 265.0
 margin/right = -363.0
 margin/bottom = -206.0
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 modulate = Color( 1, 1, 1, 0.803294 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -1356,6 +1396,7 @@ autostart = false
 
 [node name="buttons" type="Control" parent="canvas/data_ui/single_score"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1378,7 +1419,7 @@ margin/bottom = 435.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 22 )
+textures/normal = ExtResource( 23 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1395,7 +1436,7 @@ margin/bottom = 438.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 23 )
+textures/normal = ExtResource( 24 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1412,50 +1453,9 @@ margin/bottom = 438.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 24 )
+textures/normal = ExtResource( 25 )
 params/resize_mode = 0
 params/stretch_mode = 0
-
-[node name="level_score" type="Patch9Frame" parent="canvas/data_ui"]
-
-visibility/visible = false
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 200.0
-margin/top = -410.0
-margin/right = -194.0
-margin/bottom = -526.0
-texture = ExtResource( 25 )
-modulate = Color( 1, 1, 1, 0.803294 )
-patch_margin/left = 35
-patch_margin/top = 35
-patch_margin/right = 35
-patch_margin/bottom = 35
-
-[node name="score" type="Label" parent="canvas/data_ui/level_score"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 395.0
-margin/bottom = 118.0
-custom_fonts/font = ExtResource( 13 )
-custom_colors/font_color = Color( 0, 0.396362, 0.746094, 0.918039 )
-text = "0/15"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="score_anim" type="AnimationPlayer" parent="canvas"]
 

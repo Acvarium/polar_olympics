@@ -23,7 +23,6 @@ func _ready():
 	get_node("Control/rect/hint/tap_mode").set_pressed(!global.control_type)
 	get_node("Control/rect/hint/version").set_text("version " + global.game_version)
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
-	print(global.selected_players)
 	get_node("Control/rect/hint/tutorial").set_pressed(bool(global.tutorial))
 	
 func _input(event):
