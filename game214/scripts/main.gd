@@ -94,7 +94,11 @@ func _ready():
 	var score_sum = 0
 	for s in global.score:
 		score_sum += s
-	if global.tutorial != 0 and ((control_type == 1 and score_sum == 0) or global.single):
+	var single_tut_on = false
+	if global.single:
+		if global.level_num == 0:
+			single_tut_on = true
+	if global.tutorial != 0 and ((!global.single and control_type == 1 and score_sum == 0) or single_tut_on):
 		no_control = true
 		get_node("tutorial").play("tutorial" + str(level_tutorial))
 		get_node("game_field/effects/hand").show()
@@ -134,8 +138,6 @@ func geme_setup():
 	else:
 		get_node("game_field/point/arrows").hide()
 		
-
-
 func fall(p_path,hole_path):
 	var p = get_node(p_path)
 	var hole = get_node(hole_path)
@@ -159,16 +161,18 @@ func fall(p_path,hole_path):
 #------------------------------
 func _input(event):
 	if event.is_action_pressed("slide_control"):
-		v_slide_allow = !v_slide_allow
-		if !avatars[team] == 23:
-			if v_slide_allow:
-				get_node("game_field/point/arrows").show()
-			else:
-				get_node("game_field/point/arrows").hide()
+		if control_type == 1:
+			v_slide_allow = !v_slide_allow
+			if !avatars[team] == 23:
+				if v_slide_allow:
+					get_node("game_field/point/arrows").show()
+				else:
+					get_node("game_field/point/arrows").hide()
 				
 	if event.is_action_pressed("lmb"):
 		mouse_down = true
 	elif event.is_action_released("lmb"):
+		
 		get_node("game_field/point/arrows/up").set_modulate(Color(1,1,1))
 		get_node("game_field/point/arrows/down").set_modulate(Color(1,1,1))
 		aim = false
@@ -177,7 +181,8 @@ func _input(event):
 		draw_layer.update()
 		var dist = get_node("game_field/point").get_global_pos().distance_to(get_global_mouse_pos())
 		if to_fire and dist > min_len:
-			fire()
+			if get_global_mouse_pos().x > 200:
+				fire()
 		to_fire = false
 		
 	if event.is_action_pressed("quit"):
@@ -226,7 +231,7 @@ func _process(delta):
 				get_node("game_field/point/arrows/down").set_modulate(Color(0,1,0.2))
 			get_node("game_field/point/power_arrow").hide()
 				
-		elif pow_vec.length() > min_len:
+		elif pow_vec.length() > min_len and get_global_mouse_pos().x > 200:
 			get_node("game_field/point/arrows/up").set_modulate(Color(1,1,1))
 			get_node("game_field/point/arrows/down").set_modulate(Color(1,1,1))
 			get_node("game_field/point/power_arrow").show()
