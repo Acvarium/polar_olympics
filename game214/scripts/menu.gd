@@ -23,10 +23,8 @@ func _ready():
 	get_node("Control/rect/hint/version").set_text("version " + global.game_version)
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
 	print(global.selected_players)
-#	for i in range(4):
-#		get_node("Control/mode1/select_button" + str(i)).avatar = global.selected_players[i]
-#		get_node("Control/mode1/select_button" + str(i)).update_avatar()
-#	
+	get_node("Control/rect/hint/tutorial").set_pressed(bool(global.tutorial))
+	
 func _input(event):
 	if event.is_action_pressed("quit"):
 		global.game_quit()
@@ -132,3 +130,6 @@ func _on_tap_mode_toggled( pressed ):
 func _on_mute_toggled( pressed ):
 	global.toggle_mute()
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
+
+func _on_tutorial_toggled( pressed ):
+	global.tutorial = int(get_node("Control/rect/hint/tutorial").is_pressed())

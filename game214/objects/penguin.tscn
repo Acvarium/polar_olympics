@@ -98,6 +98,7 @@ velocity/angular = 0.0
 damp_override/linear = 0.7
 damp_override/angular = 0.7
 script/script = ExtResource( 1 )
+tut = false
 
 [node name="pShadow" type="Sprite" parent="."]
 

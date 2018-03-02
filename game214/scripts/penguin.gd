@@ -12,6 +12,7 @@ var target_rad = 0
 var id = 0
 var is_falling = false
 var iglu
+export var tut = false
 
 func _ready():
 	global = get_node("/root/global")
@@ -20,6 +21,7 @@ func _ready():
 	target_rad = main_node.target_radius
 	set_fixed_process(true)
 	
+#	
 func set_id(i):
 	id = i
 

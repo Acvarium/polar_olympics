@@ -20,6 +20,7 @@ var no_save = false
 var team = 0
 var control_type = 1
 var volume_scale = 1
+var tutorial = 1
 
 #var save_file = 'user://po_savegame.save'
 var save_file = "user://po_savegame.save"
@@ -97,7 +98,6 @@ func start_game():
 		max_throw = 5
 	else:
 		max_throw = 6
-		
 	goto_scene("res://scenes/main.tscn")
 
 func goto_scene(path):
@@ -124,6 +124,7 @@ func save_game():
 	savegame.store_line({'version':game_version}.to_json())
 	savegame.store_line({'control_type':str(control_type)}.to_json())
 	savegame.store_line({'volume_scale':str(volume_scale)}.to_json())
+	savegame.store_line({'tutorial':str(tutorial)}.to_json())
 	
 	for i in range(worlds_locks.size()):
 		savegame.store_line({'world_' + str(i):worlds_locks[i]}.to_json())
@@ -165,9 +166,9 @@ func load_game():
 		stages_locks.append(currentline['stage_' + str(i)])
 	savegame.close()
 	control_type = bool(int(currentline['control_type']))
+	if currentline.has('tutorial'):
+		tutorial = int(currentline['tutorial'])
 	set_volume(int(currentline['volume_scale']))
-#	for s in currentline:
-#		print(s)
 
 func game_quit():
 	save_game()

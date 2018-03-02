@@ -32,6 +32,7 @@ var to_exit = false
 var fire_timeout = false
 var camera_animation = 'fire'
 var bonus10_on = true
+var tutorial = 1
 
 var mouse_down = false
 var aim = false
@@ -83,7 +84,18 @@ func _ready():
 		load_level(global.next_level)
 		get_node("canvas/data_ui/player0").hide()
 		get_node("canvas/data_ui/level_score").show()
-		
+	var score_sum = 0
+	for s in global.score:
+		score_sum += s
+	print("____", score_sum)
+	if global.tutorial != 0 and global.control_type == 1 and score_sum == 0:
+		no_control = true
+		get_node("tutorial").play("tutorial" + str(global.tutorial))
+	else:
+		get_node("game_field/effects/hand").hide()
+		if has_node("game_field/penguins/tut_peng"):
+			get_node("game_field/penguins/tut_peng").queue_free()
+	
 func load_level(l):
 	var level = load(l).instance()
 	get_node("game_field/levels").add_child(level)
@@ -527,3 +539,8 @@ func _on_aim_button_button_down():
 	if !no_control:
 		aim = true
 		to_fire = true
+
+func _on_tutorial_finished():
+	no_control = false
+	if has_node("game_field/penguins/tut_peng"):
+		get_node("game_field/penguins/tut_peng").queue_free()
