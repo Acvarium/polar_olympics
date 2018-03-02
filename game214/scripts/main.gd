@@ -33,6 +33,7 @@ var fire_timeout = false
 var camera_animation = 'fire'
 var bonus10_on = true
 var tutorial = 1
+var v_slide_allow = true
 
 var mouse_down = false
 var aim = false
@@ -67,21 +68,23 @@ func _ready():
 	set_process_input(true)
 	global = get_node("/root/global")
 	team = global.team
-	pointer = get_node("ui/pointer")
+	pointer = get_node("game_field/point/pointer")
 	resizer()
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	target_pos = get_node("game_field/target").get_global_pos()
+	control_type = global.control_type
+	if control_type == 0:
+		v_slide_allow = false
 	geme_setup()
 	set_process(true)
-	control_type = global.control_type
 	if global.single:
 		control_type = 1
 	if control_type == 0:
 		get_node("canvas/data_ui/fire_button").show()
-		get_node("ui/power").show()
+		get_node("game_field/point/power").show()
 	if !global.single:
 		if avatars[team] == 23:
-			get_node("ui/power").show()
+			get_node("game_field/point/power").show()
 			bot_move()
 			rand_fire(0)
 	get_node("canvas/data_ui/hello_button/hello/rateit").set_bbcode(tr("RATEIT"))
@@ -128,6 +131,12 @@ func geme_setup():
 		if i < (global.score.size() - 1):
 			total_score_str += ":"
 	get_node("canvas/data_ui/total_score").set_text(total_score_str)
+	if v_slide_allow and avatars[team] != 23:
+		get_node("game_field/point/arrows").show()
+	else:
+		get_node("game_field/point/arrows").hide()
+		
+
 
 func fall(p_path,hole_path):
 	var p = get_node(p_path)
@@ -154,11 +163,13 @@ func _input(event):
 	if event.is_action_pressed("lmb"):
 		mouse_down = true
 	elif event.is_action_released("lmb"):
+		get_node("game_field/point/arrows/up").set_modulate(Color(1,1,1))
+		get_node("game_field/point/arrows/down").set_modulate(Color(1,1,1))
 		aim = false
 		mouse_down = false
 		draw_layer.lines = []
 		draw_layer.update()
-		var dist = get_node("game_field").get_global_pos().distance_to(get_global_mouse_pos())
+		var dist = get_node("game_field/point").get_global_pos().distance_to(get_global_mouse_pos())
 		if to_fire and dist > min_len:
 			fire()
 		to_fire = false
@@ -198,14 +209,24 @@ func remove_obj(r):
 func _process(delta):
 	if mouse_down and aim:
 		var col = Color(0,1,0)
-		var pow_vec = get_node("game_field").get_global_pos() - get_global_mouse_pos()
-		if  pow_vec.length() > min_len:
-			get_node("ui/power_arrow").show()
-			get_node("ui/power_arrow").set_rot(pow_vec.angle() + PI/2)
-			get_node("ui/power_arrow/arrow").set_size(Vector2(pow_vec.length() * 2 + 75, 136))
+		var pow_vec = get_node("game_field/point").get_global_pos() - get_global_mouse_pos()
+		
+		if get_global_mouse_pos().x < 200 and get_global_mouse_pos().y > 160 and get_global_mouse_pos().y < 900:
+				var point_pos = get_node("game_field/point").get_global_pos()
+				point_pos.y = get_global_mouse_pos().y
+				get_node("game_field/point").set_global_pos(point_pos)
+				get_node("game_field/point/power_arrow").hide()
+				get_node("game_field/point/arrows/up").set_modulate(Color(0,1,0.2))
+				get_node("game_field/point/arrows/down").set_modulate(Color(0,1,0.2))
+		elif pow_vec.length() > min_len:
+			get_node("game_field/point/arrows/up").set_modulate(Color(1,1,1))
+			get_node("game_field/point/arrows/down").set_modulate(Color(1,1,1))
+			get_node("game_field/point/power_arrow").show()
+			get_node("game_field/point/power_arrow").set_rot(pow_vec.angle() + PI/2)
+			get_node("game_field/point/power_arrow/arrow").set_size(Vector2(pow_vec.length() * 2 + 75, 136))
 		else:
-			get_node("ui/power_arrow").hide()
-		fire_velocity = get_global_mouse_pos() - get_node("game_field").get_global_pos()
+			get_node("game_field/point/power_arrow").hide()
+		fire_velocity = get_global_mouse_pos() - get_node("game_field/point").get_global_pos()
 		
 	get_node("canvas/data_ui/vel").set_text(str(get_node("timers/bot_emergency_triger").get_time_left()))
 #	get_node("canvas/data_ui/fps").set_text(str(OS.get_frames_per_second()))
@@ -237,13 +258,16 @@ func _process(delta):
 			to_restart = true
 
 	if state == 0:
+		if avatars[team] == 23:
+			get_node("game_field/point").set_pos(Vector2())
 		power += power_speed * rDir * delta
 		if power > max_power:
 			rDir = -1
 		if power < min_power:
 			rDir = 1
-		get_node("ui/power").set_value(power)
+		get_node("game_field/point/power").set_value(power)
 		if avatars[team] == 23 and pc_fire_allow:
+			
 			if (bot_power + rand_power) > (max_power * 0.97 * 22):
 				bot_power = max_power * 20
 			if abs((power * 22) - bot_power + rand_power) < 10:
@@ -378,7 +402,7 @@ func fire_pressed():
 		var score_sum = 0
 		for s in global.score:
 			score_sum += s
-		if OS.get_name() == "Android" and score_sum > 2 and randf() < 0.6:
+		if score_sum > 2 and randf() < 0.6:
 			get_node("canvas/data_ui/hello_button").show()
 			get_node("canvas/data_ui/total_score_tab").hide()
 		else:
@@ -396,7 +420,7 @@ func fire_pressed():
 	if state == 2:
 		fire()
 	elif state == 1:
-		get_node("ui/pointer").show()
+		get_node("game_field/point/pointer").show()
 		
 	if avatars[team] == 23 and state == 1:
 		rand_fire(0.5)
@@ -405,7 +429,7 @@ func fire_pressed():
 
 func fire():
 #	set_process(false)
-	get_node("ui/power_arrow").hide()
+	get_node("game_field/point/power_arrow").hide()
 	get_node("timers/bot_emergency_triger").stop()
 	state = 0
 	throws[team] -= 1
@@ -431,8 +455,8 @@ func fire():
 			get_node("canvas/score_anim").play("total_score")
 #		$camera_position/Camera/data_ui/total_score_tab/score_anim.play("total_score")
 
-	get_node("ui/pointer").hide()
-	get_node("ui/power").hide()
+	get_node("game_field/point/pointer").hide()
+	get_node("game_field/point/power").hide()
 
 func spawn_penguin():
 	var penguin = penguin_obj.instance()
@@ -451,6 +475,7 @@ func spawn_penguin():
 	penguin.set_id(peng_id)
 	peng_id += 1
 	get_node("game_field/penguins").add_child(penguin)
+	penguin.set_global_pos(get_node("game_field/point").get_global_pos())
 	if global.volume_scale > 0:
 		get_node("sounds/yahoo").play("yahoo")
 	if global.single:
@@ -488,11 +513,16 @@ func _on_cam_anim_finished():
 	set_process(true)
 	no_control = false
 	get_node("game_field/point").show()
+	if v_slide_allow:
+		get_node("game_field/point/arrows").show()
+		
 	if !go:
 		if control_type == 0:
-			get_node("ui/power").show()
+			get_node("game_field/point/power").show()
+			get_node("game_field/point/arrows").hide()
 		if avatars[team] == 23:
-			get_node("ui/power").show()
+			get_node("game_field/point/power").show()
+			get_node("game_field/point/arrows").hide()
 			rand_fire(0.5)
 			bot_move()
 			get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
@@ -506,7 +536,7 @@ func resizer():
 	var ratio = screen_size.x/screen_size.y
 	screen_scale = Vector2(global.original_screen_size.x / screen_size.x, global.original_screen_size.y / screen_size.y)
 	var horizontal = ratio * global.original_screen_size.y 
-	get_node("camera_position/Camera").zoom = Vector2(screen_scale.y, screen_scale.y)
+	get_node("camera_position/Camera").zoom = Vector2(screen_scale.x, screen_scale.x)
 	get_node("canvas/data_ui").set_scale(Vector2(1 / screen_scale.y, 1 / screen_scale.y))
 	get_node("canvas/data_ui").set_size(screen_size * screen_scale.y)
 	
@@ -566,6 +596,9 @@ func _on_hello_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_rate_button_pressed():
-	OS.shell_open("http://play.google.com/store/apps/details?id=org.godotengine.polarcurling")
+	if OS.get_name() == "Android":
+		OS.shell_open("http://play.google.com/store/apps/details?id=org.godotengine.polarcurling")
+	else:
+		OS.shell_open("https://acvarium.itch.io/po")
 	get_node("canvas/data_ui/hello_button").hide()
 	get_tree().reload_current_scene()

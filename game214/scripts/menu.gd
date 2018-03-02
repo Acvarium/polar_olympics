@@ -13,6 +13,7 @@ var labels = [
 'ONLINE']
 
 func _ready():
+	OS.set_window_maximized(true)
 	global = get_node("/root/global")
 	set_process_input(true)
 	resizer()
@@ -28,7 +29,10 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("quit"):
 		global.game_quit()
-
+	
+	if event.is_action_pressed("ui_up"):
+		OS.set_window_maximized(true)
+	
 	if event.is_action_pressed("fire"):
 		global.start_game()
 
