@@ -93,6 +93,7 @@ texture = ExtResource( 1 )
 hframes = 2
 frame = 1
 script/script = ExtResource( 2 )
+rate_star = false
 
 [node name="particles" type="Particles2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=1]
+[gd_scene load_steps=39 format=1]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -13,21 +13,22 @@
 [ext_resource path="res://textures/power_progress.png" type="Texture" id=11]
 [ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=12]
 [ext_resource path="res://textures/gradient_line.png" type="Texture" id=13]
-[ext_resource path="res://objects/player_ui.tscn" type="PackedScene" id=14]
-[ext_resource path="res://textures/personal_score_tag.tex" type="Texture" id=15]
-[ext_resource path="res://textures/menu_button.png" type="Texture" id=16]
-[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=17]
-[ext_resource path="res://textures/rect.png" type="Texture" id=18]
-[ext_resource path="res://objects/star.tscn" type="PackedScene" id=19]
-[ext_resource path="res://textures/next_button.png" type="Texture" id=20]
-[ext_resource path="res://textures/prev_button.png" type="Texture" id=21]
-[ext_resource path="res://textures/menu2_button.png" type="Texture" id=22]
-[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=23]
-[ext_resource path="res://scripts/draw.gd" type="Script" id=24]
-[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=25]
-[ext_resource path="res://sounds/splash.ogg" type="AudioStream" id=26]
-[ext_resource path="res://sounds/applod.ogg" type="AudioStream" id=27]
-[ext_resource path="res://sounds/yahoo.smp" type="Sample" id=28]
+[ext_resource path="res://textures/personal_score_tag.tex" type="Texture" id=14]
+[ext_resource path="res://objects/star.tscn" type="PackedScene" id=15]
+[ext_resource path="res://fonts/font0.fnt" type="BitmapFont" id=16]
+[ext_resource path="res://objects/player_ui.tscn" type="PackedScene" id=17]
+[ext_resource path="res://textures/menu_button.png" type="Texture" id=18]
+[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=19]
+[ext_resource path="res://textures/rect.png" type="Texture" id=20]
+[ext_resource path="res://textures/next_button.png" type="Texture" id=21]
+[ext_resource path="res://textures/prev_button.png" type="Texture" id=22]
+[ext_resource path="res://textures/menu2_button.png" type="Texture" id=23]
+[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=24]
+[ext_resource path="res://scripts/draw.gd" type="Script" id=25]
+[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=26]
+[ext_resource path="res://sounds/splash.ogg" type="AudioStream" id=27]
+[ext_resource path="res://sounds/applod.ogg" type="AudioStream" id=28]
+[ext_resource path="res://sounds/yahoo.smp" type="Sample" id=29]
 
 [sub_resource type="Animation" id=1]
 
@@ -208,7 +209,7 @@ samples/yahoo = {
 "db": -10.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 28 )
+"sample": ExtResource( 29 )
 }
 
 [sub_resource type="Animation" id=9]
@@ -453,6 +454,8 @@ can_sleep = false
 
 [node name="blocks" type="Node2D" parent="game_field"]
 
+editor/display_folded = true
+
 [node name="ice_block00" parent="game_field/blocks" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 17.7863, -568.925 )
@@ -541,8 +544,6 @@ shortcut = null
 flat = false
 
 [node name="ui" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="power_arrow" type="Position2D" parent="ui"]
 
@@ -777,14 +778,234 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player0" parent="canvas/data_ui" instance=ExtResource( 14 )]
+[node name="hello_button" type="Button" parent="canvas/data_ui"]
+
+visibility/visible = false
+visibility/self_opacity = 0.0
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1060.0
+margin/top = 623.0
+margin/right = -1099.0
+margin/bottom = -619.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="hello" type="Patch9Frame" parent="canvas/data_ui/hello_button"]
+
+visibility/self_opacity = 0.63
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 654.5
+margin/top = 382.0
+margin/right = -615.5
+margin/bottom = -373.0
+texture = ExtResource( 14 )
+modulate = Color( 0.12854, 0.171932, 0.40625, 1 )
+patch_margin/left = 35
+patch_margin/top = 35
+patch_margin/right = 35
+patch_margin/bottom = 35
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="later" type="Patch9Frame" parent="canvas/data_ui/hello_button/hello"]
+
+visibility/self_opacity = 0.42
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 580.0
+margin/top = -199.5
+margin/right = 102.0
+margin/bottom = -323.5
+texture = ExtResource( 14 )
+modulate = Color( 0.592914, 0.597656, 0.445908, 1 )
+patch_margin/left = 35
+patch_margin/top = 35
+patch_margin/right = 35
+patch_margin/bottom = 35
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Button" type="Button" parent="canvas/data_ui/hello_button/hello/later"]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 477.0
+margin/bottom = 123.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label1" type="Label" parent="canvas/data_ui/hello_button/hello/later"]
+
+visibility/self_opacity = 0.74
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -1.0
+margin/top = 0.0
+margin/right = 801.0
+margin/bottom = 208.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.0286255, 0, 0.523438, 0.519137 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 4
+text = "LATER"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="rate" type="Patch9Frame" parent="canvas/data_ui/hello_button/hello"]
+
+editor/display_folded = true
+visibility/self_opacity = 0.55
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -102.0
+margin/top = -199.5
+margin/right = -580.0
+margin/bottom = -323.5
+texture = ExtResource( 14 )
+modulate = Color( 0.03125, 1, 0, 1 )
+patch_margin/left = 35
+patch_margin/top = 35
+patch_margin/right = 35
+patch_margin/bottom = 35
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="star3" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 63.8876, 61.3818 )
+transform/scale = Vector2( 0.494276, 0.494276 )
+rate_star = true
+
+[node name="star4" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 90.6254, 53.5501 )
+transform/rot = 10.4519
+transform/scale = Vector2( 0.404046, 0.404046 )
+rate_star = true
+
+[node name="star5" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 123.802, 50.8953 )
+transform/rot = -16.681
+transform/scale = Vector2( 0.35114, 0.35114 )
+rate_star = true
+
+[node name="Label" type="Label" parent="canvas/data_ui/hello_button/hello/rate"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 121.0
+margin/top = 0.0
+margin/right = 717.0
+margin/bottom = 209.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.0286255, 0, 0.523438, 0.519137 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 4
+text = "RATE"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="rate_button" type="Button" parent="canvas/data_ui/hello_button/hello/rate"]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 478.0
+margin/bottom = 124.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="rateit" type="RichTextLabel" parent="canvas/data_ui/hello_button/hello"]
+
+visibility/self_opacity = 0.74
+rect/scale = Vector2( 0.5, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 47.0
+margin/top = 38.0
+margin/right = 2390.0
+margin/bottom = 994.0
+custom_fonts/italics_font = ExtResource( 16 )
+custom_fonts/normal_font = ExtResource( 12 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "[color=#FFFF44]Hello.[/color]
+My name is [color=#72FF84]Vitalii.[/color]
+I work on this [color=#FFFF44]game[/color] with [color=#C3FFFF]help[/color] of my [color=#C3FFFF]10 year [/color]old [color=#72FF84]niece[/color]. She [color=#4CEA5E]comments[/color] and makes [color=#FFFF44]suggestions[/color] for [color=#C3FFFF]improvements[/color].
+
+[color=#FF4136][color=#FF857A]You[/color] [/color]can also [color=#FFFF44]participate[/color]. Just leave your [color=#4CEA5E]comment[/color] and [color=#FFFA1E]rate[/color] the [color=#44B8FF]game[/color], if you [color=#4CEA5E]like[/color] it."
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="player0" parent="canvas/data_ui" instance=ExtResource( 17 )]
 
 margin/left = 20.0
 margin/top = 16.0
 margin/right = 60.0
 margin/bottom = -24.0
 
-[node name="player1" parent="canvas/data_ui" instance=ExtResource( 14 )]
+[node name="player1" parent="canvas/data_ui" instance=ExtResource( 17 )]
 
 anchor/left = 1
 anchor/right = 1
@@ -794,7 +1015,7 @@ margin/right = -20.0
 margin/bottom = -24.0
 layout = 1
 
-[node name="player2" parent="canvas/data_ui" instance=ExtResource( 14 )]
+[node name="player2" parent="canvas/data_ui" instance=ExtResource( 17 )]
 
 anchor/left = 1
 anchor/top = 0
@@ -806,7 +1027,7 @@ margin/right = -20.0
 margin/bottom = 56.0
 layout = 2
 
-[node name="player3" parent="canvas/data_ui" instance=ExtResource( 14 )]
+[node name="player3" parent="canvas/data_ui" instance=ExtResource( 17 )]
 
 anchor/top = 0
 anchor/bottom = 0
@@ -840,6 +1061,7 @@ max_lines_visible = -1
 
 [node name="total_score_tab" type="Patch9Frame" parent="canvas/data_ui"]
 
+editor/display_folded = true
 visibility/opacity = 0.0
 anchor/left = 3
 anchor/top = 3
@@ -853,7 +1075,7 @@ margin/left = 600.0
 margin/top = 241.0
 margin/right = -600.0
 margin/bottom = -31.0
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 modulate = Color( 1, 1, 1, 0.360667 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -921,7 +1143,7 @@ margin/left = 401.0
 margin/top = -145.0
 margin/right = -402.0
 margin/bottom = -383.0
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 modulate = Color( 1, 1, 1, 0.196706 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -953,6 +1175,7 @@ max_lines_visible = -1
 
 [node name="exit_mess" type="Patch9Frame" parent="canvas/data_ui"]
 
+editor/display_folded = true
 visibility/opacity = 0.0
 anchor/left = 3
 anchor/top = 3
@@ -962,11 +1185,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 406.0
+margin/left = 405.0
 margin/top = -276.0
-margin/right = -402.0
+margin/right = -403.0
 margin/bottom = -460.0
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 modulate = Color( 1, 1, 1, 0.360667 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -1025,8 +1248,8 @@ margin/bottom = 99.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/hover = ExtResource( 17 )
+textures/normal = ExtResource( 18 )
+textures/hover = ExtResource( 19 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1046,22 +1269,22 @@ margin/left = 369.0
 margin/top = 265.0
 margin/right = -363.0
 margin/bottom = -206.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 modulate = Color( 1, 1, 1, 0.803294 )
 patch_margin/left = 35
 patch_margin/top = 35
 patch_margin/right = 35
 patch_margin/bottom = 35
 
-[node name="star0" parent="canvas/data_ui/single_score" instance=ExtResource( 19 )]
+[node name="star0" parent="canvas/data_ui/single_score" instance=ExtResource( 15 )]
 
 transform/pos = Vector2( 179, 135 )
 
-[node name="star1" parent="canvas/data_ui/single_score" instance=ExtResource( 19 )]
+[node name="star1" parent="canvas/data_ui/single_score" instance=ExtResource( 15 )]
 
 transform/pos = Vector2( 369, 135 )
 
-[node name="star2" parent="canvas/data_ui/single_score" instance=ExtResource( 19 )]
+[node name="star2" parent="canvas/data_ui/single_score" instance=ExtResource( 15 )]
 
 transform/pos = Vector2( 559, 135 )
 
@@ -1096,7 +1319,7 @@ margin/bottom = 435.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 20 )
+textures/normal = ExtResource( 21 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1113,7 +1336,7 @@ margin/bottom = 438.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 21 )
+textures/normal = ExtResource( 22 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1130,7 +1353,7 @@ margin/bottom = 438.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 22 )
+textures/normal = ExtResource( 23 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1149,7 +1372,7 @@ margin/left = 200.0
 margin/top = -410.0
 margin/right = -194.0
 margin/bottom = -526.0
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 modulate = Color( 1, 1, 1, 0.803294 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -1191,7 +1414,7 @@ autoplay = ""
 [node name="draw" type="Node2D" parent="."]
 
 z/z = 200
-script/script = ExtResource( 24 )
+script/script = ExtResource( 25 )
 
 [node name="camera_position" type="Position2D" parent="."]
 
@@ -1228,8 +1451,6 @@ autoplay = ""
 
 [node name="timers" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="rand_fire" type="Timer" parent="timers"]
 
 process_mode = 1
@@ -1257,7 +1478,7 @@ editor/display_folded = true
 
 [node name="start" type="StreamPlayer" parent="sounds"]
 
-stream/stream = ExtResource( 25 )
+stream/stream = ExtResource( 26 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
@@ -1268,7 +1489,7 @@ stream/buffering_ms = 500
 
 [node name="splash" type="StreamPlayer" parent="sounds"]
 
-stream/stream = ExtResource( 26 )
+stream/stream = ExtResource( 27 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 10.0
@@ -1279,7 +1500,7 @@ stream/buffering_ms = 500
 
 [node name="applause" type="StreamPlayer" parent="sounds"]
 
-stream/stream = ExtResource( 27 )
+stream/stream = ExtResource( 28 )
 stream/play = true
 stream/loop = false
 stream/volume_db = 0.0
@@ -1313,6 +1534,12 @@ autoplay = ""
 [connection signal="button_down" from="game_field/aim_button" to="." method="_on_aim_button_button_down"]
 
 [connection signal="button_down" from="canvas/data_ui/fire_button" to="." method="_on_fire_button_button_down"]
+
+[connection signal="pressed" from="canvas/data_ui/hello_button" to="." method="_on_hello_button_pressed"]
+
+[connection signal="pressed" from="canvas/data_ui/hello_button/hello/later/Button" to="." method="_on_hello_button_pressed"]
+
+[connection signal="pressed" from="canvas/data_ui/hello_button/hello/rate/rate_button" to="." method="_on_rate_button_pressed"]
 
 [connection signal="finished" from="canvas/data_ui/exit_mess/exit_anim" to="." method="_on_exit_anim_finished"]
 

@@ -87,7 +87,6 @@ func _ready():
 	if no_save:
 		save_game()
 	
-	
 func start_game():
 	team = 0
 	score = []

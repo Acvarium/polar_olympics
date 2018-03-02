@@ -84,7 +84,7 @@ func _ready():
 			get_node("ui/power").show()
 			bot_move()
 			rand_fire(0)
-	
+	get_node("canvas/data_ui/hello_button/hello/rateit").set_bbcode(tr("RATEIT"))
 	if global.single:
 		load_level(global.next_level)
 		get_node("canvas/data_ui/player0").hide()
@@ -232,6 +232,7 @@ func _process(delta):
 			if global.single:
 				get_node("canvas/score_anim").play("single_score")
 			else:
+				
 				get_node("canvas/score_anim").play("show_score")
 			to_restart = true
 
@@ -374,7 +375,16 @@ func fire_pressed():
 	fire_timeout = true
 	get_node("timers/fire_timeout").start()
 	if to_restart:
-		get_tree().reload_current_scene()
+		var score_sum = 0
+		for s in global.score:
+			score_sum += s
+		if OS.get_name() == "Android" and score_sum > 2 and randf() < 0.6:
+			get_node("canvas/data_ui/hello_button").show()
+			get_node("canvas/data_ui/total_score_tab").hide()
+		else:
+			get_tree().reload_current_scene()
+		
+		
 	if no_control:
 		return
 	var trows_left = 0
@@ -550,3 +560,12 @@ func _on_tutorial_finished():
 	no_control = false
 	if has_node("game_field/penguins/tut_peng"):
 		get_node("game_field/penguins/tut_peng").queue_free()
+
+func _on_hello_button_pressed():
+	get_node("canvas/data_ui/hello_button").hide()
+	get_tree().reload_current_scene()
+
+func _on_rate_button_pressed():
+	OS.shell_open("http://play.google.com/store/apps/details?id=org.godotengine.polarcurling")
+	get_node("canvas/data_ui/hello_button").hide()
+	get_tree().reload_current_scene()

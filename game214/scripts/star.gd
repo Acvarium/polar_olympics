@@ -1,11 +1,14 @@
 extends Sprite
+export var rate_star = false
 var pinches = [
 0.8,
 1.2,
 1.5]
 
 func _ready():
-	pass
+	if rate_star:
+		set_frame(0)
+#		get_node("particles").set_emitting(true)
 
 func star_reset():
 	set_frame(1)

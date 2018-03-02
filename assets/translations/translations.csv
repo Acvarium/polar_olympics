@@ -25,3 +25,18 @@ TAP_NEW,"TAP
 TO START NEW GAME","НАЖМИТЕ
 ДЛЯ СТАРТА НОВОЙ ГРЫ","ТОРКНІТЬСЯ
 ДЛЯ СТАРТУ НОВОЇ ГРИ"
+RATEIT,"[color=#FFFF44]Hello.[/color]
+My name is [color=#72FF84]Vitalii.[/color]
+I work on this [color=#FFFF44]game[/color] with [color=#C3FFFF]help[/color] of my [color=#C3FFFF]10 year [/color]old [color=#72FF84]niece[/color]. She [color=#4CEA5E]comments[/color] and makes [color=#FFFF44]suggestions[/color] for [color=#C3FFFF]improvements[/color].
+
+[color=#FF4136][color=#FF857A]You[/color] [/color]can also [color=#FFFF44]participate[/color]. Just leave your [color=#4CEA5E]comment[/color] and [color=#FFFA1E]rate[/color] the [color=#44B8FF]game[/color], if you [color=#4CEA5E]like[/color] it.","[color=#FFFF44]Привет.[/color]
+Меня зовут [color=#72FF84]Виталий.[/color]
+Я работаю над этой [color=#FFFF44]игрой[/color] вместе со своей [color=#C3FFFF]10-ти летней[/color] [color=#72FF84]племянницей[/color]. Она [color=#4CEA5E]комментирует[/color] и вносит [color=#FFFF44]предложения[/color] для [color=#C3FFFF]улучшения[/color].
+
+[color=#FF857A]Вы[/color] также можете [color=#FFFF44]принять участие[/color]. Просто оставите свой [color=#4CEA5E]комментарий[/color] и [color=#FFFA1E]оценку[/color][color=#44B8FF] игре[/color], если Вам она [color=#4CEA5E]понравилась[/color].","[color=#FFFF44]Привіт.[/color]
+Меня звуть [color=#72FF84] Віталій.[/color]
+Я працюю над цією [color=#FFFF44]грою[/color] разом зі своєю [color=#C3FFFF]10-ти літньою[/color] [color=#72FF84]племінницею[/color]. Вона [color=#4CEA5E]коментує[/color] та вносить [color=#FFFF44]пропозиції[/color] для [color=#C3FFFF]покращення[/color].
+
+[color=#FF857A]Ви[/color] також можете [color=#FFFF44]прийняти участь[/color]. Просто залиште свій [color=#4CEA5E]коментар[/color] та [color=#FFFA1E]оцінку[/color][color=#44B8FF] грі[/color], якщо Вам вона [color=#4CEA5E]сподобалась[/color]."
+RATE,RATE,ОЦЕНИТЬ,ОЦІНИТИ
+LATER,LATER,ПОЗЖЕ,ПІЗНІШЕ
