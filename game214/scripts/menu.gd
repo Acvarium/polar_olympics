@@ -66,6 +66,7 @@ func _notification(what):
 #		
 func set_selected_stand(s):
 	selected_stand = s
+
 	get_node("Control/char_selector").show()
 	if s > 1:
 		get_node("Control/char_selector/x_button").show()
@@ -90,7 +91,11 @@ func select_tab(t):
 			get_node("Control/mode" + str(i)).show()
 		else:
 			get_node("Control/mode" + str(i)).hide()
-
+	if selected_tab != 1:
+		get_node("Control/rect/hint/tap_mode").hide()
+	else:
+		get_node("Control/rect/hint/tap_mode").show()
+	
 func _on_Button0_pressed():
 	select_tab(0)
 	global.selected_tab = 0

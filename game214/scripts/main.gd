@@ -59,6 +59,8 @@ var star_score = 3
 var level_max_score = 15
 var draw_layer 
 var min_len = 100
+var level_tutorial = 1
+var control_type = 1
 
 func _ready():
 	draw_layer = get_node("draw")
@@ -71,7 +73,10 @@ func _ready():
 	target_pos = get_node("game_field/target").get_global_pos()
 	geme_setup()
 	set_process(true)
-	if global.control_type == 0:
+	control_type = global.control_type
+	if global.single:
+		control_type = 1
+	if control_type == 0:
 		get_node("canvas/data_ui/fire_button").show()
 		get_node("ui/power").show()
 	if !global.single:
@@ -88,9 +93,10 @@ func _ready():
 	for s in global.score:
 		score_sum += s
 	print("____", score_sum)
-	if global.tutorial != 0 and global.control_type == 1 and score_sum == 0:
+	if global.tutorial != 0 and ((control_type == 1 and score_sum == 0) or global.single):
 		no_control = true
-		get_node("tutorial").play("tutorial" + str(global.tutorial))
+		get_node("tutorial").play("tutorial" + str(level_tutorial))
+		get_node("game_field/effects/hand").show()
 	else:
 		get_node("game_field/effects/hand").hide()
 		if has_node("game_field/penguins/tut_peng"):
@@ -424,7 +430,7 @@ func spawn_penguin():
 	p_num += 1
 	var r = -pointer.get_rot()
 	
-	if avatars[team] == 23 or global.control_type == 0:
+	if avatars[team] == 23 or control_type == 0:
 		penguin.set_vel(Vector2(cos(r), sin(r)).normalized() * power * 22)
 	else:
 		penguin.set_vel(fire_velocity * power_multiplier)
@@ -473,7 +479,7 @@ func _on_cam_anim_finished():
 	no_control = false
 	get_node("game_field/point").show()
 	if !go:
-		if global.control_type == 0:
+		if control_type == 0:
 			get_node("ui/power").show()
 		if avatars[team] == 23:
 			get_node("ui/power").show()

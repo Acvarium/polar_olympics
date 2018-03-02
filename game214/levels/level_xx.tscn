@@ -18,6 +18,18 @@ texture = ExtResource( 2 )
 
 transform/pos = Vector2( 630, 540 )
 
+[node name="bonus_fish2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 930, 540 )
+
+[node name="bonus_fish3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 770, 540 )
+
+[node name="bonus_fish4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1080, 540 )
+
 [node name="bonus_fish5" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 480, 540 )
@@ -26,29 +38,17 @@ transform/pos = Vector2( 480, 540 )
 
 transform/pos = Vector2( 330, 540 )
 
-[node name="bonus_fish2" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 900, 540 )
-
-[node name="bonus_fish4" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1050, 540 )
-
 [node name="bonus_fish7" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1200, 540 )
+transform/pos = Vector2( 1230, 540 )
 
 [node name="bonus_fish8" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1350, 540 )
+transform/pos = Vector2( 1380, 540 )
 
 [node name="bonus_fish9" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1500, 540 )
-
-[node name="bonus_fish3" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 770, 540 )
+transform/pos = Vector2( 1530, 540 )
 
 [node name="cloud_ui_dot" type="Sprite" parent="."]
 

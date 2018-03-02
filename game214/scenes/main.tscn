@@ -36,7 +36,7 @@ length = 1.0
 loop = true
 step = 0.1
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=2]
 
 length = 4.0
 loop = false
@@ -52,7 +52,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0, 0.6, 0.0 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=3]
 
 length = 3.0
 loop = false
@@ -98,7 +98,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=4]
 
 length = 0.5
 loop = false
@@ -124,7 +124,7 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=5]
 
 length = 4.0
 loop = false
@@ -160,7 +160,7 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=6]
 
 length = 2.5
 loop = false
@@ -176,7 +176,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=7]
 
 length = 6.0
 loop = false
@@ -202,7 +202,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="SampleLibrary" id=25]
+[sub_resource type="SampleLibrary" id=8]
 
 samples/yahoo = {
 "db": -10.0,
@@ -211,10 +211,10 @@ samples/yahoo = {
 "sample": ExtResource( 28 )
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=9]
 
 resource/name = "tutorial1"
-length = 8.0
+length = 7.0
 loop = false
 step = 0.02
 tracks/0/type = "value"
@@ -352,7 +352,7 @@ tracks/13/path = NodePath("game_field/point:visibility/visible")
 tracks/13/interp = 1
 tracks/13/imported = false
 tracks/13/keys = {
-"times": FloatArray( 5.48, 5.5, 7.98 ),
+"times": FloatArray( 5.48, 5.5, 6.98 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -453,8 +453,6 @@ can_sleep = false
 
 [node name="blocks" type="Node2D" parent="game_field"]
 
-editor/display_folded = true
-
 [node name="ice_block00" parent="game_field/blocks" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 17.7863, -568.925 )
@@ -519,6 +517,7 @@ transform/rot = -1.35407
 
 [node name="hand" type="Sprite" parent="game_field/effects"]
 
+visibility/visible = false
 visibility/self_opacity = 0.19
 transform/pos = Vector2( 377.602, 210.365 )
 z/z = 100
@@ -547,9 +546,11 @@ editor/display_folded = true
 
 [node name="power_arrow" type="Position2D" parent="ui"]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 150, 540 )
 transform/rot = 17.8188
+z/z = 250
 
 [node name="arrow" type="Patch9Frame" parent="ui/power_arrow"]
 
@@ -628,7 +629,6 @@ transform/pos = Vector2( 150, 540 )
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -840,7 +840,6 @@ max_lines_visible = -1
 
 [node name="total_score_tab" type="Patch9Frame" parent="canvas/data_ui"]
 
-editor/display_folded = true
 visibility/opacity = 0.0
 anchor/left = 3
 anchor/top = 3
@@ -850,9 +849,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 315.0
+margin/left = 600.0
 margin/top = 241.0
-margin/right = -309.0
+margin/right = -600.0
 margin/bottom = -31.0
 texture = ExtResource( 15 )
 modulate = Color( 1, 1, 1, 0.360667 )
@@ -861,8 +860,7 @@ patch_margin/top = 35
 patch_margin/right = 35
 patch_margin/bottom = 35
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="label" type="Label" parent="canvas/data_ui/total_score_tab"]
@@ -873,14 +871,15 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 36.0
-margin/right = 623.0
+margin/right = 1199.0
 margin/bottom = 127.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.601098 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
-text = "TOTAL SCORE:"
+text = "TOTAL"
 align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -893,9 +892,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 168.0
-margin/right = 623.0
-margin/bottom = 259.0
+margin/top = 159.0
+margin/right = 1201.0
+margin/bottom = 250.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.96875, 1, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.601098 )
@@ -918,10 +917,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 312.0
-margin/top = -146.0
-margin/right = -312.0
-margin/bottom = -331.0
+margin/left = 401.0
+margin/top = -145.0
+margin/right = -402.0
+margin/bottom = -383.0
 texture = ExtResource( 15 )
 modulate = Color( 1, 1, 1, 0.196706 )
 patch_margin/left = 35
@@ -937,16 +936,15 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
+margin/left = 3.0
 margin/top = 0.0
-margin/right = 1041.0
-margin/bottom = 308.0
+margin/right = 1339.0
+margin/bottom = 392.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.130325, 0.257945, 0.457031, 1 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
-text = "PRESS \"FIRE\"
-TO START NEW GAME"
+text = "TAP_NEW"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -1005,7 +1003,7 @@ __meta__ = {
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/mess = SubResource( 19 )
+anims/mess = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1182,9 +1180,9 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/show_score = SubResource( 20 )
-anims/single_score = SubResource( 21 )
-anims/total_score = SubResource( 22 )
+anims/show_score = SubResource( 3 )
+anims/single_score = SubResource( 4 )
+anims/total_score = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1196,8 +1194,6 @@ z/z = 200
 script/script = ExtResource( 24 )
 
 [node name="camera_position" type="Position2D" parent="."]
-
-editor/display_folded = true
 
 [node name="Camera" type="Camera2D" parent="camera_position"]
 
@@ -1223,8 +1219,8 @@ drag_margin/bottom = 0.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/fast_fire = SubResource( 23 )
-anims/fire = SubResource( 24 )
+anims/fast_fire = SubResource( 6 )
+anims/fire = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1300,7 +1296,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 25 )
+config/samples = SubResource( 8 )
 config/pitch_random = 0.0
 
 [node name="tutorial" type="AnimationPlayer" parent="."]
@@ -1308,7 +1304,7 @@ config/pitch_random = 0.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/tutorial1 = SubResource( 26 )
+anims/tutorial1 = SubResource( 9 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
