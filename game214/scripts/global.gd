@@ -94,9 +94,9 @@ func start_game():
 		if selected_players[i] > 0:
 			score.append(0)
 	if score.size() == 4:
-		max_throw = 5
+		max_throw = 1
 	else:
-		max_throw = 6
+		max_throw = 1
 	goto_scene("res://scenes/main.tscn")
 
 func goto_scene(path):
@@ -138,7 +138,6 @@ func set_volume(v):
 func toggle_mute():
 	volume_scale = int(!bool(volume_scale))
 	set_volume(volume_scale)
-	
 
 # Завантаження гри
 func load_game():
@@ -164,7 +163,7 @@ func load_game():
 	for i in range(MAX_STAGE):
 		stages_locks.append(currentline['stage_' + str(i)])
 	savegame.close()
-	control_type = bool(int(currentline['control_type']))
+	control_type = (int(currentline['control_type']))
 	if currentline.has('tutorial'):
 		tutorial = int(currentline['tutorial'])
 	set_volume(int(currentline['volume_scale']))

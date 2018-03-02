@@ -407,12 +407,6 @@ func _notification(what):
 			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
 
 func fire_pressed():
-	if no_control:
-		return
-	if fire_timeout:
-		return
-	fire_timeout = true
-	get_node("timers/fire_timeout").start()
 	if to_restart:
 		var score_sum = 0
 		for s in global.score:
@@ -422,8 +416,12 @@ func fire_pressed():
 			get_node("canvas/data_ui/total_score_tab").hide()
 		else:
 			get_tree().reload_current_scene()
-		
-		
+	if no_control:
+		return
+	if fire_timeout:
+		return
+	fire_timeout = true
+	get_node("timers/fire_timeout").start()
 	state += 1
 	if state == 2:
 		fire()
@@ -514,8 +512,8 @@ func update_team_score(t):
 func _on_fire_button_button_down():
 	if avatars[team] == 23 and !to_restart:
 		return
-	if !no_control:
-		fire_pressed()
+#	if !no_control :
+	fire_pressed()
 
 func _on_cam_anim_finished():
 	
