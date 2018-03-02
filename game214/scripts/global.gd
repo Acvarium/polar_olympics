@@ -94,9 +94,9 @@ func start_game():
 		if selected_players[i] > 0:
 			score.append(0)
 	if score.size() == 4:
-		max_throw = 1
+		max_throw = 5
 	else:
-		max_throw = 1
+		max_throw = 6
 	goto_scene("res://scenes/main.tscn")
 
 func goto_scene(path):
