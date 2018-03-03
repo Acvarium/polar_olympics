@@ -14,6 +14,8 @@ var labels = [
 
 func _ready():
 	OS.set_window_maximized(true)
+	if OS.get_name() == "Android":
+		get_node("Control/rect/hint/full_screen").hide()
 	global = get_node("/root/global")
 	set_process_input(true)
 	resizer()
@@ -24,6 +26,7 @@ func _ready():
 	get_node("Control/rect/hint/version").set_text("version " + global.game_version)
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
 	get_node("Control/rect/hint/tutorial").set_pressed(bool(global.tutorial))
+	get_node("Control/rect/hint/full_screen").set_pressed(global.full_screen)
 	
 func _input(event):
 	if event.is_action_pressed("quit"):
@@ -141,3 +144,7 @@ func _on_mute_toggled( pressed ):
 
 func _on_tutorial_toggled( pressed ):
 	global.tutorial = int(get_node("Control/rect/hint/tutorial").is_pressed())
+
+func _on_full_screen_toggled( pressed ):
+	OS.set_window_fullscreen(pressed)
+	global.full_screen = pressed

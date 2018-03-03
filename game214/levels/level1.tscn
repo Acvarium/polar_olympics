@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
 [ext_resource path="res://textures/cr.png" type="Texture" id=2]
 [ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
+[ext_resource path="res://objects/hole.tscn" type="PackedScene" id=5]
 
 [node name="level" type="Node2D"]
 
@@ -16,67 +17,60 @@ texture = ExtResource( 2 )
 
 [node name="bonus_fish1" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 570, 420 )
+transform/pos = Vector2( 630, 540 )
 
 [node name="bonus_fish5" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 450, 450 )
-
-[node name="bonus_fish6" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 330, 480 )
+transform/pos = Vector2( 520, 540 )
 
 [node name="bonus_fish2" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 810, 360 )
+transform/pos = Vector2( 1020, 540 )
 
 [node name="bonus_fish4" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 930, 330 )
+transform/pos = Vector2( 1350, 540 )
 
-[node name="bonus_fish7" parent="." instance=ExtResource( 3 )]
+[node name="bonus_fish6" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1050, 300 )
-
-[node name="bonus_fish8" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1170, 270 )
-
-[node name="bonus_fish9" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1290, 240 )
-
-[node name="bonus_fish10" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1410, 210 )
-
-[node name="bonus_fish11" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1530, 180 )
-
-[node name="bonus_fish12" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1650, 150 )
+transform/pos = Vector2( 1470, 540 )
 
 [node name="bonus_fish3" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 690, 390 )
+transform/pos = Vector2( 900, 540 )
 
 [node name="cloud_ui_dot" type="Sprite" parent="."]
 
 transform/pos = Vector2( 150, 540 )
 texture = ExtResource( 4 )
 
-[node name="ReferenceFrame" type="ReferenceFrame" parent="."]
+[node name="hole" parent="." instance=ExtResource( 5 )]
 
-rect/rotation = 13.9911
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 150.0
-margin/top = 526.0
-margin/right = 1830.0
-margin/bottom = 676.0
+transform/pos = Vector2( 370, 680 )
+
+[node name="hole3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 780, 690 )
+
+[node name="hole4" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1170, 660 )
+
+[node name="hole2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 370, 410 )
+
+[node name="hole3 2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 780, 390 )
+
+[node name="hole33" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1170, 420 )
+
+[node name="hole1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1680, 540 )
+score = 10
 
 

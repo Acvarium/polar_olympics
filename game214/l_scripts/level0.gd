@@ -14,10 +14,8 @@ func _ready():
 	if global.level_num != 0:
 		main_node.level_tutorial = 0
 	global.max_throw = 1
-	global.select_next_level(1)
+	if global.level_num == 3:
+		main_node.v_slide_allow = true
 	global.set_commands(1)
 	main_node.geme_setup()
 	main_node.camera_animation = 'fast_fire'
-	
-	
-	

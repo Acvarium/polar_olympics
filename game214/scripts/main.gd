@@ -57,13 +57,15 @@ var default_target = true
 var p_num = 0
 var star_num = 0
 var star_score = 3
-var level_max_score = 15
+var level_max_score = 0
 var draw_layer 
 var min_len = 100
 var level_tutorial = 1
 var control_type = 1
+var bonus_left = 0
 
 func _ready():
+#	if OS
 	draw_layer = get_node("draw")
 	set_process_input(true)
 	global = get_node("/root/global")
@@ -87,6 +89,7 @@ func _ready():
 		get_node("canvas/data_ui/player0").hide()
 		get_node("canvas/data_ui/level_score").show()
 	else:
+		get_node("canvas/data_ui/replay_button").hide()
 		if avatars[team] == 23:
 			get_node("game_field/point/power").show()
 			bot_move()
@@ -95,6 +98,7 @@ func _ready():
 	for s in global.score:
 		score_sum += s
 	var single_tut_on = false
+	
 	if global.single:
 		if global.level_num == 0:
 			single_tut_on = true
@@ -188,9 +192,6 @@ func _input(event):
 	if event.is_action_pressed("quit"):
 		global.game_quit()
 
-	if event.is_action_pressed("ui_up"):
-		stars_on()
-		
 	if event.is_action_pressed("fire"):
 		if avatars[team] == 23 and !to_restart:
 			return
@@ -202,8 +203,17 @@ func stars_on():
 		
 	star_num = 0
 	star_score = int(score[0] / (level_max_score / 3))
+	if star_score == 3 and score[0] < level_max_score:
+		star_score = 2
+	if star_score > 0:
+		get_node("canvas/data_ui/single_score/buttons/play_button").show()
 	get_node("canvas/data_ui/single_score/star_timer").start()
-	
+
+func bonus_counter(b):
+	level_max_score += b
+	bonus_left += b
+	var ss = str(score[0]) + '/' + str(level_max_score)
+	get_node("canvas/data_ui/level_score/score").set_text(ss)
 
 func remove_obj(r):
 	if r == "target":
@@ -248,11 +258,12 @@ func _process(delta):
 		for p in get_node("game_field/penguins").get_children():
 			if !p.is_sleeping():
 				all_sleep = false
-		if all_sleep and !game_stop:
+		var score_end = false
+		if global.single:
+			score_end = score[0] >= level_max_score or bonus_left <= 0
+		if (all_sleep or score_end) and !game_stop:
 			game_stop = true
 			var winers = get_winers()
-			
-				
 			var total_score_str = ''
 			for i in range(winers.size()):
 				global.score[i] += winers[i]
@@ -266,7 +277,6 @@ func _process(delta):
 			if global.single:
 				get_node("canvas/score_anim").play("single_score")
 			else:
-				
 				get_node("canvas/score_anim").play("show_score")
 			to_restart = true
 
@@ -307,6 +317,7 @@ func _process(delta):
 
 func bonus(t, value, type, pos):
 	bonus_score[t] += value
+	bonus_left -= value
 	var effect = bonus_effect_obj.instance()
 	if type == 'hole':
 		effect.set_timeout(0.5)
@@ -506,8 +517,9 @@ func update_team_score(t):
 		var ss = str(score[0]) + '/' + str(level_max_score)
 		get_node("canvas/data_ui/level_score/score").set_text(ss)
 		if score[0] >= level_max_score:
+#			all_sleep = true
 			go = true
-#			get_node("canvas/score_anim").play("total_score")
+#			get_node("canvas/score_anim").play("single_score")
 		
 func _on_fire_button_button_down():
 	if avatars[team] == 23 and !to_restart:
@@ -516,7 +528,6 @@ func _on_fire_button_button_down():
 	fire_pressed()
 
 func _on_cam_anim_finished():
-	
 	set_process(true)
 	var trows_left = 0
 	for t in throws:
@@ -538,7 +549,6 @@ func _on_cam_anim_finished():
 			bot_move()
 			get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
 			get_node("timers/bot_emergency_triger").start()
-		
 	if global.score.size() > 1 and !go:
 		get_node("canvas/data_ui/player" + str(team)).play_anim("in")
 	
@@ -584,10 +594,11 @@ func _on_score_anim_finished():
 		to_exit = true
 
 func _on_play_button_pressed():
+	global.select_next_level(1)
 	get_tree().reload_current_scene()
 
 func _on_replay_button_pressed():
-	global.next_level = global.current_level
+#	global.next_level = global.current_level
 	get_tree().reload_current_scene()
 
 func _on_aim_button_button_down():

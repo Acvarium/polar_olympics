@@ -55,7 +55,16 @@ func _fixed_process(delta):
 		elif score <= 0 and get_node("flag").is_visible():
 			get_node("flag").hide()
 	old_score = score
-	
+	if global.single:
+		var sp = get_linear_velocity().length()
+		if sp < 30:
+			set_linear_damp(10)
+			set_angular_damp(15)
+		else:
+			set_linear_damp(.7)
+			set_angular_damp(0.7)
+		
+
 func _on_penguin_sleeping_state_changed():
 	set_fixed_process(!is_sleeping())
 	
@@ -70,6 +79,8 @@ func _on_penguin_sleeping_state_changed():
 					iglu.get_ref().set_score(0)
 		
 	else:
+		set_linear_damp(.7)
+		set_angular_damp(0.7)
 		get_node("anim").play("move")
 	if is_sleeping() and score == 10 and ! bonus_ten:
 		bonus_ten = true

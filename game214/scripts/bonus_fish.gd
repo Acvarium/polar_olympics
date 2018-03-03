@@ -3,6 +3,7 @@ var main_node
 
 func _ready():
 	main_node = get_node("/root/main")
+	main_node.bonus_counter(1)
 	
 func _on_bonus_fish_body_enter( body ):
 	if body.is_in_group("peng"):

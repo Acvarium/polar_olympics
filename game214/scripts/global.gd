@@ -6,6 +6,7 @@ const MAX_WORLD = 20
 var stage = 1
 var stages_locks = []
 var worlds_locks = []
+var full_screen = false
 
 var original_screen_size = Vector2(1920,1080)
 var current_scene = null
@@ -14,7 +15,7 @@ var game_version = '0.5.2'
 var single = false
 var current_level = "res://levels/level0.tscn"
 var next_level = "res://levels/level0.tscn"
-var selected_tab = 1
+var selected_tab = 0
 var level_num = 0
 var no_save = false
 var team = 0

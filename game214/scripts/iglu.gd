@@ -5,6 +5,7 @@ var main_node
 func _ready():
 	main_node = get_node("/root/main")
 	set_score(score)
+	main_node.bonus_counter(score)
 
 func set_score(s):
 	score = s
