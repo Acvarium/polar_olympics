@@ -168,47 +168,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="tap_mode" type="CheckBox" parent="Control/rect/hint"]
-
-visibility/visible = false
-visibility/self_opacity = 0.6
-rect/scale = Vector2( 0.8, 0.8 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 330.0
-margin/top = 170.0
-margin/right = 420.0
-margin/bottom = 260.0
-custom_icons/checked = ExtResource( 7 )
-custom_icons/unchecked = ExtResource( 8 )
-custom_constants/check_vadjust = 0
-toggle_mode = true
-enabled_focus_mode = 0
-shortcut = null
-flat = false
-align = 0
-
-[node name="Label" type="Label" parent="Control/rect/hint/tap_mode"]
-
-visibility/self_opacity = 0.6
-rect/scale = Vector2( 0.6, 0.6 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 104.0
-margin/top = 21.0
-margin/right = 2056.0
-margin/bottom = 118.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0.116364, 0.241525, 0.480469, 1 )
-text = "TAP"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
 [node name="tutorial" type="CheckBox" parent="Control/rect/hint"]
 
 visibility/self_opacity = 0.6
@@ -979,8 +938,6 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
 [connection signal="pressed" from="Control/rect/hint/quit/quit_button" to="." method="_on_quit_button_pressed"]
-
-[connection signal="toggled" from="Control/rect/hint/tap_mode" to="." method="_on_tap_mode_toggled"]
 
 [connection signal="toggled" from="Control/rect/hint/tutorial" to="." method="_on_tutorial_toggled"]
 

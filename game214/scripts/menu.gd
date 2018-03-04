@@ -22,7 +22,6 @@ func _ready():
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	select_tab(global.selected_tab)
 	update_dots()
-	get_node("Control/rect/hint/tap_mode").set_pressed(!global.control_type)
 	get_node("Control/rect/hint/version").set_text("version " + global.game_version)
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
 	get_node("Control/rect/hint/tutorial").set_pressed(bool(global.tutorial))
@@ -134,10 +133,6 @@ func _on_lvl0_pressed():
 	global.next_level = global.levels[0]
 	global.goto_scene("res://scenes/main.tscn")
 
-func _on_tap_mode_toggled( pressed ):
-#	global.control_type = int(!get_node("Control/rect/hint/tap_mode").is_pressed())
-	global.save_game()
-		
 func _on_mute_toggled( pressed ):
 	global.toggle_mute()
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))

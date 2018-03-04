@@ -1532,8 +1532,6 @@ autoplay = ""
 
 [node name="timers" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="rand_fire" type="Timer" parent="timers"]
 
 process_mode = 1
@@ -1552,6 +1550,13 @@ autostart = false
 
 process_mode = 1
 wait_time = 0.2
+one_shot = true
+autostart = false
+
+[node name="bot_fire" type="Timer" parent="timers"]
+
+process_mode = 1
+wait_time = 1.0
 one_shot = true
 autostart = false
 
@@ -1645,6 +1650,8 @@ autoplay = ""
 [connection signal="timeout" from="timers/bot_emergency_triger" to="." method="_on_bot_emergency_triger_timeout"]
 
 [connection signal="timeout" from="timers/fire_timeout" to="." method="_on_fire_timeout_timeout"]
+
+[connection signal="timeout" from="timers/bot_fire" to="." method="_on_bot_fire_timeout"]
 
 [connection signal="finished" from="tutorial" to="." method="_on_tutorial_finished"]
 

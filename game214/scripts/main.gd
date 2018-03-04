@@ -41,15 +41,10 @@ var power_multiplier = 2.5
 var fire_velocity = Vector2()
 var to_fire = false
 
-var bot_power = 960
-var bot_angle = 0
-var max_bot_time = 10
 var pc_fire_allow = false
 var state_velocitys = [900, 1590, -1]
 var state_angles = [0, 0.78, 0]
 var state_shifts = [[300,0.2],[300,0.2],[300,0.05]]
-var rand_power = 0
-var rand_twist = 0
 var peng_id = 0
 var peng_teams = []
 var peng_score = []
@@ -58,14 +53,13 @@ var p_num = 0
 var star_num = 0
 var star_score = 3
 var level_max_score = 0
-var draw_layer 
+var draw_layer
 var min_len = 100
 var level_tutorial = 1
 var control_type = 1
 var bonus_left = 0
 
 func _ready():
-#	if OS
 	draw_layer = get_node("draw")
 	set_process_input(true)
 	global = get_node("/root/global")
@@ -79,9 +73,7 @@ func _ready():
 		v_slide_allow = false
 	geme_setup()
 	set_process(true)
-	if control_type == 0:
-		get_node("canvas/data_ui/fire_button").show()
-		get_node("game_field/point/power").show()
+#	
 	get_node("canvas/data_ui/hello_button/hello/rateit").set_bbcode(tr("RATEIT"))
 	if global.single:
 		control_type = 1
@@ -90,10 +82,6 @@ func _ready():
 		get_node("canvas/data_ui/level_score").show()
 	else:
 		get_node("canvas/data_ui/replay_button").hide()
-		if avatars[team] == 23:
-			get_node("game_field/point/power").show()
-			bot_move()
-			rand_fire(0)
 	var score_sum = 0
 	for s in global.score:
 		score_sum += s
@@ -110,6 +98,13 @@ func _ready():
 		get_node("game_field/effects/hand").hide()
 		if has_node("game_field/penguins/tut_peng"):
 			get_node("game_field/penguins/tut_peng").queue_free()
+	if is_bot_move():
+		get_node("timers/bot_fire").start()
+		
+	if v_slide_allow and !is_bot_move():
+		get_node("game_field/point/arrows").show()
+	else:
+		get_node("game_field/point/arrows").hide()
 	
 func load_level(l):
 	var level = load(l).instance()
@@ -137,11 +132,7 @@ func geme_setup():
 		if i < (global.score.size() - 1):
 			total_score_str += ":"
 	get_node("canvas/data_ui/total_score").set_text(total_score_str)
-	if v_slide_allow and avatars[team] != 23:
-		get_node("game_field/point/arrows").show()
-	else:
-		get_node("game_field/point/arrows").hide()
-		
+
 func fall(p_path,hole_path):
 	var p = get_node(p_path)
 	var hole = get_node(hole_path)
@@ -153,26 +144,19 @@ func fall(p_path,hole_path):
 	p.set_layer_mask_bit(1,false)
 	per.remove_child(p)
 	hole.add_child(p)
-#	if p.is_in_group("peng"):
-#		p.is_falling = true
 	p.set_global_pos(p_pos)
 	p.set_global_rot(p_rot)
-	
-#	p.set_linear_velocity(vel)
-#	p.set_linear_damp(1)
-#	p.set_mode(3)
+
 	get_node("sounds/splash").play()
 #------------------------------
 func _input(event):
 	if event.is_action_pressed("slide_control"):
-		if control_type == 1:
-			v_slide_allow = !v_slide_allow
-			if !avatars[team] == 23:
-				if v_slide_allow:
-					get_node("game_field/point/arrows").show()
-				else:
-					get_node("game_field/point/arrows").hide()
-				
+		v_slide_allow = !v_slide_allow
+		if v_slide_allow and !is_bot_move():
+			get_node("game_field/point/arrows").show()
+		else:
+			get_node("game_field/point/arrows").hide()
+#			
 	if event.is_action_pressed("lmb"):
 		mouse_down = true
 	elif event.is_action_released("lmb"):
@@ -191,11 +175,6 @@ func _input(event):
 		
 	if event.is_action_pressed("quit"):
 		global.game_quit()
-
-	if event.is_action_pressed("fire"):
-		if avatars[team] == 23 and !to_restart:
-			return
-		fire_pressed()
 
 func stars_on():
 	for i in range(3):
@@ -252,7 +231,6 @@ func _process(delta):
 		fire_velocity = get_global_mouse_pos() - get_node("game_field/point").get_global_pos()
 		
 	get_node("canvas/data_ui/vel").set_text(str(get_node("timers/bot_emergency_triger").get_time_left()))
-#	get_node("canvas/data_ui/fps").set_text(str(OS.get_frames_per_second()))
 	if go:
 		var all_sleep = true
 		for p in get_node("game_field/penguins").get_children():
@@ -280,40 +258,6 @@ func _process(delta):
 				get_node("canvas/score_anim").play("show_score")
 			to_restart = true
 
-	if state == 0:
-		if avatars[team] == 23:
-			get_node("game_field/point").set_pos(Vector2())
-		power += power_speed * rDir * delta
-		if power > max_power:
-			rDir = -1
-		if power < min_power:
-			rDir = 1
-		get_node("game_field/point/power").set_value(power)
-		if avatars[team] == 23 and pc_fire_allow:
-			
-			if (bot_power + rand_power) > (max_power * 0.97 * 22):
-				bot_power = max_power * 20
-			if abs((power * 22) - bot_power + rand_power) < 10:
-				pc_fire_allow = false
-				fire_pressed()
-				
-	elif state == 1:
-		pDirection += pSpeed * rDir * delta
-		if rDir == 1:
-			if pDirection > dMinMax:
-				rDir = -1
-		else:
-			if pDirection < -dMinMax:
-				rDir = 1
-		pointer.set_rot(pDirection)
-		
-		if avatars[team] == 23 and pc_fire_allow:
-			if abs(pDirection - bot_angle + rand_twist) < 0.01:
-				pass
-				pc_fire_allow = false
-				fire_pressed()
-		
-#=====================================================
 
 func bonus(t, value, type, pos):
 	bonus_score[t] += value
@@ -357,11 +301,15 @@ func rand_fire(delay):
 func  bot_move():
 	var rand_value = randf()
 	var bot_state = 0
-	if rand_value < 0.6:
+	var bot_power = 0
+	var bot_angle = 0
+	get_node("game_field/point").set_pos(Vector2())
+	if rand_value < 0.6 or throws[team] == 1:
+#Постріл на вибивання
 		var hi_score_team = team
 		for i in range(score.size()):
 			if team == i:
-				break 
+				break
 			if score[i] > score[hi_score_team]:
 				hi_score_team = i
 		if hi_score_team != team and (score[hi_score_team] - score[team]) > 5:
@@ -374,9 +322,10 @@ func  bot_move():
 					peng = p
 			if peng:
 				var d = Vector2().distance_to(peng.get_pos())
-				bot_power = d * 1.32 
+				bot_power = d * 1.32
 				bot_angle = peng.get_pos().angle() - PI/2
-				
+#Звичайний постріл в центер мішені
+#Потрібно переробити
 	if bot_state != 2:
 		if rand_value > 0.9:
 			bot_state = 1
@@ -388,8 +337,11 @@ func  bot_move():
 		bot_angle = state_angles[bot_state]
 		if bot_state == 1:
 			bot_angle *= rand_dir
-	rand_power = randf() * state_shifts[bot_state][0] - state_shifts[bot_state][0]/2
-	rand_twist =  randf() * state_shifts[bot_state][1] - state_shifts[bot_state][1]/2
+	var rand_power = randf() * state_shifts[bot_state][0] - state_shifts[bot_state][0]/2
+	var rand_twist =  randf() * state_shifts[bot_state][1] - state_shifts[bot_state][1]/2
+	power = bot_power + rand_power
+	pDirection = -(bot_angle + rand_twist)
+	fire()
 
 func get_winers():
 
@@ -418,39 +370,9 @@ func _notification(what):
 		else:
 			to_exit = true
 			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
-
-func fire_pressed():
-	if to_restart:
-		var score_sum = 0
-		for s in global.score:
-			score_sum += s
-		if score_sum > 2 and randf() < 0.6:
-			get_node("canvas/data_ui/hello_button").show()
-			get_node("canvas/data_ui/total_score_tab").hide()
-		else:
-			get_tree().reload_current_scene()
-	if no_control:
-		return
-	if fire_timeout:
-		return
-	fire_timeout = true
-	get_node("timers/fire_timeout").start()
-	state += 1
-	if state == 2:
-		fire()
-	elif state == 1:
-		get_node("game_field/point/pointer").show()
-		
-	if avatars[team] == 23 and state == 1:
-		rand_fire(0.5)
-		get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
-		get_node("timers/bot_emergency_triger").start()
-
 func fire():
-#	set_process(false)
 	get_node("game_field/point/power_arrow").hide()
 	get_node("timers/bot_emergency_triger").stop()
-	state = 0
 	throws[team] -= 1
 	
 	get_node("canvas/data_ui/player" + str(team)).set_trows(throws[team])
@@ -473,19 +395,16 @@ func fire():
 		go = true
 		if !global.single:
 			get_node("canvas/score_anim").play("total_score")
-#		$camera_position/Camera/data_ui/total_score_tab/score_anim.play("total_score")
-
-	get_node("game_field/point/pointer").hide()
-	get_node("game_field/point/power").hide()
 
 func spawn_penguin():
 	var penguin = penguin_obj.instance()
 	penguin.set_name("penguin_" + str(p_num))
 	p_num += 1
-	var r = -pointer.get_rot()
 	
-	if avatars[team] == 23 or control_type == 0:
-		penguin.set_vel(Vector2(cos(r), sin(r)).normalized() * power * 22)
+	
+	if is_bot_move() or control_type == 0:
+		var r = pDirection
+		penguin.set_vel(Vector2(cos(r), sin(r)).normalized() * power)
 	else:
 		penguin.set_vel(fire_velocity * power_multiplier)
 	penguin.set_team(team)
@@ -511,7 +430,7 @@ func update_team_score(t):
 		for i in range(peng_score.size()):
 			if peng_teams[i] == t:
 				score[peng_teams[i]] += peng_score[i]
-		get_node("canvas/data_ui/player" + str(t)).set_team_score(score[t]) 
+		get_node("canvas/data_ui/player" + str(t)).set_team_score(score[t])
 	else:
 		var penalty = 0
 		if p_num > 1:
@@ -520,38 +439,37 @@ func update_team_score(t):
 		var ss = str(score[0]) + '/' + str(level_max_score)
 		get_node("canvas/data_ui/level_score/score").set_text(ss)
 		if score[0] >= level_max_score:
-#			all_sleep = true
 			go = true
-#			get_node("canvas/score_anim").play("single_score")
 		
 func _on_fire_button_button_down():
-	if avatars[team] == 23 and !to_restart:
-		return
-#	if !no_control :
-	fire_pressed()
+	var score_sum = 0
+	for s in global.score:
+		score_sum += s
+	if score_sum > 2 and randf() < 0.6:
+		get_node("canvas/data_ui/hello_button").show()
+		get_node("canvas/data_ui/total_score_tab").hide()
+	else:
+		get_tree().reload_current_scene()
+
+func is_bot_move():
+	return avatars[team] == 23
 
 func _on_cam_anim_finished():
 	set_process(true)
+#переписати підрахунок кидків, що залишились
 	var trows_left = 0
 	for t in throws:
 		trows_left += t
 	if trows_left > 0:
 		no_control = false
 		get_node("game_field/point").show()
-		if v_slide_allow:
+		if v_slide_allow and !is_bot_move():
 			get_node("game_field/point/arrows").show()
+		else:
+			get_node("game_field/point/arrows").hide()
 			
-	if !go:
-		if control_type == 0:
-			get_node("game_field/point/power").show()
-			get_node("game_field/point/arrows").hide()
-		if avatars[team] == 23:
-			get_node("game_field/point/power").show()
-			get_node("game_field/point/arrows").hide()
-			rand_fire(0.5)
-			bot_move()
-			get_node("timers/bot_emergency_triger").set_wait_time(max_bot_time + randf() * 2.0)
-			get_node("timers/bot_emergency_triger").start()
+	if is_bot_move():
+		get_node("timers/bot_fire").start()
 	if global.score.size() > 1 and !go:
 		get_node("canvas/data_ui/player" + str(team)).play_anim("in")
 	
@@ -559,16 +477,13 @@ func resizer():
 	screen_size = get_tree().get_root().get_visible_rect().size
 	var ratio = screen_size.x/screen_size.y
 	screen_scale = Vector2(global.original_screen_size.x / screen_size.x, global.original_screen_size.y / screen_size.y)
-	var horizontal = ratio * global.original_screen_size.y 
+	var horizontal = ratio * global.original_screen_size.y
 	get_node("camera_position/Camera").zoom = Vector2(screen_scale.x, screen_scale.x)
 	get_node("canvas/data_ui").set_scale(Vector2(1 / screen_scale.y, 1 / screen_scale.y))
 	get_node("canvas/data_ui").set_size(screen_size * screen_scale.y)
 	
 func _on_rand_fire_timeout():
 	pc_fire_allow = true
-
-func _on_bot_emergency_triger_timeout():
-	fire_pressed()
 
 func _on_menu_button_pressed():
 	button_pressed = true
@@ -582,7 +497,7 @@ func _on_exit_anim_finished():
 	to_exit = false
 
 func _on_fire_timeout_timeout():
-	fire_timeout = false 
+	fire_timeout = false
 
 func _on_star_timer_timeout():
 	if star_num < star_score:
@@ -605,7 +520,7 @@ func _on_replay_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_aim_button_button_down():
-	if avatars[team] == 23 and !to_restart:
+	if is_bot_move() and !to_restart:
 		return
 	if !no_control:
 		aim = true
@@ -627,3 +542,7 @@ func _on_rate_button_pressed():
 		OS.shell_open("https://acvarium.itch.io/po")
 	get_node("canvas/data_ui/hello_button").hide()
 	get_tree().reload_current_scene()
+
+func _on_bot_fire_timeout():
+	if throws[team] > 0:
+		bot_move()
