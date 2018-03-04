@@ -97,11 +97,11 @@ func select_tab(t):
 			get_node("Control/mode" + str(i)).show()
 		else:
 			get_node("Control/mode" + str(i)).hide()
-	if selected_tab != 1:
-		get_node("Control/rect/hint/tap_mode").hide()
-	else:
-		get_node("Control/rect/hint/tap_mode").show()
-	
+#	if selected_tab != 1:
+#		get_node("Control/rect/hint/tap_mode").hide()
+#	else:
+#		get_node("Control/rect/hint/tap_mode").show()
+#	
 func _on_Button0_pressed():
 	select_tab(0)
 	global.selected_tab = 0
@@ -135,7 +135,7 @@ func _on_lvl0_pressed():
 	global.goto_scene("res://scenes/main.tscn")
 
 func _on_tap_mode_toggled( pressed ):
-	global.control_type = int(!get_node("Control/rect/hint/tap_mode").is_pressed())
+#	global.control_type = int(!get_node("Control/rect/hint/tap_mode").is_pressed())
 	global.save_game()
 		
 func _on_mute_toggled( pressed ):

@@ -47,36 +47,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 1, 0 ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("effect:play/play")
-tracks/3/interp = 1
-tracks/3/imported = false
-tracks/3/keys = {
-"times": FloatArray( 0.5 ),
-"transitions": FloatArray( 1 ),
-"update": 2,
-"values": [ "jeckkech__swim" ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("sparks:stream/play")
-tracks/4/interp = 1
-tracks/4/imported = false
-tracks/4/keys = {
-"times": FloatArray( 0.8 ),
-"transitions": FloatArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("sparks:stream/volume_db")
-tracks/5/interp = 1
-tracks/5/imported = false
-tracks/5/keys = {
-"times": FloatArray( 0.8, 0.9, 1.6 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -30.0, -10.0, 0.0 ]
-}
 
 [sub_resource type="SampleLibrary" id=3]
 

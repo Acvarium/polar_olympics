@@ -181,6 +181,7 @@ trigger = false
 
 [node name="score_label" type="Node2D" parent="."]
 
+transform/pos = Vector2( 44, 0 )
 z/z = 101
 
 [node name="Label" type="Label" parent="score_label"]
@@ -189,9 +190,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
+margin/left = -44.0
 margin/top = -40.0
-margin/right = 82.0
+margin/right = 38.0
 margin/bottom = 51.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 0.867188, 0, 1 )

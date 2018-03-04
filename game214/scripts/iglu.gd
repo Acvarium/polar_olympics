@@ -6,6 +6,7 @@ func _ready():
 	main_node = get_node("/root/main")
 	set_score(score)
 	main_node.bonus_counter(score)
+	get_node("score_label").set_rot(-get_rot())
 
 func set_score(s):
 	score = s

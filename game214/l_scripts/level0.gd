@@ -13,8 +13,8 @@ func _ready():
 	main_node.bonus10_on = false
 	if global.level_num != 0:
 		main_node.level_tutorial = 0
-	global.max_throw = 1
-	if global.level_num == 3:
+	global.max_throw = 3
+	if global.level_num == 4:
 		main_node.v_slide_allow = true
 	global.set_commands(1)
 	main_node.geme_setup()

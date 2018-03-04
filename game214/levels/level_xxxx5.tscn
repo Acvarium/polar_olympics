@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=2]
+[ext_resource path="res://textures/cr.png" type="Texture" id=3]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/force_field.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=6]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="cloud_ui_dot" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 540 )
+texture = ExtResource( 2 )
+
+[node name="cr" type="Sprite" parent="."]
+
+transform/pos = Vector2( 2490, -120 )
+texture = ExtResource( 3 )
+
+[node name="bonus_fish" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 970, 90 )
+
+[node name="force" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1430, 520 )
+transform/scale = Vector2( 5.875, 5.875 )
+impuls = 50
+vis = true
+
+[node name="force 2" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 370, 541 )
+vis = true
+mode = 1
+
+

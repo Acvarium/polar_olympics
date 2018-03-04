@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
 [ext_resource path="res://textures/cr.png" type="Texture" id=2]
 [ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/iglu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=5]
+[ext_resource path="res://objects/recess.tscn" type="PackedScene" id=6]
 
 [node name="level" type="Node2D"]
 
@@ -45,11 +46,16 @@ transform/pos = Vector2( 1200, 600 )
 
 [node name="iglu" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 1560, 540 )
+transform/pos = Vector2( 1500, 700 )
+transform/rot = -37.6393
 
 [node name="cloud_ui_dot" type="Sprite" parent="."]
 
 transform/pos = Vector2( 150, 540 )
 texture = ExtResource( 5 )
+
+[node name="hole" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1150, 610 )
 
 

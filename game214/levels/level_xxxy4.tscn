@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://objects/hole.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/tubes/tube0.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/force_field.tscn" type="PackedScene" id=8]
 
 [node name="level" type="Node2D"]
 
@@ -47,11 +48,7 @@ transform/pos = Vector2( 1370, 140 )
 
 [node name="bonus_fish1" parent="fishes" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 480, 530 )
-
-[node name="bonus_fish10" parent="fishes" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 630, 530 )
+transform/pos = Vector2( 490, 530 )
 
 [node name="bonus_fish2" parent="fishes" instance=ExtResource( 4 )]
 
@@ -80,67 +77,84 @@ score = 5
 
 [node name="tubes" type="Node2D" parent="."]
 
+[node name="force" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 640, 540 )
+impuls = 500
+vis = true
+mode = 0
+
 [node name="force6" parent="tubes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 640, 150 )
-transform/rot = 90.0
 impuls = 500
 vis = true
+mode = 0
 
 [node name="force7" parent="tubes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 940, 150 )
-transform/rot = 180.0
 impuls = 500
 vis = true
+mode = 0
 
 [node name="force1" parent="tubes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 640, 900 )
-impuls = 500
-vis = true
-
-[node name="force 2" parent="tubes" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 960, 540 )
 transform/rot = 180.0
 impuls = 500
 vis = true
-mode = 3
+mode = 0
 
-[node name="force4" parent="tubes" instance=ExtResource( 7 )]
+[node name="force 2" parent="tubes" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 310, 900 )
-transform/rot = -180.0
+transform/pos = Vector2( 910, 550 )
 impuls = 500
 vis = true
-mode = 3
+mode = 1
 
 [node name="force3" parent="tubes" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 960, 900 )
+transform/pos = Vector2( 950, 840 )
 transform/rot = -90.0
 vis = true
-mode = 3
+mode = 1
+
+[node name="force4" parent="tubes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 370, 890 )
+transform/rot = -180.0
+vis = true
+mode = 1
+
+[node name="force 3" parent="tubes" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1690, 500 )
+transform/rot = 90.0
+impuls = 450
+vis = true
 
 [node name="force2" parent="tubes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 309, 350 )
+transform/rot = 90.0
 impuls = 500
 vis = true
+mode = 0
 
 [node name="force5" parent="tubes" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 310, 150 )
+transform/pos = Vector2( 319, 210 )
+transform/rot = 90.0
 impuls = 500
 vis = true
-mode = 3
+mode = 1
 
 [node name="force8" parent="tubes" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 310, 700 )
-transform/rot = 180.0
-impuls = 600
+transform/pos = Vector2( 313.576, 706.496 )
+transform/rot = 90.0
 vis = true
+mode = 0
 
 

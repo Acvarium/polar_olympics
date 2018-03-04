@@ -49,7 +49,7 @@ func _fixed_process(delta):
 	if old_score != score:
 		get_node("flag/sprite/Label").set_text(str(score))
 		main_node.update_peng_score(id, score)
-		
+#		get_linear_velocity().
 		if score > 0 and !get_node("flag").is_visible():
 			get_node("flag").show()
 		elif score <= 0 and get_node("flag").is_visible():
@@ -64,7 +64,7 @@ func _fixed_process(delta):
 			set_linear_damp(.7)
 			set_angular_damp(0.7)
 		
-
+	
 func _on_penguin_sleeping_state_changed():
 	set_fixed_process(!is_sleeping())
 	

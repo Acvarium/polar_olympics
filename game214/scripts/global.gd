@@ -122,7 +122,7 @@ func save_game():
 	var savegame = File.new()
 	savegame.open(save_file, File.WRITE)
 	savegame.store_line({'version':game_version}.to_json())
-	savegame.store_line({'control_type':str(control_type)}.to_json())
+#	savegame.store_line({'control_type':str(control_type)}.to_json())
 	savegame.store_line({'volume_scale':str(volume_scale)}.to_json())
 	savegame.store_line({'tutorial':str(tutorial)}.to_json())
 	
@@ -164,7 +164,7 @@ func load_game():
 	for i in range(MAX_STAGE):
 		stages_locks.append(currentline['stage_' + str(i)])
 	savegame.close()
-	control_type = (int(currentline['control_type']))
+#	control_type = (int(currentline['control_type']))
 	if currentline.has('tutorial'):
 		tutorial = int(currentline['tutorial'])
 	set_volume(int(currentline['volume_scale']))
@@ -173,5 +173,3 @@ func game_quit():
 	save_game()
 	get_tree().quit()
 	
-	
-

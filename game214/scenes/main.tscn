@@ -1160,7 +1160,8 @@ patch_margin/top = 35
 patch_margin/right = 35
 patch_margin/bottom = 35
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="label" type="Label" parent="canvas/data_ui/total_score_tab"]
@@ -1416,6 +1417,7 @@ autostart = false
 
 [node name="buttons" type="Control" parent="canvas/data_ui/single_score"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1490,22 +1492,9 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="score_anim1" type="AnimationPlayer" parent="canvas"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/show_score = SubResource( 3 )
-anims/single_score = SubResource( 4 )
-anims/total_score = SubResource( 5 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
-
 [node name="draw" type="Node2D" parent="."]
 
-z/z = 200
+z/z = 500
 script/script = ExtResource( 26 )
 
 [node name="camera_position" type="Position2D" parent="."]
@@ -1567,8 +1556,6 @@ one_shot = true
 autostart = false
 
 [node name="sounds" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="start" type="StreamPlayer" parent="sounds"]
 

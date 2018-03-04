@@ -101,6 +101,7 @@ __meta__ = {
 }
 impuls = 1000
 vis = false
+mode = 0
 
 [node name="tube0" type="Sprite" parent="."]
 

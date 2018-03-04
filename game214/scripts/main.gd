@@ -202,7 +202,7 @@ func stars_on():
 		get_node("canvas/data_ui/single_score/star" + str(i)).star_reset()
 		
 	star_num = 0
-	star_score = int(score[0] / (level_max_score / 3))
+	star_score = int(score[0] / (level_max_score / 3.0))
 	if star_score == 3 and score[0] < level_max_score:
 		star_score = 2
 	if star_score > 0:
@@ -212,7 +212,7 @@ func stars_on():
 func bonus_counter(b):
 	level_max_score += b
 	bonus_left += b
-	var ss = str(score[0]) + '/' + str(level_max_score)
+	var ss = str(score[team]) + '/' + str(level_max_score)
 	get_node("canvas/data_ui/level_score/score").set_text(ss)
 
 func remove_obj(r):
@@ -326,7 +326,9 @@ func bonus(t, value, type, pos):
 	get_node("game_field/effects").add_child(effect)
 	effect.set_global_pos(pos)
 	update_team_score(t)
-
+	if global.single and bonus_left <= 0:
+		throws[team] = 0
+		go = true
 
 func add_bonus_fish():
 	if go or !bonus10_on:
@@ -450,6 +452,7 @@ func fire():
 	get_node("timers/bot_emergency_triger").stop()
 	state = 0
 	throws[team] -= 1
+	
 	get_node("canvas/data_ui/player" + str(team)).set_trows(throws[team])
 	if throws[team] < 0:
 		throws[team] = 0
