@@ -27,12 +27,12 @@ var tutorial = 1
 var save_file = "user://po_savegame.save"
 
 var levels = [
-"res://levels/level0.tscn",
-"res://levels/level1.tscn",
-"res://levels/level2.tscn",
-"res://levels/level3.tscn",
-"res://levels/level4.tscn",
-"res://levels/level5.tscn",
+"res://levels/level_simple_line.tscn",
+"res://levels/level1_line_with_holes.tscn",
+"res://levels/level_simple_iglu.tscn",
+"res://levels/level_z-hit_with_hole.tscn",
+"res://levels/level_simple_3_pipes.tscn",
+"res://levels/level_6puzzle_pipes.tscn",
 ]
 
 func select_next_level(l):

@@ -395,11 +395,19 @@ transform/pos = Vector2( -169.644, -161.009 )
 transform/scale = Vector2( 0.279976, 0.279976 )
 texture = ExtResource( 3 )
 
+[node name="banner1" type="Sprite" parent="game_field"]
+
+transform/pos = Vector2( 3605.03, 0 )
+transform/scale = Vector2( 1.81003, 1.6439 )
+texture = ExtResource( 2 )
+flip_h = true
+modulate = Color( 1, 1, 1, 0.677608 )
+
 [node name="banner2 2" type="Sprite" parent="game_field"]
 
 editor/display_folded = true
 visibility/light_mask = 514
-transform/pos = Vector2( 1031.03, 1119 )
+transform/pos = Vector2( 1031.03, 1111 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
 flip_v = true
@@ -411,14 +419,6 @@ visibility/visible = false
 transform/pos = Vector2( -169.644, -161.009 )
 transform/scale = Vector2( 0.279976, 0.279976 )
 texture = ExtResource( 3 )
-
-[node name="banner1" type="Sprite" parent="game_field"]
-
-transform/pos = Vector2( 3605.03, 0 )
-transform/scale = Vector2( 1.81003, 1.6439 )
-texture = ExtResource( 2 )
-flip_h = true
-modulate = Color( 1, 1, 1, 0.677608 )
 
 [node name="banner2" type="Sprite" parent="game_field"]
 
