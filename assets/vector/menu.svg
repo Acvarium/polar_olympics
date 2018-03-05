@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="-964.05591"
-     inkscape:cy="-2091.63"
+     inkscape:zoom="0.5"
+     inkscape:cx="-1456.9689"
+     inkscape:cy="-1888.5019"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -4467,5 +4467,14 @@
          d="m -206.0513,691.02916 c -5.86947,-5e-5 -11.64831,2.49434 -16.07644,5.55874 -4.85779,3.36174 -8.63437,8.42269 -10.94059,14.09611 -1.1115,2.73432 -1.8939,5.59286 -2.3036,8.5028 -1.28814,9.1488 2.57422,13.75403 6.39031,18.3963 2.41496,2.93778 6.42183,4.49122 9.75932,5.94912 3.99011,1.74299 7.68198,3.17996 12.36179,3.1799 7.80887,-7e-5 13.8801,-3.71631 19.69551,-8.01279 6.77142,-5.00282 9.20375,-12.29071 8.54754,-19.71992 -0.0143,-15.20407 -12.2113,-27.95013 -27.43384,-27.95026 z m 0,1.28701 c 14.51245,1.2e-4 26.14902,12.16165 26.14886,26.68968 5.4e-4,0.019 0.002,0.038 0.004,0.0569 0.63469,7.09365 -1.60917,13.85702 -8.0311,18.60165 -5.75646,4.25293 -11.52982,7.76062 -18.93103,7.76069 -4.4176,4e-5 -7.88407,-1.34174 -11.84537,-3.07216 -3.36745,-1.47097 -7.17773,-3.02797 -9.28151,-5.5872 -3.82687,-4.65538 -7.34156,-8.65119 -6.10974,-17.40004 0.39438,-2.80108 1.14724,-5.55819 2.22024,-8.19783 2.22193,-5.46604 5.28016,-10.71537 9.89682,-13.91023 4.2642,-2.95095 10.4272,-4.94155 15.92876,-4.9415 z"
          style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:0.28699999;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:url(#linearGradient4675);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.28734815;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
     </g>
+    <circle
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.89813995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path5255"
+       cx="-492.125"
+       cy="900.25"
+       r="74.475098"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/rings.png"
+       inkscape:export-xdpi="85.643356"
+       inkscape:export-ydpi="85.643356" />
   </g>
 </svg>

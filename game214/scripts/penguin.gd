@@ -13,10 +13,13 @@ var id = 0
 var is_falling = false
 var iglu
 export var tut = false
+var rot_to_velocity = false
+var canvas
 
 func _ready():
 	global = get_node("/root/global")
 	main_node = get_node("/root/main")
+	canvas = main_node.get_node("draw")
 	target_pos = main_node.target_pos
 	target_rad = main_node.target_radius
 	set_fixed_process(true)
@@ -41,6 +44,25 @@ func eat():
 	get_node("anim").play("eat")
 
 func _fixed_process(delta):
+	canvas.lines = []
+	
+	var angle = get_rot()
+	var direction = Vector2(cos(get_rot()), -sin(get_rot())).normalized()
+	canvas.lines.append([get_global_pos(), get_global_pos() + direction * 100, Color(1,1,1)])
+	var dd = get_linear_velocity().normalized()
+	canvas.lines.append([get_global_pos(), get_global_pos() + dd * 100, Color(0,1,1)])
+	canvas.update()
+	var doo = direction.dot(dd)
+	print(doo)
+	if get_linear_velocity().length() > 10 and rot_to_velocity:
+	
+		if doo >= 0:
+			set_rot(get_linear_velocity().angle()-PI/2)
+		else:
+			set_rot(get_linear_velocity().angle()+PI/2)
+#			
+		set_angular_velocity(0)
+#		set_angular_velocity((get_rot() - (get_linear_velocity().angle()-PI/2))*5.0)
 	var global_position = get_global_pos()
 	var dist = global_position.distance_to(target_pos)
 	score = (int(dist < target_rad) + int(dist < (target_rad * 0.75)) + int(dist < (target_rad * 0.5)) + int(dist < (target_rad * 0.25)) + int(dist < (target_rad * 0.078125))) * 2

@@ -72,8 +72,6 @@ func _ready():
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	target_pos = get_node("game_field/target").get_global_pos()
 	control_type = global.control_type
-	if control_type == 0:
-		v_slide_allow = false
 	geme_setup()
 	set_process(true)
 #	

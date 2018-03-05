@@ -84,63 +84,56 @@ score = 5
 
 transform/pos = Vector2( 640, 150 )
 transform/rot = 90.0
-impuls = 500
-vis = true
+impuls = 0
+is_turntable = true
 
 [node name="force7" parent="tubes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 940, 150 )
 transform/rot = 180.0
-impuls = 500
-vis = true
+impuls = 0
+is_turntable = true
 
 [node name="force1" parent="tubes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 640, 900 )
-impuls = 500
-vis = true
+is_turntable = true
 
 [node name="force 2" parent="tubes" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 960, 540 )
 transform/rot = 180.0
 impuls = 500
-vis = true
 mode = 3
+is_turntable = true
+
+[node name="force5" parent="tubes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 310, 160 )
+impuls = 500
+mode = 3
+is_turntable = true
 
 [node name="force4" parent="tubes" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 310, 900 )
 transform/rot = -180.0
 impuls = 500
-vis = true
 mode = 3
+is_turntable = true
 
 [node name="force3" parent="tubes" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 960, 900 )
 transform/rot = -90.0
-vis = true
 mode = 3
-
-[node name="force2" parent="tubes" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 309, 350 )
-impuls = 500
-vis = true
-
-[node name="force5" parent="tubes" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 310, 150 )
-impuls = 500
-vis = true
-mode = 3
+is_turntable = true
 
 [node name="force8" parent="tubes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 310, 700 )
 transform/rot = 180.0
-impuls = 600
-vis = true
+impuls = 0
+is_turntable = true
 
 

@@ -32,6 +32,7 @@ var levels = [
 "res://levels/level_simple_iglu.tscn",
 "res://levels/level_z-hit_with_hole.tscn",
 "res://levels/level_simple_3_pipes.tscn",
+"res://levels/level_first_pipes_rotate.tscn",
 "res://levels/level_puzzle_pipes.tscn",
 ]
 

@@ -564,6 +564,7 @@ __meta__ = {
 
 [node name="power_arrow" type="Position2D" parent="game_field/point"]
 
+visibility/visible = false
 z/z = 250
 
 [node name="ring" type="Sprite" parent="game_field/point/power_arrow"]
@@ -1498,6 +1499,7 @@ autoplay = ""
 
 [node name="draw" type="Node2D" parent="."]
 
+visibility/visible = false
 z/z = 500
 script/script = ExtResource( 27 )
 

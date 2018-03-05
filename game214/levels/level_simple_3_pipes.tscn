@@ -73,7 +73,7 @@ texture = ExtResource( 4 )
 
 transform/pos = Vector2( 1420, 200 )
 impuls = 500
-vis = true
+has_force = true
 mode = 3
 
 [node name="force1" parent="." instance=ExtResource( 5 )]
@@ -81,13 +81,12 @@ mode = 3
 transform/pos = Vector2( 1420, 800 )
 transform/rot = -90.0
 impuls = 1500
-vis = true
+has_force = true
 mode = 3
 
 [node name="force 2" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1420, 510 )
 transform/rot = -90.0
-vis = true
 
 

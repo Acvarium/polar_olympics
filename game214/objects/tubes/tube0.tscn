@@ -1,43 +1,50 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/force_field.gd" type="Script" id=1]
 [ext_resource path="res://textures/tube0.png" type="Texture" id=2]
 [ext_resource path="res://textures/force_icon.tex" type="Texture" id=3]
+[ext_resource path="res://textures/movable.tex" type="Texture" id=4]
+[ext_resource path="res://textures/turntable.tex" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 50, 50 )
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 54.3031, -72.377, 79.7061, -59.5295, 79.7061, -47.85, -81.7635, -47.85, -81.7635, -57.1936, -56.9445, -72.377 )
+points = Vector2Array( -50.7979, -49.7091, -81.7635, -57.1936, -79.4276, -78.2168, -60.7403, -79.9687, -56.9445, -72.377 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 58.6829, -79.9687, 77.6622, -78.5088, 79.7061, -59.5295, 54.3031, -72.377 )
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=10]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -56.9445, -72.377, -81.7635, -57.1936, -79.4276, -78.2168, -60.7403, -79.9687 )
+points = Vector2Array( 54.026, -49.3856, -50.7979, -49.7091, -56.9445, -72.377, 54.3031, -72.377, 79.7061, -59.5295 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -56.3718, 72.1389, -81.8243, 58.5165, -81.8243, 48.1204, 79.8525, 48.1204, 79.494, 59.9504, 55.117, 72.1389 )
-
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=11]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -61.3906, 80.0256, -79.6733, 78.9501, -81.8243, 58.5165, -56.3718, 72.1389 )
+points = Vector2Array( 77.6622, -78.5088, 79.7061, -59.5295, 54.3031, -72.377, 58.6829, -79.9687 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -61.3906, 80.0256, -79.6733, 78.9501, -81.8243, 58.5165, -50.7979, 50.5853, -56.3718, 72.1389 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 55.117, 72.1389, -56.3718, 72.1389, -50.7979, 50.5853, 53.3789, 50.9089, 79.494, 59.9504 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 55.117, 72.1389, 79.494, 59.9504, 76.9846, 78.9501, 59.4189, 80.7426 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.15919, 48.1736 )
 
 [node name="force" type="Area2D"]
 
@@ -52,8 +59,10 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
 impuls = 1000
-vis = false
+has_force = false
 mode = 0
+is_turntable = false
+is_movable = false
 
 [node name="tube0" type="Sprite" parent="."]
 
@@ -64,39 +73,54 @@ texture = ExtResource( 2 )
 
 [node name="force_icon" type="Sprite" parent="."]
 
-visibility/self_opacity = 0.6
-transform/pos = Vector2( -25.5881, -0.585041 )
-transform/scale = Vector2( 0.6, 0.6 )
+visibility/visible = false
+visibility/self_opacity = 0.34
+transform/pos = Vector2( -0.588102, 0.0959509 )
+transform/scale = Vector2( 0.3597, 0.3597 )
 z/z = 100
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="movable" type="Sprite" parent="."]
 
 visibility/visible = false
+visibility/self_opacity = 0.25
+transform/scale = Vector2( 0.393449, 0.393449 )
+z/z = 100
+texture = ExtResource( 4 )
+
+[node name="turntable" type="Sprite" parent="."]
+
+visibility/visible = false
+visibility/self_opacity = 0.41
+transform/pos = Vector2( -0.0407204, 0 )
+transform/scale = Vector2( 0.311703, 0.311703 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 3 )
+shapes/1/shape = SubResource( 10 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 4 )
+shapes/2/shape = SubResource( 11 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/2/trigger = false
-shapes/3/shape = SubResource( 5 )
+shapes/3/shape = SubResource( 12 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/3/trigger = false
-shapes/4/shape = SubResource( 6 )
+shapes/4/shape = SubResource( 13 )
 shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/4/trigger = false
-shapes/5/shape = SubResource( 7 )
+shapes/5/shape = SubResource( 14 )
 shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/5/trigger = false
 collision/layers = 1
@@ -109,14 +133,14 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( 77.6622, -78.5088, 58.6829, -79.9687, 54.3031, -72.377, -56.9445, -72.377, -60.7403, -79.9687, -79.4276, -78.2168, -81.7635, -57.1936, -81.7635, -47.85, 79.7061, -47.85, 79.7061, -59.5295 )
+polygon = Vector2Array( 77.6622, -78.5088, 58.6829, -79.9687, 54.3031, -72.377, -56.9445, -72.377, -60.7403, -79.9687, -79.4276, -78.2168, -81.7635, -57.1936, -50.7979, -49.7091, 54.026, -49.3856, 79.7061, -59.5295 )
 shape_range = Vector2( 0, 2 )
 trigger = false
 
 [node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -79.6733, 78.9501, -61.3906, 80.0256, -56.3718, 72.1389, 55.117, 72.1389, 59.4189, 80.7426, 76.9846, 78.9501, 79.494, 59.9504, 79.8525, 48.1204, -81.8243, 48.1204, -81.8243, 58.5165 )
+polygon = Vector2Array( -79.6733, 78.9501, -61.3906, 80.0256, -56.3718, 72.1389, 55.117, 72.1389, 59.4189, 80.7426, 76.9846, 78.9501, 79.494, 59.9504, 53.3789, 50.9089, -50.7979, 50.5853, -81.8243, 58.5165 )
 shape_range = Vector2( 3, 5 )
 trigger = false
 
@@ -127,19 +151,41 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -81.0
+margin/left = -83.0
 margin/top = -72.0
-margin/right = 79.0
+margin/right = 77.0
 margin/bottom = 73.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 flat = false
 
+[node name="right" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 58, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+
+transform/pos = Vector2( 58, 0 )
+shape = SubResource( 8 )
+trigger = false
+_update_shape_index = 0
+
 [connection signal="body_enter" from="." to="." method="_on_force_body_enter"]
 
 [connection signal="body_exit" from="." to="." method="_on_force_body_exit"]
 
 [connection signal="pressed" from="rot" to="." method="_on_rot_pressed"]
+
+[connection signal="body_enter" from="right" to="." method="_on_right_body_enter"]
+
+[connection signal="body_exit" from="right" to="." method="_on_right_body_exit"]
 
 

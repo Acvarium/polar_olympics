@@ -6,12 +6,12 @@
 [ext_resource path="res://textures/arc.png" type="Texture" id=4]
 [ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=5]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 22.524
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 104.693
@@ -25,7 +25,7 @@ score = 0
 [node name="Area2D" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -37,14 +37,14 @@ collision/mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="force" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -55,12 +55,14 @@ collision/layers = 2
 collision/mask = 2
 script/script = ExtResource( 3 )
 impuls = 500
-vis = false
+has_force = false
 mode = 2
+is_turntable = false
+is_movable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="force"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
