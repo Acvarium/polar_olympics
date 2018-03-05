@@ -34,6 +34,8 @@ var camera_animation = 'fire'
 var bonus10_on = true
 var tutorial = 1
 var v_slide_allow = false
+var auto_restart = true
+var pressed_time
 
 var mouse_down = false
 var aim = false
@@ -60,6 +62,7 @@ var control_type = 1
 var bonus_left = 0
 
 func _ready():
+	
 	draw_layer = get_node("draw")
 	set_process_input(true)
 	global = get_node("/root/global")
@@ -209,8 +212,11 @@ func remove_obj(r):
 func _process(delta):
 	if mouse_down and aim:
 		var col = Color(0,1,0)
-		var pow_vec = get_node("game_field/point").get_global_pos() - get_global_mouse_pos()
-		
+		var pow_vec = get_node("game_field/point").get_global_pos() - get_global_mouse_pos() 
+		var time_r = (OS.get_ticks_msec() - pressed_time) * 0.00001
+		var rand_shift = Vector2(randf() - 0.5, 2*(randf() - 0.5))
+		var pow_vec_r = pow_vec + (rand_shift * pow_vec.length()*time_r)
+		pow_vec_r = pow_vec
 		if get_global_mouse_pos().x < 200 and get_global_mouse_pos().y > 160 and get_global_mouse_pos().y < 900:
 			if v_slide_allow:
 				var point_pos = get_node("game_field/point").get_global_pos()
@@ -221,16 +227,18 @@ func _process(delta):
 			get_node("game_field/point/power_arrow").hide()
 				
 		elif pow_vec.length() > min_len and get_global_mouse_pos().x > 200:
+			get_node("canvas/data_ui/vel").set_text(str(time_r))
 			get_node("game_field/point/arrows/up").set_modulate(Color(1,1,1))
 			get_node("game_field/point/arrows/down").set_modulate(Color(1,1,1))
 			get_node("game_field/point/power_arrow").show()
-			get_node("game_field/point/power_arrow").set_rot(pow_vec.angle() + PI/2)
-			get_node("game_field/point/power_arrow/arrow").set_size(Vector2(pow_vec.length() * 2 + 75, 136))
+			get_node("game_field/point/power_arrow").set_rot(pow_vec_r.angle() + PI/2)
+			get_node("game_field/point/power_arrow/ring").set_pos(Vector2(pow_vec_r.length() * 3.36,0))
+			get_node("game_field/point/power_arrow/arrow").set_size(Vector2(pow_vec_r.length() * 2 + 75, 136))
 		else:
 			get_node("game_field/point/power_arrow").hide()
-		fire_velocity = get_global_mouse_pos() - get_node("game_field/point").get_global_pos()
+#		fire_velocity = get_global_mouse_pos() - get_node("game_field/point").get_global_pos()
+		fire_velocity = -pow_vec_r
 		
-	get_node("canvas/data_ui/vel").set_text(str(get_node("timers/bot_emergency_triger").get_time_left()))
 	if go:
 		var all_sleep = true
 		for p in get_node("game_field/penguins").get_children():
@@ -510,6 +518,8 @@ func _on_score_anim_finished():
 	if global.single:
 		stars_on()
 		to_exit = true
+	if auto_restart:
+		get_node("timers/autorestart").start()
 
 func _on_play_button_pressed():
 	global.select_next_level(1)
@@ -523,6 +533,7 @@ func _on_aim_button_button_down():
 	if is_bot_move() and !to_restart:
 		return
 	if !no_control:
+		pressed_time = OS.get_ticks_msec()
 		aim = true
 		to_fire = true
 
@@ -546,3 +557,6 @@ func _on_rate_button_pressed():
 func _on_bot_fire_timeout():
 	if throws[team] > 0:
 		bot_move()
+
+func _on_autorestart_timeout():
+	get_tree().reload_current_scene()
