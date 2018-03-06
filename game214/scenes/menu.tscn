@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -15,10 +15,11 @@
 [ext_resource path="res://textures/selected_tab_2.png" type="Texture" id=13]
 [ext_resource path="res://textures/not_available_icon.png" type="Texture" id=14]
 [ext_resource path="res://textures/tab.png" type="Texture" id=15]
-[ext_resource path="res://objects/lvl_button.tscn" type="PackedScene" id=16]
-[ext_resource path="res://textures/play.png" type="Texture" id=17]
-[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=18]
-[ext_resource path="res://textures/rect2.png" type="Texture" id=19]
+[ext_resource path="res://textures/play.png" type="Texture" id=16]
+[ext_resource path="res://objects/lvl_button.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/set_button.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=19]
+[ext_resource path="res://textures/rect2.tex" type="Texture" id=20]
 
 [node name="main" type="Node2D"]
 
@@ -360,6 +361,7 @@ texture = ExtResource( 14 )
 
 [node name="tab0" type="Sprite" parent="Control/tabs"]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 218.327, 70.717 )
 texture = ExtResource( 15 )
@@ -391,6 +393,7 @@ texture = ExtResource( 14 )
 
 [node name="tab1" type="Sprite" parent="Control/tabs"]
 
+editor/display_folded = true
 transform/pos = Vector2( 652.327, 70.717 )
 texture = ExtResource( 15 )
 
@@ -416,6 +419,7 @@ max_lines_visible = -1
 
 [node name="tab2" type="Sprite" parent="Control/tabs"]
 
+editor/display_folded = true
 transform/pos = Vector2( 1088.33, 70.717 )
 texture = ExtResource( 15 )
 
@@ -447,6 +451,7 @@ texture = ExtResource( 14 )
 
 [node name="tab3" type="Sprite" parent="Control/tabs"]
 
+editor/display_folded = true
 transform/pos = Vector2( 1525.33, 70.717 )
 texture = ExtResource( 15 )
 
@@ -569,6 +574,9 @@ texture = ExtResource( 4 )
 patch_margin/left = 633
 patch_margin/top = 109
 patch_margin/right = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="label" type="Label" parent="Control/tabs"]
 
@@ -599,6 +607,219 @@ margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
 
+[node name="levels_block" type="Control" parent="Control/mode0"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="back" type="Patch9Frame" parent="Control/mode0/levels_block"]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 220.0
+margin/right = 500.0
+margin/bottom = 310.0
+texture = ExtResource( 5 )
+patch_margin/left = 40
+patch_margin/top = 40
+patch_margin/right = 40
+patch_margin/bottom = 40
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="back_button" type="Button" parent="Control/mode0/levels_block/back"]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 440.0
+margin/bottom = 90.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="Control/mode0/levels_block/back"]
+
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 629.0
+margin/bottom = 129.0
+custom_fonts/font = ExtResource( 6 )
+text = "back"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="play" type="Sprite" parent="Control/mode0/levels_block/back"]
+
+transform/pos = Vector2( 41.9915, 45.5 )
+transform/scale = Vector2( 0.584746, 0.584746 )
+texture = ExtResource( 16 )
+flip_h = true
+
+[node name="levels" type="Control" parent="Control/mode0/levels_block"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="lvl0" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 60.0
+margin/top = 337.0
+margin/right = 260.0
+margin/bottom = 537.0
+
+[node name="lvl1" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 290.0
+margin/top = 337.0
+margin/right = 490.0
+margin/bottom = 537.0
+level = 1
+
+[node name="lvl2" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 520.0
+margin/top = 337.0
+margin/right = 720.0
+margin/bottom = 537.0
+level = 2
+
+[node name="lvl3" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 750.0
+margin/top = 337.0
+margin/right = 950.0
+margin/bottom = 537.0
+level = 3
+
+[node name="lvl4" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 980.0
+margin/top = 337.0
+margin/right = 1180.0
+margin/bottom = 537.0
+level = 4
+
+[node name="lvl5" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 1210.0
+margin/top = 337.0
+margin/right = 1410.0
+margin/bottom = 537.0
+level = 5
+
+[node name="lvl6" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 1440.0
+margin/top = 337.0
+margin/right = 1640.0
+margin/bottom = 537.0
+level = 6
+
+[node name="lvl7" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 1670.0
+margin/top = 337.0
+margin/right = 1870.0
+margin/bottom = 537.0
+level = 7
+
+[node name="lvl8" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 60.0
+margin/top = 567.0
+margin/right = 260.0
+margin/bottom = 767.0
+level = 8
+
+[node name="lvl9" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 290.0
+margin/top = 567.0
+margin/right = 490.0
+margin/bottom = 767.0
+level = 9
+
+[node name="lvl10" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 520.0
+margin/top = 567.0
+margin/right = 720.0
+margin/bottom = 767.0
+level = 10
+
+[node name="lvl11" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 750.0
+margin/top = 567.0
+margin/right = 950.0
+margin/bottom = 767.0
+level = 11
+
+[node name="lvl12" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 980.0
+margin/top = 567.0
+margin/right = 1180.0
+margin/bottom = 767.0
+level = 12
+
+[node name="lvl13" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 1210.0
+margin/top = 567.0
+margin/right = 1410.0
+margin/bottom = 767.0
+level = 13
+
+[node name="lvl14" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 1440.0
+margin/top = 567.0
+margin/right = 1640.0
+margin/bottom = 767.0
+level = 14
+
+[node name="lvl15" parent="Control/mode0/levels_block/levels" instance=ExtResource( 17 )]
+
+margin/left = 1670.0
+margin/top = 567.0
+margin/right = 1870.0
+margin/bottom = 767.0
+level = 15
+
 [node name="label" type="Label" parent="Control/mode0"]
 
 visibility/visible = false
@@ -619,63 +840,82 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="lvl0" parent="Control/mode0" instance=ExtResource( 16 )]
+[node name="sets" type="Control" parent="Control/mode0"]
 
-margin/left = 20.0
-margin/top = 220.0
-margin/right = 220.0
-margin/bottom = 330.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
-[node name="lvl1" parent="Control/mode0" instance=ExtResource( 16 )]
+[node name="lvl0" parent="Control/mode0/sets" instance=ExtResource( 18 )]
 
-margin/left = 250.0
-margin/top = 220.0
-margin/right = 450.0
-margin/bottom = 330.0
-level = 1
+margin/left = 60.0
+margin/top = 337.0
+margin/right = 470.0
+margin/bottom = 537.0
 
-[node name="lvl2" parent="Control/mode0" instance=ExtResource( 16 )]
+[node name="lvl1" parent="Control/mode0/sets" instance=ExtResource( 18 )]
 
-margin/left = 470.0
-margin/top = 220.0
-margin/right = 670.0
-margin/bottom = 330.0
-level = 2
+margin/left = 520.0
+margin/top = 337.0
+margin/right = 930.0
+margin/bottom = 537.0
 
-[node name="lvl3" parent="Control/mode0" instance=ExtResource( 16 )]
+[node name="lvl2" parent="Control/mode0/sets" instance=ExtResource( 18 )]
 
-margin/left = 690.0
-margin/top = 220.0
-margin/right = 890.0
-margin/bottom = 330.0
-level = 3
+margin/left = 980.0
+margin/top = 337.0
+margin/right = 1390.0
+margin/bottom = 537.0
+is_inaccessible = true
 
-[node name="lvl4" parent="Control/mode0" instance=ExtResource( 16 )]
+[node name="lvl3" parent="Control/mode0/sets" instance=ExtResource( 18 )]
 
-margin/left = 920.0
-margin/top = 220.0
-margin/right = 1120.0
-margin/bottom = 330.0
-level = 4
+margin/left = 1440.0
+margin/top = 337.0
+margin/right = 1850.0
+margin/bottom = 537.0
+is_inaccessible = true
 
-[node name="lvl5" parent="Control/mode0" instance=ExtResource( 16 )]
+[node name="lvl4" parent="Control/mode0/sets" instance=ExtResource( 18 )]
 
-margin/left = 1140.0
-margin/top = 220.0
-margin/right = 1340.0
-margin/bottom = 330.0
-level = 5
+margin/left = 60.0
+margin/top = 567.0
+margin/right = 470.0
+margin/bottom = 767.0
+is_inaccessible = true
 
-[node name="lvl6" parent="Control/mode0" instance=ExtResource( 16 )]
+[node name="lvl5" parent="Control/mode0/sets" instance=ExtResource( 18 )]
 
-margin/left = 20.0
-margin/top = 350.0
-margin/right = 220.0
-margin/bottom = 460.0
-level = 6
+margin/left = 520.0
+margin/top = 567.0
+margin/right = 930.0
+margin/bottom = 767.0
+is_inaccessible = true
+
+[node name="lvl6" parent="Control/mode0/sets" instance=ExtResource( 18 )]
+
+margin/left = 980.0
+margin/top = 567.0
+margin/right = 1390.0
+margin/bottom = 767.0
+is_inaccessible = true
+
+[node name="lvl7" parent="Control/mode0/sets" instance=ExtResource( 18 )]
+
+margin/left = 1440.0
+margin/top = 567.0
+margin/right = 1850.0
+margin/bottom = 767.0
+is_inaccessible = true
 
 [node name="mode1" type="Control" parent="Control"]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -709,7 +949,7 @@ __meta__ = {
 [node name="play" type="Sprite" parent="Control/mode1/start"]
 
 transform/pos = Vector2( 98, 98 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 
 [node name="start_button" type="Button" parent="Control/mode1/start"]
 
@@ -727,7 +967,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button0" parent="Control/mode1" instance=ExtResource( 18 )]
+[node name="select_button0" parent="Control/mode1" instance=ExtResource( 19 )]
 
 margin/left = 290.0
 margin/top = 240.0
@@ -735,7 +975,7 @@ margin/right = 554.0
 margin/bottom = 535.0
 avatar = 1
 
-[node name="select_button1" parent="Control/mode1" instance=ExtResource( 18 )]
+[node name="select_button1" parent="Control/mode1" instance=ExtResource( 19 )]
 
 margin/left = 580.0
 margin/top = 240.0
@@ -744,7 +984,7 @@ margin/bottom = 535.0
 stand = 1
 avatar = 23
 
-[node name="select_button2" parent="Control/mode1" instance=ExtResource( 18 )]
+[node name="select_button2" parent="Control/mode1" instance=ExtResource( 19 )]
 
 margin/left = 880.0
 margin/top = 240.0
@@ -752,7 +992,7 @@ margin/right = 1144.0
 margin/bottom = 535.0
 stand = 2
 
-[node name="select_button3" parent="Control/mode1" instance=ExtResource( 18 )]
+[node name="select_button3" parent="Control/mode1" instance=ExtResource( 19 )]
 
 margin/left = 1180.0
 margin/top = 240.0
@@ -762,6 +1002,7 @@ stand = 3
 
 [node name="mode2" type="Control" parent="Control"]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -793,6 +1034,7 @@ max_lines_visible = -1
 
 [node name="mode3" type="Control" parent="Control"]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -834,7 +1076,7 @@ margin/left = 260.0
 margin/top = 270.0
 margin/right = 1500.0
 margin/bottom = 964.0
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 modulate = Color( 0.341176, 0.729412, 0.901961, 0.768627 )
 patch_margin/left = 40
 patch_margin/top = 40
@@ -860,7 +1102,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 18 )]
+[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 19 )]
 
 margin/left = 40.0
 margin/top = 43.0
@@ -869,7 +1111,7 @@ margin/bottom = 338.0
 avatar = 1
 in_selector = true
 
-[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 18 )]
+[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 19 )]
 
 margin/left = 40.0
 margin/top = 353.0
@@ -878,7 +1120,7 @@ margin/bottom = 648.0
 avatar = 4
 in_selector = true
 
-[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 18 )]
+[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 19 )]
 
 margin/left = 340.0
 margin/top = 43.0
@@ -887,7 +1129,7 @@ margin/bottom = 338.0
 avatar = 2
 in_selector = true
 
-[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 18 )]
+[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 19 )]
 
 margin/left = 340.0
 margin/top = 353.0
@@ -896,7 +1138,7 @@ margin/bottom = 648.0
 avatar = 5
 in_selector = true
 
-[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 18 )]
+[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 19 )]
 
 margin/left = 640.0
 margin/top = 43.0
@@ -905,7 +1147,7 @@ margin/bottom = 338.0
 avatar = 3
 in_selector = true
 
-[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 18 )]
+[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 19 )]
 
 margin/left = 940.0
 margin/top = 43.0
@@ -914,7 +1156,7 @@ margin/bottom = 338.0
 avatar = 23
 in_selector = true
 
-[node name="x_button" parent="Control/char_selector" instance=ExtResource( 18 )]
+[node name="x_button" parent="Control/char_selector" instance=ExtResource( 19 )]
 
 margin/left = 640.0
 margin/top = 353.0
@@ -960,6 +1202,8 @@ drag_margin/bottom = 0.2
 [connection signal="pressed" from="Control/tabs/buttons/Button2" to="." method="_on_Button2_pressed"]
 
 [connection signal="pressed" from="Control/tabs/buttons/Button3" to="." method="_on_Button3_pressed"]
+
+[connection signal="pressed" from="Control/mode0/levels_block/back/back_button" to="." method="_on_back_button_pressed"]
 
 [connection signal="pressed" from="Control/mode1/start/start_button" to="." method="_on_start_button_pressed"]
 

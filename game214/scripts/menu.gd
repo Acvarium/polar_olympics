@@ -6,6 +6,7 @@ var tab_num = 4
 var selected_tab = 0
 var selected_stand = 0
 
+
 var labels = [
 'SINGLE',
 'HOTSEAT',
@@ -26,7 +27,14 @@ func _ready():
 	get_node("Control/tabs/mute").set_pressed(!bool(global.volume_scale))
 	get_node("Control/rect/hint/tutorial").set_pressed(bool(global.tutorial))
 	get_node("Control/rect/hint/full_screen").set_pressed(global.full_screen)
-	
+
+	for i in range(get_node("Control/mode0/sets").get_child_count()):
+		
+		get_node("Control/mode0/sets/lvl" + str(i)).set_set(i)
+	if global.is_levels_shown:
+		show_levels_set(global.set_selected)
+
+
 func _input(event):
 	if event.is_action_pressed("quit"):
 		global.game_quit()
@@ -117,6 +125,15 @@ func _on_Button3_pressed():
 	select_tab(3)
 	global.selected_tab = 3
 
+func show_levels_set(n):
+	global.set_selected = n
+	get_node("Control/mode0/sets").hide()
+	get_node("Control/mode0/levels_block").show()
+	global.is_levels_shown = true
+	for i in range(get_node("Control/mode0/levels_block/levels").get_child_count()):
+		var l = get_node("Control/mode0/levels_block/levels/lvl" + str(i))
+		l.set_level(i + n)
+
 func _on_start_button_pressed():
 	global.single = false
 	global.start_game()
@@ -143,3 +160,8 @@ func _on_tutorial_toggled( pressed ):
 func _on_full_screen_toggled( pressed ):
 	OS.set_window_fullscreen(pressed)
 	global.full_screen = pressed
+
+func _on_back_button_pressed():
+	get_node("Control/mode0/levels_block").hide()
+	get_node("Control/mode0/sets").show()
+	global.is_levels_shown = false

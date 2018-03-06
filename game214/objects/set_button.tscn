@@ -9,13 +9,14 @@
 
 [node name="lvl0" type="Patch9Frame"]
 
+visibility/self_opacity = 0.95
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 200.0
+margin/right = 410.0
 margin/bottom = 200.0
 texture = ExtResource( 1 )
 patch_margin/left = 40
@@ -37,7 +38,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 20.0
 margin/top = 114.0
-margin/right = 220.0
+margin/right = 495.0
 margin/bottom = 221.0
 texture = ExtResource( 3 )
 modulate = Color( 0.34375, 0.630859, 1, 1 )
@@ -55,7 +56,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 200.0
+margin/right = 330.0
 margin/bottom = 130.0
 texture = ExtResource( 3 )
 modulate = Color( 0.34375, 0.630859, 1, 1 )
@@ -73,7 +74,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 200.0
+margin/right = 410.0
 margin/bottom = 200.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -89,13 +90,13 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 10.0
-margin/right = 222.0
+margin/right = 367.0
 margin/bottom = 132.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.366118 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 2
-text = "1"
+text = "SET1"
 align = 1
 valign = 1
 uppercase = true
@@ -105,6 +106,7 @@ max_lines_visible = -1
 
 [node name="stars" type="Node2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 
 [node name="star0" parent="stars" instance=ExtResource( 5 )]
@@ -126,7 +128,7 @@ transform/scale = Vector2( 0.310185, 0.310185 )
 
 [node name="lock" type="Sprite" parent="."]
 
-transform/pos = Vector2( 170, 170 )
+transform/pos = Vector2( 380, 170 )
 transform/scale = Vector2( 0.368825, 0.368825 )
 texture = ExtResource( 6 )
 

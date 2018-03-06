@@ -557,6 +557,7 @@ hframes = 2
 
 [node name="point" type="Sprite" parent="game_field"]
 
+editor/display_folded = true
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -662,6 +663,8 @@ texture = ExtResource( 13 )
 
 [node name="ui" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="Label" type="Label" parent="ui"]
 
 focus/ignore_mouse = true
@@ -686,6 +689,7 @@ __meta__ = {
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

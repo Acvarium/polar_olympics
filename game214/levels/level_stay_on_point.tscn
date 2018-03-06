@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="cr" type="Sprite" parent="."]
+
+transform/pos = Vector2( 2862, 541 )
+texture = ExtResource( 2 )
+
+[node name="bonus_fish10 3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 812, 806 )
+
+[node name="bonus_fish10 4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 662, 806 )
+
+[node name="bonus_fish10 6" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 512, 806 )
+
+[node name="bonus_fish10 2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1100, 804 )
+
+[node name="bonus_fish10" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1242, 806 )
+
+[node name="bonus_fish10 7" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 960, 804 )
+
+[node name="cloud_ui_dot" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 540 )
+texture = ExtResource( 4 )
+
+

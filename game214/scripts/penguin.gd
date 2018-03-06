@@ -53,7 +53,6 @@ func _fixed_process(delta):
 	canvas.lines.append([get_global_pos(), get_global_pos() + dd * 100, Color(0,1,1)])
 	canvas.update()
 	var doo = direction.dot(dd)
-	print(doo)
 	if get_linear_velocity().length() > 10 and rot_to_velocity:
 	
 		if doo >= 0:

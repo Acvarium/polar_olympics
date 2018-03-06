@@ -11,7 +11,7 @@ var full_screen = false
 var original_screen_size = Vector2(1920,1080)
 var current_scene = null
 var max_throw = 6
-var game_version = '0.5.3'
+var game_version = '0.5.4'
 var single = false
 var current_level = "res://levels/level0.tscn"
 var next_level = "res://levels/level0.tscn"
@@ -22,6 +22,10 @@ var team = 0
 var control_type = 1
 var volume_scale = 1
 var tutorial = 1
+var is_levels_shown = false
+var set_selected = 0
+
+var old_version = false
 
 #var save_file = 'user://po_savegame.save'
 var save_file = "user://po_savegame.save"
@@ -34,6 +38,18 @@ var levels = [
 "res://levels/level_simple_3_pipes.tscn",
 "res://levels/level_first_pipes_rotate.tscn",
 "res://levels/level_puzzle_pipes.tscn",
+
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
+"res://levels/level_line_with_holes.tscn",
 ]
 
 func select_next_level(l):
@@ -141,6 +157,18 @@ func toggle_mute():
 	volume_scale = int(!bool(volume_scale))
 	set_volume(volume_scale)
 
+func reset_levels():
+	stages_locks.clear()
+	for i in range(MAX_STAGE):
+		stages_locks.append(-1)
+	stages_locks[0] = 0
+	worlds_locks.clear()
+	for i in range(MAX_WORLD):
+		worlds_locks.append(-1)
+	worlds_locks[0] = 0
+	old_version = true
+	
+
 # Завантаження гри
 func load_game():
 	var savegame = File.new()
@@ -148,9 +176,9 @@ func load_game():
 		stages_locks.clear()
 		worlds_locks.clear()
 		for i in range(MAX_WORLD):
-			worlds_locks.append(1)
+			worlds_locks.append(-1)
 		for i in range(MAX_STAGE):
-			stages_locks.append(1)
+			stages_locks.append(-1)
 		worlds_locks[0] = 0
 		stages_locks[0] = 0
 		no_save = true
@@ -162,10 +190,15 @@ func load_game():
 	while (!savegame.eof_reached()):
 		n += 1
 		currentline.parse_json(savegame.get_line())
-	for i in range(MAX_STAGE):
-		stages_locks.append(currentline['stage_' + str(i)])
 	savegame.close()
-#	control_type = (int(currentline['control_type']))
+	var version = int(currentline['version'].replace(".",""))
+	if version < 54:
+		reset_levels()
+	else:
+		for i in range(MAX_STAGE):
+			stages_locks.append(currentline['stage_' + str(i)])
+		for i in range(MAX_WORLD):
+			worlds_locks.append(currentline['world_' + str(i)])
 	if currentline.has('tutorial'):
 		tutorial = int(currentline['tutorial'])
 	set_volume(int(currentline['volume_scale']))

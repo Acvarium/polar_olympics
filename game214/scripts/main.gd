@@ -34,7 +34,7 @@ var camera_animation = 'fire'
 var bonus10_on = true
 var tutorial = 1
 var v_slide_allow = false
-var auto_restart = true
+var auto_restart = false
 var pressed_time
 
 var mouse_down = false
@@ -506,8 +506,14 @@ func _on_fire_timeout_timeout():
 	fire_timeout = false
 
 func _on_star_timer_timeout():
+	if global.stages_locks[global.level_num] < star_score:
+		global.stages_locks[global.level_num] = star_score
+	if global.level_num < global.MAX_STAGE:
+		if global.stages_locks[global.level_num + 1] < 0:
+			global.stages_locks[global.level_num + 1] = 0
+	global.worlds_locks[int((global.level_num + 1) / 16)] = 0
+	global.set_selected = (int((global.level_num + 1) / 16)) * 16
 	if star_num < star_score:
-		
 		get_node("canvas/data_ui/single_score/star" + str(star_num)).star_on(star_num)
 		get_node("canvas/data_ui/single_score/star_timer").start()
 		star_num += 1
@@ -524,7 +530,6 @@ func _on_play_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_replay_button_pressed():
-#	global.next_level = global.current_level
 	get_tree().reload_current_scene()
 
 func _on_aim_button_button_down():
