@@ -5,7 +5,7 @@ var main_node
 func _ready():
 	main_node = get_node("/root/main")
 	if score > 0:
-#		main_node.bonus_counter(score)
+		main_node.bonus_counter(score)
 		if has_node("points"):
 			get_node("points").show()
 			get_node("points/Label").set_text(str(score))

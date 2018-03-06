@@ -11,32 +11,32 @@
 custom_solver_bias = 0.0
 extents = Vector2( 50, 50 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -50.7979, -49.7091, -81.7635, -57.1936, -79.4276, -78.2168, -60.7403, -79.9687, -56.9445, -72.377 )
 
-[sub_resource type="ConvexPolygonShape2D" id=10]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 54.026, -49.3856, -50.7979, -49.7091, -56.9445, -72.377, 54.3031, -72.377, 79.7061, -59.5295 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 77.6622, -78.5088, 79.7061, -59.5295, 54.3031, -72.377, 58.6829, -79.9687 )
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -61.3906, 80.0256, -79.6733, 78.9501, -81.8243, 58.5165, -50.7979, 50.5853, -56.3718, 72.1389 )
 
-[sub_resource type="ConvexPolygonShape2D" id=13]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 55.117, 72.1389, -56.3718, 72.1389, -50.7979, 50.5853, 53.3789, 50.9089, 79.494, 59.9504 )
 
-[sub_resource type="ConvexPolygonShape2D" id=14]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 55.117, 72.1389, 79.494, 59.9504, 76.9846, 78.9501, 59.4189, 80.7426 )
@@ -58,7 +58,7 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
-impuls = 1000
+impuls = 500
 has_force = false
 mode = 0
 is_turntable = false
@@ -98,6 +98,7 @@ texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -105,22 +106,22 @@ _update_shape_index = 0
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 input/pickable = false
-shapes/0/shape = SubResource( 9 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 10 )
+shapes/1/shape = SubResource( 3 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 11 )
+shapes/2/shape = SubResource( 4 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/2/trigger = false
-shapes/3/shape = SubResource( 12 )
+shapes/3/shape = SubResource( 5 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/3/trigger = false
-shapes/4/shape = SubResource( 13 )
+shapes/4/shape = SubResource( 6 )
 shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/4/trigger = false
-shapes/5/shape = SubResource( 14 )
+shapes/5/shape = SubResource( 7 )
 shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/5/trigger = false
 collision/layers = 1
@@ -132,6 +133,7 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 
+visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( 77.6622, -78.5088, 58.6829, -79.9687, 54.3031, -72.377, -56.9445, -72.377, -60.7403, -79.9687, -79.4276, -78.2168, -81.7635, -57.1936, -50.7979, -49.7091, 54.026, -49.3856, 79.7061, -59.5295 )
 shape_range = Vector2( 0, 2 )
@@ -139,6 +141,7 @@ trigger = false
 
 [node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="StaticBody2D"]
 
+visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( -79.6733, 78.9501, -61.3906, 80.0256, -56.3718, 72.1389, 55.117, 72.1389, 59.4189, 80.7426, 76.9846, 78.9501, 79.494, 59.9504, 53.3789, 50.9089, -50.7979, 50.5853, -81.8243, 58.5165 )
 shape_range = Vector2( 3, 5 )
@@ -173,6 +176,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
 
+visibility/visible = false
 transform/pos = Vector2( 58, 0 )
 shape = SubResource( 8 )
 trigger = false

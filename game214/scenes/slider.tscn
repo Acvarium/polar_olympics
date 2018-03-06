@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/slider.gd" type="Script" id=1]
+[ext_resource path="res://textures/rect.png" type="Texture" id=2]
+[ext_resource path="res://objects/island.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/tubes/tube0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=6]
+
+[node name="slider" type="Node2D"]
+
+script/script = ExtResource( 1 )
+x_size = 6
+y_size = 4
+
+[node name="bg" type="Patch9Frame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1368.0
+margin/bottom = 912.0
+texture = ExtResource( 2 )
+patch_margin/left = 60
+patch_margin/top = 60
+patch_margin/right = 60
+patch_margin/bottom = 60
+
+[node name="islands" type="Node2D" parent="."]
+
+[node name="island" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 114, 114 )
+
+[node name="force" parent="islands/island" instance=ExtResource( 4 )]
+
+[node name="island6" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 798, 342 )
+
+[node name="force" parent="islands/island6" instance=ExtResource( 4 )]
+
+[node name="island1" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 342, 342 )
+
+[node name="bonus_fish" parent="islands/island1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 57 )
+
+[node name="bonus_fish1" parent="islands/island1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, -57 )
+
+[node name="island5" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 570, 342 )
+
+[node name="bonus_fish" parent="islands/island5" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, -57 )
+
+[node name="bonus_fish1" parent="islands/island5" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 57 )
+
+[node name="island7" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 570, 570 )
+
+[node name="bonus_fish" parent="islands/island7" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, -57 )
+
+[node name="bonus_fish1" parent="islands/island7" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 57 )
+
+[node name="island2" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 342, 114 )
+
+[node name="force" parent="islands/island2" instance=ExtResource( 6 )]
+
+[node name="island3" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 570, 114 )
+
+[node name="force" parent="islands/island3" instance=ExtResource( 4 )]
+
+transform/rot = 90.0
+
+[node name="island4" parent="islands" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 798, 114 )
+
+[node name="force" parent="islands/island4" instance=ExtResource( 6 )]
+
+transform/rot = 180.0
+
+

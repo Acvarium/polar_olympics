@@ -190,7 +190,6 @@ func stars_on():
 	get_node("canvas/data_ui/single_score/star_timer").start()
 
 func bonus_counter(b):
-
 	level_max_score += b
 	bonus_left += b
 	var ss = str(score[team]) + '/' + str(level_max_score)

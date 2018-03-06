@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="1215.3159"
-     inkscape:cy="-3199.7772"
+     inkscape:zoom="0.1767767"
+     inkscape:cx="1978.8128"
+     inkscape:cy="-764.74802"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -12439,5 +12439,16 @@ B6F3hUT2uTJ/8osHx1C41lo4VGmajPXl1NuDl/L/AF5VNVP05KFwAAAAAElFTkSuQmCC
          clip-path="url(#clipPath6943)"
          transform="translate(7.3505873,-154.76261)" />
     </g>
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.09039986;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect7026"
+       width="59.266666"
+       height="59.266666"
+       x="980.66779"
+       y="189.50659"
+       ry="26.233294"
+       inkscape:export-filename="/home/vit/ProjectG70/godot3/polar_olympics/game214/textures/rect3.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
