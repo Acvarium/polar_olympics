@@ -384,7 +384,7 @@ autoplay = "water"
 
 editor/display_folded = true
 visibility/light_mask = 514
-transform/pos = Vector2( 1031.03, -6.68066 )
+transform/pos = Vector2( 1032.14, -6.68066 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
 modulate = Color( 1, 1, 1, 0.677255 )
@@ -689,7 +689,6 @@ __meta__ = {
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

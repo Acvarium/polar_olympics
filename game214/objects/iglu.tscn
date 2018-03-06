@@ -138,7 +138,6 @@ score = 10
 "iglu",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( 38, 0 )
 input/pickable = true
 shapes/0/shape = SubResource( 13 )

@@ -129,8 +129,13 @@ func _on_anim_finished():
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("iglu"):
 		iglu = weakref(area.get_parent())
+	elif area.is_in_group("bonus_area"):
+		iglu = weakref(area)
 		
 func _on_Area2D_area_exit( area ):
 	if area.is_in_group("iglu") and iglu != null:
 		if iglu.get_ref() == area.get_parent():
+			iglu = null
+	elif area.is_in_group("bonus_area") and iglu != null:
+		if iglu.get_ref() == area:
 			iglu = null
