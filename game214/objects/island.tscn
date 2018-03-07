@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/island.gd" type="Script" id=1]
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=2]
 [ext_resource path="res://textures/rect_w.png" type="Texture" id=3]
+[ext_resource path="res://textures/island01.tex" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,7 +13,7 @@ extents = Vector2( 110, 110 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 100, 100 )
+extents = Vector2( 106.94, 103.796 )
 
 [node name="island" type="StaticBody2D"]
 
@@ -52,6 +53,7 @@ _update_shape_index = 0
 
 [node name="ray_up" type="RayCast2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0, 1 )
 enabled = true
 cast_to = Vector2( 0, -200 )
@@ -60,6 +62,7 @@ type_mask = 15
 
 [node name="ray_right" type="RayCast2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0, 1 )
 enabled = true
 cast_to = Vector2( 200, 0 )
@@ -68,6 +71,7 @@ type_mask = 15
 
 [node name="ray_down" type="RayCast2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0, 1 )
 enabled = true
 cast_to = Vector2( 0, 200 )
@@ -76,6 +80,7 @@ type_mask = 15
 
 [node name="ray_left" type="RayCast2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0, 1 )
 enabled = true
 cast_to = Vector2( -200, 0 )
@@ -84,7 +89,8 @@ type_mask = 15
 
 [node name="bg1" type="Patch9Frame" parent="."]
 
-visibility/self_opacity = 0.45
+visibility/visible = false
+visibility/self_opacity = 0.4
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -98,6 +104,10 @@ patch_margin/left = 60
 patch_margin/top = 60
 patch_margin/right = 60
 patch_margin/bottom = 60
+
+[node name="island01" type="Sprite" parent="."]
+
+texture = ExtResource( 4 )
 
 [node name="Button" type="Button" parent="."]
 
@@ -115,7 +125,9 @@ enabled_focus_mode = 0
 shortcut = null
 flat = false
 
-[node name="penget" type="Area2D" parent="."]
+[node name="penget" type="Area2D" parent="." groups=[
+"island",
+]]
 
 input/pickable = true
 shapes/0/shape = SubResource( 2 )

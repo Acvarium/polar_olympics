@@ -11,10 +11,11 @@ func _ready():
 	rays.append(get_node("ray_left"))
 	for r in rays:
 		r.add_exception(self)
-#	get_node("ray_down").
 
 func _process(delta):
 	if pressed:
+		for r in rays:
+			r.force_raycast_update()
 		var pos_dif = get_global_mouse_pos() - get_global_pos()
 		#up
 		if pos_dif.y < -(step / 2) and !rays[0].is_colliding():

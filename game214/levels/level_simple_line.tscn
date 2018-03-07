@@ -8,10 +8,12 @@
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 1
 
 [node name="cr" type="Sprite" parent="."]
 
-transform/pos = Vector2( 2862, 541 )
+transform/pos = Vector2( 2805.82, 2872.52 )
 texture = ExtResource( 2 )
 
 [node name="bonus_fish1" parent="." instance=ExtResource( 3 )]

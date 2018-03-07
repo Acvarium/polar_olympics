@@ -34,12 +34,16 @@ var levels = [
 "res://levels/level_simple_line.tscn",
 "res://levels/level_line_with_holes.tscn",
 "res://levels/level_simple_iglu.tscn",
-"res://levels/level_z-hit_with_hole.tscn",
+
 "res://levels/level_simple_3_pipes.tscn",
 "res://levels/level_first_pipes_rotate.tscn",
-"res://levels/level_puzzle_pipes.tscn",
 
+
+"res://levels/level_sliding_line.tscn",
 "res://levels/level_sliding_test.tscn",
+"res://levels/level_sliding_02.tscn",
+"res://levels/level_sliding_03.tscn",
+"res://levels/level_sliding_04.tscn",
 
 "res://levels/level_line_with_holes.tscn",
 "res://levels/level_line_with_holes.tscn",

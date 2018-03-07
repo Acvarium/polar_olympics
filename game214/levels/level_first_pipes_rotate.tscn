@@ -10,6 +10,8 @@
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
+v_slide_allow = true
+tut_num = 0
 
 [node name="cr" type="Sprite" parent="."]
 
@@ -56,22 +58,20 @@ transform/pos = Vector2( 782, 302 )
 
 transform/pos = Vector2( 360, 300 )
 
-[node name="cloud_ui_dot" type="Sprite" parent="."]
+[node name="start_point" type="Sprite" parent="."]
 
-transform/pos = Vector2( 150, 540 )
+transform/pos = Vector2( 150, 290 )
 texture = ExtResource( 4 )
 
 [node name="force" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1490, 290 )
 transform/rot = 180.0
-mode = 3
 is_turntable = true
 
 [node name="force1" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1490, 800 )
-mode = 3
 is_turntable = true
 
 [node name="force 2" parent="." instance=ExtResource( 6 )]

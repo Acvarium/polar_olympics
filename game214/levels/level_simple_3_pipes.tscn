@@ -10,6 +10,8 @@
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
+v_slide_allow = true
+tut_num = 0
 
 [node name="cr" type="Sprite" parent="."]
 
@@ -73,14 +75,12 @@ texture = ExtResource( 4 )
 
 transform/pos = Vector2( 1420, 200 )
 impuls = 500
-mode = 3
 
 [node name="force1" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1420, 800 )
 transform/rot = -90.0
 impuls = 1500
-mode = 3
 
 [node name="force 2" parent="." instance=ExtResource( 6 )]
 

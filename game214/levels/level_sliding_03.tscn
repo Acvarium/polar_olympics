@@ -23,7 +23,7 @@ texture = ExtResource( 2 )
 
 [node name="start_point" type="Sprite" parent="."]
 
-transform/pos = Vector2( 150, 200 )
+transform/pos = Vector2( 150, 882 )
 texture = ExtResource( 3 )
 
 [node name="slider" parent="." instance=ExtResource( 4 )]
@@ -33,29 +33,42 @@ transform/pos = Vector2( 485.464, 84 )
 [node name="island" parent="slider" instance=ExtResource( 5 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 114.536, 114 )
+transform/pos = Vector2( 342.536, 342 )
 
 [node name="force" parent="slider/island" instance=ExtResource( 6 )]
 
-[node name="island1" parent="slider" instance=ExtResource( 5 )]
+transform/rot = 90.0
+
+[node name="island9" parent="slider" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 798.536, 798 )
 
+[node name="force" parent="slider/island9" instance=ExtResource( 6 )]
+
+transform/rot = 180.0
+
+[node name="island7" parent="slider" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 570.536, 798 )
+
+[node name="force" parent="slider/island7" instance=ExtResource( 6 )]
+
+[node name="island1" parent="slider" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 570.536, 342 )
+
 [node name="force" parent="slider/island1" instance=ExtResource( 7 )]
 
-[node name="island2" parent="slider" instance=ExtResource( 5 )]
+impuls = 1500
 
-editor/display_folded = true
-transform/pos = Vector2( 114.536, 342 )
+[node name="island11" parent="slider" instance=ExtResource( 5 )]
 
-[node name="bonus_fish" parent="slider/island2" instance=ExtResource( 8 )]
+transform/pos = Vector2( 342.536, 798 )
 
-transform/pos = Vector2( 0, -57 )
+[node name="island14" parent="slider" instance=ExtResource( 5 )]
 
-[node name="bonus_fish1" parent="slider/island2" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 0, 57 )
+transform/pos = Vector2( 570.536, 570 )
 
 [node name="island3" parent="slider" instance=ExtResource( 5 )]
 
@@ -70,32 +83,58 @@ transform/pos = Vector2( 0, -57 )
 
 transform/pos = Vector2( 0, 57 )
 
-[node name="island4" parent="slider" instance=ExtResource( 5 )]
+[node name="island13" parent="slider" instance=ExtResource( 5 )]
 
 editor/display_folded = true
+transform/pos = Vector2( 798.536, 342 )
+
+[node name="bonus_fish" parent="slider/island13" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 0, -57 )
+
+[node name="bonus_fish1" parent="slider/island13" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 0, 57 )
+
+[node name="island4" parent="slider" instance=ExtResource( 5 )]
+
 transform/pos = Vector2( 342.536, 570 )
 
 [node name="force" parent="slider/island4" instance=ExtResource( 7 )]
 
+impuls = 1500
+
 [node name="island5" parent="slider" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 114.536, 798 )
 
 [node name="force" parent="slider/island5" instance=ExtResource( 6 )]
 
-transform/rot = 180.0
+transform/rot = -90.0
 
-[node name="island6" parent="slider" instance=ExtResource( 5 )]
+[node name="island8" parent="slider" instance=ExtResource( 5 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 570.536, 798 )
+transform/pos = Vector2( 570.536, 114 )
 
-[node name="bonus_fish" parent="slider/island6" instance=ExtResource( 8 )]
+[node name="bonus_fish" parent="slider/island8" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -57, 0 )
 
-[node name="bonus_fish1" parent="slider/island6" instance=ExtResource( 8 )]
+[node name="bonus_fish1" parent="slider/island8" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island10" parent="slider" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 114.536, 342 )
+
+[node name="bonus_fish" parent="slider/island10" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider/island10" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 57, 0 )
 

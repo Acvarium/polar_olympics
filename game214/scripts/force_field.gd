@@ -28,7 +28,8 @@ func _ready():
 	if has_node("movable") and is_movable:
 		get_node("movable").show()
 	if !is_turntable:
-		get_node("rot").hide()
+		if has_node("rot"):
+			get_node("rot").hide()
 
 func turntable(new_val):
 	is_turntable = new_val

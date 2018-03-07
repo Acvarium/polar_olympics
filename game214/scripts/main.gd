@@ -4,6 +4,8 @@ var screen_scale = Vector2()
 var penguin_obj = load("res://objects/penguin.tscn")
 var bonus_fish_obj = load("res://objects/bonus_fish.tscn")
 var bonus_effect_obj = load("res://objects/bonus_effect.tscn")
+var fall_pos_obj = load("res://objects/fall_pos.tscn")
+
 var global
 var state = 0
 var avatars = []
@@ -60,6 +62,7 @@ var min_len = 100
 var level_tutorial = 1
 var control_type = 1
 var bonus_left = 0
+var start_pos = Vector2()
 
 func _ready():
 	
@@ -110,7 +113,14 @@ func _ready():
 func load_level(l):
 	var level = load(l).instance()
 	get_node("game_field/levels").add_child(level)
-	
+
+func add_splash(pos):
+	var fall_pos = fall_pos_obj.instance()
+	get_node("game_field/effects").add_child(fall_pos)
+	fall_pos.set_global_pos(pos)
+	fall_pos.set_scale(Vector2(0.6,0.6))
+	get_node("sounds/splash").play()
+
 func geme_setup():
 	for i in range(4):
 		get_node("canvas/data_ui/player" + str(i)).hide()
@@ -133,6 +143,8 @@ func geme_setup():
 		if i < (global.score.size() - 1):
 			total_score_str += ":"
 	get_node("canvas/data_ui/total_score").set_text(total_score_str)
+	if start_pos != Vector2():
+		get_node("game_field/point").set_global_pos(start_pos)
 
 func fall(p_path,hole_path):
 	var p = get_node(p_path)

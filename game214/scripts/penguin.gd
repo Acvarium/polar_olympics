@@ -15,6 +15,8 @@ var iglu
 export var tut = false
 var rot_to_velocity = false
 var canvas
+var in_water = false
+var islands = []
 
 func _ready():
 	global = get_node("/root/global")
@@ -23,6 +25,8 @@ func _ready():
 	target_pos = main_node.target_pos
 	target_rad = main_node.target_radius
 	set_fixed_process(true)
+	if global.single:
+		get_node("cloud_ui_dot").hide()
 	
 #	
 func set_id(i):
@@ -44,8 +48,14 @@ func eat():
 	get_node("anim").play("eat")
 
 func _fixed_process(delta):
+	if in_water and islands.size() == 0:
+		if get_node("in_water").get_time_left() == 0:
+			print(get_node("in_water").get_time_left() )
+			get_node("in_water").start()
+	else:
+		get_node("in_water").stop()
+		
 	canvas.lines = []
-	
 	var angle = get_rot()
 	var direction = Vector2(cos(get_rot()), -sin(get_rot())).normalized()
 	canvas.lines.append([get_global_pos(), get_global_pos() + direction * 100, Color(1,1,1)])
@@ -131,7 +141,6 @@ func _on_Area2D_area_enter( area ):
 		iglu = weakref(area.get_parent())
 	elif area.is_in_group("bonus_area"):
 		iglu = weakref(area)
-		
 func _on_Area2D_area_exit( area ):
 	if area.is_in_group("iglu") and iglu != null:
 		if iglu.get_ref() == area.get_parent():
@@ -139,3 +148,24 @@ func _on_Area2D_area_exit( area ):
 	elif area.is_in_group("bonus_area") and iglu != null:
 		if iglu.get_ref() == area:
 			iglu = null
+			
+func _on_water_detector_area_enter( area ):
+	if area.is_in_group("water"):
+		in_water = true
+	elif area.is_in_group("island"):
+		if islands.find(area.get_path()) == -1:
+			islands.append(area.get_path())
+	elif area.is_in_group("end"):
+		queue_free()
+		
+func _on_water_detector_area_exit( area ):
+	if area.is_in_group("water"):
+		in_water = false
+	elif area.is_in_group("island"):
+		if islands.find(area.get_path()) != -1:
+			islands.remove(islands.find(area.get_path()))
+
+func _on_in_water_timeout():
+#	if in_water:
+	main_node.add_splash(get_global_pos())
+	queue_free()

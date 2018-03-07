@@ -1,36 +1,45 @@
-[gd_scene load_steps=41 format=1]
+[gd_scene load_steps=42 format=1]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://textures/target.png" type="Texture" id=4]
-[ext_resource path="res://objects/penguin.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://textures/hand.png" type="Texture" id=7]
-[ext_resource path="res://textures/point.png" type="Texture" id=8]
-[ext_resource path="res://textures/rings.png" type="Texture" id=9]
-[ext_resource path="res://textures/arrow.tex" type="Texture" id=10]
-[ext_resource path="res://textures/power_under.tex" type="Texture" id=11]
-[ext_resource path="res://textures/power_progress.png" type="Texture" id=12]
-[ext_resource path="res://textures/play.png" type="Texture" id=13]
-[ext_resource path="res://textures/prev_button.png" type="Texture" id=14]
-[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=15]
-[ext_resource path="res://textures/gradient_line.png" type="Texture" id=16]
-[ext_resource path="res://textures/personal_score_tag.tex" type="Texture" id=17]
-[ext_resource path="res://objects/star.tscn" type="PackedScene" id=18]
-[ext_resource path="res://fonts/font0.fnt" type="BitmapFont" id=19]
-[ext_resource path="res://objects/player_ui.tscn" type="PackedScene" id=20]
-[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=21]
-[ext_resource path="res://textures/menu_button.png" type="Texture" id=22]
-[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=23]
-[ext_resource path="res://textures/rect.png" type="Texture" id=24]
-[ext_resource path="res://textures/next_button.png" type="Texture" id=25]
-[ext_resource path="res://textures/menu2_button.png" type="Texture" id=26]
-[ext_resource path="res://scripts/draw.gd" type="Script" id=27]
-[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=28]
-[ext_resource path="res://sounds/splash.ogg" type="AudioStream" id=29]
-[ext_resource path="res://sounds/applod.ogg" type="AudioStream" id=30]
-[ext_resource path="res://sounds/yahoo.smp" type="Sample" id=31]
+[ext_resource path="res://textures/target.png" type="Texture" id=3]
+[ext_resource path="res://objects/penguin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://textures/hand.png" type="Texture" id=6]
+[ext_resource path="res://textures/point.png" type="Texture" id=7]
+[ext_resource path="res://textures/rings.png" type="Texture" id=8]
+[ext_resource path="res://textures/arrow.tex" type="Texture" id=9]
+[ext_resource path="res://textures/power_under.tex" type="Texture" id=10]
+[ext_resource path="res://textures/power_progress.png" type="Texture" id=11]
+[ext_resource path="res://textures/play.png" type="Texture" id=12]
+[ext_resource path="res://textures/prev_button.png" type="Texture" id=13]
+[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=14]
+[ext_resource path="res://textures/gradient_line.png" type="Texture" id=15]
+[ext_resource path="res://textures/personal_score_tag.tex" type="Texture" id=16]
+[ext_resource path="res://objects/star.tscn" type="PackedScene" id=17]
+[ext_resource path="res://fonts/font0.fnt" type="BitmapFont" id=18]
+[ext_resource path="res://objects/player_ui.tscn" type="PackedScene" id=19]
+[ext_resource path="res://textures/personal_score_tag.png" type="Texture" id=20]
+[ext_resource path="res://textures/menu_button.png" type="Texture" id=21]
+[ext_resource path="res://textures/menu_button_over.png" type="Texture" id=22]
+[ext_resource path="res://textures/rect.png" type="Texture" id=23]
+[ext_resource path="res://textures/next_button.png" type="Texture" id=24]
+[ext_resource path="res://textures/menu2_button.png" type="Texture" id=25]
+[ext_resource path="res://scripts/draw.gd" type="Script" id=26]
+[ext_resource path="res://sounds/start.ogg" type="AudioStream" id=27]
+[ext_resource path="res://sounds/splash.ogg" type="AudioStream" id=28]
+[ext_resource path="res://sounds/applod.ogg" type="AudioStream" id=29]
+[ext_resource path="res://sounds/yahoo.smp" type="Sample" id=30]
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 77.8415, 839.474 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1372.4, 46.4545 )
 
 [sub_resource type="Animation" id=1]
 
@@ -211,7 +220,7 @@ samples/yahoo = {
 "db": -10.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 31 )
+"sample": ExtResource( 30 )
 }
 
 [sub_resource type="Animation" id=9]
@@ -369,6 +378,57 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 150, 540 )
 
+[node name="water" type="Area2D" parent="game_field" groups=[
+"end",
+]]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -460, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 10 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 2190, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 11 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 860, -781 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 11 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 860, 789 )
+shapes/3/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game_field/water"]
+
+transform/pos = Vector2( -460, 0 )
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="game_field/water"]
+
+transform/pos = Vector2( 2190, 0 )
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="game_field/water"]
+
+transform/pos = Vector2( 860, -781 )
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 2
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="game_field/water"]
+
+transform/pos = Vector2( 860, 789 )
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 3
+
 [node name="water_anim" type="AnimationPlayer" parent="game_field"]
 
 playback/process_mode = 1
@@ -382,19 +442,11 @@ autoplay = "water"
 
 [node name="banner" type="Sprite" parent="game_field"]
 
-editor/display_folded = true
 visibility/light_mask = 514
 transform/pos = Vector2( 1032.14, -6.68066 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
 modulate = Color( 1, 1, 1, 0.677255 )
-
-[node name="icon" type="Sprite" parent="game_field/banner"]
-
-visibility/visible = false
-transform/pos = Vector2( -169.644, -161.009 )
-transform/scale = Vector2( 0.279976, 0.279976 )
-texture = ExtResource( 3 )
 
 [node name="banner1" type="Sprite" parent="game_field"]
 
@@ -406,20 +458,12 @@ modulate = Color( 1, 1, 1, 0.677608 )
 
 [node name="banner2 2" type="Sprite" parent="game_field"]
 
-editor/display_folded = true
 visibility/light_mask = 514
 transform/pos = Vector2( 1031.03, 1111 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
 flip_v = true
 modulate = Color( 1, 1, 1, 0.677255 )
-
-[node name="icon" type="Sprite" parent="game_field/banner2 2"]
-
-visibility/visible = false
-transform/pos = Vector2( -169.644, -161.009 )
-transform/scale = Vector2( 0.279976, 0.279976 )
-texture = ExtResource( 3 )
 
 [node name="banner2" type="Sprite" parent="game_field"]
 
@@ -438,7 +482,7 @@ transform/pos = Vector2( -150, -540 )
 
 transform/pos = Vector2( 1295, 0 )
 transform/scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 modulate = Color( 1, 1, 1, 0.281804 )
 
 [node name="bonus" type="Node2D" parent="game_field"]
@@ -461,7 +505,7 @@ margin/bottom = 438.0
 
 editor/display_folded = true
 
-[node name="tut_peng" parent="game_field/penguins" instance=ExtResource( 5 )]
+[node name="tut_peng" parent="game_field/penguins" instance=ExtResource( 4 )]
 
 visibility/visible = false
 transform/pos = Vector2( 4.98979, -1.7641 )
@@ -479,62 +523,62 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ice_block00" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block00" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 17.7863, -568.925 )
 
-[node name="ice_block01" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block01" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 395.312, -568.925 )
 
-[node name="ice_block02" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block02" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 772.197, -565.847 )
 transform/rot = -2.14217
 
-[node name="ice_block03" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block03" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1150.36, -567.075 )
 
-[node name="ice_block04" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block04" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1531.59, -576.328 )
 
-[node name="ice_block05" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block05" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1909.12, -578.178 )
 
-[node name="ice_block06" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block06" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2286.28, -570.451 )
 transform/rot = -1.35407
 
-[node name="ice_block07" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block07" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 17.7863, 568.075 )
 
-[node name="ice_block08" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block08" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 395.312, 568.075 )
 
-[node name="ice_block09" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block09" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 772.197, 571.153 )
 transform/rot = -2.14217
 
-[node name="ice_block10" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block10" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1150.36, 569.925 )
 
-[node name="ice_block11" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block11" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1531.59, 560.672 )
 
-[node name="ice_block12" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block12" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1909.12, 558.822 )
 
-[node name="ice_block13" parent="game_field/blocks" instance=ExtResource( 6 )]
+[node name="ice_block13" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2286.28, 556.549 )
 transform/rot = -1.35407
@@ -542,6 +586,7 @@ transform/rot = -1.35407
 [node name="effects" type="Node2D" parent="game_field"]
 
 editor/display_folded = true
+z/z = 100
 __meta__ = {
 "_edit_lock_": true
 }
@@ -552,13 +597,13 @@ visibility/visible = false
 visibility/self_opacity = 0.19
 transform/pos = Vector2( 377.602, 210.365 )
 z/z = 100
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 hframes = 2
 
 [node name="point" type="Sprite" parent="game_field"]
 
 editor/display_folded = true
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -572,7 +617,7 @@ z/z = 250
 
 visibility/visible = false
 transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="arrow" type="Patch9Frame" parent="game_field/point/power_arrow"]
 
@@ -585,7 +630,7 @@ margin/left = 0.0
 margin/top = -34.0
 margin/right = 250.0
 margin/bottom = 102.0
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 modulate = Color( 0.3125, 1, 0, 1 )
 patch_margin/left = 21
 patch_margin/right = 92
@@ -627,9 +672,9 @@ range/page = 0.0
 range/value = 50.0
 range/exp_edit = false
 range/rounded = false
-texture/under = ExtResource( 11 )
+texture/under = ExtResource( 10 )
 texture/over = null
-texture/progress = ExtResource( 12 )
+texture/progress = ExtResource( 11 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
@@ -643,7 +688,7 @@ z/z = 150
 
 transform/pos = Vector2( 143.008, 0 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="arrows" type="Node2D" parent="game_field/point"]
 
@@ -652,14 +697,14 @@ texture = ExtResource( 10 )
 transform/pos = Vector2( 0, -110 )
 transform/rot = 90.0
 transform/scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="down" type="Sprite" parent="game_field/point/arrows"]
 
 transform/pos = Vector2( 0, 110 )
 transform/rot = -90.0
 transform/scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="ui" type="Node2D" parent="."]
 
@@ -725,7 +770,7 @@ margin/bottom = 22.6
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 14 )
+textures/normal = ExtResource( 13 )
 params/resize_mode = 0
 params/scale = Vector2( 0.8, 0.8 )
 params/stretch_mode = 0
@@ -742,7 +787,7 @@ margin/left = 685.0
 margin/top = 139.0
 margin/right = 1600.0
 margin/bottom = 230.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.130325, 0.257945, 0.457031, 1 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
@@ -765,7 +810,7 @@ margin/left = 685.0
 margin/top = 209.0
 margin/right = 1600.0
 margin/bottom = 300.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.130325, 0.257945, 0.457031, 1 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
@@ -788,7 +833,7 @@ margin/left = 1345.0
 margin/top = 84.0
 margin/right = 2260.0
 margin/bottom = 175.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.130325, 0.257945, 0.457031, 1 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
@@ -815,7 +860,7 @@ margin/bottom = 0.0
 
 transform/pos = Vector2( 1325.16, 27.0334 )
 transform/scale = Vector2( 1.6, 0.6 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 flip_v = true
 
 [node name="bottom_line" type="Control" parent="canvas/data_ui"]
@@ -836,7 +881,7 @@ margin/bottom = 0.0
 
 transform/pos = Vector2( 1325.16, -28.9667 )
 transform/scale = Vector2( 1.6, 0.6 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 
 [node name="fire_button" type="Button" parent="canvas/data_ui"]
 
@@ -895,7 +940,7 @@ margin/left = 654.5
 margin/top = 382.0
 margin/right = -615.5
 margin/bottom = -373.0
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 modulate = Color( 0.12854, 0.171932, 0.40625, 1 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -920,7 +965,7 @@ margin/left = 580.0
 margin/top = -199.5
 margin/right = 102.0
 margin/bottom = -323.5
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 modulate = Color( 0.592914, 0.597656, 0.445908, 1 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -958,7 +1003,7 @@ margin/left = -1.0
 margin/top = 0.0
 margin/right = 801.0
 margin/bottom = 208.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.0286255, 0, 0.523438, 0.519137 )
 custom_constants/shadow_offset_x = 5
@@ -986,7 +1031,7 @@ margin/left = -102.0
 margin/top = -199.5
 margin/right = -580.0
 margin/bottom = -323.5
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 modulate = Color( 0.03125, 1, 0, 1 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -996,20 +1041,20 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="star3" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 18 )]
+[node name="star3" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 63.8876, 61.3818 )
 transform/scale = Vector2( 0.494276, 0.494276 )
 rate_star = true
 
-[node name="star4" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 18 )]
+[node name="star4" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 90.6254, 53.5501 )
 transform/rot = 10.4519
 transform/scale = Vector2( 0.404046, 0.404046 )
 rate_star = true
 
-[node name="star5" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 18 )]
+[node name="star5" parent="canvas/data_ui/hello_button/hello/rate" instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 123.802, 50.8953 )
 transform/rot = -16.681
@@ -1027,7 +1072,7 @@ margin/left = 121.0
 margin/top = 0.0
 margin/right = 717.0
 margin/bottom = 209.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.0286255, 0, 0.523438, 0.519137 )
 custom_constants/shadow_offset_x = 5
@@ -1067,8 +1112,8 @@ margin/left = 47.0
 margin/top = 38.0
 margin/right = 2390.0
 margin/bottom = 994.0
-custom_fonts/italics_font = ExtResource( 19 )
-custom_fonts/normal_font = ExtResource( 15 )
+custom_fonts/italics_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 14 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = true
 bbcode/bbcode = "[color=#FFFF44]Hello.[/color]
@@ -1079,14 +1124,14 @@ I work on this [color=#FFFF44]game[/color] with [color=#C3FFFF]help[/color] of m
 visible_characters = -1
 percent_visible = 1.0
 
-[node name="player0" parent="canvas/data_ui" instance=ExtResource( 20 )]
+[node name="player0" parent="canvas/data_ui" instance=ExtResource( 19 )]
 
 margin/left = 20.0
 margin/top = 16.0
 margin/right = 60.0
 margin/bottom = -24.0
 
-[node name="player1" parent="canvas/data_ui" instance=ExtResource( 20 )]
+[node name="player1" parent="canvas/data_ui" instance=ExtResource( 19 )]
 
 anchor/left = 1
 anchor/right = 1
@@ -1096,7 +1141,7 @@ margin/right = -20.0
 margin/bottom = -24.0
 layout = 1
 
-[node name="player2" parent="canvas/data_ui" instance=ExtResource( 20 )]
+[node name="player2" parent="canvas/data_ui" instance=ExtResource( 19 )]
 
 anchor/left = 1
 anchor/top = 0
@@ -1108,7 +1153,7 @@ margin/right = -20.0
 margin/bottom = 56.0
 layout = 2
 
-[node name="player3" parent="canvas/data_ui" instance=ExtResource( 20 )]
+[node name="player3" parent="canvas/data_ui" instance=ExtResource( 19 )]
 
 anchor/top = 0
 anchor/bottom = 0
@@ -1133,7 +1178,7 @@ margin/left = 174.0
 margin/top = 81.0
 margin/right = -406.0
 margin/bottom = -10.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.130325, 0.257945, 0.457031, 1 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
@@ -1160,7 +1205,7 @@ margin/left = 600.0
 margin/top = 241.0
 margin/right = -600.0
 margin/bottom = -31.0
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 modulate = Color( 1, 1, 1, 0.360667 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -1181,7 +1226,7 @@ margin/left = 0.0
 margin/top = 36.0
 margin/right = 1199.0
 margin/bottom = 127.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.601098 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
@@ -1203,7 +1248,7 @@ margin/left = 0.0
 margin/top = 159.0
 margin/right = 1201.0
 margin/bottom = 250.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.96875, 1, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.601098 )
 custom_constants/shadow_offset_x = 3
@@ -1229,7 +1274,7 @@ margin/left = 401.0
 margin/top = -145.0
 margin/right = -402.0
 margin/bottom = -383.0
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 modulate = Color( 1, 1, 1, 0.196706 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -1248,7 +1293,7 @@ margin/left = 3.0
 margin/top = 0.0
 margin/right = 1339.0
 margin/bottom = 392.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.130325, 0.257945, 0.457031, 1 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
@@ -1262,6 +1307,7 @@ max_lines_visible = -1
 [node name="level_score" type="Patch9Frame" parent="canvas/data_ui"]
 
 visibility/visible = false
+visibility/self_opacity = 0.6
 anchor/left = 3
 anchor/top = 3
 anchor/right = 3
@@ -1274,7 +1320,7 @@ margin/left = 200.0
 margin/top = -410.0
 margin/right = -194.0
 margin/bottom = -526.0
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 modulate = Color( 1, 1, 1, 0.803294 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -1291,7 +1337,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 395.0
 margin/bottom = 118.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0.396362, 0.746094, 0.918039 )
 text = "0/15"
 align = 1
@@ -1316,7 +1362,7 @@ margin/left = 405.0
 margin/top = -276.0
 margin/right = -403.0
 margin/bottom = -460.0
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 modulate = Color( 1, 1, 1, 0.360667 )
 patch_margin/left = 35
 patch_margin/top = 35
@@ -1334,7 +1380,7 @@ margin/left = 0.0
 margin/top = 21.0
 margin/right = 1004.0
 margin/bottom = 231.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.0611128, 0.0513153, 0.230469, 0.61749 )
 custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 6
@@ -1375,8 +1421,8 @@ margin/bottom = 99.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 22 )
-textures/hover = ExtResource( 23 )
+textures/normal = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1397,22 +1443,22 @@ margin/left = 369.0
 margin/top = 265.0
 margin/right = -363.0
 margin/bottom = -206.0
-texture = ExtResource( 24 )
+texture = ExtResource( 23 )
 modulate = Color( 1, 1, 1, 0.803294 )
 patch_margin/left = 35
 patch_margin/top = 35
 patch_margin/right = 35
 patch_margin/bottom = 35
 
-[node name="star0" parent="canvas/data_ui/single_score" instance=ExtResource( 18 )]
+[node name="star0" parent="canvas/data_ui/single_score" instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 179, 135 )
 
-[node name="star1" parent="canvas/data_ui/single_score" instance=ExtResource( 18 )]
+[node name="star1" parent="canvas/data_ui/single_score" instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 369, 135 )
 
-[node name="star2" parent="canvas/data_ui/single_score" instance=ExtResource( 18 )]
+[node name="star2" parent="canvas/data_ui/single_score" instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 559, 135 )
 
@@ -1449,7 +1495,7 @@ margin/bottom = 435.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 25 )
+textures/normal = ExtResource( 24 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1466,7 +1512,7 @@ margin/bottom = 438.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 14 )
+textures/normal = ExtResource( 13 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1483,7 +1529,7 @@ margin/bottom = 438.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 26 )
+textures/normal = ExtResource( 25 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -1504,7 +1550,7 @@ autoplay = ""
 
 visibility/visible = false
 z/z = 500
-script/script = ExtResource( 27 )
+script/script = ExtResource( 26 )
 
 [node name="camera_position" type="Position2D" parent="."]
 
@@ -1580,7 +1626,7 @@ autostart = false
 
 [node name="start" type="StreamPlayer" parent="sounds"]
 
-stream/stream = ExtResource( 28 )
+stream/stream = ExtResource( 27 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
@@ -1591,7 +1637,7 @@ stream/buffering_ms = 500
 
 [node name="splash" type="StreamPlayer" parent="sounds"]
 
-stream/stream = ExtResource( 29 )
+stream/stream = ExtResource( 28 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 10.0
@@ -1602,7 +1648,7 @@ stream/buffering_ms = 500
 
 [node name="applause" type="StreamPlayer" parent="sounds"]
 
-stream/stream = ExtResource( 30 )
+stream/stream = ExtResource( 29 )
 stream/play = true
 stream/loop = false
 stream/volume_db = 0.0
