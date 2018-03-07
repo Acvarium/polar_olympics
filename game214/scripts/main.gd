@@ -82,7 +82,7 @@ func _ready():
 	if global.single:
 		control_type = 1
 		load_level(global.next_level)
-		get_node("canvas/data_ui/player0").hide()
+#		get_node("canvas/data_ui/player0").hide()
 		get_node("canvas/data_ui/level_score").show()
 	else:
 		get_node("canvas/data_ui/replay_button").hide()
@@ -102,7 +102,7 @@ func _ready():
 		get_node("game_field/effects/hand").hide()
 		if has_node("game_field/penguins/tut_peng"):
 			get_node("game_field/penguins/tut_peng").queue_free()
-	if is_bot_move():
+	if is_bot_move() and global.tutorial == 0 and !global.single:
 		get_node("timers/bot_fire").start()
 		
 	if v_slide_allow and !is_bot_move():
@@ -132,6 +132,8 @@ func geme_setup():
 		score.append(0)
 		bonus_score.append(0)
 		avatars.append(global.selected_players[i])
+#		if global.single:
+#			get_node("canvas/data_ui/player" + str(i)).play_anim("out")
 		get_node("canvas/data_ui/player" + str(i)).show()
 		get_node("canvas/data_ui/player" + str(i)).set_team_color(global.team_color[i])
 		get_node("canvas/data_ui/player" + str(i)).set_trows(max_throw)
@@ -145,6 +147,9 @@ func geme_setup():
 	get_node("canvas/data_ui/total_score").set_text(total_score_str)
 	if start_pos != Vector2():
 		get_node("game_field/point").set_global_pos(start_pos)
+	if global.single:
+		get_node("canvas/data_ui/player0").play_anim("single")
+		get_node("canvas/data_ui/player0").set_level(global.level_num)
 
 func fall(p_path,hole_path):
 	var p = get_node(p_path)
@@ -263,7 +268,7 @@ func _process(delta):
 			var total_score_str = ''
 			for i in range(winers.size()):
 				global.score[i] += winers[i]
-				if winers[i] > 0:
+				if winers[i] > 0 and !global.single:
 					get_node("canvas/data_ui/player" + str(i)).play_anim("in")
 				total_score_str += str(global.score[i])
 				if i < (global.score.size() - 1):
@@ -470,7 +475,7 @@ func _on_fire_button_button_down():
 		get_tree().reload_current_scene()
 
 func is_bot_move():
-	return avatars[team] == 23
+	return avatars[team] == 23 and !global.single
 
 func _on_cam_anim_finished():
 	set_process(true)
@@ -488,7 +493,7 @@ func _on_cam_anim_finished():
 			
 	if is_bot_move():
 		get_node("timers/bot_fire").start()
-	if global.score.size() > 1 and !go:
+	if global.score.size() > 1 and !go and !global.single:
 		get_node("canvas/data_ui/player" + str(team)).play_anim("in")
 	
 func resizer():
@@ -554,6 +559,8 @@ func _on_aim_button_button_down():
 
 func _on_tutorial_finished():
 	no_control = false
+	if is_bot_move():
+		get_node("timers/bot_fire").start()
 	if has_node("game_field/penguins/tut_peng"):
 		get_node("game_field/penguins/tut_peng").queue_free()
 

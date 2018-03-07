@@ -94,7 +94,7 @@ func select_tab(t):
 	get_node("Control/tabs/selected_tab").set_pos(s_pos)
 	get_node("Control/tabs/selected_tab/label").set_text(labels[t])
 	get_node("Control/tabs/label").set_text(labels[t])
-	if t == 1:
+	if t <= 1:
 		get_node("Control/tabs/selected_tab/not_available_icon").hide()
 	else:
 		get_node("Control/tabs/selected_tab/not_available_icon").show()

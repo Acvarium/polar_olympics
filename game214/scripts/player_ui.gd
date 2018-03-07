@@ -38,10 +38,17 @@ func set_team_color(c):
 func play_anim(a):
 	get_node("layout").play(a)
 
+func set_level(l):
+	get_node("under/score").set_text(tr("LEVEL") + "  " + str(l + 1))
+	get_node("under/set").show()
+	var set_num = int(l / 16) + 1
+	get_node("under/set").set_text(tr("SET") + " " + str(set_num))
+	
+
 func set_layout(l):
 	layout = l
 	get_node("layout").play(str(l))
 
 func _on_start_timer_timeout():
-	if main_node.team == layout:
+	if main_node.team == layout and !global.single:
 		play_anim('in')

@@ -23,7 +23,7 @@ func set_set(s):
 	set_num = s
 	
 	get_node("stars").hide()
-	get_node("Label").set_text("SET" + str(s + 1))
+	get_node("Label").set_text(tr("SET") + str(s + 1))
 	lock = global.worlds_locks[s]
 	if lock < 0:
 		get_node("lock").show()
