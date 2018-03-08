@@ -26,9 +26,16 @@ var is_levels_shown = false
 var set_selected = 0
 
 var old_version = false
+var selected_map = -1
 
 #var save_file = 'user://po_savegame.save'
 var save_file = "user://po_savegame.save"
+
+var maps = [
+	"res://maps/map_ice_backwall.tscn",
+	"res://maps/map_ice_frontwall.tscn",
+#	"res://levels/level_line_with_holes.tscn",
+]
 
 var levels = [
 "res://levels/level_simple_line.tscn",
@@ -208,6 +215,9 @@ func load_game():
 	if currentline.has('tutorial'):
 		tutorial = int(currentline['tutorial'])
 	set_volume(int(currentline['volume_scale']))
+
+func select_map(m):
+	selected_map = m
 
 func game_quit():
 	save_game()

@@ -86,6 +86,9 @@ func _ready():
 		get_node("canvas/data_ui/level_score").show()
 	else:
 		get_node("canvas/data_ui/replay_button").hide()
+		if global.selected_map > -1:
+			load_level(global.maps[global.selected_map])
+			
 	var score_sum = 0
 	for s in global.score:
 		score_sum += s
@@ -247,7 +250,8 @@ func _process(delta):
 			get_node("game_field/point/arrows/down").set_modulate(Color(1,1,1))
 			get_node("game_field/point/power_arrow").show()
 			get_node("game_field/point/power_arrow").set_rot(pow_vec_r.angle() + PI/2)
-			get_node("game_field/point/power_arrow/ring").set_pos(Vector2(pow_vec_r.length() * 3.36,0))
+#			get_node("game_field/point/power_arrow/ring").set_pos(Vector2(pow_vec_r.length() * 3.36,0))
+#			if get_global_mouse_pos().x < 300:
 			get_node("game_field/point/power_arrow/arrow").set_size(Vector2(pow_vec_r.length() * 2 + 75, 136))
 		else:
 			get_node("game_field/point/power_arrow").hide()

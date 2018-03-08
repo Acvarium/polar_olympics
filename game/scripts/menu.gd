@@ -6,7 +6,6 @@ var tab_num = 4
 var selected_tab = 0
 var selected_stand = 0
 
-
 var labels = [
 'SINGLE',
 'HOTSEAT',
@@ -44,6 +43,9 @@ func _input(event):
 	
 	if event.is_action_pressed("fire"):
 		global.start_game()
+
+func hide_map_selector():
+	get_node("Control/map_selector").hide()
 
 func update_dots():
 	var d = 0
@@ -85,7 +87,15 @@ func set_selected_stand(s):
 		get_node("Control/char_selector/x_button").show()
 	else:
 		get_node("Control/char_selector/x_button").hide()
-		
+
+func update_map_button():
+	var map_img = "res://textures/maps/map_" + str(global.selected_map+1) + ".png"
+	var texture = load(map_img) 
+	get_node("Control/mode1/map/map").set_texture(texture)
+	
+	
+
+
 func select_tab(t):
 	get_node("Control/tabs/tab" + str(selected_tab)).show()
 	get_node("Control/tabs/tab" + str(t)).hide()
@@ -138,9 +148,9 @@ func _on_start_button_pressed():
 	global.single = false
 	global.start_game()
 #	global.goto_scene("res://scenes/main.tscn")
-#	
 func _on_cancel_pressed():
 	get_node("Control/char_selector").hide()
+	get_node("Control/map_selector").hide()
 
 func _on_quit_button_pressed():
 	global.game_quit()
@@ -165,3 +175,9 @@ func _on_back_button_pressed():
 	get_node("Control/mode0/levels_block").hide()
 	get_node("Control/mode0/sets").show()
 	global.is_levels_shown = false
+
+func _on_map_button_pressed():
+	get_node("Control/map_selector").show()
+
+	for b in get_node("Control/map_selector/buttons").get_children():
+		b.update_selections()

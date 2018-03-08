@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=1]
+
+[node name="map" type="Node2D"]
+
+[node name="ice_block" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 890, 540 )
+transform/rot = 90.0
+transform/scale = Vector2( -1, 1 )
+
+

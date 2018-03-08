@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://textures/rect.png" type="Texture" id=1]
+[ext_resource path="res://scripts/map_button.gd" type="Script" id=2]
+[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
+[ext_resource path="res://textures/maps/map_0.png" type="Texture" id=5]
+
+[node name="map_button" type="Patch9Frame"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 226.0
+texture = ExtResource( 1 )
+patch_margin/left = 40
+patch_margin/top = 40
+patch_margin/right = 40
+patch_margin/bottom = 40
+script/script = ExtResource( 2 )
+map = -1
+
+[node name="map_button" type="Button" parent="."]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 340.0
+margin/bottom = 230.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "111"
+flat = false
+
+[node name="Label" type="Label" parent="."]
+
+rect/scale = Vector2( 0.45, 0.45 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 180.0
+margin/right = 711.0
+margin/bottom = 271.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 3
+text = "MAP"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="is_selected" type="Sprite" parent="."]
+
+transform/pos = Vector2( 280, 204 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="map_0" type="Sprite" parent="."]
+
+transform/pos = Vector2( 160, 90 )
+transform/scale = Vector2( 0.502919, 0.508428 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="map_button" to="." method="_on_map_button_pressed"]
+
+

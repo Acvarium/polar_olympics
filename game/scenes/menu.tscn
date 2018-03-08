@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=23 format=1]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -18,8 +18,10 @@
 [ext_resource path="res://textures/play.png" type="Texture" id=16]
 [ext_resource path="res://objects/lvl_button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://objects/set_button.tscn" type="PackedScene" id=18]
-[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=19]
-[ext_resource path="res://textures/rect2.tex" type="Texture" id=20]
+[ext_resource path="res://textures/maps/map_0.png" type="Texture" id=19]
+[ext_resource path="res://objects/select_button.tscn" type="PackedScene" id=20]
+[ext_resource path="res://textures/rect2.tex" type="Texture" id=21]
+[ext_resource path="res://objects/map_button.tscn" type="PackedScene" id=22]
 
 [node name="main" type="Node2D"]
 
@@ -57,6 +59,7 @@ margin/bottom = 40.0
 
 [node name="rect" type="ReferenceFrame" parent="Control"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -71,6 +74,7 @@ __meta__ = {
 
 [node name="hint" type="Control" parent="Control/rect"]
 
+editor/display_folded = true
 anchor/top = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -232,6 +236,7 @@ align = 0
 
 [node name="tabs" type="Control" parent="Control"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -597,6 +602,8 @@ max_lines_visible = -1
 
 [node name="mode0" type="Control" parent="Control"]
 
+editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -608,6 +615,7 @@ margin/bottom = 40.0
 
 [node name="levels_block" type="Control" parent="Control/mode0"]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -913,8 +921,6 @@ is_inaccessible = true
 
 [node name="mode1" type="Control" parent="Control"]
 
-editor/display_folded = true
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -965,7 +971,69 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button0" parent="Control/mode1" instance=ExtResource( 19 )]
+[node name="map" type="Patch9Frame" parent="Control/mode1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1530.0
+margin/top = 300.0
+margin/right = 1870.0
+margin/bottom = 536.0
+texture = ExtResource( 5 )
+patch_margin/left = 40
+patch_margin/top = 40
+patch_margin/right = 40
+patch_margin/bottom = 40
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="map_button" type="Button" parent="Control/mode1/map"]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 350.0
+margin/bottom = 230.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "111"
+flat = false
+
+[node name="Label" type="Label" parent="Control/mode1/map"]
+
+visibility/self_opacity = 0.84
+rect/scale = Vector2( 0.45, 0.45 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 192.0
+margin/right = 778.0
+margin/bottom = 283.0
+custom_fonts/font = ExtResource( 6 )
+text = "MAP"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="map" type="Sprite" parent="Control/mode1/map"]
+
+transform/pos = Vector2( 171.25, 99.25 )
+transform/scale = Vector2( 0.54097, 0.550067 )
+texture = ExtResource( 19 )
+
+[node name="select_button0" parent="Control/mode1" instance=ExtResource( 20 )]
 
 margin/left = 290.0
 margin/top = 240.0
@@ -973,7 +1041,7 @@ margin/right = 554.0
 margin/bottom = 535.0
 avatar = 1
 
-[node name="select_button1" parent="Control/mode1" instance=ExtResource( 19 )]
+[node name="select_button1" parent="Control/mode1" instance=ExtResource( 20 )]
 
 margin/left = 580.0
 margin/top = 240.0
@@ -982,7 +1050,7 @@ margin/bottom = 535.0
 stand = 1
 avatar = 23
 
-[node name="select_button2" parent="Control/mode1" instance=ExtResource( 19 )]
+[node name="select_button2" parent="Control/mode1" instance=ExtResource( 20 )]
 
 margin/left = 880.0
 margin/top = 240.0
@@ -990,7 +1058,7 @@ margin/right = 1144.0
 margin/bottom = 535.0
 stand = 2
 
-[node name="select_button3" parent="Control/mode1" instance=ExtResource( 19 )]
+[node name="select_button3" parent="Control/mode1" instance=ExtResource( 20 )]
 
 margin/left = 1180.0
 margin/top = 240.0
@@ -1074,7 +1142,7 @@ margin/left = 260.0
 margin/top = 270.0
 margin/right = 1500.0
 margin/bottom = 964.0
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 modulate = Color( 0.341176, 0.729412, 0.901961, 0.768627 )
 patch_margin/left = 40
 patch_margin/top = 40
@@ -1100,7 +1168,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 19 )]
+[node name="select_button4" parent="Control/char_selector" instance=ExtResource( 20 )]
 
 margin/left = 40.0
 margin/top = 43.0
@@ -1109,7 +1177,7 @@ margin/bottom = 338.0
 avatar = 1
 in_selector = true
 
-[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 19 )]
+[node name="select_button8" parent="Control/char_selector" instance=ExtResource( 20 )]
 
 margin/left = 40.0
 margin/top = 353.0
@@ -1118,7 +1186,7 @@ margin/bottom = 648.0
 avatar = 4
 in_selector = true
 
-[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 19 )]
+[node name="select_button5" parent="Control/char_selector" instance=ExtResource( 20 )]
 
 margin/left = 340.0
 margin/top = 43.0
@@ -1127,7 +1195,7 @@ margin/bottom = 338.0
 avatar = 2
 in_selector = true
 
-[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 19 )]
+[node name="select_button8 3" parent="Control/char_selector" instance=ExtResource( 20 )]
 
 margin/left = 340.0
 margin/top = 353.0
@@ -1136,7 +1204,7 @@ margin/bottom = 648.0
 avatar = 5
 in_selector = true
 
-[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 19 )]
+[node name="select_button6" parent="Control/char_selector" instance=ExtResource( 20 )]
 
 margin/left = 640.0
 margin/top = 43.0
@@ -1145,7 +1213,7 @@ margin/bottom = 338.0
 avatar = 3
 in_selector = true
 
-[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 19 )]
+[node name="select_button7" parent="Control/char_selector" instance=ExtResource( 20 )]
 
 margin/left = 940.0
 margin/top = 43.0
@@ -1154,7 +1222,7 @@ margin/bottom = 338.0
 avatar = 23
 in_selector = true
 
-[node name="x_button" parent="Control/char_selector" instance=ExtResource( 19 )]
+[node name="x_button" parent="Control/char_selector" instance=ExtResource( 20 )]
 
 margin/left = 640.0
 margin/top = 353.0
@@ -1163,6 +1231,77 @@ margin/bottom = 648.0
 avatar = 1
 in_selector = true
 xxx = true
+
+[node name="map_selector" type="Patch9Frame" parent="Control"]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 136.0
+margin/top = 222.0
+margin/right = 1776.0
+margin/bottom = 996.0
+texture = ExtResource( 21 )
+modulate = Color( 0.341176, 0.729412, 0.901961, 0.768627 )
+patch_margin/left = 40
+patch_margin/top = 40
+patch_margin/right = 40
+patch_margin/bottom = 40
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cancel" type="Button" parent="Control/map_selector"]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -280.0
+margin/top = -304.0
+margin/right = 1690.0
+margin/bottom = 836.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="buttons" type="Control" parent="Control/map_selector"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="map_button" parent="Control/map_selector/buttons" instance=ExtResource( 22 )]
+
+margin/left = 50.0
+margin/top = 50.0
+margin/right = 370.0
+margin/bottom = 276.0
+
+[node name="map_button1" parent="Control/map_selector/buttons" instance=ExtResource( 22 )]
+
+margin/left = 420.0
+margin/top = 50.0
+margin/right = 740.0
+margin/bottom = 276.0
+map = 0
+
+[node name="map_button2" parent="Control/map_selector/buttons" instance=ExtResource( 22 )]
+
+margin/left = 790.0
+margin/top = 50.0
+margin/right = 1110.0
+margin/bottom = 276.0
+map = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -1205,6 +1344,10 @@ drag_margin/bottom = 0.2
 
 [connection signal="pressed" from="Control/mode1/start/start_button" to="." method="_on_start_button_pressed"]
 
+[connection signal="pressed" from="Control/mode1/map/map_button" to="." method="_on_map_button_pressed"]
+
 [connection signal="pressed" from="Control/char_selector/cancel" to="." method="_on_cancel_pressed"]
+
+[connection signal="pressed" from="Control/map_selector/cancel" to="." method="_on_cancel_pressed"]
 
 

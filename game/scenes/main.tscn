@@ -550,11 +550,6 @@ transform/pos = Vector2( 1909.12, -578.178 )
 transform/pos = Vector2( 2286.28, -570.451 )
 transform/rot = -1.35407
 
-[node name="ice_block7" parent="game_field/blocks" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 1823.59, 0 )
-transform/rot = 90.0
-
 [node name="ice_block07" parent="game_field/blocks" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 17.7863, 568.075 )
