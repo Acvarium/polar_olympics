@@ -33,7 +33,16 @@ func turntable(new_val):
 func _fixed_process(delta):
 	if pengs.size() == 0:
 		set_fixed_process(false)
+		get_node("right_arrow").hide()
+		get_node("left_arrow").hide()
 	else:
+		if is_right_in:
+			get_node("right_arrow").show()
+			get_node("left_arrow").hide()
+		else:
+			get_node("right_arrow").hide()
+			get_node("left_arrow").show()
+		
 		for p in pengs:
 			var peng = get_node(p)
 			var p_vel_len = peng.get_linear_velocity().length()
@@ -48,7 +57,6 @@ func _on_rot_pressed():
 		set_rot(rot - PI/2)
 	l_in = in_vec.rotated(get_rot())
 	r_in = in_vec.rotated(get_rot() + PI)
-
 
 func _on_force_body_enter( body ):
 	if body.is_in_group('peng'):

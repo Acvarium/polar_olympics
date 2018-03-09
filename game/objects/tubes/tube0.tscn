@@ -63,14 +63,24 @@ transform/pos = Vector2( -1.07662, 0.222225 )
 transform/scale = Vector2( 0.65, 0.65 )
 texture = ExtResource( 2 )
 
-[node name="force_icon" type="Sprite" parent="."]
+[node name="left_arrow" type="Sprite" parent="."]
 
 visibility/visible = false
 visibility/self_opacity = 0.34
-transform/pos = Vector2( -0.588102, 0.0959509 )
+transform/pos = Vector2( -42.5881, 0.0959509 )
 transform/scale = Vector2( 0.3597, 0.3597 )
 z/z = 100
 texture = ExtResource( 3 )
+
+[node name="right_arrow" type="Sprite" parent="."]
+
+visibility/visible = false
+visibility/self_opacity = 0.34
+transform/pos = Vector2( 40.4119, 0.0959509 )
+transform/scale = Vector2( 0.3597, 0.3597 )
+z/z = 100
+texture = ExtResource( 3 )
+flip_h = true
 
 [node name="movable" type="Sprite" parent="."]
 
