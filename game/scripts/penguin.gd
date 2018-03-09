@@ -43,7 +43,7 @@ func reset_damp():
 func set_damp(d):
 	set_linear_damp(d)
 	set_angular_damp(d)
-
+	
 func eat():
 	get_node("anim").play("eat")
 

@@ -3,10 +3,10 @@ extends Area2D
 var pengs = []
 var main_node
 const in_vec = Vector2(1,0)
-var l_in = Vector2(1,0)
-var r_in = Vector2(0,-1)
-var l_out = l_in.rotated(PI)
-var r_out = r_in.rotated(PI)
+var l_in = Vector2()
+var r_in = Vector2()
+var l_out = Vector2()
+var r_out = Vector2()
 export var vel = 1000
 
 export var is_turntable = false setget turntable
@@ -42,7 +42,6 @@ func _fixed_process(delta):
 			get_node("left_arrow").show()
 		for p in pengs:
 			var peng = get_node(p)
-			var p_vel_len = peng.get_linear_velocity().length()
 			var velocity = (get_node("dot").get_global_pos() - peng.get_global_pos())
 			if is_right_in:
 					velocity = peng.get_global_pos() - get_node("dot").get_global_pos()

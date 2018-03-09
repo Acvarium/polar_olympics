@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://objects/tubes/tube0.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/cr.png" type="Texture" id=3]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=5]
+[ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=6]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = true
+tut_num = 0
+
+[node name="force" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 950, 600 )
+is_turntable = true
+
+[node name="force2 2" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 952, 362 )
+is_turntable = true
+
+[node name="force23" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 680, 360 )
+is_turntable = true
+
+[node name="cr" type="Sprite" parent="."]
+
+transform/pos = Vector2( 2862, 541 )
+texture = ExtResource( 3 )
+
+[node name="bonus_fish1" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 632, 1252 )
+
+[node name="bonus_fish10 3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 632, 1154 )
+
+[node name="bonus_fish5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 482, 1252 )
+
+[node name="bonus_fish10 4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 482, 1154 )
+
+[node name="bonus_fish6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 332, 1252 )
+
+[node name="bonus_fish10 6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 332, 1154 )
+
+[node name="bonus_fish2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 920, 1250 )
+
+[node name="bonus_fish10 2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 920, 1152 )
+
+[node name="bonus_fish4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1062, 1252 )
+
+[node name="bonus_fish10" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1062, 1154 )
+
+[node name="bonus_fish3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 780, 1250 )
+
+[node name="bonus_fish10 7" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 780, 1152 )
+
+[node name="start_point" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 809 )
+texture = ExtResource( 5 )
+
+[node name="force1" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1270, 600 )
+transform/rot = -90.0
+is_turntable = true
+
+[node name="force3" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 352, 602 )
+transform/rot = 180.0
+is_turntable = true
+
+[node name="force2" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1272, 362 )
+is_turntable = true
+
+[node name="force3 2" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 352, 362 )
+transform/rot = 90.0
+is_turntable = true
+
+

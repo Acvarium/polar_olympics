@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=13 format=1]
 
-[ext_resource path="res://scripts/force_field.gd" type="Script" id=1]
+[ext_resource path="res://scripts/tube0.gd" type="Script" id=1]
 [ext_resource path="res://textures/tube0.png" type="Texture" id=2]
 [ext_resource path="res://textures/force_icon.tex" type="Texture" id=3]
 [ext_resource path="res://textures/movable.tex" type="Texture" id=4]
@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 50, 50 )
+extents = Vector2( 61, 60 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -41,28 +41,20 @@ points = Vector2Array( 55.117, 72.1389, -56.3718, 72.1389, -50.7979, 50.5853, 53
 custom_solver_bias = 0.0
 points = Vector2Array( 55.117, 72.1389, 79.494, 59.9504, 76.9846, 78.9501, 59.4189, 80.7426 )
 
-[sub_resource type="RectangleShape2D" id=8]
-
-custom_solver_bias = 0.0
-extents = Vector2( 7.15919, 48.1736 )
-
 [node name="force" type="Area2D"]
 
 z/z = 150
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -1, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
-impuls = 500
-has_force = false
-mode = 0
+vel = 1000
 is_turntable = false
-is_movable = false
 
 [node name="tube0" type="Sprite" parent="."]
 
@@ -98,7 +90,7 @@ texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-visibility/visible = false
+transform/pos = Vector2( -1, 0 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -133,7 +125,6 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 
-visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( 77.6622, -78.5088, 58.6829, -79.9687, 54.3031, -72.377, -56.9445, -72.377, -60.7403, -79.9687, -79.4276, -78.2168, -81.7635, -57.1936, -50.7979, -49.7091, 54.026, -49.3856, 79.7061, -59.5295 )
 shape_range = Vector2( 0, 2 )
@@ -141,7 +132,6 @@ trigger = false
 
 [node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="StaticBody2D"]
 
-visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( -79.6733, 78.9501, -61.3906, 80.0256, -56.3718, 72.1389, 55.117, 72.1389, 59.4189, 80.7426, 76.9846, 78.9501, 79.494, 59.9504, 53.3789, 50.9089, -50.7979, 50.5853, -81.8243, 58.5165 )
 shape_range = Vector2( 3, 5 )
@@ -163,33 +153,10 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="right" type="Area2D" parent="."]
-
-input/pickable = true
-shapes/0/shape = SubResource( 8 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 58, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
-
-visibility/visible = false
-transform/pos = Vector2( 58, 0 )
-shape = SubResource( 8 )
-trigger = false
-_update_shape_index = 0
-
 [connection signal="body_enter" from="." to="." method="_on_force_body_enter"]
 
 [connection signal="body_exit" from="." to="." method="_on_force_body_exit"]
 
 [connection signal="pressed" from="rot" to="." method="_on_rot_pressed"]
-
-[connection signal="body_enter" from="right" to="." method="_on_right_body_enter"]
-
-[connection signal="body_exit" from="right" to="." method="_on_right_body_exit"]
 
 
