@@ -72,30 +72,10 @@ func _fixed_process(delta):
 					rotated_impuls = (get_node("dot").get_global_pos() - get_node(p).get_global_pos())
 					rotated_impuls = rotated_impuls.normalized() * impuls * delta
 					get_node(p).apply_impulse(Vector2(10,0),rotated_impuls)
-			elif mode == 3:
-				i_speed = get_node(p).get_linear_velocity().length()
-				rotated_impuls = (get_node("dot").get_global_pos() - get_node(p).get_global_pos())
-#				var an = rotated_impuls.angle() - PI/2
-				if is_right_in:
-					rotated_impuls = get_node(p).get_global_pos() - get_node("dot").get_global_pos()
-#					an = rotated_impuls.angle() + PI
-				rotated_impuls = rotated_impuls.rotated(PI/2).normalized() * i_speed 
-				
-				var v = get_node(p).get_linear_velocity()
-#				get_node(p).set_angular_velocity((get_node(p).get_rot() - an))
-				
-				rotated_impuls = rotated_impuls - v
-				get_node(p).apply_impulse(Vector2(10,0), rotated_impuls )
-#				get_node(p).set_linear_velocity(rotated_impuls )
-
-			elif mode == 4:
-				pass
 				
 func _on_force_body_enter( body ):
 	if body.is_in_group('peng'):
-		if mode == 0 or mode == 3:
 		
-			body.rot_to_velocity = true
 		start_angle = int(body.get_rot() / PI/4) * PI/2
 		pengs.append(body.get_path())
 		i_speed = body.get_linear_velocity().length() * 60
@@ -109,18 +89,7 @@ func _on_force_body_exit( body ):
 		body.rot_to_velocity = false
 		if has_node("ang"):
 			get_node("ang").set_text(str(int(body.get_rotd())))
-		if mode == 3:
-			var v = body.get_linear_velocity()
-			var vl = body.get_linear_velocity().length()
-			var vec = Vector2(vl,0).rotated(get_rot()-PI/2)
-			
-			if is_right_in:
-				vec = Vector2(vl,0).rotated(get_rot()-PI)
-#		
-			body.set_linear_velocity(vec )
-#			body.
-
-		
+	
 		is_right_in = false
 		pengs.remove(pengs.find(body.get_path()))
 		

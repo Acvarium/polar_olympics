@@ -38,6 +38,7 @@ var maps = [
 ]
 
 var levels = [
+"res://levels/test_level_simple_3_pipes.tscn",
 "res://levels/level_simple_line.tscn",
 "res://levels/level_line_with_holes.tscn",
 "res://levels/level_simple_iglu.tscn",

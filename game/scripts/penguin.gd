@@ -169,3 +169,14 @@ func _on_in_water_timeout():
 #	if in_water:
 	main_node.add_splash(get_global_pos())
 	queue_free()
+
+func norm_rot_on():
+	get_node("to_norm_rot").start()
+	
+func norm_rot_off():
+	get_node("to_norm_rot").stop()
+	rot_to_velocity = true
+	
+	
+func _on_to_norm_rot_timeout():
+	rot_to_velocity = false

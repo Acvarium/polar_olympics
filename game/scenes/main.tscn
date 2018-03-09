@@ -374,6 +374,7 @@ script/script = ExtResource( 1 )
 
 [node name="game_field" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 150, 540 )
 
 [node name="water" type="Area2D" parent="game_field" groups=[
@@ -705,6 +706,8 @@ texture = ExtResource( 12 )
 
 [node name="ui" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="flags" type="Node2D" parent="ui"]
 
 transform/pos = Vector2( 150, 540 )
@@ -714,6 +717,7 @@ __meta__ = {
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
+[ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=5]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = true
+tut_num = 0
+
+[node name="cr" type="Sprite" parent="."]
+
+transform/pos = Vector2( 2862, 541 )
+texture = ExtResource( 2 )
+
+[node name="bonus_fish1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 632, 1252 )
+
+[node name="bonus_fish10 3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 632, 1154 )
+
+[node name="bonus_fish5" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 482, 1252 )
+
+[node name="bonus_fish10 4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 482, 1154 )
+
+[node name="bonus_fish6" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 332, 1252 )
+
+[node name="bonus_fish10 6" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 332, 1154 )
+
+[node name="bonus_fish2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 920, 1250 )
+
+[node name="bonus_fish10 2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 920, 1152 )
+
+[node name="bonus_fish4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1062, 1252 )
+
+[node name="bonus_fish10" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1062, 1154 )
+
+[node name="bonus_fish3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 780, 1250 )
+
+[node name="bonus_fish10 7" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 780, 1152 )
+
+[node name="start_point" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 809 )
+texture = ExtResource( 4 )
+
+[node name="force" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 512, 202 )
+is_turntable = true
+
+[node name="force7" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 260, 200 )
+is_turntable = true
+
+[node name="force2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 779.728, 202 )
+is_turntable = true
+
+[node name="force3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1042, 202 )
+is_turntable = true
+
+[node name="force4" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1302, 212 )
+is_turntable = true
+
+[node name="force5" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1562, 212 )
+is_turntable = true
+
+[node name="force6" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 260, 460 )
+vel = 1500
+is_turntable = true
+
+[node name="force8" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1802, 462 )
+is_turntable = true
+
+[node name="force1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 512, 802 )
+transform/rot = -90.0
+is_turntable = true
+
+[node name="force2 2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 779.728, 802 )
+transform/rot = -90.0
+is_turntable = true
+
+[node name="force23" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1042, 802 )
+transform/rot = -90.0
+is_turntable = true
+
+[node name="force24" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1302, 812 )
+transform/rot = -90.0
+is_turntable = true
+
+[node name="force25" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1562, 812 )
+transform/rot = -90.0
+is_turntable = true
+
+[node name="force26" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1802, 812 )
+transform/rot = -90.0
+is_turntable = true
+
+
