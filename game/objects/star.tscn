@@ -3,8 +3,9 @@
 [ext_resource path="res://textures/stars.tex" type="Texture" id=1]
 [ext_resource path="res://scripts/star.gd" type="Script" id=2]
 [ext_resource path="res://textures/star_particle.png" type="Texture" id=3]
-[ext_resource path="res://sounds/jeckkech__swim.smp" type="Sample" id=4]
-[ext_resource path="res://sounds/sparks.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sounds/bell01.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sounds/bell02.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sounds/bell03.ogg" type="AudioStream" id=6]
 
 [sub_resource type="ColorRamp" id=1]
 
@@ -46,15 +47,6 @@ tracks/2/keys = {
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
 "values": [ 1, 0 ]
-}
-
-[sub_resource type="SampleLibrary" id=3]
-
-samples/jeckkech__swim = {
-"db": 0.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": ExtResource( 4 )
 }
 
 [node name="star" type="Sprite"]
@@ -116,23 +108,34 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="effect" type="SamplePlayer2D" parent="."]
+[node name="b0" type="StreamPlayer" parent="."]
 
-params/volume_db = 0.0
-params/pitch_scale = 1.0
-params/attenuation/min_distance = 1.0
-params/attenuation/max_distance = 2048.0
-params/attenuation/distance_exp = 1.0
-config/polyphony = 1
-config/samples = SubResource( 3 )
-config/pitch_random = 0.0
-
-[node name="sparks" type="StreamPlayer" parent="."]
-
-stream/stream = ExtResource( 5 )
+stream/stream = ExtResource( 4 )
 stream/play = true
 stream/loop = false
-stream/volume_db = -30.0
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="b1" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 5 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="b2" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 6 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
 stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0

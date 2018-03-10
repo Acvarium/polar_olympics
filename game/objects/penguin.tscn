@@ -166,9 +166,10 @@ config/pitch_random = 0.0
 
 [node name="flag" type="Position2D" parent="."]
 
+visibility/visible = false
+
 [node name="sprite" type="Sprite" parent="flag"]
 
-visibility/visible = false
 visibility/self_opacity = 0.6
 transform/pos = Vector2( -45.4456, -43.4285 )
 transform/scale = Vector2( 0.5, 0.5 )

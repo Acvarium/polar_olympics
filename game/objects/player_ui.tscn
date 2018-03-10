@@ -626,54 +626,94 @@ max_lines_visible = -1
 
 [node name="point" type="Position2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 304, -33 )
 
 [node name="peng_ico0" type="Sprite" parent="point"]
 
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 0, 5 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0.404392 )
+
+[node name="minus" type="Label" parent="point/peng_ico0"]
+
+visibility/visible = false
+visibility/self_opacity = 0.55
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -25.0
+margin/top = 6.0
+margin/right = 47.0
+margin/bottom = 97.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "-2"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="peng_ico1" type="Sprite" parent="point"]
 
-transform/pos = Vector2( 40, 0 )
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 41, 5 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0.404392 )
 
+[node name="minus" type="Label" parent="point/peng_ico1"]
+
+visibility/visible = false
+visibility/self_opacity = 0.55
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -24.0
+margin/top = 6.0
+margin/right = 48.0
+margin/bottom = 97.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "-2"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="peng_ico2" type="Sprite" parent="point"]
 
-transform/pos = Vector2( 80, 0 )
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 82, 5 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0.404392 )
 
 [node name="peng_ico3" type="Sprite" parent="point"]
 
-transform/pos = Vector2( 120, 0 )
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 123, 5 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0.404392 )
 
 [node name="peng_ico4" type="Sprite" parent="point"]
 
-transform/pos = Vector2( 160, 0 )
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 164, 5 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0.404392 )
 
 [node name="peng_ico5" type="Sprite" parent="point"]
 
-transform/pos = Vector2( 200, 0 )
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 205, 5 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0.404392 )
 
 [node name="peng_ico6" type="Sprite" parent="point"]
 
-transform/pos = Vector2( 240, 0 )
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 246, 5 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0.404392 )
 

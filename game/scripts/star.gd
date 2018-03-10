@@ -23,4 +23,5 @@ func set_star(s):
 
 func star_on(n):
 	get_node("anim").play("star_on")
-	get_node("effect").get_sample_library().sample_set_pitch_scale("jeckkech__swim", pinches[n])
+	get_node("b" + str(n)).play()
+#	get_node("effect").get_sample_library().sample_set_pitch_scale("jeckkech__swim", pinches[n])

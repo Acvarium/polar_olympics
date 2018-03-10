@@ -400,6 +400,8 @@ func _notification(what):
 func fire():
 	get_node("game_field/point/power_arrow").hide()
 	get_node("timers/bot_emergency_triger").stop()
+	if throws[team] < max_throw and global.single:
+		get_node("game_field/effects/minus2").play("minus2")
 	throws[team] -= 1
 	
 	get_node("canvas/data_ui/player" + str(team)).set_trows(throws[team])
@@ -462,6 +464,7 @@ func update_team_score(t):
 		var penalty = 0
 		if p_num > 1:
 			penalty = 2 * (p_num - 1)
+			
 		score[t] -= penalty
 		var ss = str(score[0]) + '/' + str(level_max_score)
 		get_node("canvas/data_ui/level_score/score").set_text(ss)

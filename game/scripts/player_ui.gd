@@ -13,6 +13,9 @@ func _ready():
 	get_node("under").show()
 	get_node("icon").set_modulate(Color(1,1,1,0))
 	set_layout(layout)
+	if global.single:
+		get_node("point/peng_ico0/minus").show()
+		get_node("point/peng_ico1/minus").show()
 #	if main_node.team == layout:
 #		get_node("layout").animation_set_next(
 
