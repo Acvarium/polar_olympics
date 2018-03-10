@@ -393,7 +393,10 @@ func get_winers():
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		if to_exit:
-			get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+			get_node("canvas/data_ui/loading").show()
+			get_node("canvas/data_ui/b").show()
+			get_node("timers/menu").start()
+			
 		else:
 			to_exit = true
 			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
@@ -479,7 +482,7 @@ func _on_fire_button_button_down():
 		get_node("canvas/data_ui/hello_button").show()
 		get_node("canvas/data_ui/total_score_tab").hide()
 	else:
-		get_tree().reload_current_scene()
+		restart_scene()
 
 func is_bot_move():
 	return avatars[team] == 23 and !global.single
@@ -518,7 +521,9 @@ func _on_rand_fire_timeout():
 func _on_menu_button_pressed():
 	button_pressed = true
 	if to_exit:
-		get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+		get_node("canvas/data_ui/loading").show()
+		get_node("canvas/data_ui/b").show()
+		get_node("timers/menu").start()
 	else:
 		to_exit = true
 		get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
@@ -551,10 +556,10 @@ func _on_score_anim_finished():
 
 func _on_play_button_pressed():
 	global.select_next_level(1)
-	get_tree().reload_current_scene()
+	restart_scene()
 
 func _on_replay_button_pressed():
-	get_tree().reload_current_scene()
+	restart_scene()
 
 func _on_aim_button_button_down():
 	if is_bot_move() and !to_restart:
@@ -573,7 +578,7 @@ func _on_tutorial_finished():
 
 func _on_hello_button_pressed():
 	get_node("canvas/data_ui/hello_button").hide()
-	get_tree().reload_current_scene()
+	restart_scene()
 
 func _on_rate_button_pressed():
 	if OS.get_name() == "Android":
@@ -581,11 +586,23 @@ func _on_rate_button_pressed():
 	else:
 		OS.shell_open("https://acvarium.itch.io/po")
 	get_node("canvas/data_ui/hello_button").hide()
-	get_tree().reload_current_scene()
+	restart_scene()
 
 func _on_bot_fire_timeout():
 	if throws[team] > 0:
 		bot_move()
 
 func _on_autorestart_timeout():
+	restart_scene()
+	
+func restart_scene():
+	get_node("canvas/data_ui/loading").show()
+	get_node("canvas/data_ui/b").show()
+	get_node("timers/restart").start()
+	
+
+func _on_restart_timeout():
 	get_tree().reload_current_scene()
+
+func _on_menu_timeout():
+	get_node("/root/global").goto_scene("res://scenes/menu.tscn")

@@ -49,7 +49,7 @@ func set_level(l):
 	get_node("Label").set_text(str("%02d" % (level + 1)))
 	set_lock(lock)
 	if global.debug_mode:
-		get_node("lvl").set_tooltip(global.levels[l])
+		get_node("lvl").set_tooltip(global.levels[l % global.levels.size()])
 
 
 func _on_lvl_pressed():
@@ -60,7 +60,7 @@ func _on_lvl_pressed():
 			global.level_num = level
 			global.select_next_level(0)
 			global.single = true
-			global.goto_scene("res://scenes/main.tscn")
+			main_node.load_single()
 		else:
 			main_node.show_levels_set(set_num * 16)
 		

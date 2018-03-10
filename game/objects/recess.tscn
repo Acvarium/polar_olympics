@@ -32,8 +32,10 @@ collision/layers = 2
 collision/mask = 2
 script/script = ExtResource( 3 )
 impuls = 500
-vis = false
+has_force = false
 mode = 2
+is_turntable = false
+is_movable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="force"]
 

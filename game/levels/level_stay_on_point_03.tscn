@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://objects/recess.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=5]
+[ext_resource path="res://objects/cross_point.tscn" type="PackedScene" id=6]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 0
+
+[node name="cr" type="Sprite" parent="."]
+
+transform/pos = Vector2( 3160, 780 )
+texture = ExtResource( 2 )
+
+[node name="hole" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 560, 470 )
+
+[node name="hole1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1310, 770 )
+
+[node name="bonus_fish10 3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 610, 630 )
+
+[node name="bonus_fish10 4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 462, 604 )
+
+[node name="bonus_fish10 6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 352, 544 )
+
+[node name="bonus_fish10 2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 870, 640 )
+
+[node name="bonus_fish103" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1130, 720 )
+
+[node name="bonus_fish104" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1480, 860 )
+
+[node name="bonus_fish10 7" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 740, 630 )
+
+[node name="bonus_fish108" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1010, 660 )
+
+[node name="cloud_ui_dot" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 540 )
+texture = ExtResource( 5 )
+
+[node name="iglu" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1700, 890 )
+score = 3
+
+

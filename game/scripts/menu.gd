@@ -145,9 +145,17 @@ func show_levels_set(n):
 		l.set_level(i + n)
 
 func _on_start_button_pressed():
-	global.single = false
-	global.start_game()
-#	global.goto_scene("res://scenes/main.tscn")
+	for c in get_node("Control").get_children():
+		c.hide()
+	get_node("Control/loading").show()
+	get_node("timers/start_hotseat").start()
+
+func load_single():
+	for c in get_node("Control").get_children():
+		c.hide()
+	get_node("Control/loading").show()
+	get_node("timers/start_single").start()
+	
 func _on_cancel_pressed():
 	get_node("Control/char_selector").hide()
 	get_node("Control/map_selector").hide()
@@ -181,3 +189,10 @@ func _on_map_button_pressed():
 
 	for b in get_node("Control/map_selector/buttons").get_children():
 		b.update_selections()
+
+func _on_start_single_timeout():
+	global.goto_scene("res://scenes/main.tscn")
+
+func _on_start_hotseat_timeout():
+	global.single = false
+	global.start_game()

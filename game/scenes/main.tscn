@@ -47,7 +47,7 @@ length = 1.0
 loop = true
 step = 0.1
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 
 resource/name = "minus2"
 length = 0.5
@@ -84,7 +84,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
 length = 4.0
 loop = false
@@ -100,7 +100,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0, 0.6, 0.0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 3.0
 loop = false
@@ -146,7 +146,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 0.5
 loop = false
@@ -172,7 +172,7 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
 length = 4.0
 loop = false
@@ -208,7 +208,7 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 length = 2.5
 loop = false
@@ -224,7 +224,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
 length = 6.0
 loop = false
@@ -250,7 +250,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="SampleLibrary" id=10]
+[sub_resource type="SampleLibrary" id=11]
 
 samples/yahoo = {
 "db": -10.0,
@@ -259,7 +259,7 @@ samples/yahoo = {
 "sample": ExtResource( 30 )
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 7.0
 loop = false
@@ -481,15 +481,6 @@ visibility/light_mask = 514
 transform/pos = Vector2( 1032.14, -6.68066 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
-modulate = Color( 1, 1, 1, 0.677255 )
-
-[node name="banner1" type="Sprite" parent="game_field"]
-
-transform/pos = Vector2( 3605.03, 0 )
-transform/scale = Vector2( 1.81003, 1.6439 )
-texture = ExtResource( 2 )
-flip_h = true
-modulate = Color( 1, 1, 1, 0.677608 )
 
 [node name="banner2 2" type="Sprite" parent="game_field"]
 
@@ -498,16 +489,6 @@ transform/pos = Vector2( 1031.03, 1111 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
 flip_v = true
-modulate = Color( 1, 1, 1, 0.677255 )
-
-[node name="banner2" type="Sprite" parent="game_field"]
-
-transform/pos = Vector2( 3605.03, 1119 )
-transform/scale = Vector2( 1.81003, 1.6439 )
-texture = ExtResource( 2 )
-flip_h = true
-flip_v = true
-modulate = Color( 1, 1, 1, 0.677608 )
 
 [node name="levels" type="Node2D" parent="game_field"]
 
@@ -620,6 +601,7 @@ transform/rot = -1.35407
 
 [node name="effects" type="Node2D" parent="game_field"]
 
+editor/display_folded = true
 z/z = 100
 __meta__ = {
 "_edit_lock_": true
@@ -657,7 +639,7 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/minus2 = SubResource( 12 )
+anims/minus2 = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -665,7 +647,6 @@ autoplay = ""
 
 [node name="point" type="Sprite" parent="game_field"]
 
-editor/display_folded = true
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -782,7 +763,6 @@ __meta__ = {
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -790,7 +770,6 @@ scale = Vector2( 1, 1 )
 
 [node name="data_ui" type="ReferenceFrame" parent="canvas"]
 
-editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -955,6 +934,7 @@ __meta__ = {
 
 [node name="hello_button" type="Button" parent="canvas/data_ui"]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/self_opacity = 0.0
 anchor/left = 3
@@ -1448,7 +1428,7 @@ __meta__ = {
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/mess = SubResource( 4 )
+anims/mess = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1582,14 +1562,42 @@ textures/normal = ExtResource( 25 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
+[node name="b" type="Sprite" parent="canvas/data_ui"]
+
+visibility/visible = false
+visibility/light_mask = 514
+transform/pos = Vector2( 1182.14, 533.319 )
+transform/scale = Vector2( 1.81003, 1.6439 )
+texture = ExtResource( 2 )
+
+[node name="loading" type="Label" parent="canvas/data_ui"]
+
+visibility/visible = false
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 960.0
+margin/top = 469.0
+margin/right = -960.0
+margin/bottom = 560.0
+custom_fonts/font = ExtResource( 7 )
+text = "LOADING"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="score_anim" type="AnimationPlayer" parent="canvas"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/show_score = SubResource( 5 )
-anims/single_score = SubResource( 6 )
-anims/total_score = SubResource( 7 )
+anims/show_score = SubResource( 6 )
+anims/single_score = SubResource( 7 )
+anims/total_score = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1627,8 +1635,8 @@ drag_margin/bottom = 0.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/fast_fire = SubResource( 8 )
-anims/fire = SubResource( 9 )
+anims/fast_fire = SubResource( 9 )
+anims/fire = SubResource( 10 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1668,6 +1676,20 @@ autostart = false
 
 process_mode = 1
 wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="restart" type="Timer" parent="timers"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="menu" type="Timer" parent="timers"]
+
+process_mode = 1
+wait_time = 0.1
 one_shot = true
 autostart = false
 
@@ -1714,7 +1736,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 10 )
+config/samples = SubResource( 11 )
 config/pitch_random = 0.0
 
 [node name="tutorial" type="AnimationPlayer" parent="."]
@@ -1722,7 +1744,7 @@ config/pitch_random = 0.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/tutorial1 = SubResource( 11 )
+anims/tutorial1 = SubResource( 12 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1765,6 +1787,10 @@ autoplay = ""
 [connection signal="timeout" from="timers/bot_fire" to="." method="_on_bot_fire_timeout"]
 
 [connection signal="timeout" from="timers/autorestart" to="." method="_on_autorestart_timeout"]
+
+[connection signal="timeout" from="timers/restart" to="." method="_on_restart_timeout"]
+
+[connection signal="timeout" from="timers/menu" to="." method="_on_menu_timeout"]
 
 [connection signal="finished" from="tutorial" to="." method="_on_tutorial_finished"]
 

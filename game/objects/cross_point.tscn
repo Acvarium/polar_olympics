@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://scripts/iglu.gd" type="Script" id=1]
-[ext_resource path="res://textures/f_shadow.png" type="Texture" id=2]
-[ext_resource path="res://textures/iglu.png" type="Texture" id=3]
-[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://fonts/arial0.fnt" type="BitmapFont" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -68,7 +67,7 @@ points = Vector2Array( 1247.42, 422.872, 1332.74, 395.986, 1310.16, 441.155 )
 [sub_resource type="CircleShape2D" id=13]
 
 custom_solver_bias = 0.0
-radius = 132.0
+radius = 60.0
 
 [node name="iglu" type="RigidBody2D"]
 
@@ -110,8 +109,8 @@ shapes/10/trigger = false
 shapes/11/shape = SubResource( 12 )
 shapes/11/transform = Matrix32( 1, 2.66098e-12, 2.65743e-12, 1, -1201.87, -548.109 )
 shapes/11/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision/layers = 0
+collision/mask = 0
 mode = 0
 mass = 100.0
 friction = 0.1
@@ -137,7 +136,6 @@ score = 10
 "iglu",
 ]]
 
-transform/pos = Vector2( 38, 0 )
 input/pickable = true
 shapes/0/shape = SubResource( 13 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -149,39 +147,16 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
 
+visibility/visible = false
 shape = SubResource( 13 )
 trigger = false
 _update_shape_index = 0
 
-[node name="iglu_shadow" type="Sprite" parent="."]
+[node name="cr" type="Sprite" parent="."]
 
-transform/rot = -90.0
-transform/scale = Vector2( 0.531037, 0.531005 )
 texture = ExtResource( 2 )
-modulate = Color( 1, 1, 1, 0.502745 )
-
-[node name="iglu" type="Sprite" parent="."]
-
-transform/pos = Vector2( -0.5979, 0.591858 )
-transform/rot = -90.0
-transform/scale = Vector2( 0.534539, 0.534484 )
-z/z = 10
-texture = ExtResource( 3 )
-modulate = Color( 1, 1, 1, 0.84698 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-
-transform/pos = Vector2( -1201.87, -548.109 )
-transform/rot = 1.5226e-10
-build_mode = 0
-polygon = Vector2Array( 1090.77, 456.57, 1155.81, 391.839, 1244.92, 370.533, 1332.74, 395.986, 1396.2, 463.381, 1417.35, 551.927, 1392.61, 639.398, 1325.93, 703.567, 1240.61, 726.151, 1148.84, 699.623, 1089.81, 641.669, 987.881, 641.549, 1001.85, 595.283, 1122.35, 595.283, 1174.29, 657.68, 1237.75, 677.756, 1302.99, 662.699, 1350.67, 618.247, 1371.82, 553.719, 1355.33, 489.551, 1310.16, 441.155, 1247.42, 422.872, 1183.97, 437.929, 1123.97, 501.801, 1001.85, 501.801, 987.164, 456.211 )
-shape_range = Vector2( 0, 11 )
-trigger = false
 
 [node name="score_label" type="Node2D" parent="."]
-
-transform/pos = Vector2( 44, 0 )
-z/z = 101
 
 [node name="Label" type="Label" parent="score_label"]
 
@@ -189,11 +164,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -44.0
+margin/left = -80.0
 margin/top = -40.0
-margin/right = 38.0
+margin/right = 80.0
 margin/bottom = 51.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 0.867188, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0.367188, 1, 0.726784 )
 text = "10"

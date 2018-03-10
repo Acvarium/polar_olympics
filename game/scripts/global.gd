@@ -43,6 +43,10 @@ var levels = [
 "res://levels/level_simple_line.tscn",
 "res://levels/level_line_with_holes.tscn",
 "res://levels/level_simple_iglu.tscn",
+"res://levels/level_stay_on_point.tscn",
+"res://levels/level_stay_on_point_02.tscn",
+"res://levels/level_stay_on_point_iglu.tscn",
+"res://levels/level_stay_on_point_03.tscn",
 
 "res://levels/level_simple_3_pipes.tscn",
 "res://levels/level_first_pipes_rotate.tscn",
