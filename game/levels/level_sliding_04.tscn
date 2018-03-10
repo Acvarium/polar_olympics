@@ -57,12 +57,13 @@ transform/pos = Vector2( 1083.54, 570 )
 [node name="force1" parent="slider" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1254.54, 570 )
-transform/rot = -90.0
+transform/rot = 180.0
 is_turntable = true
 
 [node name="force2" parent="slider" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1254.54, 342 )
+transform/rot = -90.0
 is_turntable = true
 
 [node name="island" parent="slider" instance=ExtResource( 7 )]
@@ -96,8 +97,6 @@ transform/pos = Vector2( 798.536, 342 )
 
 [node name="force" parent="slider/island1" instance=ExtResource( 8 )]
 
-impuls = 1500
-
 [node name="island11" parent="slider" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 342.536, 570 )
@@ -121,15 +120,11 @@ transform/pos = Vector2( 798.536, 570 )
 
 [node name="force" parent="slider/island4" instance=ExtResource( 8 )]
 
-impuls = 1500
-
 [node name="island12" parent="slider" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 114.536, 114 )
 
 [node name="force" parent="slider/island12" instance=ExtResource( 8 )]
-
-impuls = 1500
 
 [node name="island5" parent="slider" instance=ExtResource( 7 )]
 

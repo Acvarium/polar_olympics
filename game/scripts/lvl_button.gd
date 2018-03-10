@@ -48,6 +48,8 @@ func set_level(l):
 	lock = global.stages_locks[level]
 	get_node("Label").set_text(str("%02d" % (level + 1)))
 	set_lock(lock)
+	if global.debug_mode:
+		get_node("lvl").set_tooltip(global.levels[l])
 
 
 func _on_lvl_pressed():

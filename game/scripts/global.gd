@@ -2,7 +2,7 @@ extends Node
 
 const MAX_STAGE = 200
 const MAX_WORLD = 20
-
+var debug_mode = true
 var stage = 1
 var stages_locks = []
 var worlds_locks = []
@@ -52,6 +52,8 @@ var levels = [
 "res://levels/level_sliding_test.tscn",
 "res://levels/level_sliding_02.tscn",
 "res://levels/level_sliding_03.tscn",
+"res://levels/level_sliding_05.tscn",
+"res://levels/level_sliding_06.tscn",
 "res://levels/level_sliding_04.tscn",
 
 "res://levels/level_line_with_holes.tscn",

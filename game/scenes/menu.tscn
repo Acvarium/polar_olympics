@@ -602,8 +602,6 @@ max_lines_visible = -1
 
 [node name="mode0" type="Control" parent="Control"]
 
-editor/display_folded = true
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -628,6 +626,7 @@ margin/bottom = 40.0
 
 [node name="back" type="Patch9Frame" parent="Control/mode0/levels_block"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -690,6 +689,7 @@ flip_h = true
 
 [node name="levels" type="Control" parent="Control/mode0/levels_block"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -848,6 +848,7 @@ max_lines_visible = -1
 
 [node name="sets" type="Control" parent="Control/mode0"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -921,6 +922,7 @@ is_inaccessible = true
 
 [node name="mode1" type="Control" parent="Control"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -973,6 +975,7 @@ flat = false
 
 [node name="map" type="Patch9Frame" parent="Control/mode1"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -992,7 +995,9 @@ __meta__ = {
 
 [node name="map_button" type="Button" parent="Control/mode1/map"]
 
+visibility/visible = false
 visibility/self_opacity = 0.0
+hint/tooltip = "546465"
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
