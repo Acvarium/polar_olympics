@@ -38,6 +38,7 @@ var tutorial = 1
 var v_slide_allow = false
 var auto_restart = false
 var pressed_time
+var beg = false
 
 var mouse_down = false
 var aim = false
@@ -569,7 +570,18 @@ func _on_score_anim_finished():
 
 func _on_play_button_pressed():
 	global.select_next_level(1)
-	restart_scene()
+	if !beg:
+		restart_scene()
+	else:
+		get_node("canvas/data_ui/single_score").hide()
+		get_node("canvas/data_ui/hello_button").show()
+		
+		
+		
+		
+		
+		
+		
 
 func _on_replay_button_pressed():
 	restart_scene()

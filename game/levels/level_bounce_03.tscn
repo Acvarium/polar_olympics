@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=3]
+[ext_resource path="res://objects/ice_block.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/cross_point.tscn" type="PackedScene" id=5]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 0
+
+[node name="cr" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 2862, 541 )
+texture = ExtResource( 2 )
+
+[node name="start_point" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 540 )
+texture = ExtResource( 3 )
+
+[node name="ice_block" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -28, 2 )
+
+[node name="ice_block5 5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -28, 1052 )
+
+[node name="ice_block1" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 362, 2 )
+
+[node name="ice_block5 4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 362, 1052 )
+
+[node name="ice_block2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 752, 2 )
+
+[node name="ice_block5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 752, 1052 )
+
+[node name="ice_block3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1142, 2 )
+
+[node name="ice_block5 3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1142, 1052 )
+
+[node name="ice_block54" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 690, 510 )
+transform/rot = 90.0
+transform/scale = Vector2( -1, 1 )
+
+[node name="ice_block4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1532, 2 )
+
+[node name="ice_block6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1920, 0 )
+
+[node name="ice_block5 2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1532, 1052 )
+
+[node name="ice_block53" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1920, 1050 )
+
+[node name="iglu" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1680, 540 )
+
+

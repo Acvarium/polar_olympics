@@ -50,7 +50,7 @@ func set_level(l):
 	set_lock(lock)
 	if global.debug_mode:
 		get_node("lvl").set_tooltip(global.levels[l % global.levels.size()])
-	if l > global.levels.size():
+	if l > (global.levels.size()-1):
 		get_node("cloud_ui_dot").show()
 	else:
 		get_node("cloud_ui_dot").hide()

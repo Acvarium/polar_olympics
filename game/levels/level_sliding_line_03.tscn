@@ -13,6 +13,7 @@
 script/script = ExtResource( 1 )
 v_slide_allow = true
 tut_num = 0
+beg = false
 
 [node name="cr" type="Sprite" parent="."]
 

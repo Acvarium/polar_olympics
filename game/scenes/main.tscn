@@ -698,6 +698,9 @@ visibility/light_mask = 514
 transform/pos = Vector2( 1032.14, -6.68066 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="banner2 2" type="Sprite" parent="game_field"]
 
@@ -706,6 +709,9 @@ transform/pos = Vector2( 1031.03, 1111 )
 transform/scale = Vector2( 1.81003, 1.6439 )
 texture = ExtResource( 2 )
 flip_v = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="levels" type="Node2D" parent="game_field"]
 
@@ -719,8 +725,6 @@ texture = ExtResource( 3 )
 modulate = Color( 1, 1, 1, 0.281804 )
 
 [node name="bonus" type="Node2D" parent="game_field"]
-
-editor/display_folded = true
 
 [node name="ref" type="ReferenceFrame" parent="game_field/bonus"]
 
@@ -820,7 +824,6 @@ transform/rot = -1.35407
 
 [node name="effects" type="Node2D" parent="game_field"]
 
-editor/display_folded = true
 z/z = 100
 __meta__ = {
 "_edit_lock_": true
@@ -984,7 +987,6 @@ __meta__ = {
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

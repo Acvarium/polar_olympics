@@ -3,6 +3,7 @@ var main_node
 var global
 export var v_slide_allow = false
 export var tut_num = 0
+export var beg = false
 
 func _ready():
 	main_node = get_node("/root/main")
@@ -16,6 +17,7 @@ func _ready():
 	main_node.remove_obj("top_score")
 	main_node.bonus10_on = false
 	main_node.level_tutorial = tut_num
+	main_node.beg = beg
 	global.max_throw = 3
 	main_node.v_slide_allow = v_slide_allow 
 	global.set_commands(1)
@@ -23,3 +25,5 @@ func _ready():
 	main_node.camera_animation = 'fast_fire'
 	if has_node("tut") and global.tutorial != 0:
 		get_node("tut").play("tut")
+	if has_node("cloud_ui_dot"):
+		get_node("cloud_ui_dot").hide()

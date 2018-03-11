@@ -104,4 +104,8 @@ transform/pos = Vector2( -57, 0 )
 
 transform/pos = Vector2( 57, 0 )
 
+[node name="bonus_fish" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1797, 654 )
+
 

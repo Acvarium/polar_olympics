@@ -15,6 +15,7 @@
 script/script = ExtResource( 1 )
 v_slide_allow = false
 tut_num = 0
+beg = true
 
 [node name="cr" type="Sprite" parent="."]
 
@@ -37,7 +38,8 @@ transform/pos = Vector2( 485.464, 84 )
 
 [node name="island" parent="slider" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 114.536, 342 )
+editor/display_folded = true
+transform/pos = Vector2( 798.536, 798 )
 
 [node name="force" parent="slider/island" instance=ExtResource( 3 )]
 
@@ -79,12 +81,13 @@ transform/pos = Vector2( 0, 57 )
 [node name="island4" parent="slider" instance=ExtResource( 6 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 342.536, 798 )
+transform/pos = Vector2( 798.536, 570 )
 
 [node name="force" parent="slider/island4" instance=ExtResource( 7 )]
 
 [node name="island5" parent="slider" instance=ExtResource( 6 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 114.536, 798 )
 
 [node name="force" parent="slider/island5" instance=ExtResource( 3 )]

@@ -10,6 +10,9 @@
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 0
+beg = true
 
 [node name="cr" type="Sprite" parent="."]
 
