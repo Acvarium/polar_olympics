@@ -14,14 +14,14 @@ var is_falling = false
 var iglu
 export var tut = false
 var rot_to_velocity = false
-var canvas
+#var canvas
 var in_water = false
 var islands = []
 
 func _ready():
 	global = get_node("/root/global")
 	main_node = get_node("/root/main")
-	canvas = main_node.get_node("draw")
+#	canvas = main_node.get_node("draw")
 	target_pos = main_node.target_pos
 	target_rad = main_node.target_radius
 	set_fixed_process(true)
@@ -56,14 +56,11 @@ func _fixed_process(delta):
 	else:
 		get_node("in_water").stop()
 		
-	canvas.lines = []
 	var angle = get_rot()
 	var direction = Vector2(cos(get_rot()), -sin(get_rot())).normalized()
-	canvas.lines.append([get_global_pos(), get_global_pos() + direction * 100, Color(1,1,1)])
 	var dd = get_linear_velocity().normalized()
-	canvas.lines.append([get_global_pos(), get_global_pos() + dd * 100, Color(0,1,1)])
-	canvas.update()
 	var doo = direction.dot(dd)
+	
 	if get_linear_velocity().length() > 10 and rot_to_velocity:
 	
 		if doo >= 0:

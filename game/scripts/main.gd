@@ -494,13 +494,11 @@ func move_to_platform(platform, body):
 		to_platform.append([platform, body])
 		get_node("timers/move_to_platform").start()
 
-
 func move_from_platform(platform, body):
 	if has_node(platform) and has_node(body):
 		if from_platform.find([platform, body]) == -1:
 			from_platform.append([platform, body])
 			get_node("timers/move_from_platform").start()
-
 
 func _on_cam_anim_finished():
 	set_process(true)

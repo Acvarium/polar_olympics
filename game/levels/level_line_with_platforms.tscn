@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
+[ext_resource path="res://objects/hole.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/platform.tscn" type="PackedScene" id=6]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 0
+
+[node name="cr" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 2862, 541 )
+texture = ExtResource( 2 )
+
+[node name="bonus_fish1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 450, 540 )
+
+[node name="bonus_fish5" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 330, 540 )
+
+[node name="bonus_fish2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 570, 540 )
+
+[node name="bonus_fish4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1260, 540 )
+
+[node name="bonus_fish6" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1380, 540 )
+
+[node name="bonus_fish3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 900, 540 )
+
+[node name="bonus_fish7" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1020, 540 )
+
+[node name="bonus_fish8" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1140, 540 )
+
+[node name="cloud_ui_dot" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 540 )
+texture = ExtResource( 4 )
+
+[node name="hole1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1680, 540 )
+score = 10
+
+[node name="platform" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 731.727, 427.744 )
+transform/rot = 90.0
+rot_speed = -1.0
+
+[node name="platform1" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 731.727, 654.454 )
+transform/rot = 90.0
+
+
