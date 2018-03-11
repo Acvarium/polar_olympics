@@ -63,6 +63,8 @@ var level_tutorial = 1
 var control_type = 1
 var bonus_left = 0
 var start_pos = Vector2()
+var to_platform = []
+var from_platform = []
 
 func _ready():
 	
@@ -487,6 +489,19 @@ func _on_fire_button_button_down():
 func is_bot_move():
 	return avatars[team] == 23 and !global.single
 
+func move_to_platform(platform, body):
+	if has_node(platform) and has_node(body):
+		to_platform.append([platform, body])
+		get_node("timers/move_to_platform").start()
+
+
+func move_from_platform(platform, body):
+	if has_node(platform) and has_node(body):
+		if from_platform.find([platform, body]) == -1:
+			from_platform.append([platform, body])
+			get_node("timers/move_from_platform").start()
+
+
 func _on_cam_anim_finished():
 	set_process(true)
 #переписати підрахунок кидків, що залишились
@@ -605,3 +620,36 @@ func _on_restart_timeout():
 
 func _on_menu_timeout():
 	get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+
+
+func _on_move_to_platform_timeout():
+	for i in range(to_platform.size()):
+		var t = to_platform[i]
+		if has_node(t[0]) and has_node(t[1]):
+			var peng = get_node(t[1])
+			var pos = peng.get_global_pos()
+			var rot = peng.get_global_rot()
+#			var vel = peng.get_linear_velocity()
+#			var avel = peng.get_angular_velocity()
+			peng.get_parent().remove_child(peng)
+			get_node(t[0]).add_child(peng)
+			peng.set_global_pos(pos)
+			peng.set_global_rot(rot)
+#			peng.set_linear_velocity(vel.rotated(get_node(t[0]).get_global_rot()))
+	
+	to_platform.clear()
+
+func _on_move_from_platform_timeout():
+	for i in range(from_platform.size()):
+		var t = from_platform[i]
+		if has_node(t[0]) and has_node(t[1]):
+			var peng = get_node(t[1])
+			var pos = peng.get_global_pos()
+			var rot = peng.get_global_rot()
+			peng.get_parent().remove_child(peng)
+			get_node("game_field/penguins").add_child(peng)
+			peng.set_global_pos(pos)
+			peng.set_global_rot(rot)
+			peng.remove_from_group(get_node(t[0]).get_name())
+#			peng.set_linear_velocity(vel.rotated(get_node(t[0]).get_global_rot()))
+	from_platform.clear()

@@ -28,6 +28,7 @@ func _ready():
 	if global.single:
 		get_node("cloud_ui_dot").hide()
 	
+	
 #	
 func set_id(i):
 	id = i
