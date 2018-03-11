@@ -61,17 +61,6 @@ var levels = [
 "res://levels/level_sliding_06.tscn",
 "res://levels/level_sliding_04.tscn",
 
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
-"res://levels/level_line_with_holes.tscn",
 ]
 
 func select_next_level(l):
@@ -80,7 +69,6 @@ func select_next_level(l):
 	if level_num > (levels.size() - 1):
 		level_num = 0
 	next_level = levels[level_num]
-
 
 const team_color = [
 	Color(1,1,1,1),

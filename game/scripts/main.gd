@@ -205,7 +205,7 @@ func stars_on():
 	star_score = int(score[0] / (level_max_score / 3.0))
 	if star_score == 3 and score[0] < level_max_score:
 		star_score = 2
-	if star_score > 0:
+	if star_score > 0 or global.stages_locks[global.stage] > 0:
 		get_node("canvas/data_ui/single_score/buttons/play_button").show()
 	get_node("canvas/data_ui/single_score/star_timer").start()
 
@@ -600,7 +600,6 @@ func restart_scene():
 	get_node("canvas/data_ui/b").show()
 	get_node("timers/restart").start()
 	
-
 func _on_restart_timeout():
 	get_tree().reload_current_scene()
 
