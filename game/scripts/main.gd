@@ -94,10 +94,10 @@ func _ready():
 		score_sum += s
 	var single_tut_on = false
 	
-	if global.single:
-		if global.level_num == 0:
-			single_tut_on = true
-	if global.tutorial != 0 and ((!global.single and control_type == 1 and score_sum == 0) or single_tut_on):
+#	if global.single:
+#		if global.level_num == 0:
+#			single_tut_on = true
+	if global.tutorial != 0 and ((!global.single and control_type == 1 and score_sum == 0) or level_tutorial > 0):
 		no_control = true
 		get_node("tutorial").play("tutorial" + str(level_tutorial))
 		get_node("game_field/effects/hand").show()

@@ -23,6 +23,7 @@ texture = ExtResource( 2 )
 
 [node name="start_point" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 150, 882 )
 texture = ExtResource( 3 )
 
@@ -59,8 +60,6 @@ transform/pos = Vector2( 570.536, 798 )
 transform/pos = Vector2( 570.536, 342 )
 
 [node name="force" parent="slider/island1" instance=ExtResource( 7 )]
-
-impuls = 1500
 
 [node name="island11" parent="slider" instance=ExtResource( 5 )]
 
@@ -101,8 +100,6 @@ transform/pos = Vector2( 0, 57 )
 transform/pos = Vector2( 342.536, 570 )
 
 [node name="force" parent="slider/island4" instance=ExtResource( 7 )]
-
-impuls = 1500
 
 [node name="island5" parent="slider" instance=ExtResource( 5 )]
 

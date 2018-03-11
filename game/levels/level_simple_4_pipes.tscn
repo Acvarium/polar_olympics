@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
 [ext_resource path="res://textures/cr.png" type="Texture" id=2]
 [ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
 [ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/tubes/tube0.tscn" type="PackedScene" id=6]
 
 [node name="level" type="Node2D"]
 
+transform/rot = 0.0622011
 script/script = ExtResource( 1 )
 v_slide_allow = true
-tut_num = 2
+tut_num = 0
 
 [node name="cr" type="Sprite" parent="."]
 
@@ -46,44 +46,38 @@ transform/pos = Vector2( 332, 804 )
 
 transform/pos = Vector2( 920, 200 )
 
-[node name="bonus_fish10 2" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 920, 802 )
-
 [node name="bonus_fish4" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1062, 202 )
-
-[node name="bonus_fish10" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1062, 804 )
 
 [node name="bonus_fish3" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 780, 200 )
 
-[node name="bonus_fish10 7" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 780, 802 )
-
 [node name="cloud_ui_dot" type="Sprite" parent="."]
 
-visibility/visible = false
 transform/pos = Vector2( 150, 540 )
 texture = ExtResource( 4 )
 
 [node name="force" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1420, 200 )
+transform/pos = Vector2( 819.468, 490.89 )
+is_turntable = true
 
 [node name="force1" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1420, 800 )
-transform/rot = -90.0
+transform/pos = Vector2( 819.131, 800.89 )
+transform/rot = 180.0
+is_turntable = true
 
-[node name="force 2" parent="." instance=ExtResource( 6 )]
+[node name="force2" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1420, 510 )
-transform/rot = -90.0
+transform/pos = Vector2( 1449.46, 501.574 )
+is_turntable = true
+
+[node name="force3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1449.77, 211.574 )
+is_turntable = true
 
 

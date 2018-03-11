@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
 [ext_resource path="res://textures/cr.png" type="Texture" id=2]
@@ -6,12 +6,80 @@
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=4]
 [ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/tubes/tube0.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/hand.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "tut"
+length = 5.0
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("hand:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 4, 4.05 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hand:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.1, 0.8, 0.85, 0.95, 1.45, 1.5, 1.6, 2.2, 2.25, 2.35, 3, 3.05, 3.15, 4 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1135.65, 610.048 ), Vector2( 716.435, 324.446 ), Vector2( 748.169, 287.702 ), Vector2( 716.435, 324.446 ), Vector2( 716.435, 324.446 ), Vector2( 748.169, 287.702 ), Vector2( 716.435, 324.446 ), Vector2( 716.435, 324.446 ), Vector2( 748.169, 287.702 ), Vector2( 716.435, 324.446 ), Vector2( 716.435, 324.446 ), Vector2( 748.169, 287.702 ), Vector2( 716.435, 324.446 ), Vector2( 1047.13, 493.135 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hand:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.8, 0.85, 0.95, 1.45, 1.5, 1.6, 2.2, 2.25, 2.35, 3, 3.05, 3.15 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 16.524, 0.0, 0.0, 16.524, 0.0, 0.0, 16.524, 0.0, 0.0, 16.524, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hand:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0.8, 0.85, 0.95, 1.45, 1.5, 1.6, 2.2, 2.25, 2.35, 3, 3.05, 3.15 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("force 2:transform/rot")
+tracks/4/interp = 0
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0.85, 0.9, 0.95, 1.55, 1.55, 1.6, 2.25, 2.3, 3.05, 3.1 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 90.0, 180.0, 180.0, 180.0, 90.0, 270.0, 270.0, 360.0, 360.0, 90.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("hand:visibility/self_opacity")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 3.15, 4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.27, 0.0 ]
+}
 
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
 v_slide_allow = true
-tut_num = 0
+tut_num = 3
 
 [node name="cr" type="Sprite" parent="."]
 
@@ -60,7 +128,8 @@ transform/pos = Vector2( 360, 300 )
 
 [node name="start_point" type="Sprite" parent="."]
 
-transform/pos = Vector2( 150, 290 )
+visibility/visible = false
+transform/pos = Vector2( 150, 570 )
 texture = ExtResource( 4 )
 
 [node name="force" parent="." instance=ExtResource( 5 )]
@@ -78,7 +147,6 @@ is_turntable = true
 
 transform/pos = Vector2( 560, 290 )
 transform/rot = 90.0
-impuls = 100
 is_turntable = true
 
 [node name="force3" parent="." instance=ExtResource( 6 )]
@@ -86,5 +154,25 @@ is_turntable = true
 transform/pos = Vector2( 560, 800 )
 transform/rot = 90.0
 is_turntable = true
+
+[node name="hand" type="Sprite" parent="."]
+
+visibility/visible = false
+visibility/self_opacity = 0.27
+transform/pos = Vector2( 1135.65, 610.048 )
+z/z = 200
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="tut" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/tut = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 

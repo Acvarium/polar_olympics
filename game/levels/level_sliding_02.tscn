@@ -27,6 +27,7 @@ transform/pos = Vector2( 1626, 198 )
 
 [node name="start_point" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 150, 882 )
 texture = ExtResource( 4 )
 

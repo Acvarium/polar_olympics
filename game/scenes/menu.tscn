@@ -632,6 +632,8 @@ margin/bottom = 40.0
 
 [node name="levels_block" type="Control" parent="Control/mode0"]
 
+editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -866,7 +868,6 @@ max_lines_visible = -1
 [node name="sets" type="Control" parent="Control/mode0"]
 
 editor/display_folded = true
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

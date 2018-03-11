@@ -49,6 +49,7 @@ var levels = [
 "res://levels/level_stay_on_point_03.tscn",
 
 "res://levels/level_simple_3_pipes.tscn",
+"res://levels/level_simple_4_pipes.tscn",
 "res://levels/level_first_pipes_rotate.tscn",
 
 

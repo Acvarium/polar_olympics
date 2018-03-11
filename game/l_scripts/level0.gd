@@ -21,3 +21,5 @@ func _ready():
 	global.set_commands(1)
 	main_node.geme_setup()
 	main_node.camera_animation = 'fast_fire'
+	if has_node("tut") and global.tutorial != 0:
+		get_node("tut").play("tut")

@@ -64,6 +64,7 @@ transform/pos = Vector2( 1200, 530 )
 
 [node name="cloud_ui_dot" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 150, 540 )
 texture = ExtResource( 5 )
 

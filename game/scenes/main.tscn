@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=1]
+[gd_scene load_steps=46 format=1]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -404,6 +404,227 @@ tracks/13/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("game_field/effects/hand:visibility/visible")
+tracks/14/interp = 1
+tracks/14/imported = false
+tracks/14/keys = {
+"times": FloatArray( 0, 0.04 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=13]
+
+resource/name = "tutorial2"
+length = 7.0
+loop = false
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("game_field/effects/hand:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.54, 1.02, 1.5, 2.52, 3.5, 4.5, 4.52, 4.58 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 377.602, 210.365 ), Vector2( 175.163, 27.4227 ), Vector2( 177.475, -117.687 ), Vector2( 175.163, -272.577 ), Vector2( 175.164, 280.423 ), Vector2( 175.163, 27.4227 ), Vector2( 610.785, 27.4227 ), Vector2( 610.785, 27.4227 ), Vector2( 610.785, 1.57556 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("game_field/effects/hand:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.5, 0.54, 4.52, 4.56 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 1, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("game_field/effects/hand:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.32, 0.54, 4.52, 4.58 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.52, 10.52, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("game_field/point/power_arrow:visibility/visible")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 3.7, 3.72, 4.58 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("game_field/point/power_arrow/arrow:rect/size")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 3.74, 4.52 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 250, 136 ), Vector2( 900, 136 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("game_field/point/power_arrow:transform/rot")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 3.72 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.693235 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("game_field/penguins/tut_peng:visibility/visible")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 4.54, 4.56 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("game_field/penguins/tut_peng:transform/rot")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = {
+"times": FloatArray( 4.56 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("game_field/penguins/tut_peng:velocity/linear")
+tracks/8/interp = 1
+tracks/8/imported = false
+tracks/8/keys = {
+"times": FloatArray(  ),
+"transitions": FloatArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("game_field/penguins/tut_peng:transform/pos")
+tracks/9/interp = 2
+tracks/9/imported = false
+tracks/9/keys = {
+"times": FloatArray( 4.56, 5.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4.98979, -1.7641 ), Vector2( 823.937, -1.7641 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("game_field/effects/hand:visibility/self_opacity")
+tracks/10/interp = 1
+tracks/10/imported = false
+tracks/10/keys = {
+"times": FloatArray(  ),
+"transitions": FloatArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("game_field/penguins/tut_peng:visibility/self_opacity")
+tracks/11/interp = 1
+tracks/11/imported = false
+tracks/11/keys = {
+"times": FloatArray( 4.58 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("game_field/penguins/tut_peng:visibility/opacity")
+tracks/12/interp = 1
+tracks/12/imported = false
+tracks/12/keys = {
+"times": FloatArray( 4.6, 5.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("game_field/point:visibility/visible")
+tracks/13/interp = 1
+tracks/13/imported = false
+tracks/13/keys = {
+"times": FloatArray( 4.52, 4.56, 6.96, 6.98 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("game_field/effects/hand:visibility/visible")
+tracks/14/interp = 1
+tracks/14/imported = false
+tracks/14/keys = {
+"times": FloatArray( 0, 0.04 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("game_field/point:transform/pos")
+tracks/15/interp = 1
+tracks/15/imported = false
+tracks/15/keys = {
+"times": FloatArray( 0.58, 1.5, 2.52, 3.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -300 ), Vector2( 0, 247 ), Vector2( 0, 0 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("game_field/effects/hand:visibility/opacity")
+tracks/16/interp = 1
+tracks/16/imported = false
+tracks/16/keys = {
+"times": FloatArray( 4.62, 5.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+
+resource/name = "tutorial3"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("game_field/effects/hand:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=15]
+
+resource/name = "tutorial4"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("game_field/effects/hand:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="main" type="Node2D"]
 
@@ -519,8 +740,6 @@ margin/bottom = 438.0
 
 [node name="penguins" type="Node2D" parent="game_field"]
 
-editor/display_folded = true
-
 [node name="tut_peng" parent="game_field/penguins" instance=ExtResource( 4 )]
 
 visibility/visible = false
@@ -601,7 +820,6 @@ transform/rot = -1.35407
 
 [node name="effects" type="Node2D" parent="game_field"]
 
-editor/display_folded = true
 z/z = 100
 __meta__ = {
 "_edit_lock_": true
@@ -655,6 +873,7 @@ __meta__ = {
 [node name="power_arrow" type="Position2D" parent="game_field/point"]
 
 visibility/visible = false
+transform/rot = 17.8188
 z/z = 250
 
 [node name="ring" type="Sprite" parent="game_field/point/power_arrow"]
@@ -934,7 +1153,6 @@ __meta__ = {
 
 [node name="hello_button" type="Button" parent="canvas/data_ui"]
 
-editor/display_folded = true
 visibility/visible = false
 visibility/self_opacity = 0.0
 anchor/left = 3
@@ -1611,6 +1829,8 @@ script/script = ExtResource( 26 )
 
 [node name="camera_position" type="Position2D" parent="."]
 
+editor/display_folded = true
+
 [node name="Camera" type="Camera2D" parent="camera_position"]
 
 anchor_mode = 0
@@ -1643,6 +1863,8 @@ blend_times = [  ]
 autoplay = ""
 
 [node name="timers" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="rand_fire" type="Timer" parent="timers"]
 
@@ -1745,6 +1967,9 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/tutorial1 = SubResource( 12 )
+anims/tutorial2 = SubResource( 13 )
+anims/tutorial3 = SubResource( 14 )
+anims/tutorial4 = SubResource( 15 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

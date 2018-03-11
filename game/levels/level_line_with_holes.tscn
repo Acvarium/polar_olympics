@@ -9,9 +9,12 @@
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 0
 
 [node name="cr" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 2862, 541 )
 texture = ExtResource( 2 )
 
@@ -41,6 +44,7 @@ transform/pos = Vector2( 900, 540 )
 
 [node name="cloud_ui_dot" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 150, 540 )
 texture = ExtResource( 4 )
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
 [ext_resource path="res://textures/cr.png" type="Texture" id=2]
@@ -7,12 +7,80 @@
 [ext_resource path="res://objects/island.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/tubes/tube0.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/hand.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "tut"
+length = 3.0
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("hand:visibility/visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.05, 2.55, 2.6 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hand:visibility/self_opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.05, 0.5, 2, 2.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.5, 0.5, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hand:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.05, 0.7, 1.25, 1.8, 1.85, 2.5 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1341, 768 ), Vector2( 818.234, 462.357 ), Vector2( 1103.83, 415.592 ), Vector2( 851.637, 410.582 ), Vector2( 818.234, 462.357 ), Vector2( 1113, 654 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hand:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0.7, 0.75, 1.8, 1.85 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 1, 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("hand:transform/rot")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0.7, 0.75, 1.8, 1.85 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 19.7933, 19.7933, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("slider 2/island4:transform/pos")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0.75, 1.25, 1.85, 2 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 342, 342 ), Vector2( 570, 342 ), Vector2( 342, 342 ), Vector2( 342, 342 ) ]
+}
 
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
 v_slide_allow = false
-tut_num = 0
+tut_num = 4
 
 [node name="cr" type="Sprite" parent="."]
 
@@ -21,6 +89,7 @@ texture = ExtResource( 2 )
 
 [node name="start_point" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 150, 426 )
 texture = ExtResource( 3 )
 
@@ -89,5 +158,25 @@ transform/pos = Vector2( -57, 0 )
 [node name="bonus_fish1" parent="slider 2/island8" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 57, 0 )
+
+[node name="hand" type="Sprite" parent="."]
+
+visibility/visible = false
+visibility/self_opacity = 0.0
+transform/pos = Vector2( 1341, 768 )
+z/z = 200
+texture = ExtResource( 8 )
+hframes = 2
+
+[node name="tut" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/tut = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 
