@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=3]
+[ext_resource path="res://scenes/slider_4x6.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/island.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=7]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = true
+tut_num = 0
+
+[node name="cr" type="Sprite" parent="."]
+
+transform/pos = Vector2( 3222, 1338 )
+texture = ExtResource( 2 )
+
+[node name="start_point" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 426 )
+texture = ExtResource( 3 )
+
+[node name="slider 2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 315, 84 )
+
+[node name="island2" parent="slider 2" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 114, 114 )
+
+[node name="bonus_fish" parent="slider 2/island2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider 2/island2" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island5" parent="slider 2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 114, 342 )
+
+[node name="island3" parent="slider 2" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 114, 798 )
+
+[node name="bonus_fish" parent="slider 2/island3" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider 2/island3" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island11" parent="slider 2" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1254, 114 )
+
+[node name="force" parent="slider 2/island11" instance=ExtResource( 7 )]
+
+[node name="island13" parent="slider 2" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1254, 570 )
+
+[node name="force" parent="slider 2/island13" instance=ExtResource( 7 )]
+
+[node name="island12" parent="slider 2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 114, 570 )
+
+[node name="force" parent="slider 2/island12" instance=ExtResource( 7 )]
+
+transform/rot = 180.0
+
+[node name="island6" parent="slider 2" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1026, 570 )
+
+[node name="bonus_fish" parent="slider 2/island6" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider 2/island6" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island7" parent="slider 2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1254, 798 )
+
+[node name="bonus_fish" parent="slider 2/island7" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -1.27283, -56.3906 )
+
+[node name="bonus_fish1" parent="slider 2/island7" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -1.04431, 52.093 )
+
+[node name="island8" parent="slider 2" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 798, 570 )
+
+[node name="bonus_fish" parent="slider 2/island8" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider 2/island8" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 57, 0 )
+
+

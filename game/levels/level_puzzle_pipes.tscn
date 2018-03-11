@@ -11,7 +11,7 @@
 [node name="level" type="Node2D"]
 
 script/script = ExtResource( 1 )
-v_slide_allow = true
+v_slide_allow = false
 tut_num = 0
 
 [node name="cloud_ui_dot" type="Sprite" parent="."]

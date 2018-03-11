@@ -90,7 +90,7 @@ transform/rot = 180.0
 [node name="island6" parent="slider" instance=ExtResource( 5 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 570.536, 798 )
+transform/pos = Vector2( 798.536, 570 )
 
 [node name="bonus_fish" parent="slider/island6" instance=ExtResource( 8 )]
 
