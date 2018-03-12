@@ -1,0 +1,231 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cr.png" type="Texture" id=2]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=3]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/tubes/tube0.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/slider_4x4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/island.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/bridge.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 114, 114 )
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 0
+beg = true
+start_music = 2
+
+[node name="cr" type="Sprite" parent="."]
+
+transform/pos = Vector2( 2862, 541 )
+texture = ExtResource( 2 )
+
+[node name="start_point" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 198 )
+texture = ExtResource( 3 )
+
+[node name="bonus_fish5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 426 )
+
+[node name="bonus_fish6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1891, 426 )
+
+[node name="bonus_fish7" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 374, 654 )
+
+[node name="force1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 374, 879 )
+transform/rot = 180.0
+
+[node name="force2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 374, 198 )
+
+[node name="force3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1742, 198 )
+is_turntable = true
+
+[node name="force4" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1742, 882 )
+transform/rot = -90.0
+is_turntable = true
+
+[node name="force1 2" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1742, 426 )
+transform/rot = 90.0
+is_turntable = true
+
+[node name="slider" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 601, 84 )
+
+[node name="island9" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 343, 798 )
+
+[node name="force" parent="slider/island9" instance=ExtResource( 5 )]
+
+transform/rot = 180.0
+
+[node name="island7" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 115, 114 )
+
+[node name="force" parent="slider/island7" instance=ExtResource( 5 )]
+
+transform/rot = 90.0
+
+[node name="island11" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 343, 342 )
+
+[node name="force" parent="slider/island11" instance=ExtResource( 5 )]
+
+transform/rot = 90.0
+
+[node name="island1" parent="slider" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 799, 114 )
+
+[node name="force" parent="slider/island1" instance=ExtResource( 6 )]
+
+[node name="island16" parent="slider" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 571, 798 )
+
+[node name="island5" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 115, 798 )
+
+[node name="force" parent="slider/island5" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 3.46399, 0 )
+transform/rot = -90.0
+vel = 1500
+
+[node name="island10" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 115, 570 )
+
+[node name="bonus_fish2" parent="slider/island10" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -1, -54 )
+
+[node name="bonus_fish3" parent="slider/island10" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -1, 59 )
+
+[node name="island6" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 571, 114 )
+
+[node name="bonus_fish" parent="slider/island6" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider/island6" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island14" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 799, 342 )
+
+[node name="bonus_fish" parent="slider/island14" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider/island14" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island15" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 799, 798 )
+
+[node name="bonus_fish" parent="slider/island15" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider/island15" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island13" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 571, 342 )
+
+[node name="bonus_fish" parent="slider/island13" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider/island13" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="island8" parent="slider" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 343, 114 )
+
+[node name="bonus_fish" parent="slider/island8" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -57, 0 )
+
+[node name="bonus_fish1" parent="slider/island8" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 57, 0 )
+
+[node name="bridge" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 716, 426 )
+rot_speed = 0.8
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"island",
+]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 716, 426 )
+shapes/0/trigger = false
+collision/layers = 512
+collision/mask = 512
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+transform/pos = Vector2( 716, 426 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+

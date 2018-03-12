@@ -5,7 +5,7 @@
 [ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/iglu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=5]
-[ext_resource path="res://objects/recess.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/puddle.tscn" type="PackedScene" id=6]
 
 [node name="level" type="Node2D"]
 
@@ -32,10 +32,6 @@ transform/pos = Vector2( 280, 580 )
 
 transform/pos = Vector2( 710, 500 )
 
-[node name="bonus_fish2" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1020, 490 )
-
 [node name="bonus_fish4 3" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 430, 500 )
@@ -44,22 +40,18 @@ transform/pos = Vector2( 430, 500 )
 
 transform/pos = Vector2( 870, 580 )
 
-[node name="bonus_fish4" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1200, 600 )
-
 [node name="iglu" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 1500, 700 )
-transform/rot = -37.6393
+transform/pos = Vector2( 1516.4, 603.625 )
 
 [node name="cloud_ui_dot" type="Sprite" parent="."]
 
 transform/pos = Vector2( 150, 540 )
 texture = ExtResource( 5 )
 
-[node name="hole" parent="." instance=ExtResource( 6 )]
+[node name="puddle" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 1150, 610 )
+transform/pos = Vector2( 753.314, 334.93 )
+puddle_damp = 20
 
 

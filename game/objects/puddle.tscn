@@ -3,24 +3,23 @@
 [ext_resource path="res://scripts/puddle.gd" type="Script" id=1]
 [ext_resource path="res://textures/puddle.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=17]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -106.267, 37.4324, -126.513, 17.6266, -123.432, -7.46063, -94.8242, -29.467, -40.2484, 55.9177 )
 
-[sub_resource type="ConvexPolygonShape2D" id=18]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -1.51715, 82.7655, -40.2484, 55.9177, -94.8242, -29.467, -76.3388, -58.0753, -6.79871, -95.046, 24.0103, -96.8065, 76.8256, -66.8779, 106.314, -47.0721, 123.479, 4.86292, 111.596, 51.5165, 74.6249, 86.7266, 33.6931, 97.2897 )
 
 [node name="puddle" type="Area2D"]
 
-transform/pos = Vector2( 528.728, -1.66125 )
 input/pickable = true
-shapes/0/shape = SubResource( 17 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 18 )
+shapes/1/shape = SubResource( 2 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
 gravity_vec = Vector2( 0, 1 )

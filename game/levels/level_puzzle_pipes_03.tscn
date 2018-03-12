@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://l_scripts/level0.gd" type="Script" id=1]
+[ext_resource path="res://textures/cloud_ui_dot.png" type="Texture" id=2]
+[ext_resource path="res://textures/cr.png" type="Texture" id=3]
+[ext_resource path="res://objects/hole.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/bonus_fish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/tubes/tube1.tscn" type="PackedScene" id=6]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+v_slide_allow = false
+tut_num = 0
+beg = false
+start_music = 3
+
+[node name="start_point" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, 450 )
+texture = ExtResource( 2 )
+
+[node name="cr" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 3040, 320 )
+texture = ExtResource( 3 )
+
+[node name="fishes" type="Node2D" parent="."]
+
+transform/pos = Vector2( 0, 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hole" parent="fishes" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 360, 140 )
+score = 10
+
+[node name="bonus_fish1" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 570, 440 )
+
+[node name="bonus_fish10" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 720, 440 )
+
+[node name="bonus_fish11" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 722, 892 )
+
+[node name="bonus_fish12" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 570, 890 )
+
+[node name="bonus_fish13" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 360, 680 )
+
+[node name="bonus_fish14" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 540, 680 )
+
+[node name="bonus_fish15" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 720, 680 )
+
+[node name="bonus_fish16" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 930, 680 )
+
+[node name="bonus_fish17" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1140, 680 )
+
+[node name="bonus_fish18" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1350, 680 )
+
+[node name="bonus_fish19" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 150, 80 )
+
+[node name="bonus_fish21" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 150, 230 )
+
+[node name="bonus_fish5" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 572, 142 )
+
+[node name="bonus_fish6" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 780, 140 )
+
+[node name="bonus_fish7" parent="fishes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 990, 140 )
+
+[node name="tubes" type="Node2D" parent="."]
+
+[node name="force 2" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 930, 450 )
+transform/rot = 90.0
+is_turntable = true
+
+[node name="force6" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1650, 450 )
+is_turntable = true
+
+[node name="force12" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1260, 150 )
+transform/rot = 180.0
+is_turntable = true
+
+[node name="force8" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1650, 690 )
+transform/rot = -90.0
+vel = 1500
+is_turntable = true
+
+[node name="force11" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1260, -120 )
+
+[node name="force5" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 360, 450 )
+transform/rot = 90.0
+is_turntable = true
+
+[node name="force9" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 150, 690 )
+transform/rot = 180.0
+is_turntable = true
+
+[node name="force10" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 150, -120 )
+transform/rot = 90.0
+
+[node name="force4" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 360, 930 )
+transform/rot = -180.0
+is_turntable = true
+
+[node name="force3" parent="tubes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 930, 930 )
+transform/rot = -90.0
+is_turntable = true
+
+

@@ -7,11 +7,12 @@ var stage = 1
 var stages_locks = []
 var worlds_locks = []
 var full_screen = false
-
+var max_level = 31
+var v_slide_allow = false
 var original_screen_size = Vector2(1920,1080)
 var current_scene = null
 var max_throw = 6
-var game_version = '0.5.4'
+var game_version = '0.6.0'
 var single = false
 var current_level = "res://levels/level0.tscn"
 var next_level = "res://levels/level0.tscn"
@@ -36,7 +37,6 @@ var maps = [
 	"res://maps/map_ice_frontwall.tscn",
 #	"res://levels/level_line_with_holes.tscn",
 ]
-
 var levels = [
 "res://levels/level_simple_line.tscn",
 "res://levels/level_line_with_holes.tscn",
@@ -66,6 +66,10 @@ var levels = [
 "res://levels/level_sliding_07.tscn",
 "res://levels/level_sliding_06.tscn",
 "res://levels/level_sliding_04.tscn",
+"res://levels/level_puzzle_pipes_02.tscn",
+"res://levels/level_line_with_platforms_03.tscn",
+"res://levels/level_puzzle_pipes_03.tscn",
+"res://levels/level_sliding_10.tscn",
 ]
 
 func select_next_level(l):
@@ -111,7 +115,7 @@ var score = [0]
 var selected_players = [1,23,0,0]
 
 func _ready():
-
+	OS.set_window_maximized(true)
 	set_commands(1)
 	get_tree().set_auto_accept_quit(false)
 	var root = get_tree().get_root()

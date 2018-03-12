@@ -16,6 +16,7 @@ script/script = ExtResource( 1 )
 v_slide_allow = false
 tut_num = 0
 beg = false
+start_music = 3
 
 [node name="cr" type="Sprite" parent="."]
 

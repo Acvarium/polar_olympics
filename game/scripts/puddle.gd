@@ -7,6 +7,7 @@ func _ready():
 func _on_puddle_body_enter( body ):
 	if body.is_in_group("peng"):
 		body.set_damp(puddle_damp)
+		print(body.get_name())
 
 func _on_puddle_body_exit( body ):
 	if body.is_in_group("peng"):

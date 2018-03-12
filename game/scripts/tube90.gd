@@ -41,6 +41,8 @@ func _fixed_process(delta):
 			get_node("right_arrow").hide()
 			get_node("left_arrow").show()
 		for p in pengs:
+			if !has_node(p):
+				break
 			var peng = get_node(p)
 			var velocity = (get_node("dot").get_global_pos() - peng.get_global_pos())
 			if is_right_in:
@@ -61,7 +63,7 @@ func _fixed_process(delta):
 		set_fixed_process(false)
 				
 func _on_rot_pressed():
-	if is_turntable:
+	if is_turntable and pengs.size() == 0:
 		var rot = get_rot()
 		set_rot(rot - PI/2)
 	l_in = in_vec.rotated(get_rot())

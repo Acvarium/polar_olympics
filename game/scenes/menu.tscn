@@ -48,7 +48,6 @@ __meta__ = {
 
 [node name="Control" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -94,7 +93,6 @@ __meta__ = {
 
 [node name="hint" type="Control" parent="Control/rect"]
 
-editor/display_folded = true
 anchor/top = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -233,6 +231,46 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="v_sliding" type="CheckBox" parent="Control/rect/hint"]
+
+visibility/self_opacity = 0.6
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 800.0
+margin/top = 70.0
+margin/right = 890.0
+margin/bottom = 160.0
+custom_icons/checked = ExtResource( 7 )
+custom_icons/unchecked = ExtResource( 8 )
+custom_constants/check_vadjust = 0
+toggle_mode = true
+enabled_focus_mode = 0
+shortcut = null
+flat = false
+align = 0
+
+[node name="Label" type="Label" parent="Control/rect/hint/v_sliding"]
+
+visibility/self_opacity = 0.6
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 104.0
+margin/top = 21.0
+margin/right = 2056.0
+margin/bottom = 118.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.116364, 0.241525, 0.480469, 1 )
+text = "VERTICAL"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="full_screen" type="CheckBox" parent="Control/rect/hint"]
 
 visibility/self_opacity = 0.5
@@ -256,7 +294,6 @@ align = 0
 
 [node name="tabs" type="Control" parent="Control"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -868,7 +905,6 @@ max_lines_visible = -1
 
 [node name="sets" type="Control" parent="Control/mode0"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1369,6 +1405,8 @@ autostart = false
 [connection signal="pressed" from="Control/rect/hint/quit/quit_button" to="." method="_on_quit_button_pressed"]
 
 [connection signal="toggled" from="Control/rect/hint/tutorial" to="." method="_on_tutorial_toggled"]
+
+[connection signal="toggled" from="Control/rect/hint/v_sliding" to="." method="_on_v_sliding_toggled"]
 
 [connection signal="toggled" from="Control/rect/hint/full_screen" to="." method="_on_full_screen_toggled"]
 

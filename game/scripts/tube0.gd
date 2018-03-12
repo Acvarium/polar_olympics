@@ -52,7 +52,7 @@ func _fixed_process(delta):
 			peng.set_linear_velocity(velocity)
 				
 func _on_rot_pressed():
-	if is_turntable:
+	if is_turntable and pengs.size() == 0:
 		var rot = get_rot()
 		set_rot(rot - PI/2)
 	l_in = in_vec.rotated(get_rot())

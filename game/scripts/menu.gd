@@ -13,11 +13,12 @@ var labels = [
 'ONLINE']
 
 func _ready():
-	OS.set_window_maximized(true)
+	
 	if OS.get_name() == "Android":
 		get_node("Control/rect/hint/full_screen").hide()
 	global = get_node("/root/global")
 	set_process_input(true)
+	get_node("Control/rect/hint/v_sliding").set_pressed(global.v_slide_allow)
 	resizer()
 	get_tree().get_root().connect("size_changed", self, "resizer")
 	select_tab(global.selected_tab)
@@ -32,7 +33,8 @@ func _ready():
 		get_node("Control/mode0/sets/lvl" + str(i)).set_set(i)
 	if global.is_levels_shown:
 		show_levels_set(global.set_selected)
-
+	if global.selected_tab != 1:
+		get_node("Control/rect/hint/v_sliding").hide()
 
 func _input(event):
 	if event.is_action_pressed("quit"):
@@ -122,18 +124,22 @@ func select_tab(t):
 func _on_Button0_pressed():
 	select_tab(0)
 	global.selected_tab = 0
+	get_node("Control/rect/hint/v_sliding").hide()
 
 func _on_Button1_pressed():
 	select_tab(1)
 	global.selected_tab = 1
+	get_node("Control/rect/hint/v_sliding").show()
 
 func _on_Button2_pressed():
 	select_tab(2)
 	global.selected_tab = 2
+	get_node("Control/rect/hint/v_sliding").hide()
 
 func _on_Button3_pressed():
 	select_tab(3)
 	global.selected_tab = 3
+	get_node("Control/rect/hint/v_sliding").hide()
 
 func show_levels_set(n):
 	global.set_selected = n
@@ -196,3 +202,6 @@ func _on_start_single_timeout():
 func _on_start_hotseat_timeout():
 	global.single = false
 	global.start_game()
+
+func _on_v_sliding_toggled( pressed ):
+	global.v_slide_allow = pressed

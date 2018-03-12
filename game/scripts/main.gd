@@ -5,7 +5,7 @@ var penguin_obj = load("res://objects/penguin.tscn")
 var bonus_fish_obj = load("res://objects/bonus_fish.tscn")
 var bonus_effect_obj = load("res://objects/bonus_effect.tscn")
 var fall_pos_obj = load("res://objects/fall_pos.tscn")
-
+var start_music = 1
 var global
 var state = 0
 var avatars = []
@@ -66,12 +66,15 @@ var bonus_left = 0
 var start_pos = Vector2()
 var to_platform = []
 var from_platform = []
+var current_score = 0
+var current_team = 0
 
 func _ready():
-	
 	draw_layer = get_node("draw")
 	set_process_input(true)
 	global = get_node("/root/global")
+	v_slide_allow = global.v_slide_allow
+	
 	team = global.team
 	pointer = get_node("game_field/point/pointer")
 	resizer()
@@ -174,13 +177,13 @@ func fall(p_path,hole_path):
 	get_node("sounds/splash").play()
 #------------------------------
 func _input(event):
-	if event.is_action_pressed("slide_control"):
-		v_slide_allow = !v_slide_allow
-		if v_slide_allow and !is_bot_move():
-			get_node("game_field/point/arrows").show()
-		else:
-			get_node("game_field/point/arrows").hide()
-#			
+#	if event.is_action_pressed("slide_control"):
+#		v_slide_allow = !v_slide_allow
+#		if v_slide_allow and !is_bot_move():
+#			get_node("game_field/point/arrows").show()
+#		else:
+#			get_node("game_field/point/arrows").hide()
+			
 	if event.is_action_pressed("lmb"):
 		mouse_down = true
 	elif event.is_action_released("lmb"):
@@ -404,6 +407,8 @@ func _notification(what):
 			to_exit = true
 			get_node("canvas/data_ui/exit_mess/exit_anim").play("mess")
 func fire():
+	current_score = score[team]
+	current_team = team
 	get_node("game_field/point/power_arrow").hide()
 	get_node("timers/bot_emergency_triger").stop()
 	if throws[team] < max_throw and global.single:
@@ -502,6 +507,10 @@ func move_from_platform(platform, body):
 			get_node("timers/move_from_platform").start()
 
 func _on_cam_anim_finished():
+	if current_score < score[current_team]:
+		if randf() < 0.5:
+			get_node("sounds/applause").play()
+
 	set_process(true)
 #переписати підрахунок кидків, що залишились
 	var trows_left = 0
@@ -570,7 +579,7 @@ func _on_score_anim_finished():
 
 func _on_play_button_pressed():
 	global.select_next_level(1)
-	if !beg:
+	if !beg and global.level_num < global.max_level:
 		restart_scene()
 	else:
 		get_node("canvas/data_ui/single_score").hide()
@@ -603,7 +612,13 @@ func _on_tutorial_finished():
 
 func _on_hello_button_pressed():
 	get_node("canvas/data_ui/hello_button").hide()
-	restart_scene()
+
+	if global.level_num >= global.max_level:
+		global.is_levels_shown = false
+		
+		get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+	else:
+		restart_scene()
 
 func _on_rate_button_pressed():
 	if OS.get_name() == "Android":
@@ -611,7 +626,12 @@ func _on_rate_button_pressed():
 	else:
 		OS.shell_open("https://acvarium.itch.io/po")
 	get_node("canvas/data_ui/hello_button").hide()
-	restart_scene()
+	if global.level_num >= global.max_level:
+		global.is_levels_shown = false
+		get_node("/root/global").goto_scene("res://scenes/menu.tscn")
+	else:
+		restart_scene()
+
 
 func _on_bot_fire_timeout():
 	if throws[team] > 0:
@@ -629,6 +649,8 @@ func _on_restart_timeout():
 	get_tree().reload_current_scene()
 
 func _on_menu_timeout():
+	if global.level_num >= global.max_level:
+		global.is_levels_shown = false
 	get_node("/root/global").goto_scene("res://scenes/menu.tscn")
 
 
@@ -663,3 +685,15 @@ func _on_move_from_platform_timeout():
 			peng.remove_from_group(get_node(t[0]).get_name())
 #			peng.set_linear_velocity(vel.rotated(get_node(t[0]).get_global_rot()))
 	from_platform.clear()
+
+func _on_start_music_timeout():
+	if start_music == 1:
+		get_node("sounds/start").play()
+	elif start_music == 2:
+		get_node("sounds/music01").play()
+	elif start_music == 3:
+		get_node("sounds/music01").play(3.7)
+	elif start_music == 4:
+		get_node("sounds/music02").play()
+	elif start_music == 5:
+		get_node("sounds/music03").play()

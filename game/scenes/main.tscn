@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=1]
+[gd_scene load_steps=49 format=1]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://textures/banner.png" type="Texture" id=2]
@@ -30,6 +30,9 @@
 [ext_resource path="res://sounds/splash.ogg" type="AudioStream" id=28]
 [ext_resource path="res://sounds/applod.ogg" type="AudioStream" id=29]
 [ext_resource path="res://sounds/yahoo.smp" type="Sample" id=30]
+[ext_resource path="res://sounds/music01.ogg" type="AudioStream" id=31]
+[ext_resource path="res://sounds/music02.ogg" type="AudioStream" id=32]
+[ext_resource path="res://sounds/music03.ogg" type="AudioStream" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -237,16 +240,6 @@ tracks/0/keys = {
 "transitions": FloatArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../sounds/applause:stream/play")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 4.6 ),
-"transitions": FloatArray( 1 ),
-"update": 1,
-"values": [ true ]
 }
 
 [sub_resource type="SampleLibrary" id=12]
@@ -1269,7 +1262,6 @@ max_lines_visible = -1
 
 [node name="rate" type="Patch9Frame" parent="canvas/data_ui/hello_button/hello"]
 
-editor/display_folded = true
 visibility/self_opacity = 0.55
 anchor/left = 3
 anchor/top = 3
@@ -1831,8 +1823,6 @@ script/script = ExtResource( 26 )
 
 [node name="camera_position" type="Position2D" parent="."]
 
-editor/display_folded = true
-
 [node name="Camera" type="Camera2D" parent="camera_position"]
 
 anchor_mode = 0
@@ -1865,8 +1855,6 @@ blend_times = [  ]
 autoplay = ""
 
 [node name="timers" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="rand_fire" type="Timer" parent="timers"]
 
@@ -1931,6 +1919,13 @@ wait_time = 0.01
 one_shot = true
 autostart = false
 
+[node name="start_music" type="Timer" parent="timers"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = true
+
 [node name="sounds" type="Node2D" parent="."]
 
 [node name="start" type="StreamPlayer" parent="sounds"]
@@ -1939,7 +1934,7 @@ stream/stream = ExtResource( 27 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
-stream/autoplay = true
+stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
@@ -1976,6 +1971,39 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 12 )
 config/pitch_random = 0.0
+
+[node name="music01" type="StreamPlayer" parent="sounds"]
+
+stream/stream = ExtResource( 31 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="music02" type="StreamPlayer" parent="sounds"]
+
+stream/stream = ExtResource( 32 )
+stream/play = true
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="music03" type="StreamPlayer" parent="sounds"]
+
+stream/stream = ExtResource( 33 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 [node name="tutorial" type="AnimationPlayer" parent="."]
 
@@ -2036,6 +2064,8 @@ autoplay = ""
 [connection signal="timeout" from="timers/move_to_platform" to="." method="_on_move_to_platform_timeout"]
 
 [connection signal="timeout" from="timers/move_from_platform" to="." method="_on_move_from_platform_timeout"]
+
+[connection signal="timeout" from="timers/start_music" to="." method="_on_start_music_timeout"]
 
 [connection signal="finished" from="tutorial" to="." method="_on_tutorial_finished"]
 
